@@ -1,0 +1,155 @@
+{
+  "key": "pv1000",
+  "name": "Casio PV-1000",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:24.543Z",
+  "entries": [
+    {
+      "id": "C82628CC",
+      "name": "Amidar (Japan)",
+      "parentTitle": "Amidar",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "A94F02FA",
+      "name": "Dig Dug (Japan)",
+      "parentTitle": "Dig Dug",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "8E7FB358",
+      "name": "Dirty Chameleon (Japan)",
+      "parentTitle": "Dirty Chameleon",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "0D2F829C",
+      "name": "Excite Mahjong (Japan)",
+      "parentTitle": "Excite Mahjong",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "84986255",
+      "name": "Fighting Bug (Japan)",
+      "parentTitle": "Fighting Bug",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "43A13E99",
+      "name": "Naughty Boy (Japan)",
+      "parentTitle": "Naughty Boy",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "9EE981AB",
+      "name": "Pachinko-UFO (Japan)",
+      "parentTitle": "Pachinko-UFO",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "BD6EDC48",
+      "name": "Pooyan (Japan)",
+      "parentTitle": "Pooyan",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "23547111",
+      "name": "Space Panic (Japan)",
+      "parentTitle": "Space Panic",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "CDFFC2CD",
+      "name": "Super Cobra (Japan)",
+      "parentTitle": "Super Cobra",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "A3AEF98D",
+      "name": "Turpin (Japan)",
+      "parentTitle": "Turpin",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "A0B606D8",
+      "name": "Tutankham (Japan)",
+      "parentTitle": "Tutankham",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "2A0D4AD9",
+      "name": "Warp & Warp (Japan)",
+      "parentTitle": "Warp & Warp",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

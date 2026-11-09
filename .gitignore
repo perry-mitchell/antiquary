@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+/applications/server/uploads/
+/uploads-e2e/
+playwright-report/
+test-results/
+.env
+*.tsbuildinfo
+*.log
+.DS_Store
+.catalog-cache/

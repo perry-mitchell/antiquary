@@ -1,0 +1,9 @@
+node_modules
+dist
+coverage
+uploads
+uploads-e2e
+playwright-report
+test-results
+package-lock.json
+uniwind-types.d.ts

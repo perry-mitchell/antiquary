@@ -1,0 +1,100 @@
+{
+  "key": "x1",
+  "name": "Sharp X1",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2023.12.04",
+  "generatedAt": "2026-11-08T16:49:53.043Z",
+  "entries": [
+    {
+      "id": "37E12D9C",
+      "name": "Bousou Tokkyuu SOS (Japan) (En)",
+      "parentTitle": "Bousou Tokkyuu SOS",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "4405CF21",
+      "name": "Cannon Ball (Japan)",
+      "parentTitle": "Cannon Ball",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "04E00F60",
+      "name": "El Alamein (Japan)",
+      "parentTitle": "El Alamein",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "1F65588A",
+      "name": "Fantasian (Japan)",
+      "parentTitle": "Fantasian",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "3769199A",
+      "name": "Ginkou Goutou - Machinegun Joe vs. the Mafia (Japan)",
+      "parentTitle": "Ginkou Goutou - Machinegun Joe vs. the Mafia",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "77FA9A82",
+      "name": "Mobile Suit Gundam - Luna Two no Tatakai (Unknown)",
+      "parentTitle": "Mobile Suit Gundam - Luna Two no Tatakai (Unknown)",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "0ECDD227",
+      "name": "Pinball (Japan)",
+      "parentTitle": "Pinball",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "36936C01",
+      "name": "Police Dog (Japan) (En)",
+      "parentTitle": "Police Dog",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

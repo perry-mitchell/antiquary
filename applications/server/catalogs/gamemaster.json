@@ -1,0 +1,210 @@
+{
+  "key": "gamemaster",
+  "name": "Game Master",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:28.147Z",
+  "entries": [
+    {
+      "id": "EDD0679D",
+      "name": "Bubble Boy (Europe)",
+      "parentTitle": "Bubble Boy",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "71BABD86",
+      "name": "Car Racing (Europe)",
+      "parentTitle": "Car Racing",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "FEDEC9D5",
+      "name": "Continental Galaxy (Europe)",
+      "parentTitle": "Continental Galaxy",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "60AFB4B5",
+      "name": "Dungeon Advanture (Europe)",
+      "parentTitle": "Dungeon Advanture",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "58E409FB",
+      "name": "Falling Block (Europe)",
+      "parentTitle": "Falling Block",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "35741CD9",
+      "name": "Finite Zone (Europe)",
+      "parentTitle": "Finite Zone",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "FDA2C4E6",
+      "name": "Go Bang! (Europe)",
+      "parentTitle": "Go Bang!",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "95E0CEAC",
+      "name": "Hyper Space (Europe)",
+      "parentTitle": "Hyper Space",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "3EA0670B",
+      "name": "Kung Fu (Europe)",
+      "parentTitle": "Kung Fu",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "3BE5590C",
+      "name": "Move It (Germany) (En)",
+      "parentTitle": "Move It",
+      "region": "Germany",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "F5FFC768",
+      "name": "Pin Ball (Europe)",
+      "parentTitle": "Pin Ball",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "76CF4C92",
+      "name": "Soccer (Europe)",
+      "parentTitle": "Soccer",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "11D734F1",
+      "name": "Space Castle (Europe)",
+      "parentTitle": "Space Castle",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "7C8318C4",
+      "name": "Space Invader (Germany) (En)",
+      "parentTitle": "Space Invader",
+      "region": "Germany",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "AF61D552",
+      "name": "Space Warrior (Germany) (En)",
+      "parentTitle": "Space Warrior",
+      "region": "Germany",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "50CE2E30",
+      "name": "Tank War (Germany) (En)",
+      "parentTitle": "Tank War",
+      "region": "Germany",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "48D425CF",
+      "name": "Tennis (Europe)",
+      "parentTitle": "Tennis",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "D53E6CAC",
+      "name": "Urban Champion (Europe)",
+      "parentTitle": "Urban Champion",
+      "region": "Europe",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

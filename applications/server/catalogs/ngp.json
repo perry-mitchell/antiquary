@@ -1,0 +1,111 @@
+{
+  "key": "ngp",
+  "name": "Neo Geo Pocket",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:49:56.747Z",
+  "entries": [
+    {
+      "id": "CAA3A827",
+      "name": "Baseball Stars - Pocket Sports Series (Japan, Europe) (En,Ja)",
+      "parentTitle": "Baseball Stars - Pocket Sports Series",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "DCEB7E11",
+      "name": "King of Fighters R-1 - Pocket Fighting Series (Japan, Europe) (En,Ja)",
+      "parentTitle": "King of Fighters R-1 - Pocket Fighting Series",
+      "region": "Japan",
+      "serial": null,
+      "developer": "SNK",
+      "publisher": "SNK",
+      "genre": "Fighting",
+      "year": null
+    },
+    {
+      "id": "C4E58FD2",
+      "name": "Melon-chan no Seichou Nikki (Japan)",
+      "parentTitle": "Melon-chan no Seichou Nikki",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "D5B4696C",
+      "name": "Neo Cherry Master - Real Casino Series (Japan) (En,Ja)",
+      "parentTitle": "Neo Cherry Master - Real Casino Series",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "33ADD5BD",
+      "name": "NeoGeo Cup '98 (Japan, Europe) (En,Ja)",
+      "parentTitle": "NeoGeo Cup '98",
+      "region": "Japan",
+      "serial": null,
+      "developer": "SNK",
+      "publisher": "SNK",
+      "genre": "Sports",
+      "year": null
+    },
+    {
+      "id": "4B1EED05",
+      "name": "Pocket Tennis - Pocket Sports Series (Japan, Europe) (En,Ja)",
+      "parentTitle": "Pocket Tennis - Pocket Sports Series",
+      "region": "Japan",
+      "serial": null,
+      "developer": "Yumekobo",
+      "publisher": "SNK",
+      "genre": "Sports",
+      "year": null
+    },
+    {
+      "id": "CE09F534",
+      "name": "Renketsu Puzzle Tsunagete Pon! (Japan)",
+      "parentTitle": "Renketsu Puzzle Tsunagete Pon!",
+      "region": "Japan",
+      "serial": "NEOP00120",
+      "developer": "Yumekobo",
+      "publisher": "SNK",
+      "genre": "Puzzle",
+      "year": 1998
+    },
+    {
+      "id": "32E4696A",
+      "name": "Samurai Shodown! - Pocket Fighting Series (Japan, Europe) (En,Ja)",
+      "parentTitle": "Samurai Shodown! - Pocket Fighting Series",
+      "region": "Japan",
+      "serial": null,
+      "developer": "Saurus",
+      "publisher": "SNK",
+      "genre": "Fighting",
+      "year": null
+    },
+    {
+      "id": "F34D0C9B",
+      "name": "Shougi no Tatsujin (Japan)",
+      "parentTitle": "Shougi no Tatsujin",
+      "region": "Japan",
+      "serial": "NEOP00050",
+      "developer": "ADK",
+      "publisher": "SNK",
+      "genre": "Board",
+      "year": 1998
+    }
+  ]
+}

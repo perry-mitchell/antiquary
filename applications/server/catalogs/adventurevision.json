@@ -1,0 +1,56 @@
+{
+  "key": "adventurevision",
+  "name": "Adventure Vision",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:12.257Z",
+  "entries": [
+    {
+      "id": "3E280096",
+      "name": "Defender (USA, Europe)",
+      "parentTitle": "Defender",
+      "region": "USA",
+      "serial": null,
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "genre": "Shoot'em Up",
+      "year": null
+    },
+    {
+      "id": "C70D4028",
+      "name": "Space Force (USA, Europe)",
+      "parentTitle": "Space Force",
+      "region": "USA",
+      "serial": null,
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "genre": "Shoot'em Up",
+      "year": null
+    },
+    {
+      "id": "B6045C9E",
+      "name": "Super Cobra (USA, Europe)",
+      "parentTitle": "Super Cobra",
+      "region": "USA",
+      "serial": null,
+      "developer": "Konami",
+      "publisher": "Entex Industries, Inc",
+      "genre": "Shoot'em Up",
+      "year": null
+    },
+    {
+      "id": "33A23EBA",
+      "name": "Turtles (USA, Europe)",
+      "parentTitle": "Turtles",
+      "region": "USA",
+      "serial": null,
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "genre": "Action",
+      "year": null
+    }
+  ]
+}

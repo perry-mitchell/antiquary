@@ -1,0 +1,144 @@
+{
+  "key": "acan",
+  "name": "Super Acan",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:26.994Z",
+  "entries": [
+    {
+      "id": "6099BB44",
+      "name": "Boom Zoo (Taiwan)",
+      "parentTitle": "Boom Zoo",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "B2BF31DC",
+      "name": "Formosa Duel (Taiwan)",
+      "parentTitle": "Formosa Duel",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "AC4FA721",
+      "name": "Gambling Lord (Taiwan)",
+      "parentTitle": "Gambling Lord",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "CEE25EEA",
+      "name": "Journey to the Laugh (Taiwan)",
+      "parentTitle": "Journey to the Laugh",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "AED4E4F8",
+      "name": "Magical Pool (Taiwan)",
+      "parentTitle": "Magical Pool",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "DC3B7B84",
+      "name": "Monopoly - Adventure in Africa (Taiwan)",
+      "parentTitle": "Monopoly - Adventure in Africa",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "9E243C91",
+      "name": "Rebel Star (Taiwan) (En)",
+      "parentTitle": "Rebel Star",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "A4DE6DDE",
+      "name": "Sango Fighter (Taiwan)",
+      "parentTitle": "Sango Fighter",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "F631383C",
+      "name": "Speedy Dragon (Taiwan)",
+      "parentTitle": "Speedy Dragon",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "C4FE1CA1",
+      "name": "Super Dragon Force (Taiwan)",
+      "parentTitle": "Super Dragon Force",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "CCF6829B",
+      "name": "Super Taiwanese Baseball League (Taiwan)",
+      "parentTitle": "Super Taiwanese Baseball League",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "9F6119A7",
+      "name": "The Son of Evil (Taiwan)",
+      "parentTitle": "The Son of Evil",
+      "region": "Taiwan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

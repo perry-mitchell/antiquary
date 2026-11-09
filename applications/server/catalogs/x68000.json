@@ -1,0 +1,23 @@
+{
+  "key": "x68000",
+  "name": "Sharp X68000",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:49:54.203Z",
+  "entries": [
+    {
+      "id": "602873E7",
+      "name": "Detana!! TwinBee (Japan) (5.25 inch)",
+      "parentTitle": "Detana!! TwinBee (Japan) (5.25 inch)",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

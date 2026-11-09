@@ -1,0 +1,221 @@
+{
+  "key": "loopy",
+  "name": "Casio Loopy",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:23.317Z",
+  "entries": [
+    {
+      "id": "3FD9713B",
+      "name": "Anime Land (Japan)",
+      "parentTitle": "Anime Land",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "665CD0A2",
+      "name": "Anime Land (Japan)",
+      "parentTitle": "Anime Land",
+      "region": "Japan",
+      "serial": "XK-401",
+      "developer": "Casio",
+      "publisher": "Casio",
+      "genre": "Educational",
+      "year": 1995
+    },
+    {
+      "id": "955C56EA",
+      "name": "Chakrakun no Omajinai Paradise (Japan)",
+      "parentTitle": "Chakrakun no Omajinai Paradise",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "0FB0A794",
+      "name": "Dream Change - Kogane-chan no Fashion Party (Japan)",
+      "parentTitle": "Dream Change - Kogane-chan no Fashion Party",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "0B850185",
+      "name": "Dream Change - Kogane-chan no Fashion Party (Japan)",
+      "parentTitle": "Dream Change - Kogane-chan no Fashion Party",
+      "region": "Japan",
+      "serial": "XK-403",
+      "developer": "Alfa System",
+      "publisher": "Casio",
+      "genre": "Educational",
+      "year": 1995
+    },
+    {
+      "id": "B82AC7F3",
+      "name": "HARIHARI Seal Paradise (Japan)",
+      "parentTitle": "HARIHARI Seal Paradise",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "39A417D6",
+      "name": "HARIHARI Seal Paradise (Japan)",
+      "parentTitle": "HARIHARI Seal Paradise",
+      "region": "Japan",
+      "serial": "XK-402",
+      "developer": "Casio",
+      "publisher": "Casio",
+      "genre": "Various",
+      "year": 1995
+    },
+    {
+      "id": "550616F0",
+      "name": "Little Romance (Japan)",
+      "parentTitle": "Little Romance",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "EC55C3B4",
+      "name": "Little Romance (Japan)",
+      "parentTitle": "Little Romance",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "352B4AE6",
+      "name": "Loopy Town no Oheya ga Hoshii! (Japan)",
+      "parentTitle": "Loopy Town no Oheya ga Hoshii!",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "03B4DF2C",
+      "name": "Loopy Town no Oheya ga Hoshii! (Japan)",
+      "parentTitle": "Loopy Town no Oheya ga Hoshii!",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "F4662E66",
+      "name": "Lupiton no Wonder Palette (Japan)",
+      "parentTitle": "Lupiton no Wonder Palette",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "338A5AF7",
+      "name": "Lupiton no Wonder Palette (Japan)",
+      "parentTitle": "Lupiton no Wonder Palette",
+      "region": "Japan",
+      "serial": null,
+      "developer": "Axes Art Amuse",
+      "publisher": "Casio",
+      "genre": "Educational",
+      "year": 1996
+    },
+    {
+      "id": "EF1B33F3",
+      "name": "Nigaoe Artist (Japan)",
+      "parentTitle": "Nigaoe Artist",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "63D59881",
+      "name": "Nigaoe Artist (Japan)",
+      "parentTitle": "Nigaoe Artist",
+      "region": "Japan",
+      "serial": "XK-404",
+      "developer": "Casio",
+      "publisher": "Casio",
+      "genre": "Educational",
+      "year": 1996
+    },
+    {
+      "id": "FE3BE881",
+      "name": "Pasocom Collection (Japan)",
+      "parentTitle": "Pasocom Collection",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "9CD4D282",
+      "name": "Pasocom Collection (Japan)",
+      "parentTitle": "Pasocom Collection",
+      "region": "Japan",
+      "serial": "XK-502",
+      "developer": "Casio",
+      "publisher": "Casio",
+      "genre": "Compilation",
+      "year": 1996
+    },
+    {
+      "id": "10C5F568",
+      "name": "Wanwan Aijou Monogatari (Japan)",
+      "parentTitle": "Wanwan Aijou Monogatari",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "291AB2BC",
+      "name": "Wanwan Aijou Monogatari (Japan)",
+      "parentTitle": "Wanwan Aijou Monogatari",
+      "region": "Japan",
+      "serial": "XK-501",
+      "developer": "Alfa System",
+      "publisher": "Casio",
+      "genre": "Adventure",
+      "year": 1996
+    }
+  ]
+}

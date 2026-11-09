@@ -1,0 +1,232 @@
+{
+  "key": "picno",
+  "name": "Konami Picno",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:29.344Z",
+  "entries": [
+    {
+      "id": "42A6B05C",
+      "name": "Anime Box (Japan)",
+      "parentTitle": "Anime Box",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "AA334046",
+      "name": "Anime Enikki (Japan)",
+      "parentTitle": "Anime Enikki",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "120D41E0",
+      "name": "Chibi Maruko-chan no Tashizan Hikizan (Japan)",
+      "parentTitle": "Chibi Maruko-chan no Tashizan Hikizan",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "CDC9D45E",
+      "name": "Dokkin Shinri Game (Japan)",
+      "parentTitle": "Dokkin Shinri Game",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "0DDE07A2",
+      "name": "Fushigi no Kuni no Alice (Japan)",
+      "parentTitle": "Fushigi no Kuni no Alice",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "30308638",
+      "name": "Hello Kitty no Eikaiwa (Japan)",
+      "parentTitle": "Hello Kitty no Eikaiwa",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "78B6EB10",
+      "name": "Kanji Club (Japan)",
+      "parentTitle": "Kanji Club",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "C2B1A5AB",
+      "name": "Kiiroi Kyouryuu-kun Parasa no Obake Taiji (Japan)",
+      "parentTitle": "Kiiroi Kyouryuu-kun Parasa no Obake Taiji",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "014B1DA5",
+      "name": "Montage (Japan)",
+      "parentTitle": "Montage",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "1E4A8B5C",
+      "name": "Nontan to Issho Anime Stamp (Japan)",
+      "parentTitle": "Nontan to Issho Anime Stamp",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "560E0ECA",
+      "name": "Paint Ehon - Cinderella Monogatari (Japan)",
+      "parentTitle": "Paint Ehon - Cinderella Monogatari",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "6DE0342B",
+      "name": "Picno ArtPuzzle (Japan)",
+      "parentTitle": "Picno ArtPuzzle",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "CA4A4D22",
+      "name": "Picno de 123 (Japan)",
+      "parentTitle": "Picno de 123",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "590E3BD8",
+      "name": "Picno de ABC (Japan)",
+      "parentTitle": "Picno de ABC",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "F56E48BC",
+      "name": "Picno de AIUEO (Japan)",
+      "parentTitle": "Picno de AIUEO",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "13996DDD",
+      "name": "Picno de Kuku (Japan)",
+      "parentTitle": "Picno de Kuku",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "2E75DE04",
+      "name": "Picno de Nihon Chizu (Japan)",
+      "parentTitle": "Picno de Nihon Chizu",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "3FA2DE37",
+      "name": "Real Montage (Japan)",
+      "parentTitle": "Real Montage",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "6720748F",
+      "name": "Shirayuki Hime Monogatari (Japan)",
+      "parentTitle": "Shirayuki Hime Monogatari",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "C3F8338D",
+      "name": "Son Goku no Bouken (Japan)",
+      "parentTitle": "Son Goku no Bouken",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

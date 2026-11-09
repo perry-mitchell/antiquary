@@ -1,0 +1,155 @@
+{
+  "key": "sufami",
+  "name": "Sufami Turbo",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:49:16.591Z",
+  "entries": [
+    {
+      "id": "BB5C4238",
+      "name": "Bishoujo Senshi Sailor Moon Sailor Stars - Fuwafuwa Panic 2 (Japan)",
+      "parentTitle": "Bishoujo Senshi Sailor Moon Sailor Stars - Fuwafuwa Panic 2",
+      "region": "Japan",
+      "serial": "SFT-0112",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Puzzle",
+      "year": 1996
+    },
+    {
+      "id": "8EB753F3",
+      "name": "Crayon Shin-chan - Nagagutsu Dobon!! (Japan)",
+      "parentTitle": "Crayon Shin-chan - Nagagutsu Dobon!!",
+      "region": "Japan",
+      "serial": "SFT-0113",
+      "developer": "Aim Software",
+      "publisher": "Bandai Namco",
+      "genre": "Puzzle",
+      "year": 1996
+    },
+    {
+      "id": "4296500D",
+      "name": "Gegege no Kitarou - Youkai Donjara (Japan)",
+      "parentTitle": "Gegege no Kitarou - Youkai Donjara",
+      "region": "Japan",
+      "serial": null,
+      "developer": "Tom Create",
+      "publisher": "Bandai Namco",
+      "genre": "Board",
+      "year": 1996
+    },
+    {
+      "id": "14C66FCA",
+      "name": "Gekisou Sentai Carranger - Zenkai! Racer Senshi (Japan)",
+      "parentTitle": "Gekisou Sentai Carranger - Zenkai! Racer Senshi",
+      "region": "Japan",
+      "serial": "SFT-0109",
+      "developer": "Natsume",
+      "publisher": "Bandai Namco",
+      "genre": "Platform",
+      "year": 1996
+    },
+    {
+      "id": "32B2B3DD",
+      "name": "Poi Poi Ninja World (Japan)",
+      "parentTitle": "Poi Poi Ninja World",
+      "region": "Japan",
+      "serial": null,
+      "developer": "Tom Create",
+      "publisher": "Bandai Namco",
+      "genre": "Action",
+      "year": 1996
+    },
+    {
+      "id": "72B4235F",
+      "name": "SD Gundam Generation - Axis Senki (Japan)",
+      "parentTitle": "SD Gundam Generation - Axis Senki",
+      "region": "Japan",
+      "serial": "SFT-0107",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "792D884C",
+      "name": "SD Gundam Generation - Babylonia Kenkoku Senki (Japan)",
+      "parentTitle": "SD Gundam Generation - Babylonia Kenkoku Senki",
+      "region": "Japan",
+      "serial": "SFT-0108",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "C5DFA8FD",
+      "name": "SD Gundam Generation - Colony Kakutouki (Japan)",
+      "parentTitle": "SD Gundam Generation - Colony Kakutouki",
+      "region": "Japan",
+      "serial": "SHVC-X2",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "48ECAE44",
+      "name": "SD Gundam Generation - Gryps Senki (Japan)",
+      "parentTitle": "SD Gundam Generation - Gryps Senki",
+      "region": "Japan",
+      "serial": "SFT-0105",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "AFD74DCB",
+      "name": "SD Gundam Generation - Ichinen Sensouki (Japan)",
+      "parentTitle": "SD Gundam Generation - Ichinen Sensouki",
+      "region": "Japan",
+      "serial": "SFT-0104",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "EFD3A865",
+      "name": "SD Gundam Generation - Zanscare Senki (Japan)",
+      "parentTitle": "SD Gundam Generation - Zanscare Senki",
+      "region": "Japan",
+      "serial": "SFT-0110",
+      "developer": "Bandai Namco",
+      "publisher": "Bandai Namco",
+      "genre": "Strategy",
+      "year": 1996
+    },
+    {
+      "id": "43AD5A45",
+      "name": "SD Ultra Battle - Seven Densetsu (Japan)",
+      "parentTitle": "SD Ultra Battle - Seven Densetsu",
+      "region": "Japan",
+      "serial": "SFT-0102",
+      "developer": "Tom Create",
+      "publisher": "Bandai Namco",
+      "genre": "Action",
+      "year": 1996
+    },
+    {
+      "id": "04939D14",
+      "name": "SD Ultra Battle - Ultraman Densetsu (Japan)",
+      "parentTitle": "SD Ultra Battle - Ultraman Densetsu",
+      "region": "Japan",
+      "serial": "SFT-0101",
+      "developer": "Tom Create",
+      "publisher": "Bandai Namco",
+      "genre": "Fighting",
+      "year": 1996
+    }
+  ]
+}

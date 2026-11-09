@@ -1,0 +1,23 @@
+{
+  "key": "leappad",
+  "name": "LeapPad",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:50:30.495Z",
+  "entries": [
+    {
+      "id": "744CD1F4",
+      "name": "Was ist das von Richard Scarry (Germany)",
+      "parentTitle": "Was ist das von Richard Scarry",
+      "region": "Germany",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}

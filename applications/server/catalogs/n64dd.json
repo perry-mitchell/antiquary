@@ -1,0 +1,122 @@
+{
+  "key": "n64dd",
+  "name": "Nintendo 64DD",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:49:16.710Z",
+  "entries": [
+    {
+      "id": "07A920F7",
+      "name": "Dezaemon DD (Japan) (Proto) (1998-02-23T192425) (Expansion)",
+      "parentTitle": "Dezaemon DD (Japan) (Proto) (1998-02-23T192425) (Expansion)",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "23FB971E",
+      "name": "Dezaemon DD (Japan) (Proto) (Expansion)",
+      "parentTitle": "Dezaemon DD (Japan) (Proto) (Expansion)",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "78295A68",
+      "name": "F-Zero X - Expansion Kit (Japan)",
+      "parentTitle": "F-Zero X - Expansion Kit",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "14ACD221",
+      "name": "Kyojin no Doshin (Japan)",
+      "parentTitle": "Kyojin no Doshin",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "3BF36EDA",
+      "name": "Mario Artist - Communication Kit (Japan)",
+      "parentTitle": "Mario Artist - Communication Kit",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "B732C3AD",
+      "name": "Mario Artist - Paint Studio (Japan)",
+      "parentTitle": "Mario Artist - Paint Studio",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "AC304109",
+      "name": "Mario Artist - Polygon Studio (Japan)",
+      "parentTitle": "Mario Artist - Polygon Studio",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "649BBCB1",
+      "name": "Mario Artist - Talent Studio (Japan)",
+      "parentTitle": "Mario Artist - Talent Studio",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "163456CA",
+      "name": "SimCity 64 (Japan)",
+      "parentTitle": "SimCity 64",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "11589525",
+      "name": "Super Mario 64 - Disk Version (Japan) (Proto)",
+      "parentTitle": "Super Mario 64 - Disk Version",
+      "region": "Japan",
+      "serial": null,
+      "developer": null,
+      "publisher": "Nintendo",
+      "genre": "Adventure",
+      "year": null
+    }
+  ]
+}

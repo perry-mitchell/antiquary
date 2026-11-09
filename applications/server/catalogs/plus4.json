@@ -1,0 +1,67 @@
+{
+  "key": "plus4",
+  "name": "Commodore Plus/4",
+  "source": "libretro-database",
+  "sourceUrl": "https://github.com/libretro/libretro-database",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
+  "datVersion": "2026.10.07",
+  "generatedAt": "2026-11-08T16:49:44.325Z",
+  "entries": [
+    {
+      "id": "A059FCCB",
+      "name": "Atomic Mission (USA, Europe)",
+      "parentTitle": "Atomic Mission",
+      "region": "USA",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "6B624FEC",
+      "name": "Jack Attack (USA, Europe)",
+      "parentTitle": "Jack Attack",
+      "region": "USA",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "A903DC53",
+      "name": "Pirate Adventure (USA, Europe)",
+      "parentTitle": "Pirate Adventure",
+      "region": "USA",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "994C9B98",
+      "name": "Strange Odyssey (USA, Europe)",
+      "parentTitle": "Strange Odyssey",
+      "region": "USA",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "EAAA44ED",
+      "name": "Viduzzles (USA, Europe)",
+      "parentTitle": "Viduzzles",
+      "region": "USA",
+      "serial": null,
+      "developer": null,
+      "publisher": null,
+      "genre": null,
+      "year": null
+    }
+  ]
+}
