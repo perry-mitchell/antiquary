@@ -239,6 +239,12 @@ export interface ItemTagDto {
   color: string | null
 }
 
+export interface ItemListImageDto {
+  id: string
+  url: string
+  isCover: boolean
+}
+
 export interface ItemListItemDto {
   id: string
   name: string
@@ -251,6 +257,7 @@ export interface ItemListItemDto {
   createdAt: string
   updatedAt: string
   tags: ItemTagDto[]
+  images: ItemListImageDto[]
 }
 
 export interface DeletedItemDto {
