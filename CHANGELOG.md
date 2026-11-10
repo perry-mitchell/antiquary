@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/perry-mitchell/antiquary/compare/v1.1.0...v1.1.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* **mcp:** Agent experience: catalog prefill + HTTP image uploads ([#6](https://github.com/perry-mitchell/antiquary/issues/6)) ([2684005](https://github.com/perry-mitchell/antiquary/commit/26840056527b22a99a752e5245787b504fe03bb9))
+
 # [1.1.0](https://github.com/perry-mitchell/antiquary/compare/v1.0.0...v1.1.0) (2026-11-10)
 
 
