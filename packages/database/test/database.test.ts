@@ -92,6 +92,11 @@ describe('templates', () => {
     ).rejects.toThrow(ValidationError)
   })
 
+  it('binds a template to the collection', async () => {
+    const updated = await db.updateCollection(collectionId, { templateId })
+    expect(updated?.templateId).toBe(templateId)
+  })
+
   it('counts templates', async () => {
     const templates = await db.listTemplates()
     expect(templates).toHaveLength(1)
@@ -106,7 +111,6 @@ describe('items', () => {
     const byName = new Map(template.fields.map((f) => [f.name, f]))
     const item = await db.createItem({
       collectionId,
-      templateId,
       name: 'Dune',
       notes: 'First edition paperback',
       quantity: 2,
@@ -138,12 +142,11 @@ describe('items', () => {
     const template = await db.getTemplate(templateId)
     const authorField = template!.fields.find((f) => f.name === 'Author')!
     await expect(
-      db.createItem({ collectionId, templateId, name: 'No author', fieldValues: [] }),
+      db.createItem({ collectionId, name: 'No author', fieldValues: [] }),
     ).rejects.toThrow(/Author.*required/)
     await expect(
       db.createItem({
         collectionId,
-        templateId,
         name: 'Bad author type',
         fieldValues: [{ fieldId: authorField.id, value: 42 }],
       }),
@@ -167,7 +170,6 @@ describe('items', () => {
       await expect(
         db.createItem({
           collectionId,
-          templateId,
           name: 'X',
           fieldValues: [
             { fieldId: byName.get('Author')!.id, value: 'A' },
@@ -281,7 +283,13 @@ describe('trash and restore', () => {
   })
 
   it('purges a trashed item permanently', async () => {
-    const scratch = await db.createItem({ collectionId, name: 'Scratch' })
+    const template = await db.getTemplate(templateId)
+    const author = template!.fields.find((f) => f.name === 'Author')!
+    const scratch = await db.createItem({
+      collectionId,
+      name: 'Scratch',
+      fieldValues: [{ fieldId: author.id, value: 'Nobody' }],
+    })
     await db.deleteItem(scratch.id)
     await expect(db.purgeItem(scratch.id)).resolves.toEqual([])
     const trash = await db.getTrash()
@@ -321,13 +329,13 @@ describe('trash and restore', () => {
 
 describe('template updates preserve values', () => {
   it('keeps values for surviving fields and drops removed ones', async () => {
+    await db.updateCollection(collectionId, { templateId })
     const template = await db.getTemplate(templateId)
     if (!template) throw new Error('template missing')
     const author = template.fields.find((f) => f.name === 'Author')!
     const pages = template.fields.find((f) => f.name === 'Pages')!
     const item = await db.createItem({
       collectionId,
-      templateId,
       name: 'Foundation',
       fieldValues: [
         { fieldId: author.id, value: 'Isaac Asimov' },
@@ -349,7 +357,7 @@ describe('template updates preserve values', () => {
     expect(after?.fields.find((f) => f.name === 'Page Count')).toBeDefined()
 
     const usage = await db.deleteTemplate(templateId)
-    expect(usage).toEqual({ ok: false, itemCount: 1 })
+    expect(usage).toEqual({ ok: false, collectionCount: 1 })
   })
 })
 
@@ -445,17 +453,20 @@ describe('supersets', () => {
     expect(template.fields.filter((f) => f.name.toLowerCase() === 'region')).toHaveLength(1)
   })
 
-  it('stores superset + entry on items and follows template changes', async () => {
-    const coll = await db.createCollection({ name: 'SNES shelf' })
+  it('stores superset + entry on items and follows collection template changes', async () => {
     const tpl = await db.createTemplate({
       name: 'SNES catalog template',
       superset: 'snes',
       fields: [],
     })
+    const coll = await db.createCollection({ name: 'SNES shelf', templateId: tpl.id })
+
+    await expect(db.createItem({ collectionId: coll.id, name: 'Chrono Trigger' })).rejects.toThrow(
+      ValidationError,
+    )
+
     const item = await db.createItem({
       collectionId: coll.id,
-      templateId: tpl.id,
-      superset: 'snes',
       supersetEntry: '2D206BF7',
       name: 'Chrono Trigger',
     })
@@ -463,8 +474,10 @@ describe('supersets', () => {
     expect(item.supersetEntry).toBe('2D206BF7')
 
     const plain = await db.createTemplate({ name: 'No catalog template' })
-    const after = await db.updateItem(item.id, { templateId: plain.id })
+    await db.updateCollection(coll.id, { templateId: plain.id })
+    const after = await db.getItem(item.id)
     expect(after?.superset).toBeNull()
     expect(after?.supersetEntry).toBeNull()
+    expect(after?.templateName).toBe('No catalog template')
   })
 })

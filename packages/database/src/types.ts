@@ -70,7 +70,6 @@ export interface TemplateFieldsTable {
 export interface ItemsTable {
   id: Generated<string>
   collectionId: string
-  templateId: string | null
   superset: string | null
   supersetEntry: string | null
   name: string

@@ -106,8 +106,6 @@ export interface UpdateTemplateInput {
 
 export interface CreateItemInput {
   collectionId: string
-  templateId?: string | null
-  superset?: string | null
   supersetEntry?: string | null
   name: string
   notes?: string | null
@@ -122,8 +120,6 @@ export interface UpdateItemInput {
   notes?: string | null
   quantity?: number
   isFavorite?: boolean
-  collectionId?: string
-  templateId?: string | null
   supersetEntry?: string | null
   fieldValues?: { fieldId: string; value: FieldValue }[]
   tagIds?: string[]
@@ -337,27 +333,62 @@ export class Database {
       const parent = await this.findCollectionRow(patch.parentId)
       if (!parent || parent.deletedAt) throw new ValidationError('Parent collection not found')
     }
-    if (patch.templateId) {
-      const template = await this.db
-        .selectFrom('templates')
-        .where('id', '=', patch.templateId)
-        .select('id')
-        .executeTakeFirst()
-      if (!template) throw new ValidationError('Template not found')
-    }
-    await this.db
-      .updateTable('collections')
-      .set({
-        ...(patch.name !== undefined ? { name: patch.name.trim() } : {}),
-        ...(patch.description !== undefined ? { description: patch.description } : {}),
-        ...(patch.emoji !== undefined ? { emoji: patch.emoji } : {}),
-        ...(patch.color !== undefined ? { color: patch.color } : {}),
-        ...(patch.parentId !== undefined ? { parentId: patch.parentId } : {}),
-        ...(patch.templateId !== undefined ? { templateId: patch.templateId } : {}),
-        updatedAt: new Date(),
-      })
-      .where('collections.id', '=', id)
-      .execute()
+
+    await this.db.transaction().execute(async (tx) => {
+      const trx = asExec(tx)
+      if (patch.templateId !== undefined) {
+        let nextSuperset: string | null = null
+        let nextFieldIds: string[] = []
+        if (patch.templateId) {
+          const template = await trx
+            .selectFrom('templates')
+            .where('id', '=', patch.templateId)
+            .selectAll()
+            .executeTakeFirst()
+          if (!template) throw new ValidationError('Template not found')
+          nextSuperset = template.superset
+          const fields = await trx
+            .selectFrom('templateFields')
+            .where('templateFields.templateId', '=', patch.templateId)
+            .select('templateFields.id')
+            .execute()
+          nextFieldIds = fields.map((f) => f.id)
+        }
+        // Keep item data consistent with the new template: drop field values
+        // that no longer belong to it, and clear catalog matches that point
+        // at a different catalog than the new template is bound to.
+        const itemsOfCollection = (eb: ExpressionBuilder<DBSchema, 'itemFieldValues'>) =>
+          eb.selectFrom('items').select('items.id').where('items.collectionId', '=', id)
+        if (nextFieldIds.length === 0) {
+          await trx.deleteFrom('itemFieldValues').where('itemId', 'in', itemsOfCollection).execute()
+        } else {
+          await trx
+            .deleteFrom('itemFieldValues')
+            .where('itemId', 'in', itemsOfCollection)
+            .where('fieldId', 'not in', nextFieldIds)
+            .execute()
+        }
+        await trx
+          .updateTable('items')
+          .set({ superset: null, supersetEntry: null })
+          .where('collectionId', '=', id)
+          .where('superset', 'is distinct from', nextSuperset)
+          .execute()
+      }
+      await trx
+        .updateTable('collections')
+        .set({
+          ...(patch.name !== undefined ? { name: patch.name.trim() } : {}),
+          ...(patch.description !== undefined ? { description: patch.description } : {}),
+          ...(patch.emoji !== undefined ? { emoji: patch.emoji } : {}),
+          ...(patch.color !== undefined ? { color: patch.color } : {}),
+          ...(patch.parentId !== undefined ? { parentId: patch.parentId } : {}),
+          ...(patch.templateId !== undefined ? { templateId: patch.templateId } : {}),
+          updatedAt: new Date(),
+        })
+        .where('collections.id', '=', id)
+        .execute()
+    })
     return this.getCollection(id)
   }
 
@@ -499,7 +530,10 @@ export class Database {
           .as('fieldCount'),
         eb
           .selectFrom('items')
-          .whereRef('items.templateId', '=', 'templates.id')
+          .innerJoin('collections', (join) =>
+            join.onRef('collections.id', '=', 'items.collectionId'),
+          )
+          .whereRef('collections.templateId', '=', 'templates.id')
           .where('items.deletedAt', 'is', null)
           .select((eb2) => eb2.fn.countAll<number>().as('count'))
           .as('itemCount'),
@@ -638,18 +672,18 @@ export class Database {
     return this.getTemplate(id)
   }
 
-  async deleteTemplate(id: string): Promise<{ ok: boolean; itemCount: number }> {
+  async deleteTemplate(id: string): Promise<{ ok: boolean; collectionCount: number }> {
     const count = await this.db
-      .selectFrom('items')
-      .where('items.templateId', '=', id)
+      .selectFrom('collections')
+      .where('collections.templateId', '=', id)
       .select((eb) => eb.fn.countAll<number>().as('count'))
       .executeTakeFirstOrThrow()
-    const itemCount = Number(count.count)
-    if (itemCount > 0) {
-      return { ok: false, itemCount }
+    const collectionCount = Number(count.count)
+    if (collectionCount > 0) {
+      return { ok: false, collectionCount }
     }
     await this.db.deleteFrom('templates').where('templates.id', '=', id).execute()
-    return { ok: true, itemCount: 0 }
+    return { ok: true, collectionCount: 0 }
   }
 
   /* --------------------------------------------------------------- */
@@ -739,12 +773,16 @@ export class Database {
         throw new ValidationError('Collection not found')
       }
 
-      let fields: TemplateFieldDto[] = []
-      if (input.templateId) {
-        fields = await this.loadTemplateFields(trx, input.templateId)
+      const template = await this.loadTemplate(trx, collection.templateId)
+      if (template.superset && !input.supersetEntry) {
+        throw new ValidationError(
+          `This collection requires a catalog match — pick a variant from the ${template.superset} catalog first`,
+        )
       }
-
-      const values = this.validateFieldValues(fields, input.fieldValues ?? [], {
+      if (!template.superset && input.supersetEntry) {
+        throw new ValidationError('Catalog entries can only be used with a superset template')
+      }
+      const values = this.validateFieldValues(template.fields, input.fieldValues ?? [], {
         enforceRequired: true,
       })
 
@@ -752,8 +790,7 @@ export class Database {
         .insertInto('items')
         .values({
           collectionId: input.collectionId,
-          templateId: input.templateId ?? null,
-          superset: input.superset ?? null,
+          superset: template.superset,
           supersetEntry: input.supersetEntry ?? null,
           name: input.name.trim(),
           notes: input.notes ?? null,
@@ -814,40 +851,39 @@ export class Database {
         .selectAll()
         .executeTakeFirstOrThrow()
 
-      if (patch.collectionId && patch.collectionId !== current.collectionId) {
-        const target = await trx
-          .selectFrom('collections')
-          .where('collections.id', '=', patch.collectionId)
-          .selectAll()
-          .executeTakeFirst()
-        if (!target || target.deletedAt) throw new ValidationError('Target collection not found')
-      }
+      const collection = await trx
+        .selectFrom('collections')
+        .where('collections.id', '=', current.collectionId)
+        .selectAll()
+        .executeTakeFirstOrThrow()
+      const template = await this.loadTemplate(trx, collection.templateId)
 
-      let fields = await this.loadTemplateFields(trx, patch.templateId ?? current.templateId)
-
-      if (patch.templateId !== undefined && patch.templateId !== current.templateId) {
-        // Re-templating: drop values whose field no longer exists on the new template.
-        if (patch.templateId === null) {
-          await trx.deleteFrom('itemFieldValues').where('itemId', '=', id).execute()
-          fields = []
-        } else {
-          const survivingIds = fields.map((f) => f.id)
-          if (survivingIds.length === 0) {
-            await trx.deleteFrom('itemFieldValues').where('itemId', '=', id).execute()
-          } else {
-            await trx
-              .deleteFrom('itemFieldValues')
-              .where('itemId', '=', id)
-              .where('fieldId', 'not in', survivingIds)
-              .execute()
+      if (patch.supersetEntry !== undefined) {
+        if (patch.supersetEntry === null) {
+          if (template.superset) {
+            throw new ValidationError('This collection requires a catalog match')
           }
+        } else if (!template.superset) {
+          throw new ValidationError('Catalog entries can only be used with a superset template')
         }
       }
 
       if (patch.fieldValues) {
-        const upserts = this.validateFieldValues(fields, patch.fieldValues, {
+        const upserts = this.validateFieldValues(template.fields, patch.fieldValues, {
           enforceRequired: false,
         })
+        // Drop values that no longer belong to the collection's template,
+        // then replace the ones provided in this patch.
+        const fieldIds = template.fields.map((f) => f.id)
+        if (fieldIds.length === 0) {
+          await trx.deleteFrom('itemFieldValues').where('itemId', '=', id).execute()
+        } else {
+          await trx
+            .deleteFrom('itemFieldValues')
+            .where('itemId', '=', id)
+            .where('fieldId', 'not in', fieldIds)
+            .execute()
+        }
         const providedIds = patch.fieldValues.map((v) => v.fieldId)
         if (providedIds.length > 0) {
           await trx
@@ -874,26 +910,6 @@ export class Database {
         await this.setTagIds(trx, id, patch.tagIds)
       }
 
-      // When the template changes, the superset binding follows the template.
-      let supersetFollow: { superset?: string | null; supersetEntry?: string | null } = {}
-      if (patch.templateId !== undefined) {
-        if (patch.templateId === null) {
-          supersetFollow = { superset: null, supersetEntry: patch.supersetEntry ?? null }
-        } else {
-          const target = await trx
-            .selectFrom('templates')
-            .where('id', '=', patch.templateId)
-            .select('superset')
-            .executeTakeFirst()
-          supersetFollow = {
-            superset: target?.superset ?? null,
-            supersetEntry: patch.supersetEntry ?? null,
-          }
-        }
-      } else if (patch.supersetEntry !== undefined) {
-        supersetFollow = { supersetEntry: patch.supersetEntry }
-      }
-
       await trx
         .updateTable('items')
         .set({
@@ -901,9 +917,9 @@ export class Database {
           ...(patch.notes !== undefined ? { notes: patch.notes } : {}),
           ...(patch.quantity !== undefined ? { quantity: patch.quantity } : {}),
           ...(patch.isFavorite !== undefined ? { isFavorite: patch.isFavorite } : {}),
-          ...(patch.collectionId !== undefined ? { collectionId: patch.collectionId } : {}),
-          ...(patch.templateId !== undefined ? { templateId: patch.templateId } : {}),
-          ...supersetFollow,
+          ...(patch.supersetEntry !== undefined ? { supersetEntry: patch.supersetEntry } : {}),
+          // Keep the catalog binding in sync with the collection's template.
+          superset: template.superset,
           updatedAt: new Date(),
         })
         .where('items.id', '=', id)
@@ -1375,11 +1391,11 @@ export class Database {
     }
   }
 
-  private async loadTemplateFields(
+  private async loadTemplate(
     trx: Exec,
     templateId: string | null,
-  ): Promise<TemplateFieldDto[]> {
-    if (!templateId) return []
+  ): Promise<{ superset: string | null; fields: TemplateFieldDto[] }> {
+    if (!templateId) return { superset: null, fields: [] }
     const template = await trx
       .selectFrom('templates')
       .where('id', '=', templateId)
@@ -1392,15 +1408,18 @@ export class Database {
       .orderBy('position', 'asc')
       .selectAll()
       .execute()
-    return fields.map((f) => ({
-      id: f.id,
-      templateId: f.templateId,
-      name: f.name,
-      type: f.type,
-      options: f.options,
-      required: f.required,
-      position: f.position,
-    }))
+    return {
+      superset: template.superset,
+      fields: fields.map((f) => ({
+        id: f.id,
+        templateId: f.templateId,
+        name: f.name,
+        type: f.type,
+        options: f.options,
+        required: f.required,
+        position: f.position,
+      })),
+    }
   }
 
   private validateFieldValues(
@@ -1489,16 +1508,16 @@ export class Database {
         'items.quantity',
         'items.isFavorite',
         'items.collectionId',
-        'items.templateId',
         'items.superset',
         'items.supersetEntry',
         'items.createdAt',
         'items.updatedAt',
         'collections.name as collectionName',
         'collections.emoji as collectionEmoji',
+        'collections.templateId',
         eb
           .selectFrom('templates')
-          .whereRef('templates.id', '=', 'items.templateId')
+          .whereRef('templates.id', '=', 'collections.templateId')
           .select('templates.name')
           .as('templateName'),
       ])
@@ -1782,8 +1801,6 @@ const LABELS: Record<string, string> = {
   quantity: 'Quantity',
   isFavorite: 'Favorite',
   tags: 'Tags',
-  template: 'Template',
-  collection: 'Collection',
 }
 
 /** Computes a human-readable diff between two versions of an item. */
@@ -1809,22 +1826,6 @@ export function diffItemDetails(before: ItemDetailDto, after: ItemDetailDto): Hi
       label: LABELS.isFavorite!,
       from: before.isFavorite,
       to: after.isFavorite,
-    })
-  }
-  if (before.collectionId !== after.collectionId) {
-    changes.push({
-      field: 'collection',
-      label: LABELS.collection!,
-      from: before.collectionName,
-      to: after.collectionName,
-    })
-  }
-  if (before.templateId !== after.templateId) {
-    changes.push({
-      field: 'template',
-      label: LABELS.template!,
-      from: before.templateName,
-      to: after.templateName,
     })
   }
   const beforeTags = before.tags
