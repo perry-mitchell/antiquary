@@ -30,15 +30,34 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
     const template = collection.templateId ? await db.getTemplate(collection.templateId) : null
 
     if (template?.superset) {
-      if (!input.supersetEntry) {
+      const complete = supersets.get(template.superset)?.complete ?? true
+      if (input.outsideSuperset && complete) {
+        throw new HttpError(
+          400,
+          `The ${template.superset} catalog is exhaustive — every item must match an entry`,
+        )
+      }
+      if (input.supersetEntry) {
+        if (input.outsideSuperset) {
+          throw new HttpError(
+            400,
+            'Pick either a catalog match or "outside the superset", not both',
+          )
+        }
+        const entry = await supersets.getEntry(template.superset, input.supersetEntry)
+        if (!entry) throw new HttpError(400, 'Unknown catalog entry')
+      } else if (complete) {
         throw new HttpError(
           400,
           `This collection requires a catalog match — pick a title and variant from the ${template.superset} catalog before saving`,
         )
+      } else if (!input.outsideSuperset) {
+        throw new HttpError(
+          400,
+          `The ${template.superset} catalog is not exhaustive — match an entry from it, or explicitly mark this item as outside the superset`,
+        )
       }
-      const entry = await supersets.getEntry(template.superset, input.supersetEntry)
-      if (!entry) throw new HttpError(400, 'Unknown catalog entry')
-    } else if (input.supersetEntry) {
+    } else if (input.supersetEntry || input.outsideSuperset) {
       throw new HttpError(400, 'Catalog entries can only be used with a superset template')
     }
 
@@ -74,23 +93,42 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
   router.patch('/:id', async (req, res) => {
     const patch = updateItemSchema.parse(req.body)
 
-    if (patch.supersetEntry !== undefined) {
+    if (patch.supersetEntry !== undefined || patch.outsideSuperset !== undefined) {
       const current = await db.getItem(req.params.id)
       if (!current) throw new HttpError(404, 'Item not found')
       const collection = await db.getCollection(current.collectionId)
       const template = collection?.templateId ? await db.getTemplate(collection.templateId) : null
-      if (patch.supersetEntry === null) {
-        if (template?.superset) {
+      const complete = template?.superset
+        ? (supersets.get(template.superset)?.complete ?? true)
+        : true
+      if (patch.outsideSuperset) {
+        if (!template?.superset) {
+          throw new HttpError(400, 'Catalog entries can only be used with a superset template')
+        }
+        if (complete) {
           throw new HttpError(
             400,
-            'This collection requires a catalog match — pick a different variant to change it',
+            `The ${template.superset} catalog is exhaustive — every item needs a match`,
           )
         }
-      } else if (!template?.superset) {
-        throw new HttpError(400, 'Catalog entries can only be used with a superset template')
-      } else {
+        if (patch.supersetEntry) {
+          throw new HttpError(
+            400,
+            'Pick either a catalog match or "outside the superset", not both',
+          )
+        }
+      }
+      if (patch.supersetEntry) {
+        if (!template?.superset) {
+          throw new HttpError(400, 'Catalog entries can only be used with a superset template')
+        }
         const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
         if (!entry) throw new HttpError(400, 'Unknown catalog entry')
+      } else if (patch.supersetEntry === null && template?.superset && !patch.outsideSuperset) {
+        throw new HttpError(
+          400,
+          'This collection requires a catalog match — pick a different variant to change it',
+        )
       }
     }
 

@@ -1,6 +1,6 @@
 {
   "key": "pcecd",
-  "name": "PC Engine CD / TurboGrafx-CD",
+  "name": "NEC PC Engine CD / TurboGrafx-CD",
   "source": "libretro-database",
   "sourceUrl": "https://github.com/libretro/libretro-database",
   "license": "CC-BY-SA-4.0",

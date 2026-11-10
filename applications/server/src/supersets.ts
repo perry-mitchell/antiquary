@@ -29,6 +29,8 @@ interface IndexEntry {
   license: string
   attribution: string
   datVersion: string | null
+  /** False for curated (not exhaustive) catalogs like PC/DOS — items may sit outside them. */
+  complete?: boolean
   generatedAt: string
   variantCount: number
   titleCount: number
@@ -81,12 +83,18 @@ export class SupersetRegistry {
   }
 
   list(): SupersetInfo[] {
-    return [...this.index.values()].map(({ file: _file, ...info }) => info)
+    return [...this.index.values()].map((entry) => this.toInfo(entry))
   }
 
   get(key: string): SupersetInfo | null {
     const entry = this.index.get(key)
-    return entry ? (({ file: _file, ...info }) => info)(entry) : null
+    return entry ? this.toInfo(entry) : null
+  }
+
+  /** A catalog without an explicit flag defaults to complete (exhaustive). */
+  private toInfo(entry: IndexEntry): SupersetInfo {
+    const { file: _file, complete, ...info } = entry
+    return { ...info, complete: complete ?? true }
   }
 
   async getEntry(key: string, id: string): Promise<SupersetEntry | null> {

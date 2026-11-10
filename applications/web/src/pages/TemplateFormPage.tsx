@@ -38,7 +38,7 @@ export function TemplateFormPage({ mode }: { mode: 'create' | 'edit' }) {
   const [description, setDescription] = useState('')
   const [superset, setSuperset] = useState('')
   const [supersetOptions, setSupersetOptions] = useState<
-    { key: string; name: string; titleCount: number }[]
+    { key: string; name: string; titleCount: number; complete: boolean }[]
   >([])
   const [fields, setFields] = useState<DraftField[]>([{ ...EMPTY_FIELD }])
   const [loading, setLoading] = useState(mode === 'edit')
@@ -49,7 +49,12 @@ export function TemplateFormPage({ mode }: { mode: 'create' | 'edit' }) {
       .list()
       .then((list) =>
         setSupersetOptions(
-          list.map((s) => ({ key: s.key, name: s.name, titleCount: s.titleCount })),
+          list.map((s) => ({
+            key: s.key,
+            name: s.name,
+            titleCount: s.titleCount,
+            complete: s.complete,
+          })),
         ),
       )
       .catch(() => {})
@@ -185,12 +190,15 @@ export function TemplateFormPage({ mode }: { mode: 'create' | 'edit' }) {
                   {supersetOptions.map((option) => (
                     <option key={option.key} value={option.key}>
                       {option.name} ({option.titleCount} titles)
+                      {option.complete ? '' : ' — not exhaustive'}
                     </option>
                   ))}
                 </select>
                 <Text as="div" size="1" color="gray" mt="1">
                   {superset
-                    ? 'Items using this template must match a catalog entry when created. Fields for Region, Serial, Developer, Publisher, Genre and Year are added automatically if missing.'
+                    ? supersetOptions.find((s) => s.key === superset)?.complete === false
+                      ? 'Items match catalog entries when possible; since this catalog is curated rather than exhaustive, items can also be explicitly marked as outside it.'
+                      : 'Items using this template must match a catalog entry when created. Fields for Region, Serial, Developer, Publisher, Genre and Year are added automatically if missing.'
                     : 'Pick a catalog to match items against known titles and variants.'}
                 </Text>
               </Box>

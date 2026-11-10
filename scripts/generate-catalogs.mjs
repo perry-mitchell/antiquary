@@ -40,7 +40,7 @@ const CATALOGS = [
   },
   {
     key: 'fds',
-    name: 'Family Computer Disk System',
+    name: 'Nintendo Family Computer Disk System',
     source: 'no-intro',
     systems: ['Nintendo - Family Computer Disk System'],
   },
@@ -52,11 +52,16 @@ const CATALOGS = [
   },
   {
     key: 'satellaview',
-    name: 'Satellaview',
+    name: 'Nintendo Satellaview',
     source: 'no-intro',
     systems: ['Nintendo - Satellaview'],
   },
-  { key: 'sufami', name: 'Sufami Turbo', source: 'no-intro', systems: ['Nintendo - Sufami Turbo'] },
+  {
+    key: 'sufami',
+    name: 'Bandai Sufami Turbo',
+    source: 'no-intro',
+    systems: ['Nintendo - Sufami Turbo'],
+  },
   { key: 'n64', name: 'Nintendo 64', source: 'no-intro', systems: ['Nintendo - Nintendo 64'] },
   {
     key: 'n64dd',
@@ -66,24 +71,29 @@ const CATALOGS = [
   },
   {
     key: 'virtualboy',
-    name: 'Virtual Boy',
+    name: 'Nintendo Virtual Boy',
     source: 'no-intro',
     systems: ['Nintendo - Virtual Boy'],
   },
-  { key: 'gb', name: 'Game Boy', source: 'no-intro', systems: ['Nintendo - Game Boy'] },
+  { key: 'gb', name: 'Nintendo Game Boy', source: 'no-intro', systems: ['Nintendo - Game Boy'] },
   {
     key: 'gbc',
-    name: 'Game Boy Color',
+    name: 'Nintendo Game Boy Color',
     source: 'no-intro',
     systems: ['Nintendo - Game Boy Color'],
   },
   {
     key: 'gba',
-    name: 'Game Boy Advance',
+    name: 'Nintendo Game Boy Advance',
     source: 'no-intro',
     systems: ['Nintendo - Game Boy Advance'],
   },
-  { key: 'ereader', name: 'e-Reader', source: 'no-intro', systems: ['Nintendo - e-Reader'] },
+  {
+    key: 'ereader',
+    name: 'Nintendo e-Reader',
+    source: 'no-intro',
+    systems: ['Nintendo - e-Reader'],
+  },
   { key: 'nds', name: 'Nintendo DS', source: 'no-intro', systems: ['Nintendo - Nintendo DS'] },
   { key: 'dsi', name: 'Nintendo DSi', source: 'no-intro', systems: ['Nintendo - Nintendo DSi'] },
   {
@@ -94,79 +104,89 @@ const CATALOGS = [
   },
   {
     key: 'pokemonmini',
-    name: 'Pokémon Mini',
+    name: 'Nintendo Pokémon Mini',
     source: 'no-intro',
     systems: ['Nintendo - Pokemon Mini'],
   },
   {
     key: 'wiiu',
-    name: 'Wii U (digital titles)',
+    name: 'Nintendo Wii U (digital titles)',
     source: 'no-intro',
     systems: ['Nintendo - Wii U (Digital)'],
   },
   // --- Nintendo (disc) ---
-  { key: 'gamecube', name: 'GameCube', source: 'redump', systems: ['Nintendo - GameCube'] },
-  { key: 'wii', name: 'Wii', source: 'redump', systems: ['Nintendo - Wii'] },
+  {
+    key: 'gamecube',
+    name: 'Nintendo GameCube',
+    source: 'redump',
+    systems: ['Nintendo - GameCube'],
+  },
+  { key: 'wii', name: 'Nintendo Wii', source: 'redump', systems: ['Nintendo - Wii'] },
   // --- Sega ---
-  { key: 'sg1000', name: 'SG-1000', source: 'no-intro', systems: ['Sega - SG-1000'] },
+  { key: 'sg1000', name: 'Sega SG-1000', source: 'no-intro', systems: ['Sega - SG-1000'] },
   {
     key: 'sms',
-    name: 'Master System / Mark III',
+    name: 'Sega Master System / Mark III',
     source: 'no-intro',
     systems: ['Sega - Master System - Mark III'],
   },
   {
     key: 'megadrive',
-    name: 'Mega Drive / Genesis',
+    name: 'Sega Mega Drive / Genesis',
     source: 'no-intro',
     systems: ['Sega - Mega Drive - Genesis'],
   },
   { key: 'pico', name: 'Sega Pico', source: 'no-intro', systems: ['Sega - PICO'] },
   { key: 'beena', name: 'Sega Beena', source: 'no-intro', systems: ['Sega - Beena'] },
   { key: 'sega32x', name: 'Sega 32X', source: 'no-intro', systems: ['Sega - 32X'] },
-  { key: 'gamegear', name: 'Game Gear', source: 'no-intro', systems: ['Sega - Game Gear'] },
+  { key: 'gamegear', name: 'Sega Game Gear', source: 'no-intro', systems: ['Sega - Game Gear'] },
   {
     key: 'megacd',
-    name: 'Mega-CD / Sega CD',
+    name: 'Sega Mega-CD / Sega CD',
     source: 'redump',
     systems: ['Sega - Mega-CD - Sega CD'],
   },
-  { key: 'saturn', name: 'Saturn', source: 'redump', systems: ['Sega - Saturn'] },
-  { key: 'dreamcast', name: 'Dreamcast', source: 'redump', systems: ['Sega - Dreamcast'] },
+  { key: 'saturn', name: 'Sega Saturn', source: 'redump', systems: ['Sega - Saturn'] },
+  { key: 'dreamcast', name: 'Sega Dreamcast', source: 'redump', systems: ['Sega - Dreamcast'] },
   // --- Sony ---
-  { key: 'ps1', name: 'PlayStation', source: 'redump', systems: ['Sony - PlayStation'] },
-  { key: 'ps2', name: 'PlayStation 2', source: 'redump', systems: ['Sony - PlayStation 2'] },
-  { key: 'ps3', name: 'PlayStation 3', source: 'redump', systems: ['Sony - PlayStation 3'] },
+  { key: 'ps1', name: 'Sony PlayStation', source: 'redump', systems: ['Sony - PlayStation'] },
+  { key: 'ps2', name: 'Sony PlayStation 2', source: 'redump', systems: ['Sony - PlayStation 2'] },
+  { key: 'ps3', name: 'Sony PlayStation 3', source: 'redump', systems: ['Sony - PlayStation 3'] },
   {
     key: 'psp',
-    name: 'PlayStation Portable',
+    name: 'Sony PlayStation Portable',
     source: 'redump',
     systems: ['Sony - PlayStation Portable'],
   },
   {
     key: 'vita',
-    name: 'PlayStation Vita',
+    name: 'Sony PlayStation Vita',
     source: 'no-intro',
     systems: ['Sony - PlayStation Vita'],
   },
   // --- Microsoft ---
-  { key: 'xbox', name: 'Xbox', source: 'redump', systems: ['Microsoft - Xbox'] },
-  { key: 'xbox360', name: 'Xbox 360', source: 'redump', systems: ['Microsoft - Xbox 360'] },
+  { key: 'xbox', name: 'Microsoft Xbox', source: 'redump', systems: ['Microsoft - Xbox'] },
+  {
+    key: 'xbox360',
+    name: 'Microsoft Xbox 360',
+    source: 'redump',
+    systems: ['Microsoft - Xbox 360'],
+  },
   // --- NEC ---
   {
     key: 'pce',
-    name: 'PC Engine / TurboGrafx-16 / SuperGrafx',
+    name: 'NEC PC Engine / TurboGrafx-16 / SuperGrafx',
     source: 'no-intro',
     systems: ['NEC - PC Engine - TurboGrafx 16', 'NEC - PC Engine SuperGrafx'],
   },
   {
     key: 'pcecd',
-    name: 'PC Engine CD / TurboGrafx-CD',
+    name: 'NEC PC Engine CD / TurboGrafx-CD',
     source: 'redump',
     systems: ['NEC - PC Engine CD - TurboGrafx-CD'],
   },
-  { key: 'pcfx', name: 'PC-FX', source: 'redump', systems: ['NEC - PC-FX'] },
-  { key: 'pc98', name: 'PC-98', source: 'redump', systems: ['NEC - PC-98'] },
+  { key: 'pcfx', name: 'NEC PC-FX', source: 'redump', systems: ['NEC - PC-FX'] },
+  { key: 'pc98', name: 'NEC PC-98', source: 'redump', systems: ['NEC - PC-98'] },
   // --- Atari ---
   { key: 'atari2600', name: 'Atari 2600', source: 'no-intro', systems: ['Atari - 2600'] },
   { key: 'atari5200', name: 'Atari 5200', source: 'no-intro', systems: ['Atari - 5200'] },
@@ -185,8 +205,8 @@ const CATALOGS = [
   { key: 'c64', name: 'Commodore 64', source: 'no-intro', systems: ['Commodore - 64'] },
   { key: 'vic20', name: 'VIC-20', source: 'no-intro', systems: ['Commodore - VIC-20'] },
   { key: 'plus4', name: 'Commodore Plus/4', source: 'no-intro', systems: ['Commodore - Plus-4'] },
-  { key: 'amiga', name: 'Amiga', source: 'no-intro', systems: ['Commodore - Amiga'] },
-  { key: 'cd32', name: 'Amiga CD32', source: 'redump', systems: ['Commodore - CD32'] },
+  { key: 'amiga', name: 'Commodore Amiga', source: 'no-intro', systems: ['Commodore - Amiga'] },
+  { key: 'cd32', name: 'Commodore Amiga CD32', source: 'redump', systems: ['Commodore - CD32'] },
   { key: 'cdtv', name: 'Commodore CDTV', source: 'redump', systems: ['Commodore - CDTV'] },
   // --- Computers ---
   { key: 'msx', name: 'MSX', source: 'no-intro', systems: ['Microsoft - MSX'] },
@@ -199,21 +219,26 @@ const CATALOGS = [
   },
   { key: 'x1', name: 'Sharp X1', source: 'no-intro', systems: ['Sharp - X1'] },
   { key: 'x68000', name: 'Sharp X68000', source: 'no-intro', systems: ['Sharp - X68000'] },
-  { key: 'fmtowns', name: 'FM Towns', source: 'redump', systems: ['Fujitsu - FM Towns'] },
+  { key: 'fmtowns', name: 'Fujitsu FM Towns', source: 'redump', systems: ['Fujitsu - FM Towns'] },
   // --- SNK ---
-  { key: 'ngp', name: 'Neo Geo Pocket', source: 'no-intro', systems: ['SNK - Neo Geo Pocket'] },
+  { key: 'ngp', name: 'SNK Neo Geo Pocket', source: 'no-intro', systems: ['SNK - Neo Geo Pocket'] },
   {
     key: 'ngpc',
-    name: 'Neo Geo Pocket Color',
+    name: 'SNK Neo Geo Pocket Color',
     source: 'no-intro',
     systems: ['SNK - Neo Geo Pocket Color'],
   },
-  { key: 'neogeocd', name: 'Neo Geo CD', source: 'redump', systems: ['SNK - Neo Geo CD'] },
+  { key: 'neogeocd', name: 'SNK Neo Geo CD', source: 'redump', systems: ['SNK - Neo Geo CD'] },
   // --- Bandai ---
-  { key: 'wonderswan', name: 'WonderSwan', source: 'no-intro', systems: ['Bandai - WonderSwan'] },
+  {
+    key: 'wonderswan',
+    name: 'Bandai WonderSwan',
+    source: 'no-intro',
+    systems: ['Bandai - WonderSwan'],
+  },
   {
     key: 'wonderswancolor',
-    name: 'WonderSwan Color',
+    name: 'Bandai WonderSwan Color',
     source: 'no-intro',
     systems: ['Bandai - WonderSwan Color'],
   },
@@ -243,10 +268,15 @@ const CATALOGS = [
     source: 'no-intro',
     systems: ['Fairchild - Channel F'],
   },
-  { key: 'arcadia', name: 'Arcadia 2001', source: 'no-intro', systems: ['Emerson - Arcadia 2001'] },
+  {
+    key: 'arcadia',
+    name: 'Emerson Arcadia 2001',
+    source: 'no-intro',
+    systems: ['Emerson - Arcadia 2001'],
+  },
   {
     key: 'adventurevision',
-    name: 'Adventure Vision',
+    name: 'Entex Adventure Vision',
     source: 'no-intro',
     systems: ['Entex - Adventure Vision'],
   },
@@ -258,8 +288,8 @@ const CATALOGS = [
     source: 'no-intro',
     systems: ['Watara - Supervision'],
   },
-  { key: 'gamecom', name: 'Game.com', source: 'no-intro', systems: ['Tiger - Game.com'] },
-  { key: 'gp32', name: 'GP32', source: 'no-intro', systems: ['GamePark - GP32'] },
+  { key: 'gamecom', name: 'Tiger Game.com', source: 'no-intro', systems: ['Tiger - Game.com'] },
+  { key: 'gp32', name: 'GamePark GP32', source: 'no-intro', systems: ['GamePark - GP32'] },
   { key: 'arduboy', name: 'Arduboy', source: 'no-intro', systems: ['Arduboy Inc - Arduboy'] },
   {
     key: 'creativision',
@@ -272,14 +302,19 @@ const CATALOGS = [
   { key: 'pv1000', name: 'Casio PV-1000', source: 'no-intro', systems: ['Casio - PV-1000'] },
   {
     key: 'scv',
-    name: 'Super Cassette Vision',
+    name: 'Epoch Super Cassette Vision',
     source: 'no-intro',
     systems: ['Epoch - Super Cassette Vision'],
   },
-  { key: 'acan', name: 'Super Acan', source: 'no-intro', systems: ['Funtech - Super Acan'] },
+  {
+    key: 'acan',
+    name: 'Funtech Super Acan',
+    source: 'no-intro',
+    systems: ['Funtech - Super Acan'],
+  },
   {
     key: 'gamemaster',
-    name: 'Game Master',
+    name: 'Hartung Game Master',
     source: 'no-intro',
     systems: ['Hartung - Game Master'],
   },
@@ -293,12 +328,12 @@ const CATALOGS = [
   },
   {
     key: 'pocketchallenge',
-    name: 'Pocket Challenge V2',
+    name: 'Benesse Pocket Challenge V2',
     source: 'no-intro',
     systems: ['Benesse - Pocket Challenge V2'],
   },
-  { key: 'cdi', name: 'CD-i', source: 'redump', systems: ['Philips - CD-i'] },
-  { key: '3do', name: '3DO', source: 'redump', systems: ['The 3DO Company - 3DO'] },
+  { key: 'cdi', name: 'Philips CD-i', source: 'redump', systems: ['Philips - CD-i'] },
+  { key: '3do', name: 'Panasonic 3DO', source: 'redump', systems: ['The 3DO Company - 3DO'] },
   // --- PC (Wikidata, CC0 — unlike the console catalogs above) ---
   // Source: Wikidata SPARQL, https://www.wikidata.org, public domain (CC0).
   //
@@ -481,6 +516,8 @@ async function buildCatalog(catalog) {
     attribution:
       'Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.',
     datVersion,
+    // DAT-based console catalogs aim to cover every physical release.
+    complete: true,
     generatedAt: new Date().toISOString(),
     entries,
   }
@@ -569,6 +606,8 @@ async function buildWikidataCatalog(catalog) {
     attribution:
       'Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.',
     datVersion: null,
+    // Wikidata is a curated subset, not an exhaustive list of every release.
+    complete: false,
     generatedAt: new Date().toISOString(),
     entries,
   }
@@ -589,13 +628,14 @@ async function writeIndex(outdir) {
       license: catalog.license,
       attribution: catalog.attribution,
       datVersion: catalog.datVersion,
+      complete: catalog.complete ?? true,
       generatedAt: catalog.generatedAt,
       variantCount: catalog.entries.length,
       titleCount: titles.size,
       file,
     })
   }
-  await writeFile(resolve(outdir, 'index.json'), `${JSON.stringify(index, null, 1)}\n`)
+  await writeFile(resolve(outdir, 'index.json'), `${JSON.stringify(index, null, 2)}\n`)
   return index
 }
 
@@ -619,7 +659,7 @@ async function main() {
         ? await buildWikidataCatalog(catalog)
         : await buildCatalog(catalog)
     const out = resolve(outdir, `${catalog.key}.json`)
-    await writeFile(out, `${JSON.stringify(built)}\n`)
+    await writeFile(out, `${JSON.stringify(built, null, 2)}\n`)
     const titles = new Set(built.entries.map((e) => e.parentTitle))
     console.log(
       `  -> ${catalog.key}.json: ${built.entries.length} variants / ${titles.size} titles`,
