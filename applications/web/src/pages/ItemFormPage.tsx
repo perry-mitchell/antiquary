@@ -50,7 +50,6 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
   const [loading, setLoading] = useState(true)
 
   const [collectionId, setCollectionId] = useState(params.get('collection') ?? '')
-  const [templateId, setTemplateId] = useState(params.get('template') ?? '')
   const [name, setName] = useState('')
   const [nameTouched, setNameTouched] = useState(false)
   const [notes, setNotes] = useState('')
@@ -74,9 +73,13 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
   const [selectedEntry, setSelectedEntry] = useState<SupersetEntryDto | null>(null)
   const searchDebounce = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
+  // The template comes from the collection — every item in a collection
+  // shares it.
   const activeTemplate = useMemo(
-    () => templates.find((t) => t.id === templateId) ?? null,
-    [templates, templateId],
+    () =>
+      templates.find((t) => t.id === collections.find((c) => c.id === collectionId)?.templateId) ??
+      null,
+    [templates, collections, collectionId],
   )
   const draftFields: DraftField[] = activeTemplate?.fields ?? []
   const needsCatalogMatch = Boolean(activeTemplate?.superset)
@@ -99,7 +102,6 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
         setQuantity(item.quantity)
         setIsFavorite(item.isFavorite)
         setCollectionId(item.collectionId)
-        setTemplateId(item.templateId ?? '')
         setSelectedTags(item.tags.map((t) => t.id))
         const values: Record<string, FieldValue> = {}
         for (const field of item.fields) values[field.id] = field.value
@@ -205,8 +207,6 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
     try {
       const body = {
         collectionId,
-        templateId: templateId || null,
-        superset: activeTemplate?.superset ?? null,
         supersetEntry: selectedEntry?.id ?? null,
         name,
         notes: notes.trim() || null,
@@ -445,6 +445,7 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                     <select
                       data-testid="item-collection-select"
                       value={collectionId}
+                      disabled={mode === 'edit'}
                       onChange={(e) => setCollectionId(e.target.value)}
                       style={{ width: '100%', height: 'var(--TextField-height-2)' }}
                     >
@@ -459,6 +460,11 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                       Create a collection first.
                     </Text>
                   )}
+                  {mode === 'edit' ? (
+                    <Text as="div" size="1" color="gray" mt="1">
+                      Items stay in their collection — {activeTemplate?.name ?? 'no template'}.
+                    </Text>
+                  ) : null}
                 </Box>
                 <Box style={{ width: 160 }}>
                   <Text as="div" size="1" weight="medium" mb="1">
@@ -486,29 +492,6 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                   </Text>
                 </Flex>
               </Flex>
-              <Box>
-                <Text as="div" size="1" weight="medium" mb="1">
-                  Template
-                </Text>
-                <select
-                  data-testid="item-template-select"
-                  value={templateId}
-                  onChange={(e) => setTemplateId(e.target.value)}
-                  style={{ width: '100%', height: 'var(--TextField-height-2)' }}
-                >
-                  <option value="">No template — just name, notes and photos</option>
-                  {templates.map((t) => (
-                    <option key={t.id} value={t.id}>
-                      {t.name} ({t.fields.length} fields){t.superset ? ' ⋆ catalog' : ''}
-                    </option>
-                  ))}
-                </select>
-                <Text as="div" size="1" color="gray" mt="1">
-                  {templates.length === 0
-                    ? 'Tip: create a template first to get custom fields (author, platform, price…) on the Templates page.'
-                    : 'Fields from the template appear below.'}
-                </Text>
-              </Box>
             </Flex>
           </Card>
 
@@ -524,7 +507,11 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                 {draftFields.map((field) => (
                   <FieldInput
                     key={field.id}
-                    field={{ ...field, type: field.type as never, templateId: templateId }}
+                    field={{
+                      ...field,
+                      type: field.type as never,
+                      templateId: activeTemplate?.id ?? '',
+                    }}
                     value={fieldValues[field.id] ?? null}
                     onChange={(value) =>
                       setFieldValues((current) => ({ ...current, [field.id]: value }))
