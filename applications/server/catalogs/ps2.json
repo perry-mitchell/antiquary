@@ -1,6 +1,6 @@
 {
   "key": "ps2",
-  "name": "PlayStation 2",
+  "name": "Sony PlayStation 2",
   "source": "libretro-database",
   "sourceUrl": "https://github.com/libretro/libretro-database",
   "license": "CC-BY-SA-4.0",

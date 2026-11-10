@@ -1,6 +1,6 @@
 {
   "key": "xbox360",
-  "name": "Xbox 360",
+  "name": "Microsoft Xbox 360",
   "source": "libretro-database",
   "sourceUrl": "https://github.com/libretro/libretro-database",
   "license": "CC-BY-SA-4.0",
