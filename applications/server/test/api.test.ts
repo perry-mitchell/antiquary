@@ -383,6 +383,7 @@ describe('mcp endpoint', () => {
       'create_collection',
       'update_item',
       'create_tag',
+      'upload_image',
     ]) {
       expect(tools).not.toContain(banned)
     }
@@ -546,12 +547,107 @@ describe('mcp endpoint', () => {
       content: { text: string }[]
     }
     expect(outsideResult.isError).toBeFalsy()
-    const created = JSON.parse(outsideResult.content[0]!.text) as {
+    const outsideItem = JSON.parse(outsideResult.content[0]!.text) as {
       superset: string
       supersetEntry: string | null
     }
-    expect(created.superset).toBe('pc')
-    expect(created.supersetEntry).toBeNull()
+    expect(outsideItem.superset).toBe('pc')
+    expect(outsideItem.supersetEntry).toBeNull()
+  })
+
+  it('uploads, attaches and downloads images over MCP', async () => {
+    // 1. upload_image → staged filename
+    const upload = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 11,
+      method: 'tools/call',
+      params: {
+        name: 'upload_image',
+        arguments: { data: PNG_1x1.toString('base64'), mime: 'image/png' },
+      },
+    })
+    const uploadResult = unwrap(upload).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(uploadResult.isError).toBeFalsy()
+    const { filename } = JSON.parse(uploadResult.content[0]!.text) as { filename: string }
+
+    // 2. create_item with the staged file attached
+    const created = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 12,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: {
+          collectionId,
+          name: 'MCP photo item',
+          images: [{ filename, caption: 'front cover' }],
+        },
+      },
+    })
+    const createdResult = unwrap(created).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(createdResult.isError).toBeFalsy()
+    const item = JSON.parse(createdResult.content[0]!.text) as {
+      id: string
+      images: { id: string; url: string; caption: string | null }[]
+    }
+    expect(item.images).toHaveLength(1)
+    expect(item.images[0]!.caption).toBe('front cover')
+
+    // the staged file was promoted into the real upload dir
+    const served = await api.get(item.images[0]!.url)
+    expect(served.status).toBe(200)
+    expect(served.headers['content-type']).toBe('image/png')
+
+    // 3. search_items listings include images
+    const found = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 13,
+      method: 'tools/call',
+      params: { name: 'search_items', arguments: { search: 'MCP photo' } },
+    })
+    const foundResult = unwrap(found).result as { content: { text: string }[] }
+    const listing = JSON.parse(foundResult.content[0]!.text) as {
+      items: { images: { id: string; isCover: boolean }[] }[]
+    }
+    expect(listing.items[0]!.images).toHaveLength(1)
+    expect(listing.items[0]!.images[0]!.isCover).toBe(true)
+    const imageId = listing.items[0]!.images[0]!.id
+
+    // 4. get_image returns the raw bytes as an image content block
+    const downloaded = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 14,
+      method: 'tools/call',
+      params: { name: 'get_image', arguments: { imageId } },
+    })
+    const downloadResult = unwrap(downloaded).result as {
+      isError?: boolean
+      content: { type: string; data?: string; mimeType?: string }[]
+    }
+    expect(downloadResult.isError).toBeFalsy()
+    expect(downloadResult.content[0]!.type).toBe('image')
+    expect(downloadResult.content[0]!.mimeType).toBe('image/png')
+    expect(Buffer.from(downloadResult.content[0]!.data!, 'base64')).toEqual(PNG_1x1)
+
+    // 5. attaching an unknown staged filename fails loudly
+    const bogus = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 15,
+      method: 'tools/call',
+      params: {
+        name: 'update_item',
+        arguments: { id: item.id, images: [{ filename: 'not-a-staged-file.png' }] },
+      },
+    })
+    const bogusResult = unwrap(bogus).result as { isError?: boolean; content: { text: string }[] }
+    expect(bogusResult.isError).toBe(true)
+    expect(bogusResult.content[0]!.text).toContain('staged')
   })
 
   it('revoking a key immediately blocks access', async () => {

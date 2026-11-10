@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { Router, type Request, type Response } from 'express'
 import type { Database, ItemDetailDto } from '@antiquary/database'
 import { ValidationError } from '@antiquary/database'
@@ -6,9 +8,52 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
 import { requireApiKey } from '../apiKeys.js'
 import type { SupersetRegistry } from '../supersets.js'
+import {
+  MAX_IMAGE_BYTES,
+  isAllowedImageMime,
+  mimeFromFilename,
+  promoteStagedImage,
+  saveStagedImage,
+  sweepStaging,
+} from '../upload.js'
+import { stat } from 'node:fs/promises'
 
 function asText(result: unknown) {
   return { content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }] }
+}
+
+const imageAttachSchema = z
+  .array(
+    z.object({
+      filename: z.string().min(1),
+      caption: z.string().nullable().optional(),
+    }),
+  )
+  .max(10)
+  .optional()
+
+/** Moves staged uploads into the upload dir and attaches them as item photos. */
+async function attachStagedImages(
+  db: Database,
+  uploadDir: string,
+  itemId: string,
+  images: { filename: string; caption?: string | null }[],
+): Promise<void> {
+  for (const image of images) {
+    const promoted = await promoteStagedImage(uploadDir, image.filename)
+    if (!promoted) {
+      throw new ValidationError(
+        `Unknown staged image "${image.filename}" — upload it again with upload_image`,
+      )
+    }
+    const info = await stat(join(uploadDir, image.filename))
+    await db.addImage(itemId, {
+      filename: image.filename,
+      mime: mimeFromFilename(image.filename),
+      size: info.size,
+      caption: image.caption ?? null,
+    })
+  }
 }
 
 const fieldValuesSchema = z
@@ -24,7 +69,12 @@ const fieldValuesSchema = z
  * Builds a fresh MCP server for one request. Read-only (non-destructive)
  * keys get only the read tools — every deletion action is dropped.
  */
-function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolean): McpServer {
+function buildServer(
+  db: Database,
+  supersets: SupersetRegistry,
+  uploadDir: string,
+  readonly: boolean,
+): McpServer {
   const server = new McpServer(
     { name: 'antiquary', version: '0.1.0' },
     { capabilities: { tools: {} } },
@@ -134,6 +184,30 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
     async () => asText(supersets.list()),
   )
 
+  server.registerTool(
+    'get_image',
+    {
+      description:
+        'Download an image by id — returns the raw image (base64) with its mime type. ' +
+        'Image ids appear in search_items results, get_item and upload_image confirmations.',
+      inputSchema: { imageId: z.string().uuid() },
+    },
+    async ({ imageId }) => {
+      const image = await db.getImage(imageId)
+      if (!image) return asText({ error: 'Image not found' })
+      try {
+        const data = await readFile(join(uploadDir, image.filename))
+        return {
+          content: [
+            { type: 'image' as const, data: data.toString('base64'), mimeType: image.mime },
+          ],
+        }
+      } catch {
+        return asText({ error: 'The image file is missing on the server' })
+      }
+    },
+  )
+
   if (readonly) return server
 
   // ---- write tools (full keys only) ----
@@ -156,6 +230,34 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
   )
 
   server.registerTool(
+    'upload_image',
+    {
+      description:
+        'Upload an image (base64) to attach to items. Returns a staged filename — pass it as ' +
+        'images[].filename in create_item or update_item. Unattached staged files expire after ~24h. ' +
+        'For image-type template fields, use the /uploads/<filename> URL as the field value after attaching.',
+      inputSchema: {
+        data: z.string().min(1),
+        mime: z.enum(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif']),
+      },
+    },
+    async ({ data, mime }) => {
+      const buffer = Buffer.from(data, 'base64')
+      if (buffer.length === 0) throw new ValidationError('Empty or invalid base64 image data')
+      if (buffer.length > MAX_IMAGE_BYTES) {
+        throw new ValidationError(`Image exceeds ${Math.floor(MAX_IMAGE_BYTES / 1024 / 1024)} MB`)
+      }
+      if (!isAllowedImageMime(mime)) throw new ValidationError(`Unsupported image type ${mime}`)
+      await sweepStaging(uploadDir).catch(() => {})
+      const filename = await saveStagedImage(uploadDir, buffer, mime)
+      return asText({
+        filename,
+        note: 'Attach with images[].filename in create_item/update_item',
+      })
+    },
+  )
+
+  server.registerTool(
     'create_item',
     {
       description:
@@ -163,7 +265,8 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
         '(see list_templates / get_collection). When that template is bound to a superset catalog, ' +
         'a catalog match is REQUIRED: first search_catalog, then pass the chosen variant id as ' +
         'supersetEntry. If list_supersets marks the catalog complete:false, an item missing from ' +
-        'the catalog can instead be added with outsideSuperset:true (mutually exclusive with supersetEntry).',
+        'the catalog can instead be added with outsideSuperset:true (mutually exclusive with ' +
+        'supersetEntry). Photos can be attached with images[] from upload_image.',
       inputSchema: {
         collectionId: z.string().uuid(),
         supersetEntry: z.string().nullable().optional(),
@@ -174,9 +277,11 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
         isFavorite: z.boolean().optional(),
         fieldValues: fieldValuesSchema,
         tagIds: z.array(z.string().uuid()).optional(),
+        images: imageAttachSchema,
       },
     },
     async (params) => {
+      const { images, ...input } = params
       const collection = await db.getCollection(params.collectionId)
       if (!collection) return asText({ error: 'Collection not found' })
       const template = collection.templateId ? await db.getTemplate(collection.templateId) : null
@@ -205,7 +310,9 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
       } else if (params.supersetEntry || params.outsideSuperset) {
         throw new ValidationError('Catalog entries can only be used with a superset template')
       }
-      return asText(await db.createItem(params))
+      const created = await db.createItem(input)
+      if (images) await attachStagedImages(db, uploadDir, created.id, images)
+      return asText((await db.getItem(created.id)) ?? created)
     },
   )
 
@@ -213,10 +320,10 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
     'update_item',
     {
       description:
-        'Update an item (name, notes, quantity, favorite, tags, custom field values, or its ' +
-        "catalog match). The item stays in its collection and keeps the collection's template. " +
-        'For incomplete catalogs (complete:false in list_supersets), supersetEntry:null plus ' +
-        'outsideSuperset:true moves an item outside the catalog.',
+        'Update an item (name, notes, quantity, favorite, tags, custom field values, catalog match ' +
+        'or attach photos from upload_image). The item stays in its collection and keeps the ' +
+        "collection's template. For incomplete catalogs (complete:false in list_supersets), " +
+        'supersetEntry:null plus outsideSuperset:true moves an item outside the catalog.',
       inputSchema: {
         id: z.string().uuid(),
         name: z.string().min(1).optional(),
@@ -227,9 +334,10 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
         outsideSuperset: z.boolean().optional(),
         fieldValues: fieldValuesSchema,
         tagIds: z.array(z.string().uuid()).optional(),
+        images: imageAttachSchema,
       },
     },
-    async ({ id, ...patch }) => {
+    async ({ id, images, ...patch }) => {
       if (patch.supersetEntry !== undefined || patch.outsideSuperset !== undefined) {
         const current = await db.getItem(id)
         if (!current) return asText({ error: 'Item not found' })
@@ -263,7 +371,8 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
       }
       const updated = await db.updateItem(id, patch)
       if (!updated) return asText({ error: 'Item not found' })
-      return asText(updated)
+      if (images) await attachStagedImages(db, uploadDir, id, images)
+      return asText((await db.getItem(id)) ?? updated)
     },
   )
 
@@ -350,13 +459,13 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
   return server
 }
 
-export function mcpRoutes(db: Database, supersets: SupersetRegistry): Router {
+export function mcpRoutes(db: Database, supersets: SupersetRegistry, uploadDir: string): Router {
   const router = Router()
   const auth = requireApiKey(db)
 
   const handle = async (req: Request, res: Response) => {
     const readonly = req.apiKey?.readonly ?? true
-    const server = buildServer(db, supersets, readonly)
+    const server = buildServer(db, supersets, uploadDir, readonly)
     const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined })
     res.on('close', () => {
       transport.close().catch(() => {})

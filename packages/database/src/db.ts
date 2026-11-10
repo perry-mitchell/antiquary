@@ -20,6 +20,7 @@ import type {
   ImageDto,
   ItemDetailDto,
   ItemFieldWithValueDto,
+  ItemListImageDto,
   ItemListItemDto,
   ItemListResultDto,
   ItemSnapshot,
@@ -1485,6 +1486,19 @@ export class Database {
       list.push({ id: t.tagId, name: t.name, color: t.color })
       tagsByItem.set(t.itemId, list)
     }
+    const imageRows = await this.db
+      .selectFrom('images')
+      .where('images.itemId', 'in', ids)
+      .orderBy('images.isCover', 'desc')
+      .orderBy('images.position', 'asc')
+      .select(['images.itemId', 'images.id', 'images.filename', 'images.isCover'])
+      .execute()
+    const imagesByItem = new Map<string, ItemListImageDto[]>()
+    for (const image of imageRows) {
+      const list = imagesByItem.get(image.itemId) ?? []
+      list.push({ id: image.id, url: `/uploads/${image.filename}`, isCover: image.isCover })
+      imagesByItem.set(image.itemId, list)
+    }
     return rows.map((r) => ({
       id: r.id,
       name: r.name,
@@ -1497,6 +1511,7 @@ export class Database {
       createdAt: r.createdAt.toISOString(),
       updatedAt: r.updatedAt.toISOString(),
       tags: tagsByItem.get(r.id) ?? [],
+      images: imagesByItem.get(r.id) ?? [],
     }))
   }
 
