@@ -49,6 +49,8 @@ export function CollectionPage() {
   const [favorite, setFavorite] = useState(false)
   const [tagId, setTagId] = useState<string>('')
   const [page, setPage] = useState(1)
+  const [editOpen, setEditOpen] = useState(false)
+  const [trashOpen, setTrashOpen] = useState(false)
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   useEffect(() => {
@@ -169,60 +171,58 @@ export function CollectionPage() {
             </IconButton>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content align="end">
-            <CollectionDialog
-              collection={collection}
-              trigger={
-                <DropdownMenu.Item
-                  data-testid="edit-collection-item"
-                  onSelect={(e) => e.preventDefault()}
-                >
-                  Edit details
-                </DropdownMenu.Item>
-              }
-              onSaved={setCollection}
-            />
+            <DropdownMenu.Item
+              data-testid="edit-collection-item"
+              onSelect={() => setEditOpen(true)}
+            >
+              Edit details
+            </DropdownMenu.Item>
             <DropdownMenu.Separator />
-            <ConfirmDialog
-              title={`Move "${collection.name}" to trash?`}
-              description="The collection and all of its items will be moved to the trash. You can restore them at any time."
-              actionLabel="Move to trash"
-              testId="confirm-delete-collection"
-              onConfirm={async () => {
-                try {
-                  await api.collections.remove(collection.id)
-                  toast({
-                    title: 'Collection moved to trash',
-                    description: 'Restore it any time from the Trash page.',
-                    variant: 'success',
-                  })
-                  navigate('/')
-                } catch (error) {
-                  toast({
-                    title: 'Could not delete collection',
-                    description: String(error),
-                    variant: 'error',
-                  })
-                }
-              }}
-              trigger={
-                <DropdownMenu.Item
-                  color="red"
-                  data-testid="delete-collection-item"
-                  onSelect={(e) => e.preventDefault()}
-                >
-                  <TrashIcon /> Move to trash
-                </DropdownMenu.Item>
-              }
-            />
+            <DropdownMenu.Item
+              color="red"
+              data-testid="delete-collection-item"
+              onSelect={() => setTrashOpen(true)}
+            >
+              <TrashIcon /> Move to trash
+            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Root>
+        {/* Dialogs live outside the dropdown so closing the menu cannot
+            interrupt their exit animation (which leaves a blocking overlay). */}
+        <CollectionDialog
+          collection={collection}
+          open={editOpen}
+          onOpenChange={setEditOpen}
+          onSaved={setCollection}
+        />
+        <ConfirmDialog
+          title={`Move "${collection.name}" to trash?`}
+          description="The collection and all of its items will be moved to the trash. You can restore them at any time."
+          actionLabel="Move to trash"
+          testId="confirm-delete-collection"
+          open={trashOpen}
+          onOpenChange={setTrashOpen}
+          onConfirm={async () => {
+            try {
+              await api.collections.remove(collection.id)
+              toast({
+                title: 'Collection moved to trash',
+                description: 'Restore it any time from the Trash page.',
+                variant: 'success',
+              })
+              navigate('/')
+            } catch (error) {
+              toast({
+                title: 'Could not delete collection',
+                description: String(error),
+                variant: 'error',
+              })
+            }
+          }}
+        />
         <Button
           data-testid="add-item-button"
-          onClick={() =>
-            navigate(
-              `/items/new?collection=${collection.id}${collection.templateId ? `&template=${collection.templateId}` : ''}`,
-            )
-          }
+          onClick={() => navigate(`/items/new?collection=${collection.id}`)}
         >
           <PlusIcon /> Add item
         </Button>
@@ -321,11 +321,7 @@ export function CollectionPage() {
             action={
               <Button
                 data-testid="empty-add-item"
-                onClick={() =>
-                  navigate(
-                    `/items/new?collection=${collection.id}${collection.templateId ? `&template=${collection.templateId}` : ''}`,
-                  )
-                }
+                onClick={() => navigate(`/items/new?collection=${collection.id}`)}
               >
                 <PlusIcon /> Add your first item
               </Button>

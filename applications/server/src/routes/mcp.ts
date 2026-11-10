@@ -159,10 +159,11 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
     'create_item',
     {
       description:
-        'Create an item. When the template is bound to a superset catalog, supersetEntry must be a variant id from search_catalog.',
+        "Create an item in a collection. The collection's template provides the custom fields " +
+        '(see list_templates / get_collection). When that template is bound to a superset catalog, ' +
+        'a catalog match is REQUIRED: first search_catalog, then pass the chosen variant id as supersetEntry.',
       inputSchema: {
         collectionId: z.string().uuid(),
-        templateId: z.string().uuid().nullable().optional(),
         supersetEntry: z.string().nullable().optional(),
         name: z.string().min(1),
         notes: z.string().nullable().optional(),
@@ -173,16 +174,19 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
       },
     },
     async (params) => {
-      const template = params.templateId ? await db.getTemplate(params.templateId) : null
+      const collection = await db.getCollection(params.collectionId)
+      if (!collection) return asText({ error: 'Collection not found' })
+      const template = collection.templateId ? await db.getTemplate(collection.templateId) : null
       if (template?.superset) {
         if (!params.supersetEntry) {
           throw new ValidationError(
-            `This template requires a catalog match — pick a variant via search_catalog ("${template.superset}") first`,
+            `This collection requires a catalog match — pick a variant via search_catalog ("${template.superset}") first`,
           )
         }
         const entry = await supersets.getEntry(template.superset, params.supersetEntry)
         if (!entry) throw new ValidationError('Unknown catalog entry')
-        return asText(await db.createItem({ ...params, superset: template.superset }))
+      } else if (params.supersetEntry) {
+        throw new ValidationError('Catalog entries can only be used with a superset template')
       }
       return asText(await db.createItem(params))
     },
@@ -192,21 +196,36 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
     'update_item',
     {
       description:
-        'Update an item (name, notes, quantity, favorite, tags, custom field values, collection or template).',
+        'Update an item (name, notes, quantity, favorite, tags, custom field values, or its ' +
+        "catalog match). The item stays in its collection and keeps the collection's template.",
       inputSchema: {
         id: z.string().uuid(),
         name: z.string().min(1).optional(),
         notes: z.string().nullable().optional(),
         quantity: z.number().int().min(1).optional(),
         isFavorite: z.boolean().optional(),
-        collectionId: z.string().uuid().optional(),
-        templateId: z.string().uuid().nullable().optional(),
         supersetEntry: z.string().nullable().optional(),
         fieldValues: fieldValuesSchema,
         tagIds: z.array(z.string().uuid()).optional(),
       },
     },
     async ({ id, ...patch }) => {
+      if (patch.supersetEntry !== undefined) {
+        const current = await db.getItem(id)
+        if (!current) return asText({ error: 'Item not found' })
+        const collection = await db.getCollection(current.collectionId)
+        const template = collection?.templateId ? await db.getTemplate(collection.templateId) : null
+        if (patch.supersetEntry === null) {
+          if (template?.superset) {
+            throw new ValidationError('This collection requires a catalog match')
+          }
+        } else if (!template?.superset) {
+          throw new ValidationError('Catalog entries can only be used with a superset template')
+        } else {
+          const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
+          if (!entry) throw new ValidationError('Unknown catalog entry')
+        }
+      }
       const updated = await db.updateItem(id, patch)
       if (!updated) return asText({ error: 'Item not found' })
       return asText(updated)

@@ -71,11 +71,22 @@ test.describe.serial('collector journey', () => {
     await page.goto('/')
     await page.getByTestId('collection-card').click()
     await expect(page.getByTestId('collection-title')).toContainText('Books')
+
+    // Bind the Book details template to the collection — items inherit it
+    await page.getByTestId('collection-menu').click()
+    await expect(page.getByTestId('edit-collection-item')).toBeVisible()
+    await page.getByTestId('edit-collection-item').click()
+    await expect(page.getByTestId('collection-template-select')).toBeVisible()
+    await page
+      .getByTestId('collection-template-select')
+      .selectOption({ label: 'Book details (7 fields)' })
+    await page.getByTestId('collection-save-button').click()
+    await expect(page.getByTestId('toast-success').last()).toContainText('updated')
+
     await page.getByTestId('empty-add-item').click()
 
     await page.getByTestId('item-name-input').fill('Dune')
     await page.getByTestId('item-quantity-input').fill('2')
-    await page.getByTestId('item-template-select').selectOption({ index: 1 })
 
     await page.getByTestId('field-input-author').fill('Frank Herbert')
     await page.getByTestId('rating-star-5').click()
@@ -254,6 +265,7 @@ test.describe.serial('collector journey', () => {
     await page.getByTestId('collection-card').click()
     await page.getByTestId('add-item-button').click()
     await page.getByTestId('item-name-input').fill('Scratch item')
+    await page.getByTestId('field-input-author').fill('Nobody')
     await page.getByTestId('save-item-button').click()
     await expect(page.getByTestId('item-title')).toContainText('Scratch item')
 
@@ -313,7 +325,6 @@ test.describe.serial('collector journey', () => {
     await page.getByTestId('collection-card').filter({ hasText: 'SNES shelf' }).click()
     await page.getByTestId('empty-add-item').click()
     await expect(page.getByTestId('catalog-search')).toBeVisible()
-    await expect(page.getByTestId('item-template-select')).toHaveValue(/\S+/)
     await expect(page.getByTestId('save-item-button')).toBeDisabled()
 
     // Type then clear the title — picking a catalog match must still fill it

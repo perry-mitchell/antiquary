@@ -25,19 +25,20 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
 
   router.post('/', async (req, res) => {
     const input = createItemSchema.parse(req.body)
-    const template = input.templateId ? await db.getTemplate(input.templateId) : null
+    const collection = await db.getCollection(input.collectionId)
+    if (!collection) throw new HttpError(404, 'Collection not found')
+    const template = collection.templateId ? await db.getTemplate(collection.templateId) : null
 
     if (template?.superset) {
       if (!input.supersetEntry) {
         throw new HttpError(
           400,
-          `This template requires a catalog match — pick a title and variant from the ${template.superset} catalog before saving`,
+          `This collection requires a catalog match — pick a title and variant from the ${template.superset} catalog before saving`,
         )
       }
       const entry = await supersets.getEntry(template.superset, input.supersetEntry)
       if (!entry) throw new HttpError(400, 'Unknown catalog entry')
-      input.superset = template.superset
-    } else if (input.superset || input.supersetEntry) {
+    } else if (input.supersetEntry) {
       throw new HttpError(400, 'Catalog entries can only be used with a superset template')
     }
 
@@ -73,16 +74,22 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
   router.patch('/:id', async (req, res) => {
     const patch = updateItemSchema.parse(req.body)
 
-    if (patch.supersetEntry !== undefined || patch.templateId !== undefined) {
+    if (patch.supersetEntry !== undefined) {
       const current = await db.getItem(req.params.id)
       if (!current) throw new HttpError(404, 'Item not found')
-      const templateId = patch.templateId !== undefined ? patch.templateId : current.templateId
-      const template = templateId ? await db.getTemplate(templateId) : null
-      if (patch.supersetEntry) {
-        if (!template?.superset) {
-          throw new HttpError(400, 'Catalog entries can only be used with a superset template')
+      const collection = await db.getCollection(current.collectionId)
+      const template = collection?.templateId ? await db.getTemplate(collection.templateId) : null
+      if (patch.supersetEntry === null) {
+        if (template?.superset) {
+          throw new HttpError(
+            400,
+            'This collection requires a catalog match — pick a different variant to change it',
+          )
         }
-        const entry = supersets.getEntry(template.superset, patch.supersetEntry)
+      } else if (!template?.superset) {
+        throw new HttpError(400, 'Catalog entries can only be used with a superset template')
+      } else {
+        const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
         if (!entry) throw new HttpError(400, 'Unknown catalog entry')
       }
     }

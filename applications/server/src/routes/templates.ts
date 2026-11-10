@@ -33,7 +33,7 @@ export function templateRoutes(db: Database): Router {
     if (!result.ok) {
       throw new HttpError(
         409,
-        `Template is used by ${result.itemCount} item${result.itemCount === 1 ? '' : 's'} and cannot be deleted`,
+        `Template is used by ${result.collectionCount} collection${result.collectionCount === 1 ? '' : 's'} and cannot be deleted`,
       )
     }
     res.json({ ok: true })
