@@ -161,10 +161,13 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
       description:
         "Create an item in a collection. The collection's template provides the custom fields " +
         '(see list_templates / get_collection). When that template is bound to a superset catalog, ' +
-        'a catalog match is REQUIRED: first search_catalog, then pass the chosen variant id as supersetEntry.',
+        'a catalog match is REQUIRED: first search_catalog, then pass the chosen variant id as ' +
+        'supersetEntry. If list_supersets marks the catalog complete:false, an item missing from ' +
+        'the catalog can instead be added with outsideSuperset:true (mutually exclusive with supersetEntry).',
       inputSchema: {
         collectionId: z.string().uuid(),
         supersetEntry: z.string().nullable().optional(),
+        outsideSuperset: z.boolean().optional(),
         name: z.string().min(1),
         notes: z.string().nullable().optional(),
         quantity: z.number().int().min(1).optional(),
@@ -178,14 +181,28 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
       if (!collection) return asText({ error: 'Collection not found' })
       const template = collection.templateId ? await db.getTemplate(collection.templateId) : null
       if (template?.superset) {
-        if (!params.supersetEntry) {
+        const complete = supersets.get(template.superset)?.complete ?? true
+        if (params.outsideSuperset && complete) {
+          throw new ValidationError(
+            `The ${template.superset} catalog is exhaustive — every item must match an entry`,
+          )
+        }
+        if (params.supersetEntry) {
+          if (params.outsideSuperset) {
+            throw new ValidationError('Pick either a catalog match or outsideSuperset, not both')
+          }
+          const entry = await supersets.getEntry(template.superset, params.supersetEntry)
+          if (!entry) throw new ValidationError('Unknown catalog entry')
+        } else if (complete) {
           throw new ValidationError(
             `This collection requires a catalog match — pick a variant via search_catalog ("${template.superset}") first`,
           )
+        } else if (!params.outsideSuperset) {
+          throw new ValidationError(
+            `The ${template.superset} catalog is not exhaustive — match an entry via search_catalog, or pass outsideSuperset:true for items missing from it`,
+          )
         }
-        const entry = await supersets.getEntry(template.superset, params.supersetEntry)
-        if (!entry) throw new ValidationError('Unknown catalog entry')
-      } else if (params.supersetEntry) {
+      } else if (params.supersetEntry || params.outsideSuperset) {
         throw new ValidationError('Catalog entries can only be used with a superset template')
       }
       return asText(await db.createItem(params))
@@ -197,7 +214,9 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
     {
       description:
         'Update an item (name, notes, quantity, favorite, tags, custom field values, or its ' +
-        "catalog match). The item stays in its collection and keeps the collection's template.",
+        "catalog match). The item stays in its collection and keeps the collection's template. " +
+        'For incomplete catalogs (complete:false in list_supersets), supersetEntry:null plus ' +
+        'outsideSuperset:true moves an item outside the catalog.',
       inputSchema: {
         id: z.string().uuid(),
         name: z.string().min(1).optional(),
@@ -205,25 +224,41 @@ function buildServer(db: Database, supersets: SupersetRegistry, readonly: boolea
         quantity: z.number().int().min(1).optional(),
         isFavorite: z.boolean().optional(),
         supersetEntry: z.string().nullable().optional(),
+        outsideSuperset: z.boolean().optional(),
         fieldValues: fieldValuesSchema,
         tagIds: z.array(z.string().uuid()).optional(),
       },
     },
     async ({ id, ...patch }) => {
-      if (patch.supersetEntry !== undefined) {
+      if (patch.supersetEntry !== undefined || patch.outsideSuperset !== undefined) {
         const current = await db.getItem(id)
         if (!current) return asText({ error: 'Item not found' })
         const collection = await db.getCollection(current.collectionId)
         const template = collection?.templateId ? await db.getTemplate(collection.templateId) : null
-        if (patch.supersetEntry === null) {
-          if (template?.superset) {
-            throw new ValidationError('This collection requires a catalog match')
+        const complete = template?.superset
+          ? (supersets.get(template.superset)?.complete ?? true)
+          : true
+        if (patch.outsideSuperset) {
+          if (!template?.superset) {
+            throw new ValidationError('Catalog entries can only be used with a superset template')
           }
-        } else if (!template?.superset) {
-          throw new ValidationError('Catalog entries can only be used with a superset template')
-        } else {
+          if (complete) {
+            throw new ValidationError(
+              `The ${template.superset} catalog is exhaustive — every item needs a match`,
+            )
+          }
+          if (patch.supersetEntry) {
+            throw new ValidationError('Pick either a catalog match or outsideSuperset, not both')
+          }
+        }
+        if (patch.supersetEntry) {
+          if (!template?.superset) {
+            throw new ValidationError('Catalog entries can only be used with a superset template')
+          }
           const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
           if (!entry) throw new ValidationError('Unknown catalog entry')
+        } else if (patch.supersetEntry === null && template?.superset && !patch.outsideSuperset) {
+          throw new ValidationError('This collection requires a catalog match')
         }
       }
       const updated = await db.updateItem(id, patch)

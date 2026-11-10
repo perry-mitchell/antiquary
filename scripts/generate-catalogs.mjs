@@ -481,6 +481,8 @@ async function buildCatalog(catalog) {
     attribution:
       'Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.',
     datVersion,
+    // DAT-based console catalogs aim to cover every physical release.
+    complete: true,
     generatedAt: new Date().toISOString(),
     entries,
   }
@@ -569,6 +571,8 @@ async function buildWikidataCatalog(catalog) {
     attribution:
       'Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.',
     datVersion: null,
+    // Wikidata is a curated subset, not an exhaustive list of every release.
+    complete: false,
     generatedAt: new Date().toISOString(),
     entries,
   }
@@ -589,13 +593,14 @@ async function writeIndex(outdir) {
       license: catalog.license,
       attribution: catalog.attribution,
       datVersion: catalog.datVersion,
+      complete: catalog.complete ?? true,
       generatedAt: catalog.generatedAt,
       variantCount: catalog.entries.length,
       titleCount: titles.size,
       file,
     })
   }
-  await writeFile(resolve(outdir, 'index.json'), `${JSON.stringify(index, null, 1)}\n`)
+  await writeFile(resolve(outdir, 'index.json'), `${JSON.stringify(index, null, 2)}\n`)
   return index
 }
 
@@ -619,7 +624,7 @@ async function main() {
         ? await buildWikidataCatalog(catalog)
         : await buildCatalog(catalog)
     const out = resolve(outdir, `${catalog.key}.json`)
-    await writeFile(out, `${JSON.stringify(built)}\n`)
+    await writeFile(out, `${JSON.stringify(built, null, 2)}\n`)
     const titles = new Set(built.entries.map((e) => e.parentTitle))
     console.log(
       `  -> ${catalog.key}.json: ${built.entries.length} variants / ${titles.size} titles`,

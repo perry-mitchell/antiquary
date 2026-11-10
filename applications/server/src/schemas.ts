@@ -48,6 +48,8 @@ const fieldValueSchema = z.union([
 export const createItemSchema = z.object({
   collectionId: uuid,
   supersetEntry: z.string().max(100).nullable().optional(),
+  /** Explicit "this item is not in the (incomplete) catalog" acknowledgment. */
+  outsideSuperset: z.boolean().optional(),
   name: z.string().trim().min(1, 'Name is required').max(300),
   notes: nullableString.optional(),
   quantity: z.number().int().min(1).max(1_000_000).optional(),

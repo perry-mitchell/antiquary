@@ -10,7 +10,8 @@
     "generatedAt": "2026-11-08T16:50:35.236Z",
     "variantCount": 615,
     "titleCount": 475,
-    "file": "3do.json"
+    "file": "3do.json",
+    "complete": true
   },
   {
     "key": "acan",
@@ -23,7 +24,8 @@
     "generatedAt": "2026-11-08T16:50:26.994Z",
     "variantCount": 12,
     "titleCount": 12,
-    "file": "acan.json"
+    "file": "acan.json",
+    "complete": true
   },
   {
     "key": "adventurevision",
@@ -36,7 +38,8 @@
     "generatedAt": "2026-11-08T16:50:12.257Z",
     "variantCount": 4,
     "titleCount": 4,
-    "file": "adventurevision.json"
+    "file": "adventurevision.json",
+    "complete": true
   },
   {
     "key": "amiga",
@@ -49,7 +52,8 @@
     "generatedAt": "2026-11-08T16:49:45.664Z",
     "variantCount": 3142,
     "titleCount": 2758,
-    "file": "amiga.json"
+    "file": "amiga.json",
+    "complete": true
   },
   {
     "key": "arcadia",
@@ -62,7 +66,8 @@
     "generatedAt": "2026-11-08T16:50:10.955Z",
     "variantCount": 48,
     "titleCount": 48,
-    "file": "arcadia.json"
+    "file": "arcadia.json",
+    "complete": true
   },
   {
     "key": "arduboy",
@@ -75,7 +80,8 @@
     "generatedAt": "2026-11-08T16:50:19.700Z",
     "variantCount": 463,
     "titleCount": 426,
-    "file": "arduboy.json"
+    "file": "arduboy.json",
+    "complete": true
   },
   {
     "key": "atari2600",
@@ -88,7 +94,8 @@
     "generatedAt": "2026-11-08T16:49:32.016Z",
     "variantCount": 890,
     "titleCount": 709,
-    "file": "atari2600.json"
+    "file": "atari2600.json",
+    "complete": true
   },
   {
     "key": "atari5200",
@@ -101,7 +108,8 @@
     "generatedAt": "2026-11-08T16:49:33.283Z",
     "variantCount": 150,
     "titleCount": 107,
-    "file": "atari5200.json"
+    "file": "atari5200.json",
+    "complete": true
   },
   {
     "key": "atari7800",
@@ -114,7 +122,8 @@
     "generatedAt": "2026-11-08T16:49:34.543Z",
     "variantCount": 337,
     "titleCount": 145,
-    "file": "atari7800.json"
+    "file": "atari7800.json",
+    "complete": true
   },
   {
     "key": "atari8bit",
@@ -127,7 +136,8 @@
     "generatedAt": "2026-11-08T16:49:35.698Z",
     "variantCount": 44,
     "titleCount": 44,
-    "file": "atari8bit.json"
+    "file": "atari8bit.json",
+    "complete": true
   },
   {
     "key": "atarist",
@@ -140,7 +150,8 @@
     "generatedAt": "2026-11-08T16:49:40.793Z",
     "variantCount": 404,
     "titleCount": 404,
-    "file": "atarist.json"
+    "file": "atarist.json",
+    "complete": true
   },
   {
     "key": "beena",
@@ -153,7 +164,8 @@
     "generatedAt": "2026-11-08T16:49:18.541Z",
     "variantCount": 58,
     "titleCount": 56,
-    "file": "beena.json"
+    "file": "beena.json",
+    "complete": true
   },
   {
     "key": "c64",
@@ -166,7 +178,8 @@
     "generatedAt": "2026-11-08T16:49:42.025Z",
     "variantCount": 3488,
     "titleCount": 2869,
-    "file": "c64.json"
+    "file": "c64.json",
+    "complete": true
   },
   {
     "key": "cd32",
@@ -179,7 +192,8 @@
     "generatedAt": "2026-11-08T16:49:46.819Z",
     "variantCount": 203,
     "titleCount": 186,
-    "file": "cd32.json"
+    "file": "cd32.json",
+    "complete": true
   },
   {
     "key": "cdi",
@@ -192,7 +206,8 @@
     "generatedAt": "2026-11-08T16:50:34.088Z",
     "variantCount": 2292,
     "titleCount": 2009,
-    "file": "cdi.json"
+    "file": "cdi.json",
+    "complete": true
   },
   {
     "key": "cdtv",
@@ -205,7 +220,8 @@
     "generatedAt": "2026-11-08T16:49:47.963Z",
     "variantCount": 61,
     "titleCount": 59,
-    "file": "cdtv.json"
+    "file": "cdtv.json",
+    "complete": true
   },
   {
     "key": "channelf",
@@ -218,7 +234,8 @@
     "generatedAt": "2026-11-08T16:50:09.642Z",
     "variantCount": 34,
     "titleCount": 32,
-    "file": "channelf.json"
+    "file": "channelf.json",
+    "complete": true
   },
   {
     "key": "colecovision",
@@ -231,7 +248,8 @@
     "generatedAt": "2026-11-08T16:50:03.321Z",
     "variantCount": 179,
     "titleCount": 165,
-    "file": "colecovision.json"
+    "file": "colecovision.json",
+    "complete": true
   },
   {
     "key": "creativision",
@@ -244,7 +262,8 @@
     "generatedAt": "2026-11-08T16:50:20.878Z",
     "variantCount": 31,
     "titleCount": 20,
-    "file": "creativision.json"
+    "file": "creativision.json",
+    "complete": true
   },
   {
     "key": "dos",
@@ -257,7 +276,8 @@
     "generatedAt": "2026-11-09T06:04:07.111Z",
     "variantCount": 1581,
     "titleCount": 1578,
-    "file": "dos.json"
+    "file": "dos.json",
+    "complete": false
   },
   {
     "key": "dreamcast",
@@ -270,7 +290,8 @@
     "generatedAt": "2026-11-08T16:49:18.774Z",
     "variantCount": 1467,
     "titleCount": 1125,
-    "file": "dreamcast.json"
+    "file": "dreamcast.json",
+    "complete": true
   },
   {
     "key": "dsi",
@@ -283,7 +304,8 @@
     "generatedAt": "2026-11-08T16:49:17.825Z",
     "variantCount": 1068,
     "titleCount": 765,
-    "file": "dsi.json"
+    "file": "dsi.json",
+    "complete": true
   },
   {
     "key": "ereader",
@@ -296,7 +318,8 @@
     "generatedAt": "2026-11-08T16:49:17.195Z",
     "variantCount": 3238,
     "titleCount": 3238,
-    "file": "ereader.json"
+    "file": "ereader.json",
+    "complete": true
   },
   {
     "key": "fds",
@@ -309,7 +332,8 @@
     "generatedAt": "2026-11-08T16:49:16.296Z",
     "variantCount": 674,
     "titleCount": 373,
-    "file": "fds.json"
+    "file": "fds.json",
+    "complete": true
   },
   {
     "key": "fmtowns",
@@ -322,7 +346,8 @@
     "generatedAt": "2026-11-08T16:49:55.372Z",
     "variantCount": 921,
     "titleCount": 887,
-    "file": "fmtowns.json"
+    "file": "fmtowns.json",
+    "complete": true
   },
   {
     "key": "gamecom",
@@ -335,7 +360,8 @@
     "generatedAt": "2026-11-08T16:50:17.155Z",
     "variantCount": 23,
     "titleCount": 23,
-    "file": "gamecom.json"
+    "file": "gamecom.json",
+    "complete": true
   },
   {
     "key": "gamecube",
@@ -348,7 +374,8 @@
     "generatedAt": "2026-11-08T16:49:18.133Z",
     "variantCount": 1982,
     "titleCount": 1226,
-    "file": "gamecube.json"
+    "file": "gamecube.json",
+    "complete": true
   },
   {
     "key": "gamegear",
@@ -361,7 +388,8 @@
     "generatedAt": "2026-11-08T16:49:18.624Z",
     "variantCount": 607,
     "titleCount": 516,
-    "file": "gamegear.json"
+    "file": "gamegear.json",
+    "complete": true
   },
   {
     "key": "gamemaster",
@@ -374,7 +402,8 @@
     "generatedAt": "2026-11-08T16:50:28.147Z",
     "variantCount": 18,
     "titleCount": 18,
-    "file": "gamemaster.json"
+    "file": "gamemaster.json",
+    "complete": true
   },
   {
     "key": "gb",
@@ -387,7 +416,8 @@
     "generatedAt": "2026-11-08T16:49:16.832Z",
     "variantCount": 2115,
     "titleCount": 1838,
-    "file": "gb.json"
+    "file": "gb.json",
+    "complete": true
   },
   {
     "key": "gba",
@@ -400,7 +430,8 @@
     "generatedAt": "2026-11-08T16:49:17.092Z",
     "variantCount": 3503,
     "titleCount": 2626,
-    "file": "gba.json"
+    "file": "gba.json",
+    "complete": true
   },
   {
     "key": "gbc",
@@ -413,7 +444,8 @@
     "generatedAt": "2026-11-08T16:49:16.925Z",
     "variantCount": 2433,
     "titleCount": 2151,
-    "file": "gbc.json"
+    "file": "gbc.json",
+    "complete": true
   },
   {
     "key": "gp32",
@@ -426,7 +458,8 @@
     "generatedAt": "2026-11-08T16:50:18.468Z",
     "variantCount": 28,
     "titleCount": 22,
-    "file": "gp32.json"
+    "file": "gp32.json",
+    "complete": true
   },
   {
     "key": "intellivision",
@@ -439,7 +472,8 @@
     "generatedAt": "2026-11-08T16:50:04.619Z",
     "variantCount": 246,
     "titleCount": 239,
-    "file": "intellivision.json"
+    "file": "intellivision.json",
+    "complete": true
   },
   {
     "key": "jaguar",
@@ -452,7 +486,8 @@
     "generatedAt": "2026-11-08T16:49:38.420Z",
     "variantCount": 460,
     "titleCount": 197,
-    "file": "jaguar.json"
+    "file": "jaguar.json",
+    "complete": true
   },
   {
     "key": "jaguarcd",
@@ -465,7 +500,8 @@
     "generatedAt": "2026-11-08T16:49:39.644Z",
     "variantCount": 29,
     "titleCount": 27,
-    "file": "jaguarcd.json"
+    "file": "jaguarcd.json",
+    "complete": true
   },
   {
     "key": "leappad",
@@ -478,7 +514,8 @@
     "generatedAt": "2026-11-08T16:50:30.495Z",
     "variantCount": 1,
     "titleCount": 1,
-    "file": "leappad.json"
+    "file": "leappad.json",
+    "complete": true
   },
   {
     "key": "leapster",
@@ -491,7 +528,8 @@
     "generatedAt": "2026-11-08T16:50:31.655Z",
     "variantCount": 112,
     "titleCount": 100,
-    "file": "leapster.json"
+    "file": "leapster.json",
+    "complete": true
   },
   {
     "key": "loopy",
@@ -504,7 +542,8 @@
     "generatedAt": "2026-11-08T16:50:23.317Z",
     "variantCount": 19,
     "titleCount": 10,
-    "file": "loopy.json"
+    "file": "loopy.json",
+    "complete": true
   },
   {
     "key": "lynx",
@@ -517,7 +556,8 @@
     "generatedAt": "2026-11-08T16:49:36.982Z",
     "variantCount": 617,
     "titleCount": 264,
-    "file": "lynx.json"
+    "file": "lynx.json",
+    "complete": true
   },
   {
     "key": "megacd",
@@ -530,7 +570,8 @@
     "generatedAt": "2026-11-08T16:49:18.671Z",
     "variantCount": 451,
     "titleCount": 329,
-    "file": "megacd.json"
+    "file": "megacd.json",
+    "complete": true
   },
   {
     "key": "megadrive",
@@ -543,7 +584,8 @@
     "generatedAt": "2026-11-08T16:49:18.451Z",
     "variantCount": 2656,
     "titleCount": 2118,
-    "file": "megadrive.json"
+    "file": "megadrive.json",
+    "complete": true
   },
   {
     "key": "msx",
@@ -556,7 +598,8 @@
     "generatedAt": "2026-11-08T16:49:49.316Z",
     "variantCount": 899,
     "titleCount": 585,
-    "file": "msx.json"
+    "file": "msx.json",
+    "complete": true
   },
   {
     "key": "msx2",
@@ -569,7 +612,8 @@
     "generatedAt": "2026-11-08T16:49:50.561Z",
     "variantCount": 195,
     "titleCount": 156,
-    "file": "msx2.json"
+    "file": "msx2.json",
+    "complete": true
   },
   {
     "key": "n3ds",
@@ -582,7 +626,8 @@
     "generatedAt": "2026-11-08T16:49:17.927Z",
     "variantCount": 2072,
     "titleCount": 1318,
-    "file": "n3ds.json"
+    "file": "n3ds.json",
+    "complete": true
   },
   {
     "key": "n64",
@@ -595,7 +640,8 @@
     "generatedAt": "2026-11-08T16:49:16.672Z",
     "variantCount": 2268,
     "titleCount": 701,
-    "file": "n64.json"
+    "file": "n64.json",
+    "complete": true
   },
   {
     "key": "n64dd",
@@ -608,7 +654,8 @@
     "generatedAt": "2026-11-08T16:49:16.710Z",
     "variantCount": 10,
     "titleCount": 10,
-    "file": "n64dd.json"
+    "file": "n64dd.json",
+    "complete": true
   },
   {
     "key": "nds",
@@ -621,7 +668,8 @@
     "generatedAt": "2026-11-08T16:49:17.770Z",
     "variantCount": 7554,
     "titleCount": 5651,
-    "file": "nds.json"
+    "file": "nds.json",
+    "complete": true
   },
   {
     "key": "neogeocd",
@@ -634,7 +682,8 @@
     "generatedAt": "2026-11-08T16:49:59.244Z",
     "variantCount": 111,
     "titleCount": 105,
-    "file": "neogeocd.json"
+    "file": "neogeocd.json",
+    "complete": true
   },
   {
     "key": "nes",
@@ -647,7 +696,8 @@
     "generatedAt": "2026-11-08T16:49:16.225Z",
     "variantCount": 13286,
     "titleCount": 4993,
-    "file": "nes.json"
+    "file": "nes.json",
+    "complete": true
   },
   {
     "key": "ngp",
@@ -660,7 +710,8 @@
     "generatedAt": "2026-11-08T16:49:56.747Z",
     "variantCount": 9,
     "titleCount": 9,
-    "file": "ngp.json"
+    "file": "ngp.json",
+    "complete": true
   },
   {
     "key": "ngpc",
@@ -673,7 +724,8 @@
     "generatedAt": "2026-11-08T16:49:58.084Z",
     "variantCount": 106,
     "titleCount": 85,
-    "file": "ngpc.json"
+    "file": "ngpc.json",
+    "complete": true
   },
   {
     "key": "odyssey2",
@@ -686,7 +738,8 @@
     "generatedAt": "2026-11-08T16:50:07.029Z",
     "variantCount": 163,
     "titleCount": 136,
-    "file": "odyssey2.json"
+    "file": "odyssey2.json",
+    "complete": true
   },
   {
     "key": "pc",
@@ -699,7 +752,8 @@
     "generatedAt": "2026-11-09T06:17:23.106Z",
     "variantCount": 20543,
     "titleCount": 20449,
-    "file": "pc.json"
+    "file": "pc.json",
+    "complete": false
   },
   {
     "key": "pc98",
@@ -712,7 +766,8 @@
     "generatedAt": "2026-11-08T16:49:30.688Z",
     "variantCount": 109,
     "titleCount": 109,
-    "file": "pc98.json"
+    "file": "pc98.json",
+    "complete": true
   },
   {
     "key": "pce",
@@ -725,7 +780,8 @@
     "generatedAt": "2026-11-08T16:49:27.119Z",
     "variantCount": 496,
     "titleCount": 452,
-    "file": "pce.json"
+    "file": "pce.json",
+    "complete": true
   },
   {
     "key": "pcecd",
@@ -738,7 +794,8 @@
     "generatedAt": "2026-11-08T16:49:28.288Z",
     "variantCount": 498,
     "titleCount": 462,
-    "file": "pcecd.json"
+    "file": "pcecd.json",
+    "complete": true
   },
   {
     "key": "pcfx",
@@ -751,7 +808,8 @@
     "generatedAt": "2026-11-08T16:49:29.497Z",
     "variantCount": 79,
     "titleCount": 78,
-    "file": "pcfx.json"
+    "file": "pcfx.json",
+    "complete": true
   },
   {
     "key": "picno",
@@ -764,7 +822,8 @@
     "generatedAt": "2026-11-08T16:50:29.344Z",
     "variantCount": 20,
     "titleCount": 20,
-    "file": "picno.json"
+    "file": "picno.json",
+    "complete": true
   },
   {
     "key": "pico",
@@ -777,7 +836,8 @@
     "generatedAt": "2026-11-08T16:49:18.492Z",
     "variantCount": 339,
     "titleCount": 326,
-    "file": "pico.json"
+    "file": "pico.json",
+    "complete": true
   },
   {
     "key": "plus4",
@@ -790,7 +850,8 @@
     "generatedAt": "2026-11-08T16:49:44.325Z",
     "variantCount": 5,
     "titleCount": 5,
-    "file": "plus4.json"
+    "file": "plus4.json",
+    "complete": true
   },
   {
     "key": "pocketchallenge",
@@ -803,7 +864,8 @@
     "generatedAt": "2026-11-08T16:50:32.818Z",
     "variantCount": 75,
     "titleCount": 41,
-    "file": "pocketchallenge.json"
+    "file": "pocketchallenge.json",
+    "complete": true
   },
   {
     "key": "pokemonmini",
@@ -816,7 +878,8 @@
     "generatedAt": "2026-11-08T16:49:17.982Z",
     "variantCount": 42,
     "titleCount": 34,
-    "file": "pokemonmini.json"
+    "file": "pokemonmini.json",
+    "complete": true
   },
   {
     "key": "ps1",
@@ -829,7 +892,8 @@
     "generatedAt": "2026-11-08T16:49:19.564Z",
     "variantCount": 10095,
     "titleCount": 7767,
-    "file": "ps1.json"
+    "file": "ps1.json",
+    "complete": true
   },
   {
     "key": "ps2",
@@ -842,7 +906,8 @@
     "generatedAt": "2026-11-08T16:49:20.424Z",
     "variantCount": 11072,
     "titleCount": 7594,
-    "file": "ps2.json"
+    "file": "ps2.json",
+    "complete": true
   },
   {
     "key": "ps3",
@@ -855,7 +920,8 @@
     "generatedAt": "2026-11-08T16:49:20.595Z",
     "variantCount": 4436,
     "titleCount": 2350,
-    "file": "ps3.json"
+    "file": "ps3.json",
+    "complete": true
   },
   {
     "key": "psp",
@@ -868,7 +934,8 @@
     "generatedAt": "2026-11-08T16:49:20.731Z",
     "variantCount": 3366,
     "titleCount": 2286,
-    "file": "psp.json"
+    "file": "psp.json",
+    "complete": true
   },
   {
     "key": "pv1000",
@@ -881,7 +948,8 @@
     "generatedAt": "2026-11-08T16:50:24.543Z",
     "variantCount": 13,
     "titleCount": 13,
-    "file": "pv1000.json"
+    "file": "pv1000.json",
+    "complete": true
   },
   {
     "key": "satellaview",
@@ -894,7 +962,8 @@
     "generatedAt": "2026-11-08T16:49:16.549Z",
     "variantCount": 569,
     "titleCount": 516,
-    "file": "satellaview.json"
+    "file": "satellaview.json",
+    "complete": true
   },
   {
     "key": "saturn",
@@ -907,7 +976,8 @@
     "generatedAt": "2026-11-08T16:49:18.726Z",
     "variantCount": 2057,
     "titleCount": 1632,
-    "file": "saturn.json"
+    "file": "saturn.json",
+    "complete": true
   },
   {
     "key": "scv",
@@ -920,7 +990,8 @@
     "generatedAt": "2026-11-08T16:50:25.835Z",
     "variantCount": 33,
     "titleCount": 30,
-    "file": "scv.json"
+    "file": "scv.json",
+    "complete": true
   },
   {
     "key": "sega32x",
@@ -933,7 +1004,8 @@
     "generatedAt": "2026-11-08T16:49:18.573Z",
     "variantCount": 63,
     "titleCount": 47,
-    "file": "sega32x.json"
+    "file": "sega32x.json",
+    "complete": true
   },
   {
     "key": "sg1000",
@@ -946,7 +1018,8 @@
     "generatedAt": "2026-11-08T16:49:18.322Z",
     "variantCount": 211,
     "titleCount": 124,
-    "file": "sg1000.json"
+    "file": "sg1000.json",
+    "complete": true
   },
   {
     "key": "sms",
@@ -959,7 +1032,8 @@
     "generatedAt": "2026-11-08T16:49:18.369Z",
     "variantCount": 1057,
     "titleCount": 806,
-    "file": "sms.json"
+    "file": "sms.json",
+    "complete": true
   },
   {
     "key": "snes",
@@ -972,7 +1046,8 @@
     "generatedAt": "2026-11-08T16:49:16.479Z",
     "variantCount": 3730,
     "titleCount": 2707,
-    "file": "snes.json"
+    "file": "snes.json",
+    "complete": true
   },
   {
     "key": "studio2",
@@ -985,7 +1060,8 @@
     "generatedAt": "2026-11-08T16:50:14.644Z",
     "variantCount": 18,
     "titleCount": 18,
-    "file": "studio2.json"
+    "file": "studio2.json",
+    "complete": true
   },
   {
     "key": "sufami",
@@ -998,7 +1074,8 @@
     "generatedAt": "2026-11-08T16:49:16.591Z",
     "variantCount": 13,
     "titleCount": 13,
-    "file": "sufami.json"
+    "file": "sufami.json",
+    "complete": true
   },
   {
     "key": "supervision",
@@ -1011,7 +1088,8 @@
     "generatedAt": "2026-11-08T16:50:15.896Z",
     "variantCount": 73,
     "titleCount": 70,
-    "file": "supervision.json"
+    "file": "supervision.json",
+    "complete": true
   },
   {
     "key": "vc4000",
@@ -1024,7 +1102,8 @@
     "generatedAt": "2026-11-08T16:50:13.383Z",
     "variantCount": 56,
     "titleCount": 56,
-    "file": "vc4000.json"
+    "file": "vc4000.json",
+    "complete": true
   },
   {
     "key": "vectrex",
@@ -1037,7 +1116,8 @@
     "generatedAt": "2026-11-08T16:50:08.317Z",
     "variantCount": 45,
     "titleCount": 40,
-    "file": "vectrex.json"
+    "file": "vectrex.json",
+    "complete": true
   },
   {
     "key": "vic20",
@@ -1050,7 +1130,8 @@
     "generatedAt": "2026-11-08T16:49:43.183Z",
     "variantCount": 236,
     "titleCount": 174,
-    "file": "vic20.json"
+    "file": "vic20.json",
+    "complete": true
   },
   {
     "key": "virtualboy",
@@ -1063,7 +1144,8 @@
     "generatedAt": "2026-11-08T16:49:16.747Z",
     "variantCount": 64,
     "titleCount": 51,
-    "file": "virtualboy.json"
+    "file": "virtualboy.json",
+    "complete": true
   },
   {
     "key": "vita",
@@ -1076,7 +1158,8 @@
     "generatedAt": "2026-11-08T16:49:21.939Z",
     "variantCount": 240,
     "titleCount": 228,
-    "file": "vita.json"
+    "file": "vita.json",
+    "complete": true
   },
   {
     "key": "vsmile",
@@ -1089,7 +1172,8 @@
     "generatedAt": "2026-11-08T16:50:22.067Z",
     "variantCount": 456,
     "titleCount": 376,
-    "file": "vsmile.json"
+    "file": "vsmile.json",
+    "complete": true
   },
   {
     "key": "wii",
@@ -1102,7 +1186,8 @@
     "generatedAt": "2026-11-08T16:49:18.273Z",
     "variantCount": 3637,
     "titleCount": 2240,
-    "file": "wii.json"
+    "file": "wii.json",
+    "complete": true
   },
   {
     "key": "wiiu",
@@ -1115,7 +1200,8 @@
     "generatedAt": "2026-11-08T16:49:18.074Z",
     "variantCount": 3366,
     "titleCount": 2547,
-    "file": "wiiu.json"
+    "file": "wiiu.json",
+    "complete": true
   },
   {
     "key": "wonderswan",
@@ -1128,7 +1214,8 @@
     "generatedAt": "2026-11-08T16:50:00.648Z",
     "variantCount": 219,
     "titleCount": 206,
-    "file": "wonderswan.json"
+    "file": "wonderswan.json",
+    "complete": true
   },
   {
     "key": "wonderswancolor",
@@ -1141,7 +1228,8 @@
     "generatedAt": "2026-11-08T16:50:02.000Z",
     "variantCount": 229,
     "titleCount": 212,
-    "file": "wonderswancolor.json"
+    "file": "wonderswancolor.json",
+    "complete": true
   },
   {
     "key": "x1",
@@ -1154,7 +1242,8 @@
     "generatedAt": "2026-11-08T16:49:53.043Z",
     "variantCount": 8,
     "titleCount": 8,
-    "file": "x1.json"
+    "file": "x1.json",
+    "complete": true
   },
   {
     "key": "x68000",
@@ -1167,7 +1256,8 @@
     "generatedAt": "2026-11-08T16:49:54.203Z",
     "variantCount": 1,
     "titleCount": 1,
-    "file": "x68000.json"
+    "file": "x68000.json",
+    "complete": true
   },
   {
     "key": "xbox",
@@ -1180,7 +1270,8 @@
     "generatedAt": "2026-11-08T16:49:23.217Z",
     "variantCount": 2557,
     "titleCount": 1441,
-    "file": "xbox.json"
+    "file": "xbox.json",
+    "complete": true
   },
   {
     "key": "xbox360",
@@ -1193,7 +1284,8 @@
     "generatedAt": "2026-11-08T16:49:24.543Z",
     "variantCount": 3596,
     "titleCount": 2357,
-    "file": "xbox360.json"
+    "file": "xbox360.json",
+    "complete": true
   },
   {
     "key": "zxspectrum3",
@@ -1206,6 +1298,7 @@
     "generatedAt": "2026-11-08T16:49:51.841Z",
     "variantCount": 130,
     "titleCount": 130,
-    "file": "zxspectrum3.json"
+    "file": "zxspectrum3.json",
+    "complete": true
   }
 ]

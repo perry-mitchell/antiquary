@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   Card,
+  Checkbox,
   Flex,
   Heading,
   Spinner,
@@ -15,7 +16,7 @@ import {
   TextField,
 } from '@radix-ui/themes'
 import type { CollectionDto, FieldValue, TagDto, TemplateDetailDto } from '@antiquary/database'
-import { api, type SupersetEntryDto } from '../api'
+import { api, type SupersetEntryDto, type SupersetInfoDto } from '../api'
 import { FieldInput } from '../components/FieldInput'
 import { useToast } from '../components/Toast'
 import { slug } from '../lib/format'
@@ -47,6 +48,7 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
   const [collections, setCollections] = useState<CollectionDto[]>([])
   const [templates, setTemplates] = useState<TemplateDetailDto[]>([])
   const [tags, setTags] = useState<TagDto[]>([])
+  const [supersets, setSupersets] = useState<SupersetInfoDto[]>([])
   const [loading, setLoading] = useState(true)
 
   const [collectionId, setCollectionId] = useState(params.get('collection') ?? '')
@@ -71,6 +73,8 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
   >([])
   const [expandedTitle, setExpandedTitle] = useState<string | null>(null)
   const [selectedEntry, setSelectedEntry] = useState<SupersetEntryDto | null>(null)
+  const [outsideSuperset, setOutsideSuperset] = useState(false)
+  const [originalEntryId, setOriginalEntryId] = useState<string | null>(null)
   const searchDebounce = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   // The template comes from the collection — every item in a collection
@@ -83,17 +87,25 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
   )
   const draftFields: DraftField[] = activeTemplate?.fields ?? []
   const needsCatalogMatch = Boolean(activeTemplate?.superset)
+  // Incomplete catalogs (PC, DOS) are curated, not exhaustive — items may
+  // sit outside them when explicitly acknowledged.
+  const catalogComplete = useMemo(
+    () => supersets.find((s) => s.key === activeTemplate?.superset)?.complete ?? true,
+    [supersets, activeTemplate?.superset],
+  )
 
   useEffect(() => {
     const load = async () => {
-      const [cols, tpls, tagList] = await Promise.all([
+      const [cols, tpls, tagList, supersetList] = await Promise.all([
         api.collections.list(),
         api.templates.list(),
         api.tags.list(),
+        api.supersets.list(),
       ])
       setCollections(cols)
       setTemplates(tpls)
       setTags(tagList)
+      setSupersets(supersetList)
 
       if (mode === 'edit') {
         const item = await api.items.get(id)
@@ -107,6 +119,7 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
         for (const field of item.fields) values[field.id] = field.value
         setFieldValues(values)
         if (item.superset && item.supersetEntry) {
+          setOriginalEntryId(item.supersetEntry)
           try {
             setSelectedEntry(await api.supersets.entry(item.superset, item.supersetEntry))
           } catch {
@@ -128,6 +141,7 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
     setSupersetResults([])
     setExpandedTitle(null)
     setSelectedEntry(null)
+    setOutsideSuperset(false)
   }, [activeTemplate?.superset, activeTemplate?.id])
 
   useEffect(() => {
@@ -205,9 +219,14 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
       value: fieldValues[field.id] ?? null,
     }))
     try {
+      const entryChanged = mode === 'create' || (selectedEntry?.id ?? null) !== originalEntryId
       const body = {
         collectionId,
-        supersetEntry: selectedEntry?.id ?? null,
+        // Only send the match on edit when it actually changed — clearing it
+        // is only valid together with outsideSuperset on incomplete catalogs.
+        supersetEntry: entryChanged ? (selectedEntry?.id ?? null) : undefined,
+        outsideSuperset:
+          needsCatalogMatch && !selectedEntry && !catalogComplete ? outsideSuperset : undefined,
         name,
         notes: notes.trim() || null,
         quantity,
@@ -240,7 +259,11 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
     }
   }
 
-  const canSave = !saving && collections.length > 0 && !(needsCatalogMatch && !selectedEntry)
+  const matchRequired = needsCatalogMatch && !selectedEntry && catalogComplete
+  const canSave =
+    !saving &&
+    collections.length > 0 &&
+    !(needsCatalogMatch && !selectedEntry && !(outsideSuperset && !catalogComplete))
 
   return (
     <Flex direction="column" gap="4" maxWidth="760px" mx="auto" as="div">
@@ -257,9 +280,13 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                     <Badge color="green" variant="soft" data-testid="catalog-match">
                       Matched
                     </Badge>
-                  ) : (
+                  ) : catalogComplete ? (
                     <Badge color="amber" variant="soft">
                       Required before saving
+                    </Badge>
+                  ) : (
+                    <Badge color="amber" variant="soft" data-testid="catalog-incomplete-badge">
+                      Not exhaustive — match or mark outside
                     </Badge>
                   )}
                 </Flex>
@@ -413,6 +440,30 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                     ) : null}
                   </>
                 )}
+                {!selectedEntry && !catalogComplete ? (
+                  <Flex
+                    gap="2"
+                    align="center"
+                    p="2"
+                    style={{
+                      background: 'var(--amber-a3)',
+                      borderRadius: 'var(--radius-2)',
+                    }}
+                  >
+                    <Checkbox
+                      checked={outsideSuperset}
+                      onCheckedChange={(v) => setOutsideSuperset(v === true)}
+                      data-testid="outside-superset-checkbox"
+                    />
+                    <Text size="2" weight={outsideSuperset ? 'medium' : 'regular'}>
+                      Outside of superset
+                    </Text>
+                    <Text size="1" color="gray">
+                      This catalog is curated, not exhaustive — check this if the item exists
+                      outside it.
+                    </Text>
+                  </Flex>
+                ) : null}
               </Flex>
             </Card>
           ) : null}
@@ -677,9 +728,13 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
           </Card>
 
           <Flex gap="3" justify="end" align="center">
-            {needsCatalogMatch && !selectedEntry ? (
+            {matchRequired ? (
               <Text size="1" color="gray">
                 Pick a catalog match above to enable saving.
+              </Text>
+            ) : needsCatalogMatch && !selectedEntry ? (
+              <Text size="1" color="gray">
+                Match the catalog or check “Outside of superset” to enable saving.
               </Text>
             ) : null}
             <Button type="button" variant="soft" color="gray" onClick={() => navigate(-1)}>

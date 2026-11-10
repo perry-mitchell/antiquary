@@ -502,6 +502,58 @@ describe('mcp endpoint', () => {
     expect(JSON.parse(matchedResult.content[0]!.text).superset).toBe('snes')
   })
 
+  it('creates items outside incomplete catalogs via MCP with the explicit flag', async () => {
+    const tpl = await api.post('/api/templates').send({
+      name: 'MCP pc template',
+      superset: 'pc',
+      fields: [],
+    })
+    const shelf = await api
+      .post('/api/collections')
+      .send({ name: 'MCP pc shelf', templateId: tpl.body.id })
+
+    const missing = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 16,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: { collectionId: shelf.body.id, name: 'Obscure Shareware Game' },
+      },
+    })
+    const missingResult = unwrap(missing).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(missingResult.isError).toBe(true)
+    expect(missingResult.content[0]!.text).toContain('not exhaustive')
+
+    const outside = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 17,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: {
+          collectionId: shelf.body.id,
+          name: 'Obscure Shareware Game',
+          outsideSuperset: true,
+        },
+      },
+    })
+    const outsideResult = unwrap(outside).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(outsideResult.isError).toBeFalsy()
+    const created = JSON.parse(outsideResult.content[0]!.text) as {
+      superset: string
+      supersetEntry: string | null
+    }
+    expect(created.superset).toBe('pc')
+    expect(created.supersetEntry).toBeNull()
+  })
+
   it('revoking a key immediately blocks access', async () => {
     const list = await api.get('/api/settings/api-keys')
     const target = list.body.find((k: { name: string }) => k.name === 'mcp readonly')
@@ -582,6 +634,82 @@ describe('supersets', () => {
       .post('/api/items')
       .send({ collectionId: plain.body.id, name: 'X', supersetEntry: '2D206BF7' })
     expect(res.status).toBe(400)
+  })
+
+  it('marks supersets complete or not, and gates items accordingly', async () => {
+    const list = await api.get('/api/supersets')
+    const snes = list.body.find((s: { key: string }) => s.key === 'snes')
+    const pc = list.body.find((s: { key: string }) => s.key === 'pc')
+    expect(snes.complete).toBe(true)
+    expect(pc.complete).toBe(false)
+
+    // Complete catalogs refuse outsideSuperset outright
+    const snesTpl = await api
+      .post('/api/templates')
+      .send({ name: 'SNES strict', superset: 'snes', fields: [] })
+    const snesShelf = await api
+      .post('/api/collections')
+      .send({ name: 'SNES strict shelf', templateId: snesTpl.body.id })
+    const sneaky = await api.post('/api/items').send({
+      collectionId: snesShelf.body.id,
+      name: 'X',
+      outsideSuperset: true,
+    })
+    expect(sneaky.status).toBe(400)
+    expect(sneaky.body.error).toContain('exhaustive')
+
+    // Incomplete catalogs require an explicit outsideSuperset flag
+    const pcTpl = await api
+      .post('/api/templates')
+      .send({ name: 'PC games', superset: 'pc', fields: [] })
+    const pcShelf = await api
+      .post('/api/collections')
+      .send({ name: 'PC shelf', templateId: pcTpl.body.id })
+
+    const missingFlag = await api.post('/api/items').send({
+      collectionId: pcShelf.body.id,
+      name: 'Totally Unknown Indie',
+    })
+    expect(missingFlag.status).toBe(400)
+    expect(missingFlag.body.error).toContain('not exhaustive')
+
+    const both = await api.post('/api/items').send({
+      collectionId: pcShelf.body.id,
+      name: 'Confused',
+      supersetEntry: 'Q42',
+      outsideSuperset: true,
+    })
+    expect(both.status).toBe(400)
+
+    const outside = await api.post('/api/items').send({
+      collectionId: pcShelf.body.id,
+      name: 'Totally Unknown Indie',
+      outsideSuperset: true,
+    })
+    expect(outside.status).toBe(201)
+    expect(outside.body.superset).toBe('pc')
+    expect(outside.body.supersetEntry).toBeNull()
+
+    // A matched PC item works too
+    const matched = await api.post('/api/items').send({
+      collectionId: pcShelf.body.id,
+      name: 'The Ultimate Doom',
+      supersetEntry: 'Q1319860',
+    })
+    expect(matched.status).toBe(201)
+    expect(matched.body.supersetLabel).toBe('The Ultimate Doom')
+
+    // Moving a matched item outside requires the flag; unmatching outright does not fly
+    const unmatch = await api.patch(`/api/items/${matched.body.id}`).send({
+      supersetEntry: null,
+    })
+    expect(unmatch.status).toBe(400)
+    const moveOut = await api.patch(`/api/items/${matched.body.id}`).send({
+      supersetEntry: null,
+      outsideSuperset: true,
+    })
+    expect(moveOut.status).toBe(200)
+    expect(moveOut.body.supersetEntry).toBeNull()
   })
 
   it('reports catalog completion for superset collections', async () => {

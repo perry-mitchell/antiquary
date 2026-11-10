@@ -368,6 +368,10 @@ export function ItemPage() {
               <Badge color="green" variant="soft" data-testid="superset-badge">
                 {item.supersetLabel}
               </Badge>
+            ) : item.superset ? (
+              <Badge color="gray" variant="soft" data-testid="outside-superset-badge">
+                Outside of superset
+              </Badge>
             ) : null}
             {item.tags.map((tag) => (
               <Badge key={tag.id} color="indigo" variant="soft">

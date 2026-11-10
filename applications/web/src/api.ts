@@ -71,6 +71,8 @@ export interface SupersetInfoDto {
   license: string
   attribution: string
   datVersion: string | null
+  /** False for curated (not exhaustive) catalogs — items may be marked outside them. */
+  complete: boolean
   generatedAt: string
   variantCount: number
   titleCount: number
@@ -159,6 +161,7 @@ export const api = {
     create: (body: {
       collectionId: string
       supersetEntry?: string | null
+      outsideSuperset?: boolean
       name: string
       notes?: string | null
       quantity?: number
@@ -177,6 +180,7 @@ export const api = {
         quantity?: number
         isFavorite?: boolean
         supersetEntry?: string | null
+        outsideSuperset?: boolean
         fieldValues?: {
           fieldId: string
           value: string | number | boolean | { amount: number; currency: string } | null
