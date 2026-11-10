@@ -22,6 +22,10 @@ export interface AppDeps {
 export function createApp({ db, uploadDir, supersets, webDist }: AppDeps): Express {
   const app = express()
   app.disable('x-powered-by')
+
+  // MCP first: image uploads arrive as base64 inside JSON, so /mcp needs a
+  // bigger body limit than the 1 MB default the rest of the API uses.
+  app.use('/mcp', express.json({ limit: '16mb' }), mcpRoutes(db, supersets, uploadDir))
   app.use(express.json({ limit: '1mb' }))
 
   app.get('/api/health', (_req, res) => {
@@ -37,7 +41,6 @@ export function createApp({ db, uploadDir, supersets, webDist }: AppDeps): Expre
   app.use('/api/stats', statsRoutes(db))
   app.use('/api/supersets', supersetRoutes(supersets))
   app.use('/api/settings', settingsRoutes(db))
-  app.use('/mcp', mcpRoutes(db, supersets))
 
   app.use('/api', (_req, res) => {
     res.status(404).json({ error: 'Not found' })
