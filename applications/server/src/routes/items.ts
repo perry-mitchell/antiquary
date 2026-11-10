@@ -5,7 +5,7 @@ import type { Database, ItemDetailDto } from '@antiquary/database'
 import { HttpError } from '../errors.js'
 import { createItemSchema, listItemsQuerySchema, updateItemSchema } from '../schemas.js'
 import { createUploadMiddleware } from '../upload.js'
-import type { SupersetRegistry } from '../supersets.js'
+import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js'
 
 /** Fills in supersetLabel for items matched against a catalog entry. */
 async function enrich(item: ItemDetailDto, supersets: SupersetRegistry): Promise<ItemDetailDto> {
@@ -46,6 +46,11 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
         }
         const entry = await supersets.getEntry(template.superset, input.supersetEntry)
         if (!entry) throw new HttpError(400, 'Unknown catalog entry')
+        input.fieldValues = prefillCatalogFields(
+          template.fields,
+          entry,
+          input.fieldValues,
+        ) as typeof input.fieldValues
       } else if (complete) {
         throw new HttpError(
           400,
@@ -124,6 +129,11 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
         }
         const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
         if (!entry) throw new HttpError(400, 'Unknown catalog entry')
+        patch.fieldValues = prefillCatalogFields(
+          template.fields,
+          entry,
+          patch.fieldValues,
+        ) as typeof patch.fieldValues
       } else if (patch.supersetEntry === null && template?.superset && !patch.outsideSuperset) {
         throw new HttpError(
           400,
