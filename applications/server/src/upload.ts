@@ -38,9 +38,13 @@ export function stagingDir(uploadDir: string): string {
   return join(uploadDir, 'staging')
 }
 
-/** Staged filenames are server-generated uuids — never trust caller paths. */
-const STAGED_FILENAME =
+/** Staged/uploaded filenames are server-generated uuids — never trust caller paths. */
+const UPLOAD_FILENAME =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.[a-z0-9]{1,8}$/
+
+export function isUploadFilename(filename: string): boolean {
+  return UPLOAD_FILENAME.test(filename)
+}
 
 /** Writes an image buffer to the staging area and returns its filename. */
 export async function saveStagedImage(
@@ -59,7 +63,7 @@ export async function saveStagedImage(
 
 /** Moves a staged file into the main upload dir. Returns false when missing/invalid. */
 export async function promoteStagedImage(uploadDir: string, filename: string): Promise<boolean> {
-  if (!STAGED_FILENAME.test(filename)) return false
+  if (!isUploadFilename(filename)) return false
   try {
     await rename(join(stagingDir(uploadDir), filename), join(uploadDir, filename))
     return true
@@ -88,6 +92,47 @@ export async function sweepStaging(uploadDir: string, ttlMs = STAGING_TTL_MS): P
       /* raced away — ignore */
     }
   }
+}
+
+/**
+ * Deletes server-generated upload files (uuid names) that no image row
+ * references and that are older than the TTL — abandoned uploads from
+ * REST/MCP flows that never completed. Staged files use the shorter staging
+ * TTL, the main upload dir the longer one.
+ */
+export async function sweepOrphanedUploads(
+  uploadDir: string,
+  referencedFilenames: string[],
+  opts: { mainTtlMs?: number } = {},
+): Promise<number> {
+  const mainTtl = opts.mainTtlMs ?? 7 * 24 * 60 * 60 * 1000
+  const referenced = new Set(referencedFilenames)
+  const now = Date.now()
+  let removed = 0
+  for (const [dir, ttl] of [
+    [uploadDir, mainTtl],
+    [stagingDir(uploadDir), STAGING_TTL_MS],
+  ] as const) {
+    let entries: string[]
+    try {
+      entries = await readdir(dir)
+    } catch {
+      continue
+    }
+    for (const name of entries) {
+      if (!isUploadFilename(name) || referenced.has(name)) continue
+      try {
+        const info = await stat(join(dir, name))
+        if (now - info.mtimeMs > ttl) {
+          await rm(join(dir, name), { force: true })
+          removed++
+        }
+      } catch {
+        /* raced away — ignore */
+      }
+    }
+  }
+  return removed
 }
 
 function sanitizeExtension(originalName: string): string {

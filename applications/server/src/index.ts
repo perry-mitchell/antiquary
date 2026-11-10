@@ -3,6 +3,7 @@ import { Database } from '@antiquary/database'
 import { createApp } from './app.js'
 import { config } from './config.js'
 import { SupersetRegistry } from './supersets.js'
+import { sweepOrphanedUploads } from './upload.js'
 
 async function main() {
   mkdirSync(config.uploadDir, { recursive: true })
@@ -18,6 +19,20 @@ async function main() {
   const server = app.listen(config.port, () => {
     console.log(`[antiquary] listening on http://localhost:${config.port}`)
   })
+
+  // Delete uploads that were never attached to an item (abandoned REST/MCP
+  // uploads) — on boot and then daily.
+  const sweepOrphans = async () => {
+    try {
+      const removed = await sweepOrphanedUploads(config.uploadDir, await db.listImageFilenames())
+      if (removed > 0) console.log(`[antiquary] removed ${removed} orphaned upload(s)`)
+    } catch (error) {
+      console.warn('[antiquary] orphan sweep failed:', String(error))
+    }
+  }
+  void sweepOrphans()
+  const sweeper = setInterval(sweepOrphans, 24 * 60 * 60 * 1000)
+  sweeper.unref()
 
   const shutdown = () => {
     server.close(async () => {

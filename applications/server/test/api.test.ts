@@ -1,4 +1,5 @@
-import { mkdtemp } from 'node:fs/promises'
+import { mkdtemp, utimes, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import request from 'supertest'
@@ -6,6 +7,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { Database, ensureDatabase, resetDatabase } from '@antiquary/database'
 import { createApp } from '../src/app.js'
 import { SupersetRegistry } from '../src/supersets.js'
+import { sweepOrphanedUploads } from '../src/upload.js'
 
 const url =
   process.env.TEST_DATABASE_URL ?? 'postgres://antiquary:antiquary@localhost:5432/antiquary_test'
@@ -305,6 +307,30 @@ describe('settings: api keys', () => {
   })
 })
 
+describe('upload sweeper', () => {
+  it('removes unreferenced uuid files past the TTL, keeps referenced and fresh ones', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'sweeper-'))
+    const old = Date.now() / 1000 - 30 * 24 * 60 * 60
+    const referenced = '00000000-0000-0000-0000-000000000001.png'
+    const orphaned = '00000000-0000-0000-0000-000000000002.png'
+    const fresh = '00000000-0000-0000-0000-000000000003.png'
+    const foreign = 'keep-me.txt'
+    for (const name of [referenced, orphaned, fresh, foreign]) {
+      await writeFile(join(dir, name), 'x')
+      await utimes(join(dir, name), old, old)
+    }
+    // fresh orphan should survive
+    await utimes(join(dir, fresh), Date.now() / 1000, Date.now() / 1000)
+
+    const removed = await sweepOrphanedUploads(dir, [referenced])
+    expect(removed).toBe(1)
+    expect(existsSync(join(dir, orphaned))).toBe(false)
+    expect(existsSync(join(dir, referenced))).toBe(true)
+    expect(existsSync(join(dir, fresh))).toBe(true)
+    expect(existsSync(join(dir, foreign))).toBe(true)
+  })
+})
+
 describe('mcp endpoint', () => {
   let fullKey: string
   let readOnlyKey: string
@@ -500,7 +526,13 @@ describe('mcp endpoint', () => {
       content: { text: string }[]
     }
     expect(matchedResult.isError).toBeFalsy()
-    expect(JSON.parse(matchedResult.content[0]!.text).superset).toBe('snes')
+    const marioItem = JSON.parse(matchedResult.content[0]!.text) as {
+      superset: string
+      fields: { name: string; value: unknown }[]
+    }
+    expect(marioItem.superset).toBe('snes')
+    const publisher = marioItem.fields.find((f) => f.name === 'Publisher')
+    expect(publisher?.value).toBe('Square')
   })
 
   it('creates items outside incomplete catalogs via MCP with the explicit flag', async () => {
@@ -556,6 +588,67 @@ describe('mcp endpoint', () => {
   })
 
   it('uploads, attaches and downloads images over MCP', async () => {
+    // 0. instructions tool points agents at the HTTP upload endpoint
+    const instructions = await rpc(readOnlyKey, {
+      jsonrpc: '2.0',
+      id: 18,
+      method: 'tools/call',
+      params: { name: 'get_image_upload_instructions', arguments: {} },
+    })
+    const instructionsResult = unwrap(instructions).result as { content: { text: string }[] }
+    const guide = JSON.parse(instructionsResult.content[0]!.text) as {
+      upload: { path: string; fileField: string }
+    }
+    expect(guide.upload.path).toBe('/api/images')
+    expect(guide.upload.fileField).toBe('image')
+
+    // 0b. HTTP multipart upload → attach on create_item
+    const uploaded = await api.post(guide.upload.path).attach(guide.upload.fileField, PNG_1x1, {
+      filename: 'http-cover.png',
+      contentType: 'image/png',
+    })
+    expect(uploaded.status).toBe(201)
+    const httpFilename = uploaded.body.filename as string
+
+    const httpAttached = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 19,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: {
+          collectionId,
+          name: 'MCP http photo item',
+          images: [{ filename: httpFilename, caption: 'http cover' }],
+        },
+      },
+    })
+    const httpAttachedResult = unwrap(httpAttached).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(httpAttachedResult.isError).toBeFalsy()
+    const httpItem = JSON.parse(httpAttachedResult.content[0]!.text) as {
+      id: string
+      images: { filename: string; caption: string | null }[]
+    }
+    expect(httpItem.images[0]!.filename).toBe(httpFilename)
+    expect(httpItem.images[0]!.caption).toBe('http cover')
+
+    // re-attaching an already-attached file is rejected
+    const reuse = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 20,
+      method: 'tools/call',
+      params: {
+        name: 'update_item',
+        arguments: { id: httpItem.id, images: [{ filename: httpFilename }] },
+      },
+    })
+    const reuseResult = unwrap(reuse).result as { isError?: boolean; content: { text: string }[] }
+    expect(reuseResult.isError).toBe(true)
+    expect(reuseResult.content[0]!.text).toContain('already attached')
+
     // 1. upload_image → staged filename
     const upload = await rpc(fullKey, {
       jsonrpc: '2.0',
@@ -647,7 +740,7 @@ describe('mcp endpoint', () => {
     })
     const bogusResult = unwrap(bogus).result as { isError?: boolean; content: { text: string }[] }
     expect(bogusResult.isError).toBe(true)
-    expect(bogusResult.content[0]!.text).toContain('staged')
+    expect(bogusResult.content[0]!.text).toContain('Unknown image')
   })
 
   it('revoking a key immediately blocks access', async () => {
@@ -719,6 +812,38 @@ describe('supersets', () => {
     expect(good.status).toBe(201)
     expect(good.body.superset).toBe('snes')
     expect(good.body.supersetLabel).toBe('Chrono Trigger (USA)')
+    expect(good.body.fields.find((f) => f.name === 'Region')?.value).toBe('USA')
+    expect(good.body.fields.find((f) => f.name === 'Serial')?.value).toBe('SNS-ACTE-USA')
+    expect(good.body.fields.find((f) => f.name === 'Year')?.value).toBe(1995)
+  })
+
+  it('prefills catalog details server-side, caller values win', async () => {
+    const tpl = await api
+      .post('/api/templates')
+      .send({
+        name: 'Prefill template',
+        superset: 'snes',
+        fields: [{ name: 'Notes', type: 'text' }],
+      })
+    const shelf = await api
+      .post('/api/collections')
+      .send({ name: 'Prefill shelf', templateId: tpl.body.id })
+    const genreField = tpl.body.fields.find((f: { name: string }) => f.name === 'Genre')
+
+    const created = await api.post('/api/items').send({
+      collectionId: shelf.body.id,
+      name: 'MARIO',
+      supersetEntry: '2D206BF7',
+      fieldValues: [{ fieldId: genreField.id, value: 'Time travel' }],
+    })
+    expect(created.status).toBe(201)
+    const byName = new Map(
+      created.body.fields.map((f: { name: string; value: unknown }) => [f.name, f.value]),
+    )
+    expect(byName.get('Publisher')).toBe('Square')
+    expect(byName.get('Developer')).toBe('Square')
+    expect(byName.get('Serial')).toBe('SNS-ACTE-USA')
+    expect(byName.get('Genre')).toBe('Time travel')
   })
 
   it('rejects catalog entries on plain templates', async () => {

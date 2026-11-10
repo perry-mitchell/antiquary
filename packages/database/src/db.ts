@@ -1183,6 +1183,22 @@ export class Database {
     return row ? toImageDto(row) : null
   }
 
+  /** Finds an image row by filename — guards against attaching a file twice. */
+  async findImageByFilename(filename: string): Promise<{ id: string; itemId: string } | null> {
+    const row = await this.db
+      .selectFrom('images')
+      .where('filename', '=', filename)
+      .select(['id', 'itemId'])
+      .executeTakeFirst()
+    return row ?? null
+  }
+
+  /** Every filename referenced by an image row — used by the orphan sweeper. */
+  async listImageFilenames(): Promise<string[]> {
+    const rows = await this.db.selectFrom('images').select('filename').execute()
+    return rows.map((r) => r.filename)
+  }
+
   /** Deletes an image row and promotes the next image to cover if needed. */
   async deleteImage(id: string): Promise<{ itemId: string; filename: string } | null> {
     return this.db.transaction().execute(async (tx) => {
