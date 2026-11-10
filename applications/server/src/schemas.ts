@@ -47,8 +47,6 @@ const fieldValueSchema = z.union([
 
 export const createItemSchema = z.object({
   collectionId: uuid,
-  templateId: uuid.nullable().optional(),
-  superset: z.string().max(50).nullable().optional(),
   supersetEntry: z.string().max(100).nullable().optional(),
   name: z.string().trim().min(1, 'Name is required').max(300),
   notes: nullableString.optional(),
@@ -61,7 +59,7 @@ export const createItemSchema = z.object({
   tagIds: z.array(uuid).max(100).optional(),
 })
 
-export const updateItemSchema = createItemSchema.partial()
+export const updateItemSchema = createItemSchema.omit({ collectionId: true }).partial()
 
 export const listItemsQuerySchema = z.object({
   collectionId: uuid.optional(),

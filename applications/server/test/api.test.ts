@@ -101,26 +101,31 @@ describe('templates', () => {
     const res = await api.get('/api/templates')
     expect(res.body[0].name).toBe('Album')
   })
+
+  it('binds the template to the collection', async () => {
+    const res = await api.patch(`/api/collections/${collectionId}`).send({ templateId })
+    expect(res.status).toBe(200)
+    expect(res.body.templateId).toBe(templateId)
+  })
 })
 
 describe('items', () => {
   it('creates an item', async () => {
     const res = await api.post('/api/items').send({
       collectionId,
-      templateId,
       name: 'Random Access Memories',
       fieldValues: [{ fieldId: authorFieldId, value: 'Daft Punk' }],
       quantity: 1,
     })
     expect(res.status).toBe(201)
     itemId = res.body.id
+    expect(res.body.templateName).toBe('Album')
     expect(res.body.fields.find((f) => f.name === 'Artist')?.value).toBe('Daft Punk')
   })
 
   it('rejects invalid field values', async () => {
     const res = await api.post('/api/items').send({
       collectionId,
-      templateId,
       name: 'Nope',
       fieldValues: [{ fieldId: authorFieldId, value: 123 }],
     })
@@ -132,7 +137,7 @@ describe('items', () => {
       collectionId: '00000000-0000-0000-0000-000000000000',
       name: 'X',
     })
-    expect(res.status).toBe(400)
+    expect(res.status).toBe(404)
   })
 
   it('searches items', async () => {
@@ -226,7 +231,11 @@ describe('history and trash', () => {
   })
 
   it('trashes + restores a collection with items', async () => {
-    const item = await api.post('/api/items').send({ collectionId, name: 'Discovery' })
+    const item = await api.post('/api/items').send({
+      collectionId,
+      name: 'Discovery',
+      fieldValues: [{ fieldId: authorFieldId, value: 'Daft Punk' }],
+    })
     const del = await api.delete(`/api/collections/${collectionId}`)
     expect(del.body.trashedItems).toBe(1)
 
@@ -446,6 +455,53 @@ describe('mcp endpoint', () => {
     expect(result.content[0]!.text).toContain('not found')
   })
 
+  it('requires a catalog match when creating items in a superset collection', async () => {
+    const tpl = await api.post('/api/templates').send({
+      name: 'MCP snes template',
+      superset: 'snes',
+      fields: [],
+    })
+    const shelf = await api
+      .post('/api/collections')
+      .send({ name: 'MCP snes shelf', templateId: tpl.body.id })
+
+    const missing = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 9,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: { collectionId: shelf.body.id, name: 'Mario Golf (GOLF)' },
+      },
+    })
+    const missingResult = unwrap(missing).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(missingResult.isError).toBe(true)
+    expect(missingResult.content[0]!.text).toContain('catalog')
+
+    const matched = await rpc(fullKey, {
+      jsonrpc: '2.0',
+      id: 10,
+      method: 'tools/call',
+      params: {
+        name: 'create_item',
+        arguments: {
+          collectionId: shelf.body.id,
+          name: 'Mario Golf',
+          supersetEntry: '2D206BF7',
+        },
+      },
+    })
+    const matchedResult = unwrap(matched).result as {
+      isError?: boolean
+      content: { text: string }[]
+    }
+    expect(matchedResult.isError).toBeFalsy()
+    expect(JSON.parse(matchedResult.content[0]!.text).superset).toBe('snes')
+  })
+
   it('revoking a key immediately blocks access', async () => {
     const list = await api.get('/api/settings/api-keys')
     const target = list.body.find((k: { name: string }) => k.name === 'mcp readonly')
@@ -488,27 +544,27 @@ describe('supersets', () => {
     expect((await api.get('/api/supersets/nope/search?q=x')).status).toBe(404)
   })
 
-  it('requires a catalog match when the template has a superset', async () => {
+  it('requires a catalog match when the collection template has a superset', async () => {
     const tpl = await api.post('/api/templates').send({
       name: 'SNES template',
       superset: 'snes',
       fields: [{ name: 'Condition', type: 'text' }],
     })
+    const shelf = await api
+      .post('/api/collections')
+      .send({ name: 'SNES shelf', templateId: tpl.body.id })
 
-    const noMatch = await api
-      .post('/api/items')
-      .send({ collectionId, templateId: tpl.body.id, name: 'X' })
+    const noMatch = await api.post('/api/items').send({ collectionId: shelf.body.id, name: 'X' })
     expect(noMatch.status).toBe(400)
     expect(noMatch.body.error).toContain('catalog')
 
     const unknownEntry = await api
       .post('/api/items')
-      .send({ collectionId, templateId: tpl.body.id, name: 'X', supersetEntry: 'DEADBEEF' })
+      .send({ collectionId: shelf.body.id, name: 'X', supersetEntry: 'DEADBEEF' })
     expect(unknownEntry.status).toBe(400)
 
     const good = await api.post('/api/items').send({
-      collectionId,
-      templateId: tpl.body.id,
+      collectionId: shelf.body.id,
       name: 'Chrono Trigger',
       supersetEntry: '2D206BF7',
     })
@@ -519,9 +575,12 @@ describe('supersets', () => {
 
   it('rejects catalog entries on plain templates', async () => {
     const tpl = await api.post('/api/templates').send({ name: 'Plain template no superset' })
+    const plain = await api
+      .post('/api/collections')
+      .send({ name: 'Plain shelf', templateId: tpl.body.id })
     const res = await api
       .post('/api/items')
-      .send({ collectionId, templateId: tpl.body.id, name: 'X', supersetEntry: '2D206BF7' })
+      .send({ collectionId: plain.body.id, name: 'X', supersetEntry: '2D206BF7' })
     expect(res.status).toBe(400)
   })
 
@@ -537,13 +596,11 @@ describe('supersets', () => {
     // Both variants of Chrono Trigger — counts as one title owned.
     await api.post('/api/items').send({
       collectionId: shelf.body.id,
-      templateId: tpl.body.id,
       name: 'CT',
       supersetEntry: '2D206BF7',
     })
     await api.post('/api/items').send({
       collectionId: shelf.body.id,
-      templateId: tpl.body.id,
       name: 'CT JP',
       supersetEntry: '4D014C20',
     })

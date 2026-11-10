@@ -528,9 +528,7 @@ export function ItemPage() {
       <Box>
         <Button
           variant="soft"
-          onClick={() =>
-            navigate(`/items/new?collection=${item.collectionId}&template=${item.templateId ?? ''}`)
-          }
+          onClick={() => navigate(`/items/new?collection=${item.collectionId}`)}
           data-testid="add-similar-button"
         >
           <PlusIcon /> Add another item to {item.collectionName}

@@ -47,13 +47,20 @@ export function CollectionDialog({
   collection,
   trigger,
   onSaved,
+  open: openProp,
+  onOpenChange,
 }: {
   collection?: CollectionDto
-  trigger: ReactNode
+  /** Optional trigger — omit when the dialog is controlled via open/onOpenChange. */
+  trigger?: ReactNode
   onSaved?: (collection: CollectionDto) => void
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }) {
   const toast = useToast()
-  const [open, setOpen] = useState(false)
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false)
+  const open = openProp ?? uncontrolledOpen
+  const setOpen = onOpenChange ?? setUncontrolledOpen
   const [name, setName] = useState(collection?.name ?? '')
   const [description, setDescription] = useState(collection?.description ?? '')
   const [emoji, setEmoji] = useState(collection?.emoji ?? '📚')
@@ -114,7 +121,7 @@ export function CollectionDialog({
         if (next) reset()
       }}
     >
-      <AlertDialog.Trigger>{trigger}</AlertDialog.Trigger>
+      {trigger ? <AlertDialog.Trigger>{trigger}</AlertDialog.Trigger> : null}
       <AlertDialog.Content style={{ maxWidth: 480 }} data-testid="collection-form">
         <AlertDialog.Title>{collection ? 'Edit collection' : 'New collection'}</AlertDialog.Title>
         <AlertDialog.Description size="2" color="gray">
@@ -190,26 +197,35 @@ export function CollectionDialog({
           </Box>
           <Box mt="3">
             <Text as="div" size="1" weight="medium" mb="1">
-              Default template <Text color="gray">(optional)</Text>
+              Template <Text color="gray">(applies to every item)</Text>
             </Text>
             {templates.length > 0 ? (
-              <select
-                data-testid="collection-template-select"
-                value={templateId}
-                onChange={(e) => setTemplateId(e.target.value)}
-                style={{ width: '100%', height: 'var(--TextField-height-2)' }}
-              >
-                <option value="">Ask me for each item</option>
-                {templates.map((t) => (
-                  <option key={t.id} value={t.id}>
-                    {t.name}
-                    {t.superset ? ' ⋆ catalog' : ''} ({t.fields.length} fields)
-                  </option>
-                ))}
-              </select>
+              <>
+                <select
+                  data-testid="collection-template-select"
+                  value={templateId}
+                  onChange={(e) => setTemplateId(e.target.value)}
+                  style={{ width: '100%', height: 'var(--TextField-height-2)' }}
+                >
+                  <option value="">No template — items are free-form</option>
+                  {templates.map((t) => (
+                    <option key={t.id} value={t.id}>
+                      {t.name}
+                      {t.superset ? ' ⋆ catalog' : ''} ({t.fields.length} fields)
+                    </option>
+                  ))}
+                </select>
+                {collection && collection.itemCount > 0 ? (
+                  <Text as="div" size="1" color="gray" mt="1">
+                    Changing the template updates all {collection.itemCount} item
+                    {collection.itemCount === 1 ? '' : 's'} — values for fields that are not in the
+                    new template are dropped.
+                  </Text>
+                ) : null}
+              </>
             ) : (
               <Text size="1" color="gray">
-                No templates yet — create one on the Templates page to prefill item fields.
+                No templates yet — create one on the Templates page to give items custom fields.
               </Text>
             )}
           </Box>
@@ -249,19 +265,26 @@ export function ConfirmDialog({
   onConfirm,
   danger = true,
   testId,
+  open: openProp,
+  onOpenChange,
 }: {
-  trigger: ReactNode
+  /** Optional trigger — omit when the dialog is controlled via open/onOpenChange. */
+  trigger?: ReactNode
   title: string
   description: string
   actionLabel: string
   onConfirm: () => Promise<void> | void
   danger?: boolean
   testId?: string
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }) {
   const [busy, setBusy] = useState(false)
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false)
+  const open = openProp ?? uncontrolledOpen
   return (
-    <AlertDialog.Root>
-      <AlertDialog.Trigger>{trigger}</AlertDialog.Trigger>
+    <AlertDialog.Root open={open} onOpenChange={onOpenChange ?? setUncontrolledOpen}>
+      {trigger ? <AlertDialog.Trigger>{trigger}</AlertDialog.Trigger> : null}
       <AlertDialog.Content style={{ maxWidth: 420 }}>
         <AlertDialog.Title>{title}</AlertDialog.Title>
         <AlertDialog.Description size="2">{description}</AlertDialog.Description>

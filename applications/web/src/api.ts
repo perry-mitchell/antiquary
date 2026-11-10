@@ -158,8 +158,6 @@ export const api = {
     get: (id: string) => request<ItemDetailDto>(`/api/items/${id}`),
     create: (body: {
       collectionId: string
-      templateId?: string | null
-      superset?: string | null
       supersetEntry?: string | null
       name: string
       notes?: string | null
@@ -178,8 +176,6 @@ export const api = {
         notes?: string | null
         quantity?: number
         isFavorite?: boolean
-        collectionId?: string
-        templateId?: string | null
         supersetEntry?: string | null
         fieldValues?: {
           fieldId: string
