@@ -1,7 +1,7 @@
 [
   {
     "key": "3do",
-    "name": "3DO",
+    "name": "Panasonic 3DO",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -15,7 +15,7 @@
   },
   {
     "key": "acan",
-    "name": "Super Acan",
+    "name": "Funtech Super Acan",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -29,7 +29,7 @@
   },
   {
     "key": "adventurevision",
-    "name": "Adventure Vision",
+    "name": "Entex Adventure Vision",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -43,7 +43,7 @@
   },
   {
     "key": "amiga",
-    "name": "Amiga",
+    "name": "Commodore Amiga",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -57,7 +57,7 @@
   },
   {
     "key": "arcadia",
-    "name": "Arcadia 2001",
+    "name": "Emerson Arcadia 2001",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -183,7 +183,7 @@
   },
   {
     "key": "cd32",
-    "name": "Amiga CD32",
+    "name": "Commodore Amiga CD32",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -197,7 +197,7 @@
   },
   {
     "key": "cdi",
-    "name": "CD-i",
+    "name": "Philips CD-i",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -281,7 +281,7 @@
   },
   {
     "key": "dreamcast",
-    "name": "Dreamcast",
+    "name": "Sega Dreamcast",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -309,7 +309,7 @@
   },
   {
     "key": "ereader",
-    "name": "e-Reader",
+    "name": "Nintendo e-Reader",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -323,7 +323,7 @@
   },
   {
     "key": "fds",
-    "name": "Family Computer Disk System",
+    "name": "Nintendo Family Computer Disk System",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -337,7 +337,7 @@
   },
   {
     "key": "fmtowns",
-    "name": "FM Towns",
+    "name": "Fujitsu FM Towns",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -351,7 +351,7 @@
   },
   {
     "key": "gamecom",
-    "name": "Game.com",
+    "name": "Tiger Game.com",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -365,7 +365,7 @@
   },
   {
     "key": "gamecube",
-    "name": "GameCube",
+    "name": "Nintendo GameCube",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -379,7 +379,7 @@
   },
   {
     "key": "gamegear",
-    "name": "Game Gear",
+    "name": "Sega Game Gear",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -393,7 +393,7 @@
   },
   {
     "key": "gamemaster",
-    "name": "Game Master",
+    "name": "Hartung Game Master",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -407,7 +407,7 @@
   },
   {
     "key": "gb",
-    "name": "Game Boy",
+    "name": "Nintendo Game Boy",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -421,7 +421,7 @@
   },
   {
     "key": "gba",
-    "name": "Game Boy Advance",
+    "name": "Nintendo Game Boy Advance",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -435,7 +435,7 @@
   },
   {
     "key": "gbc",
-    "name": "Game Boy Color",
+    "name": "Nintendo Game Boy Color",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -449,7 +449,7 @@
   },
   {
     "key": "gp32",
-    "name": "GP32",
+    "name": "GamePark GP32",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -561,7 +561,7 @@
   },
   {
     "key": "megacd",
-    "name": "Mega-CD / Sega CD",
+    "name": "Sega Mega-CD / Sega CD",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -575,7 +575,7 @@
   },
   {
     "key": "megadrive",
-    "name": "Mega Drive / Genesis",
+    "name": "Sega Mega Drive / Genesis",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -673,7 +673,7 @@
   },
   {
     "key": "neogeocd",
-    "name": "Neo Geo CD",
+    "name": "SNK Neo Geo CD",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -701,7 +701,7 @@
   },
   {
     "key": "ngp",
-    "name": "Neo Geo Pocket",
+    "name": "SNK Neo Geo Pocket",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -715,7 +715,7 @@
   },
   {
     "key": "ngpc",
-    "name": "Neo Geo Pocket Color",
+    "name": "SNK Neo Geo Pocket Color",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -757,7 +757,7 @@
   },
   {
     "key": "pc98",
-    "name": "PC-98",
+    "name": "NEC PC-98",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -771,7 +771,7 @@
   },
   {
     "key": "pce",
-    "name": "PC Engine / TurboGrafx-16 / SuperGrafx",
+    "name": "NEC PC Engine / TurboGrafx-16 / SuperGrafx",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -785,7 +785,7 @@
   },
   {
     "key": "pcecd",
-    "name": "PC Engine CD / TurboGrafx-CD",
+    "name": "NEC PC Engine CD / TurboGrafx-CD",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -799,7 +799,7 @@
   },
   {
     "key": "pcfx",
-    "name": "PC-FX",
+    "name": "NEC PC-FX",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -855,7 +855,7 @@
   },
   {
     "key": "pocketchallenge",
-    "name": "Pocket Challenge V2",
+    "name": "Benesse Pocket Challenge V2",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -869,7 +869,7 @@
   },
   {
     "key": "pokemonmini",
-    "name": "Pokémon Mini",
+    "name": "Nintendo Pokémon Mini",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -883,7 +883,7 @@
   },
   {
     "key": "ps1",
-    "name": "PlayStation",
+    "name": "Sony PlayStation",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -897,7 +897,7 @@
   },
   {
     "key": "ps2",
-    "name": "PlayStation 2",
+    "name": "Sony PlayStation 2",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -911,7 +911,7 @@
   },
   {
     "key": "ps3",
-    "name": "PlayStation 3",
+    "name": "Sony PlayStation 3",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -925,7 +925,7 @@
   },
   {
     "key": "psp",
-    "name": "PlayStation Portable",
+    "name": "Sony PlayStation Portable",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -953,7 +953,7 @@
   },
   {
     "key": "satellaview",
-    "name": "Satellaview",
+    "name": "Nintendo Satellaview",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -967,7 +967,7 @@
   },
   {
     "key": "saturn",
-    "name": "Saturn",
+    "name": "Sega Saturn",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -981,7 +981,7 @@
   },
   {
     "key": "scv",
-    "name": "Super Cassette Vision",
+    "name": "Epoch Super Cassette Vision",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1009,7 +1009,7 @@
   },
   {
     "key": "sg1000",
-    "name": "SG-1000",
+    "name": "Sega SG-1000",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1023,7 +1023,7 @@
   },
   {
     "key": "sms",
-    "name": "Master System / Mark III",
+    "name": "Sega Master System / Mark III",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1065,7 +1065,7 @@
   },
   {
     "key": "sufami",
-    "name": "Sufami Turbo",
+    "name": "Bandai Sufami Turbo",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1135,7 +1135,7 @@
   },
   {
     "key": "virtualboy",
-    "name": "Virtual Boy",
+    "name": "Nintendo Virtual Boy",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1149,7 +1149,7 @@
   },
   {
     "key": "vita",
-    "name": "PlayStation Vita",
+    "name": "Sony PlayStation Vita",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1177,7 +1177,7 @@
   },
   {
     "key": "wii",
-    "name": "Wii",
+    "name": "Nintendo Wii",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1191,7 +1191,7 @@
   },
   {
     "key": "wiiu",
-    "name": "Wii U (digital titles)",
+    "name": "Nintendo Wii U (digital titles)",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1205,7 +1205,7 @@
   },
   {
     "key": "wonderswan",
-    "name": "WonderSwan",
+    "name": "Bandai WonderSwan",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1219,7 +1219,7 @@
   },
   {
     "key": "wonderswancolor",
-    "name": "WonderSwan Color",
+    "name": "Bandai WonderSwan Color",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1261,7 +1261,7 @@
   },
   {
     "key": "xbox",
-    "name": "Xbox",
+    "name": "Microsoft Xbox",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
@@ -1275,7 +1275,7 @@
   },
   {
     "key": "xbox360",
-    "name": "Xbox 360",
+    "name": "Microsoft Xbox 360",
     "source": "libretro-database",
     "sourceUrl": "https://github.com/libretro/libretro-database",
     "license": "CC-BY-SA-4.0",
