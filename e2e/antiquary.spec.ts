@@ -357,6 +357,40 @@ test.describe.serial('collector journey', () => {
     )
   })
 
+  test('incomplete superset: items can be marked outside the catalog', async ({ page }) => {
+    // Template bound to the PC catalog (curated, not exhaustive)
+    await page.goto('/')
+    await page.getByTestId('nav-templates').click()
+    await page.getByTestId('new-template-button').click()
+    await page.getByTestId('template-name-input').fill('PC games')
+    await page.getByTestId('template-superset-select').selectOption('pc')
+    await page.getByTestId('save-template-button').click()
+
+    await page.goto('/')
+    await page.getByTestId('new-collection-button').click()
+    await page.getByTestId('collection-name-input').fill('PC shelf')
+    await page
+      .getByTestId('collection-template-select')
+      .selectOption({ label: 'PC games ⋆ catalog (6 fields)' })
+    await page.getByTestId('collection-save-button').click()
+    await expect(page.getByTestId('toast-success').last()).toContainText('created')
+
+    // Add an item that is not in the catalog — saving is gated on the checkbox
+    await page.getByTestId('collection-card').filter({ hasText: 'PC shelf' }).click()
+    await page.getByTestId('empty-add-item').click()
+    await expect(page.getByTestId('catalog-search')).toBeVisible()
+    await expect(page.getByTestId('catalog-incomplete-badge')).toBeVisible()
+    await expect(page.getByTestId('save-item-button')).toBeDisabled()
+
+    await page.getByTestId('item-name-input').fill('Totally Unknown Indie')
+    await page.getByTestId('outside-superset-checkbox').click()
+    await expect(page.getByTestId('save-item-button')).toBeEnabled()
+    await page.getByTestId('save-item-button').click()
+
+    await expect(page.getByTestId('item-title')).toContainText('Totally Unknown Indie')
+    await expect(page.getByTestId('outside-superset-badge')).toBeVisible()
+  })
+
   test('settings: create, copy and revoke an MCP key', async ({ page }) => {
     await page.goto('/')
     await page.getByTestId('nav-settings').click()

@@ -108,6 +108,8 @@ export interface UpdateTemplateInput {
 export interface CreateItemInput {
   collectionId: string
   supersetEntry?: string | null
+  /** Caller explicitly confirmed the item sits outside the (incomplete) catalog. */
+  outsideSuperset?: boolean
   name: string
   notes?: string | null
   quantity?: number
@@ -122,6 +124,8 @@ export interface UpdateItemInput {
   quantity?: number
   isFavorite?: boolean
   supersetEntry?: string | null
+  /** Caller explicitly confirmed the item sits outside the (incomplete) catalog. */
+  outsideSuperset?: boolean
   fieldValues?: { fieldId: string; value: FieldValue }[]
   tagIds?: string[]
 }
@@ -775,7 +779,7 @@ export class Database {
       }
 
       const template = await this.loadTemplate(trx, collection.templateId)
-      if (template.superset && !input.supersetEntry) {
+      if (template.superset && !input.supersetEntry && !input.outsideSuperset) {
         throw new ValidationError(
           `This collection requires a catalog match — pick a variant from the ${template.superset} catalog first`,
         )
@@ -861,7 +865,7 @@ export class Database {
 
       if (patch.supersetEntry !== undefined) {
         if (patch.supersetEntry === null) {
-          if (template.superset) {
+          if (template.superset && !patch.outsideSuperset) {
             throw new ValidationError('This collection requires a catalog match')
           }
         } else if (!template.superset) {
