@@ -3,10 +3,9 @@ name: Release
 on:
   push:
     branches: [main]
-  pull_request:
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +35,6 @@ jobs:
       - run: npm test
 
   release:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     permissions:
