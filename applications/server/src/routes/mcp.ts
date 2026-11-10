@@ -7,10 +7,11 @@ import { z } from 'zod'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
 import { requireApiKey } from '../apiKeys.js'
-import type { SupersetRegistry } from '../supersets.js'
+import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js'
 import {
   MAX_IMAGE_BYTES,
   isAllowedImageMime,
+  isUploadFilename,
   mimeFromFilename,
   promoteStagedImage,
   saveStagedImage,
@@ -32,7 +33,11 @@ const imageAttachSchema = z
   .max(10)
   .optional()
 
-/** Moves staged uploads into the upload dir and attaches them as item photos. */
+/**
+ * Attaches uploaded photos to an item. Files come either from upload_image
+ * (staging area, promoted here) or from a direct POST /api/images upload
+ * (already in the main dir — guarded against double attachment).
+ */
 async function attachStagedImages(
   db: Database,
   uploadDir: string,
@@ -40,16 +45,27 @@ async function attachStagedImages(
   images: { filename: string; caption?: string | null }[],
 ): Promise<void> {
   for (const image of images) {
-    const promoted = await promoteStagedImage(uploadDir, image.filename)
+    const filename = image.filename
+    const promoted = await promoteStagedImage(uploadDir, filename)
     if (!promoted) {
-      throw new ValidationError(
-        `Unknown staged image "${image.filename}" — upload it again with upload_image`,
-      )
+      const alreadyUploaded =
+        isUploadFilename(filename) && (await stat(join(uploadDir, filename)).catch(() => null))
+      if (!alreadyUploaded) {
+        throw new ValidationError(
+          `Unknown image "${filename}" — upload it first via POST /api/images (see get_image_upload_instructions) or upload_image`,
+        )
+      }
+      const existing = await db.findImageByFilename(filename)
+      if (existing) {
+        throw new ValidationError(
+          `Image "${filename}" is already attached to an item — upload a fresh copy instead`,
+        )
+      }
     }
-    const info = await stat(join(uploadDir, image.filename))
+    const info = await stat(join(uploadDir, filename))
     await db.addImage(itemId, {
-      filename: image.filename,
-      mime: mimeFromFilename(image.filename),
+      filename,
+      mime: mimeFromFilename(filename),
       size: info.size,
       caption: image.caption ?? null,
     })
@@ -208,6 +224,34 @@ function buildServer(
     },
   )
 
+  server.registerTool(
+    'get_image_upload_instructions',
+    {
+      description:
+        'How to upload item photos over plain HTTP. PREFERRED over the base64 upload_image ' +
+        'tool for anything larger than ~1 MB — large base64 tool arguments get truncated by ' +
+        'some MCP clients. No authentication is required.',
+    },
+    async () =>
+      asText({
+        upload: {
+          method: 'POST',
+          path: '/api/images',
+          format: 'multipart/form-data',
+          fileField: 'image',
+          maxBytes: MAX_IMAGE_BYTES,
+          allowedMimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif'],
+        },
+        example:
+          'curl -F "image=@cover.jpg" http://<host>/api/images  →  {"filename":"<uuid>.jpg","url":"/uploads/<uuid>.jpg",...}',
+        usage:
+          'Use the same host you reach the MCP endpoint on. Then pass the returned filename ' +
+          'in images: [{ filename }] of create_item/update_item; for image-type template ' +
+          'fields, use "/uploads/<filename>" as the field value. Abandoned uploads are ' +
+          'deleted by the server after a grace period.',
+      }),
+  )
+
   if (readonly) return server
 
   // ---- write tools (full keys only) ----
@@ -266,7 +310,10 @@ function buildServer(
         'a catalog match is REQUIRED: first search_catalog, then pass the chosen variant id as ' +
         'supersetEntry. If list_supersets marks the catalog complete:false, an item missing from ' +
         'the catalog can instead be added with outsideSuperset:true (mutually exclusive with ' +
-        'supersetEntry). Photos can be attached with images[] from upload_image.',
+        'supersetEntry). Photos can be attached with images[] — upload via ' +
+        'get_image_upload_instructions (HTTP, preferred) or upload_image (base64). ' +
+        'Catalog details (Region, Serial, Developer, Publisher, Genre, Year) are prefilled ' +
+        'from the matched entry unless you provide them explicitly in fieldValues.',
       inputSchema: {
         collectionId: z.string().uuid(),
         supersetEntry: z.string().nullable().optional(),
@@ -298,6 +345,11 @@ function buildServer(
           }
           const entry = await supersets.getEntry(template.superset, params.supersetEntry)
           if (!entry) throw new ValidationError('Unknown catalog entry')
+          input.fieldValues = prefillCatalogFields(
+            template.fields,
+            entry,
+            input.fieldValues,
+          ) as typeof input.fieldValues
         } else if (complete) {
           throw new ValidationError(
             `This collection requires a catalog match — pick a variant via search_catalog ("${template.superset}") first`,
@@ -365,6 +417,11 @@ function buildServer(
           }
           const entry = await supersets.getEntry(template.superset, patch.supersetEntry)
           if (!entry) throw new ValidationError('Unknown catalog entry')
+          patch.fieldValues = prefillCatalogFields(
+            template.fields,
+            entry,
+            patch.fieldValues,
+          ) as typeof patch.fieldValues
         } else if (patch.supersetEntry === null && template?.superset && !patch.outsideSuperset) {
           throw new ValidationError('This collection requires a catalog match')
         }
