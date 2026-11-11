@@ -6,6 +6,7 @@ uploads-e2e
 playwright-report
 test-results
 package-lock.json
+CHANGELOG.md
 uniwind-types.d.ts
 applications/server/catalogs
 .catalog-cache
