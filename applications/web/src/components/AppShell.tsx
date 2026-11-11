@@ -10,6 +10,7 @@ import {
     HomeIcon,
 } from '@radix-ui/react-icons';
 import { Box, Container, Flex, IconButton, TextField, Theme, Text } from '@radix-ui/themes';
+import logoUrl from '../assets/logo.svg';
 
 type Appearance = 'light' | 'dark';
 
@@ -85,14 +86,12 @@ export function AppShell() {
                                     gap: 8,
                                 }}
                             >
-                                <Box
-                                    style={{
-                                        width: 24,
-                                        height: 24,
-                                        borderRadius: 6,
-                                        background:
-                                            'linear-gradient(135deg, var(--accent-9) 0%, var(--accent-7) 100%)',
-                                    }}
+                                <img
+                                    src={logoUrl}
+                                    alt=""
+                                    width={26}
+                                    height={26}
+                                    style={{ display: 'block' }}
                                 />
                                 <Text size="4" weight="bold">
                                     Antiquary
