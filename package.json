@@ -1,41 +1,41 @@
 {
-  "name": "antiquary",
-  "version": "1.1.1",
-  "private": true,
-  "type": "module",
-  "description": "Antiquary — self-hosted collection manager",
-  "workspaces": [
-    "applications/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
-    "dev:api": "npm run dev -w @antiquary/server",
-    "dev:web": "npm run dev -w @antiquary/web",
-    "build": "npm run build -w @antiquary/database && npm run build -w @antiquary/server && npm run build -w @antiquary/web",
-    "migrate": "npm run migrate -w @antiquary/database",
-    "migrate:down": "npm run migrate:down -w @antiquary/database",
-    "migrate:status": "npm run migrate:status -w @antiquary/database",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "typecheck": "npm run typecheck --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present",
-    "test:e2e": "npm run build && playwright test",
-    "db:up": "docker compose up -d db",
-    "db:down": "docker compose down",
-    "catalog:build": "node scripts/generate-catalogs.mjs"
-  },
-  "devDependencies": {
-    "@antiquary/eslint-config": "*",
-    "@playwright/test": "^1.65.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "concurrently": "^10.0.7",
-    "eslint": "^10.14.0",
-    "prettier": "^3.9.10",
-    "semantic-release": "^25.0.9",
-    "typescript": "~5.9.3",
-    "vitest": "^5.1.0"
-  }
+    "name": "antiquary",
+    "version": "1.1.1",
+    "private": true,
+    "type": "module",
+    "description": "Antiquary — self-hosted collection manager",
+    "workspaces": [
+        "applications/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+        "dev:api": "npm run dev -w @antiquary/server",
+        "dev:web": "npm run dev -w @antiquary/web",
+        "build": "npm run build -w @antiquary/database && npm run build -w @antiquary/server && npm run build -w @antiquary/web",
+        "migrate": "npm run migrate -w @antiquary/database",
+        "migrate:down": "npm run migrate:down -w @antiquary/database",
+        "migrate:status": "npm run migrate:status -w @antiquary/database",
+        "lint": "eslint .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "typecheck": "npm run typecheck --workspaces --if-present",
+        "test": "npm run test --workspaces --if-present",
+        "test:e2e": "npm run build && playwright test",
+        "db:up": "docker compose up -d db",
+        "db:down": "docker compose down",
+        "catalog:build": "node scripts/generate-catalogs.mjs"
+    },
+    "devDependencies": {
+        "@antiquary/eslint-config": "*",
+        "@playwright/test": "^1.65.0",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "concurrently": "^10.0.7",
+        "eslint": "^10.14.0",
+        "prettier": "^3.9.10",
+        "semantic-release": "^25.0.9",
+        "typescript": "~5.9.3",
+        "vitest": "^5.1.0"
+    }
 }

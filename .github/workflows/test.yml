@@ -3,31 +3,68 @@ name: Test
 on: pull_request
 
 concurrency:
-  group: test-${{ github.ref }}
-  cancel-in-progress: true
+    group: test-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  unit:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:17-alpine
-        env:
-          POSTGRES_USER: antiquary
-          POSTGRES_PASSWORD: antiquary
-          POSTGRES_DB: antiquary
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U antiquary"
-          --health-interval 5s
-          --health-timeout 5s
-          --health-retries 20
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm test
+    unit:
+        runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres:17-alpine
+                env:
+                    POSTGRES_USER: antiquary
+                    POSTGRES_PASSWORD: antiquary
+                    POSTGRES_DB: antiquary
+                ports:
+                    - 5432:5432
+                options: >-
+                    --health-cmd "pg_isready -U antiquary"
+                    --health-interval 5s
+                    --health-timeout 5s
+                    --health-retries 20
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npm test
+            - run: npm run lint
+            - run: npm run format:check
+
+    e2e:
+        runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres:17-alpine
+                env:
+                    POSTGRES_USER: antiquary
+                    POSTGRES_PASSWORD: antiquary
+                    POSTGRES_DB: antiquary
+                ports:
+                    - 5432:5432
+                options: >-
+                    --health-cmd "pg_isready -U antiquary"
+                    --health-interval 5s
+                    --health-timeout 5s
+                    --health-retries 20
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps firefox
+            - run: npm run test:e2e
+            - name: Upload Playwright results
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-results
+                  path: |
+                      playwright-report
+                      test-results
+                  retention-days: 7

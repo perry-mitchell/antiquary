@@ -1,7 +1,7 @@
 {
-  "extends": "@antiquary/tsconfig/web.json",
-  "compilerOptions": {
-    "types": ["vite/client"]
-  },
-  "include": ["src", "vite.config.ts"]
+    "extends": "@antiquary/tsconfig/web.json",
+    "compilerOptions": {
+        "types": ["vite/client"]
+    },
+    "include": ["src", "vite.config.ts"]
 }

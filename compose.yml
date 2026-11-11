@@ -1,37 +1,37 @@
 name: antiquary
 
 services:
-  db:
-    image: postgres:17-alpine
-    container_name: antiquary-db
-    environment:
-      POSTGRES_USER: antiquary
-      POSTGRES_PASSWORD: antiquary
-      POSTGRES_DB: antiquary
-    ports:
-      - '5432:5432'
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U antiquary -d antiquary']
-      interval: 2s
-      timeout: 3s
-      retries: 15
+    db:
+        image: postgres:17-alpine
+        container_name: antiquary-db
+        environment:
+            POSTGRES_USER: antiquary
+            POSTGRES_PASSWORD: antiquary
+            POSTGRES_DB: antiquary
+        ports:
+            - '5432:5432'
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U antiquary -d antiquary']
+            interval: 2s
+            timeout: 3s
+            retries: 15
 
-  app:
-    build: .
-    container_name: antiquary-app
-    ports:
-      - '3000:3000'
-    environment:
-      DATABASE_URL: postgres://antiquary:antiquary@db:5432/antiquary
-      PORT: '3000'
-      UPLOAD_DIR: /data/uploads
-    volumes:
-      - ./uploads:/data/uploads
-    depends_on:
-      db:
-        condition: service_healthy
+    app:
+        build: .
+        container_name: antiquary-app
+        ports:
+            - '3000:3000'
+        environment:
+            DATABASE_URL: postgres://antiquary:antiquary@db:5432/antiquary
+            PORT: '3000'
+            UPLOAD_DIR: /data/uploads
+        volumes:
+            - ./uploads:/data/uploads
+        depends_on:
+            db:
+                condition: service_healthy
 
 volumes:
-  pgdata:
+    pgdata:

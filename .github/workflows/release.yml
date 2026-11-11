@@ -1,79 +1,79 @@
 name: Release
 
 on:
-  push:
-    branches: [main]
+    push:
+        branches: [main]
 
 concurrency:
-  group: release
-  cancel-in-progress: false
+    group: release
+    cancel-in-progress: false
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:17-alpine
-        env:
-          POSTGRES_USER: antiquary
-          POSTGRES_PASSWORD: antiquary
-          POSTGRES_DB: antiquary
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U antiquary"
-          --health-interval 5s
-          --health-timeout 5s
-          --health-retries 20
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm test
+    test:
+        runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres:17-alpine
+                env:
+                    POSTGRES_USER: antiquary
+                    POSTGRES_PASSWORD: antiquary
+                    POSTGRES_DB: antiquary
+                ports:
+                    - 5432:5432
+                options: >-
+                    --health-cmd "pg_isready -U antiquary"
+                    --health-interval 5s
+                    --health-timeout 5s
+                    --health-retries 20
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npm test
 
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - name: Record previous tag
-        id: prev
-        run: echo "tag=$(git describe --tags --abbrev=0 2>/dev/null || true)" >> "$GITHUB_OUTPUT"
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
-      - name: Check for new release
-        id: check
-        run: |
-          prev="${{ steps.prev.outputs.tag }}"
-          new="$(git describe --tags --abbrev=0 2>/dev/null || true)"
-          if [ -n "$new" ] && [ "$new" != "$prev" ]; then
-            echo "released=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "released=false" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Build and publish image
-        if: steps.check.outputs.released == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          VERSION="$(node -p "require('./package.json').version")"
-          IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}"
-          echo "${GITHUB_TOKEN}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
-          docker build --pull -t "$IMAGE:$VERSION" -t "$IMAGE:latest" .
-          docker push "$IMAGE:$VERSION"
-          docker push "$IMAGE:latest"
+    release:
+        needs: test
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: write
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - name: Record previous tag
+              id: prev
+              run: echo "tag=$(git describe --tags --abbrev=0 2>/dev/null || true)" >> "$GITHUB_OUTPUT"
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: npx semantic-release
+            - name: Check for new release
+              id: check
+              run: |
+                  prev="${{ steps.prev.outputs.tag }}"
+                  new="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+                  if [ -n "$new" ] && [ "$new" != "$prev" ]; then
+                    echo "released=true" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "released=false" >> "$GITHUB_OUTPUT"
+                  fi
+            - name: Build and publish image
+              if: steps.check.outputs.released == 'true'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  VERSION="$(node -p "require('./package.json').version")"
+                  IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}"
+                  echo "${GITHUB_TOKEN}" | docker login ghcr.io -u "${GITHUB_ACTOR}" --password-stdin
+                  docker build --pull -t "$IMAGE:$VERSION" -t "$IMAGE:latest" .
+                  docker push "$IMAGE:$VERSION"
+                  docker push "$IMAGE:latest"

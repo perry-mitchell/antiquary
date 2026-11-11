@@ -26,34 +26,34 @@ Antiquary ships as a Docker image on [GitHub Container Registry](https://github.
 name: antiquary
 
 services:
-  db:
-    image: postgres:17-alpine
-    environment:
-      POSTGRES_USER: antiquary
-      POSTGRES_PASSWORD: antiquary
-      POSTGRES_DB: antiquary
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U antiquary']
-      interval: 2s
-      timeout: 3s
-      retries: 15
+    db:
+        image: postgres:17-alpine
+        environment:
+            POSTGRES_USER: antiquary
+            POSTGRES_PASSWORD: antiquary
+            POSTGRES_DB: antiquary
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U antiquary']
+            interval: 2s
+            timeout: 3s
+            retries: 15
 
-  app:
-    image: ghcr.io/perry-mitchell/antiquary:latest
-    ports:
-      - '3000:3000'
-    environment:
-      DATABASE_URL: postgres://antiquary:antiquary@db:5432/antiquary
-    volumes:
-      - ./uploads:/data/uploads
-    depends_on:
-      db:
-        condition: service_healthy
+    app:
+        image: ghcr.io/perry-mitchell/antiquary:latest
+        ports:
+            - '3000:3000'
+        environment:
+            DATABASE_URL: postgres://antiquary:antiquary@db:5432/antiquary
+        volumes:
+            - ./uploads:/data/uploads
+        depends_on:
+            db:
+                condition: service_healthy
 
 volumes:
-  pgdata:
+    pgdata:
 ```
 
 ```bash

@@ -7,3 +7,5 @@ playwright-report
 test-results
 package-lock.json
 uniwind-types.d.ts
+applications/server/catalogs
+.catalog-cache
