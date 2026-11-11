@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/perry-mitchell/antiquary/compare/v1.1.1...v1.1.2) (2026-11-11)
+
+
+### Bug Fixes
+
+* **web:** Use branded logo in web header ([#7](https://github.com/perry-mitchell/antiquary/issues/7)) ([753eb4b](https://github.com/perry-mitchell/antiquary/commit/753eb4b9a361d95ebbbc1d3b4e5e8f9f5785c018))
+
 ## [1.1.1](https://github.com/perry-mitchell/antiquary/compare/v1.1.0...v1.1.1) (2026-11-10)
 
 ### Bug Fixes
