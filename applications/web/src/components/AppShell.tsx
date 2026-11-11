@@ -53,7 +53,7 @@ export function AppShell() {
                     data-testid={testId}
                 >
                     {icon}
-                    <Text size="2" weight={isActive ? 'medium' : 'regular'}>
+                    <Text size="2" weight={isActive ? 'medium' : 'regular'} className="nav-label">
                         {label}
                     </Text>
                 </Flex>
@@ -79,6 +79,7 @@ export function AppShell() {
                         <Flex align="center" gap="4" wrap="wrap">
                             <Link
                                 to="/"
+                                className="app-logo"
                                 style={{
                                     textDecoration: 'none',
                                     display: 'flex',
@@ -97,7 +98,7 @@ export function AppShell() {
                                     Antiquary
                                 </Text>
                             </Link>
-                            <Flex gap="1" align="center">
+                            <Flex gap="1" align="center" className="nav-links">
                                 {navLink('/', 'Collections', <HomeIcon />, 'nav-collections')}
                                 {navLink(
                                     '/templates',
@@ -108,8 +109,12 @@ export function AppShell() {
                                 {navLink('/trash', 'Trash', <TrashIcon />, 'nav-trash')}
                                 {navLink('/settings', 'Settings', <GearIcon />, 'nav-settings')}
                             </Flex>
-                            <Box style={{ flexGrow: 1, minWidth: 180 }} />
-                            <form onSubmit={submitSearch} style={{ flex: '0 1 280px' }}>
+                            <Box style={{ flexGrow: 1, minWidth: 180 }} className="header-spacer" />
+                            <form
+                                onSubmit={submitSearch}
+                                className="global-search"
+                                style={{ flex: '0 1 280px' }}
+                            >
                                 <TextField.Root
                                     data-testid="global-search"
                                     size="2"
@@ -125,6 +130,7 @@ export function AppShell() {
                             <IconButton
                                 variant="ghost"
                                 color="gray"
+                                className="theme-toggle"
                                 onClick={toggleAppearance}
                                 aria-label="Toggle dark mode"
                                 data-testid="theme-toggle"
