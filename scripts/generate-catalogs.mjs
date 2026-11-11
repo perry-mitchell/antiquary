@@ -358,8 +358,15 @@ const CATALOGS = [
     // developers/publishers/genres only the alphabetically first is kept.
     // There are no regional variants or serials on Wikidata — one entry per
     // title, region/serial stay null.
-    { key: 'pc', name: 'PC (Microsoft Windows)', source: 'wikidata', platform: 'Q1406' },
-    { key: 'dos', name: 'DOS', source: 'wikidata', platform: 'Q170434' },
+    { key: 'pc', name: 'PC (Microsoft Windows)', source: 'wikidata', platforms: ['Q1406'] },
+    {
+        key: 'dos',
+        name: 'DOS',
+        source: 'wikidata',
+        // Wikidata curators tag DOS games as either DOS (Q170434) or MS-DOS
+        // (Q47604) — both are matched.
+        platforms: ['Q170434', 'Q47604'],
+    },
 ];
 
 const REGIONS = [
@@ -541,22 +548,27 @@ async function buildCatalog(catalog) {
 const WIKIDATA_SPARQL = 'https://query.wikidata.org/sparql';
 
 /**
- * Fetches a Wikidata catalog one year at a time (large multi-year responses
- * get truncated by Node's fetch; single years stay well under that) and
- * collapses rows to one entry per game: earliest year, alphabetically first
- * developer/publisher/genre.
+ * Items with no English Wikidata label would otherwise end up named "Q123456"
+ * — unfindable in search. Resolve them in bulk (chunked, so responses stay
+ * small and fast): English Wikipedia article title first, then any-language
+ * label. Anything still unnamed fails the build unless --drop-unnamed is
+ * passed (drops the stubs instead of shipping QID-named, unfindable entries).
  */
-async function buildWikidataCatalog(catalog) {
-    const games = new Map();
+const NAME_LANGS = ['en', 'mul', 'fr', 'de', 'es', 'it', 'pt', 'ru', 'ja', 'zh', 'ko'];
 
-    for (let year = 1960; year <= 2031; year++) {
-        const query = `SELECT ?g ?gLabel ?year ?devLabel ?pubLabel ?genreLabel WHERE {
-  ?g wdt:P31 wd:Q7889 ; wdt:P400 wd:${catalog.platform} ; wdt:P577 ?d ; wdt:P178 ?dev .
-  BIND(YEAR(?d) AS ?year)
-  FILTER(?year = ${year})
-  OPTIONAL { ?g wdt:P123 ?pub }
-  OPTIONAL { ?g wdt:P136 ?genre }
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+async function resolveUnnamedTitles(catalogKey, games, dropUnnamed) {
+    const unnamed = [...games.entries()].filter(([, game]) => /^Q\d+$/.test(game.name));
+    if (unnamed.length === 0) return;
+    console.log(`  [${catalogKey}] resolving titles for ${unnamed.length} unlabeled item(s)…`);
+
+    const resolved = new Map();
+    for (let i = 0; i < unnamed.length; i += 200) {
+        const chunk = unnamed.slice(i, i + 200);
+        const values = chunk.map(([qid]) => `wd:${qid}`).join(' ');
+        const query = `SELECT ?g ?title ?label WHERE {
+  VALUES ?g { ${values} }
+  OPTIONAL { ?article schema:about ?g ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?title }
+  OPTIONAL { ?g rdfs:label ?label . FILTER(LANG(?label) IN ("${NAME_LANGS.join('","')}")) }
 }`;
         const url = `${WIKIDATA_SPARQL}?format=json&query=${encodeURIComponent(query)}`;
         const raw = await fetchWithRetries(url, (text) => {
@@ -567,8 +579,109 @@ async function buildWikidataCatalog(catalog) {
                 return false;
             }
         });
-        if (!raw) throw new Error(`Wikidata query failed for ${catalog.key} year ${year}`);
-        const bindings = JSON.parse(raw).results?.bindings ?? [];
+        if (!raw)
+            throw new Error(`Title resolution query failed for ${catalogKey} chunk ${i / 200}`);
+        for (const row of JSON.parse(raw).results?.bindings ?? []) {
+            const qid = row.g.value.split('/').pop();
+            const article = row.title?.value ?? null;
+            const langLabel = row.label
+                ? { lang: row.label['xml:lang'], value: row.label.value }
+                : null;
+            if (!article && !langLabel) continue;
+            const best = resolved.get(qid) ?? { article: null, labels: new Map() };
+            if (article) best.article ??= article;
+            if (langLabel) best.labels.set(langLabel.lang, langLabel.value);
+            resolved.set(qid, best);
+        }
+        await new Promise((r) => setTimeout(r, 400));
+    }
+
+    const stillUnnamed = [];
+    for (const [qid, game] of unnamed) {
+        const best = resolved.get(qid);
+        const title =
+            best?.article ??
+            NAME_LANGS.map((lang) => best?.labels.get(lang)).find((v) => v) ??
+            null;
+        if (title) {
+            game.name = title;
+        } else {
+            stillUnnamed.push(qid);
+        }
+    }
+
+    if (stillUnnamed.length > 0) {
+        const sample = stillUnnamed.slice(0, 10).join(', ');
+        const message = `[${catalogKey}] ${stillUnnamed.length} item(s) have no label in any language and no English Wikipedia article (e.g. ${sample}).`;
+        if (dropUnnamed) {
+            console.warn(`WARN: ${message} Dropping them — pass nothing to fail instead.`);
+            for (const qid of stillUnnamed) games.delete(qid);
+        } else {
+            throw new Error(
+                `${message} Refusing to name them by QID — fix the items on Wikidata or pass --drop-unnamed.`,
+            );
+        }
+    }
+}
+
+/**
+ * Fetches a Wikidata catalog one year at a time (large multi-year responses
+ * get truncated by Node's fetch; single years stay well under that) and
+ * collapses rows to one entry per game: earliest year, alphabetically first
+ * developer/publisher/genre.
+ */
+async function buildWikidataCatalog(catalog, { dropUnnamed = false } = {}) {
+    const games = new Map();
+    const platformValues = catalog.platforms.map((p) => `wd:${p}`).join(' ');
+    const validateJson = (text) => {
+        try {
+            JSON.parse(text);
+            return true;
+        } catch {
+            return false;
+        }
+    };
+
+    /** Rows for a [start, end) date range, bisecting when the response is too
+     * large to arrive intact (single years can still explode via publisher ×
+     * genre cross products). */
+    const rowsForRange = async (start, end, depth) => {
+        const query = `SELECT ?g ?gLabel ?year ?devLabel ?pubLabel ?genreLabel WHERE {
+  ?g wdt:P31 wd:Q7889 ; wdt:P400 ?plat ; wdt:P577 ?d ; wdt:P178 ?dev .
+  VALUES ?plat { ${platformValues} }
+  BIND(YEAR(?d) AS ?year)
+  FILTER(?d >= "${start}"^^xsd:dateTime && ?d < "${end}"^^xsd:dateTime)
+  OPTIONAL { ?g wdt:P123 ?pub }
+  OPTIONAL { ?g wdt:P136 ?genre }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en,mul". }
+}`;
+        const url = `${WIKIDATA_SPARQL}?format=json&query=${encodeURIComponent(query)}`;
+        let raw;
+        try {
+            raw = await fetchWithRetries(url, validateJson);
+        } catch (error) {
+            if (depth >= 4) throw error;
+            const mid = new Date(
+                Date.parse(`${start}T00:00:00Z`) +
+                    (Date.parse(`${end}T00:00:00Z`) - Date.parse(`${start}T00:00:00Z`)) / 2,
+            )
+                .toISOString()
+                .slice(0, 10);
+            console.warn(`    splitting ${start}..${end} at ${mid}`);
+            const [left, right] = await Promise.all([
+                rowsForRange(start, mid, depth + 1),
+                rowsForRange(mid, end, depth + 1),
+            ]);
+            return [...left, ...right];
+        }
+        if (!raw) throw new Error(`Wikidata query failed for ${catalog.key} ${start}..${end}`);
+        return JSON.parse(raw).results?.bindings ?? [];
+    };
+
+    for (let year = 1960; year <= 2031; year++) {
+        const start = `${year}-01-01`;
+        const end = `${year + 1}-01-01`;
+        const bindings = await rowsForRange(start, end, 0);
         if (bindings.length > 0) console.log(`  [${catalog.key}] ${year}: ${bindings.length} rows`);
 
         for (const row of bindings) {
@@ -597,6 +710,8 @@ async function buildWikidataCatalog(catalog) {
         }
         await new Promise((r) => setTimeout(r, 400));
     }
+
+    await resolveUnnamedTitles(catalog.key, games, dropUnnamed);
 
     const first = (set) => [...set].sort((a, b) => a.localeCompare(b))[0] ?? null;
     const entries = [...games.entries()].map(([qid, game]) => ({
@@ -661,6 +776,7 @@ async function main() {
     const args = process.argv.slice(2);
     const onlyIndex = args.indexOf('--only');
     const only = onlyIndex >= 0 ? args[onlyIndex + 1] : undefined;
+    const dropUnnamed = args.includes('--drop-unnamed');
     const outdir = resolve(root, 'applications/server/catalogs');
 
     if (only && !CATALOGS.some((c) => c.key === only)) {
@@ -673,7 +789,7 @@ async function main() {
         if (only && catalog.key !== only) continue;
         const built =
             catalog.source === 'wikidata'
-                ? await buildWikidataCatalog(catalog)
+                ? await buildWikidataCatalog(catalog, { dropUnnamed })
                 : await buildCatalog(catalog);
         const out = resolve(outdir, `${catalog.key}.json`);
         await writeFile(out, `${JSON.stringify(built, null, 2)}\n`);

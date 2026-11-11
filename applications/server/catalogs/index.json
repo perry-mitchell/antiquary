@@ -7,11 +7,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:35.236Z",
     "variantCount": 615,
     "titleCount": 475,
-    "file": "3do.json",
-    "complete": true
+    "file": "3do.json"
   },
   {
     "key": "acan",
@@ -21,11 +21,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:26.994Z",
     "variantCount": 12,
     "titleCount": 12,
-    "file": "acan.json",
-    "complete": true
+    "file": "acan.json"
   },
   {
     "key": "adventurevision",
@@ -35,11 +35,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:12.257Z",
     "variantCount": 4,
     "titleCount": 4,
-    "file": "adventurevision.json",
-    "complete": true
+    "file": "adventurevision.json"
   },
   {
     "key": "amiga",
@@ -49,11 +49,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:45.664Z",
     "variantCount": 3142,
     "titleCount": 2758,
-    "file": "amiga.json",
-    "complete": true
+    "file": "amiga.json"
   },
   {
     "key": "arcadia",
@@ -63,11 +63,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:10.955Z",
     "variantCount": 48,
     "titleCount": 48,
-    "file": "arcadia.json",
-    "complete": true
+    "file": "arcadia.json"
   },
   {
     "key": "arduboy",
@@ -77,11 +77,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:19.700Z",
     "variantCount": 463,
     "titleCount": 426,
-    "file": "arduboy.json",
-    "complete": true
+    "file": "arduboy.json"
   },
   {
     "key": "atari2600",
@@ -91,11 +91,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:32.016Z",
     "variantCount": 890,
     "titleCount": 709,
-    "file": "atari2600.json",
-    "complete": true
+    "file": "atari2600.json"
   },
   {
     "key": "atari5200",
@@ -105,11 +105,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:33.283Z",
     "variantCount": 150,
     "titleCount": 107,
-    "file": "atari5200.json",
-    "complete": true
+    "file": "atari5200.json"
   },
   {
     "key": "atari7800",
@@ -119,11 +119,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:34.543Z",
     "variantCount": 337,
     "titleCount": 145,
-    "file": "atari7800.json",
-    "complete": true
+    "file": "atari7800.json"
   },
   {
     "key": "atari8bit",
@@ -133,11 +133,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:35.698Z",
     "variantCount": 44,
     "titleCount": 44,
-    "file": "atari8bit.json",
-    "complete": true
+    "file": "atari8bit.json"
   },
   {
     "key": "atarist",
@@ -147,11 +147,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:40.793Z",
     "variantCount": 404,
     "titleCount": 404,
-    "file": "atarist.json",
-    "complete": true
+    "file": "atarist.json"
   },
   {
     "key": "beena",
@@ -161,11 +161,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.541Z",
     "variantCount": 58,
     "titleCount": 56,
-    "file": "beena.json",
-    "complete": true
+    "file": "beena.json"
   },
   {
     "key": "c64",
@@ -175,11 +175,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:42.025Z",
     "variantCount": 3488,
     "titleCount": 2869,
-    "file": "c64.json",
-    "complete": true
+    "file": "c64.json"
   },
   {
     "key": "cd32",
@@ -189,11 +189,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:46.819Z",
     "variantCount": 203,
     "titleCount": 186,
-    "file": "cd32.json",
-    "complete": true
+    "file": "cd32.json"
   },
   {
     "key": "cdi",
@@ -203,11 +203,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:34.088Z",
     "variantCount": 2292,
     "titleCount": 2009,
-    "file": "cdi.json",
-    "complete": true
+    "file": "cdi.json"
   },
   {
     "key": "cdtv",
@@ -217,11 +217,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:47.963Z",
     "variantCount": 61,
     "titleCount": 59,
-    "file": "cdtv.json",
-    "complete": true
+    "file": "cdtv.json"
   },
   {
     "key": "channelf",
@@ -231,11 +231,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:09.642Z",
     "variantCount": 34,
     "titleCount": 32,
-    "file": "channelf.json",
-    "complete": true
+    "file": "channelf.json"
   },
   {
     "key": "colecovision",
@@ -245,11 +245,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:03.321Z",
     "variantCount": 179,
     "titleCount": 165,
-    "file": "colecovision.json",
-    "complete": true
+    "file": "colecovision.json"
   },
   {
     "key": "creativision",
@@ -259,11 +259,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:20.878Z",
     "variantCount": 31,
     "titleCount": 20,
-    "file": "creativision.json",
-    "complete": true
+    "file": "creativision.json"
   },
   {
     "key": "dos",
@@ -273,11 +273,11 @@
     "license": "CC0-1.0",
     "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.",
     "datVersion": null,
-    "generatedAt": "2026-11-09T06:04:07.111Z",
-    "variantCount": 1581,
-    "titleCount": 1578,
-    "file": "dos.json",
-    "complete": false
+    "complete": false,
+    "generatedAt": "2026-11-11T20:23:02.600Z",
+    "variantCount": 1700,
+    "titleCount": 1695,
+    "file": "dos.json"
   },
   {
     "key": "dreamcast",
@@ -287,11 +287,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.774Z",
     "variantCount": 1467,
     "titleCount": 1125,
-    "file": "dreamcast.json",
-    "complete": true
+    "file": "dreamcast.json"
   },
   {
     "key": "dsi",
@@ -301,11 +301,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.825Z",
     "variantCount": 1068,
     "titleCount": 765,
-    "file": "dsi.json",
-    "complete": true
+    "file": "dsi.json"
   },
   {
     "key": "ereader",
@@ -315,11 +315,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.195Z",
     "variantCount": 3238,
     "titleCount": 3238,
-    "file": "ereader.json",
-    "complete": true
+    "file": "ereader.json"
   },
   {
     "key": "fds",
@@ -329,11 +329,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.296Z",
     "variantCount": 674,
     "titleCount": 373,
-    "file": "fds.json",
-    "complete": true
+    "file": "fds.json"
   },
   {
     "key": "fmtowns",
@@ -343,11 +343,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.11.01",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:55.372Z",
     "variantCount": 921,
     "titleCount": 887,
-    "file": "fmtowns.json",
-    "complete": true
+    "file": "fmtowns.json"
   },
   {
     "key": "gamecom",
@@ -357,11 +357,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:17.155Z",
     "variantCount": 23,
     "titleCount": 23,
-    "file": "gamecom.json",
-    "complete": true
+    "file": "gamecom.json"
   },
   {
     "key": "gamecube",
@@ -371,11 +371,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.133Z",
     "variantCount": 1982,
     "titleCount": 1226,
-    "file": "gamecube.json",
-    "complete": true
+    "file": "gamecube.json"
   },
   {
     "key": "gamegear",
@@ -385,11 +385,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.624Z",
     "variantCount": 607,
     "titleCount": 516,
-    "file": "gamegear.json",
-    "complete": true
+    "file": "gamegear.json"
   },
   {
     "key": "gamemaster",
@@ -399,11 +399,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:28.147Z",
     "variantCount": 18,
     "titleCount": 18,
-    "file": "gamemaster.json",
-    "complete": true
+    "file": "gamemaster.json"
   },
   {
     "key": "gb",
@@ -413,11 +413,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.832Z",
     "variantCount": 2115,
     "titleCount": 1838,
-    "file": "gb.json",
-    "complete": true
+    "file": "gb.json"
   },
   {
     "key": "gba",
@@ -427,11 +427,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.092Z",
     "variantCount": 3503,
     "titleCount": 2626,
-    "file": "gba.json",
-    "complete": true
+    "file": "gba.json"
   },
   {
     "key": "gbc",
@@ -441,11 +441,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.925Z",
     "variantCount": 2433,
     "titleCount": 2151,
-    "file": "gbc.json",
-    "complete": true
+    "file": "gbc.json"
   },
   {
     "key": "gp32",
@@ -455,11 +455,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:18.468Z",
     "variantCount": 28,
     "titleCount": 22,
-    "file": "gp32.json",
-    "complete": true
+    "file": "gp32.json"
   },
   {
     "key": "intellivision",
@@ -469,11 +469,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:04.619Z",
     "variantCount": 246,
     "titleCount": 239,
-    "file": "intellivision.json",
-    "complete": true
+    "file": "intellivision.json"
   },
   {
     "key": "jaguar",
@@ -483,11 +483,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:38.420Z",
     "variantCount": 460,
     "titleCount": 197,
-    "file": "jaguar.json",
-    "complete": true
+    "file": "jaguar.json"
   },
   {
     "key": "jaguarcd",
@@ -497,11 +497,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.11.01",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:39.644Z",
     "variantCount": 29,
     "titleCount": 27,
-    "file": "jaguarcd.json",
-    "complete": true
+    "file": "jaguarcd.json"
   },
   {
     "key": "leappad",
@@ -511,11 +511,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:30.495Z",
     "variantCount": 1,
     "titleCount": 1,
-    "file": "leappad.json",
-    "complete": true
+    "file": "leappad.json"
   },
   {
     "key": "leapster",
@@ -525,11 +525,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:31.655Z",
     "variantCount": 112,
     "titleCount": 100,
-    "file": "leapster.json",
-    "complete": true
+    "file": "leapster.json"
   },
   {
     "key": "loopy",
@@ -539,11 +539,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:23.317Z",
     "variantCount": 19,
     "titleCount": 10,
-    "file": "loopy.json",
-    "complete": true
+    "file": "loopy.json"
   },
   {
     "key": "lynx",
@@ -553,11 +553,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:36.982Z",
     "variantCount": 617,
     "titleCount": 264,
-    "file": "lynx.json",
-    "complete": true
+    "file": "lynx.json"
   },
   {
     "key": "megacd",
@@ -567,11 +567,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.671Z",
     "variantCount": 451,
     "titleCount": 329,
-    "file": "megacd.json",
-    "complete": true
+    "file": "megacd.json"
   },
   {
     "key": "megadrive",
@@ -581,11 +581,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.451Z",
     "variantCount": 2656,
     "titleCount": 2118,
-    "file": "megadrive.json",
-    "complete": true
+    "file": "megadrive.json"
   },
   {
     "key": "msx",
@@ -595,11 +595,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:49.316Z",
     "variantCount": 899,
     "titleCount": 585,
-    "file": "msx.json",
-    "complete": true
+    "file": "msx.json"
   },
   {
     "key": "msx2",
@@ -609,11 +609,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:50.561Z",
     "variantCount": 195,
     "titleCount": 156,
-    "file": "msx2.json",
-    "complete": true
+    "file": "msx2.json"
   },
   {
     "key": "n3ds",
@@ -623,11 +623,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.927Z",
     "variantCount": 2072,
     "titleCount": 1318,
-    "file": "n3ds.json",
-    "complete": true
+    "file": "n3ds.json"
   },
   {
     "key": "n64",
@@ -637,11 +637,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.672Z",
     "variantCount": 2268,
     "titleCount": 701,
-    "file": "n64.json",
-    "complete": true
+    "file": "n64.json"
   },
   {
     "key": "n64dd",
@@ -651,11 +651,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.710Z",
     "variantCount": 10,
     "titleCount": 10,
-    "file": "n64dd.json",
-    "complete": true
+    "file": "n64dd.json"
   },
   {
     "key": "nds",
@@ -665,11 +665,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.770Z",
     "variantCount": 7554,
     "titleCount": 5651,
-    "file": "nds.json",
-    "complete": true
+    "file": "nds.json"
   },
   {
     "key": "neogeocd",
@@ -679,11 +679,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:59.244Z",
     "variantCount": 111,
     "titleCount": 105,
-    "file": "neogeocd.json",
-    "complete": true
+    "file": "neogeocd.json"
   },
   {
     "key": "nes",
@@ -693,11 +693,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.225Z",
     "variantCount": 13286,
     "titleCount": 4993,
-    "file": "nes.json",
-    "complete": true
+    "file": "nes.json"
   },
   {
     "key": "ngp",
@@ -707,11 +707,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:56.747Z",
     "variantCount": 9,
     "titleCount": 9,
-    "file": "ngp.json",
-    "complete": true
+    "file": "ngp.json"
   },
   {
     "key": "ngpc",
@@ -721,11 +721,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:58.084Z",
     "variantCount": 106,
     "titleCount": 85,
-    "file": "ngpc.json",
-    "complete": true
+    "file": "ngpc.json"
   },
   {
     "key": "odyssey2",
@@ -735,11 +735,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:07.029Z",
     "variantCount": 163,
     "titleCount": 136,
-    "file": "odyssey2.json",
-    "complete": true
+    "file": "odyssey2.json"
   },
   {
     "key": "pc",
@@ -749,11 +749,11 @@
     "license": "CC0-1.0",
     "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.",
     "datVersion": null,
-    "generatedAt": "2026-11-09T06:17:23.106Z",
-    "variantCount": 20543,
-    "titleCount": 20449,
-    "file": "pc.json",
-    "complete": false
+    "complete": false,
+    "generatedAt": "2026-11-11T20:19:53.054Z",
+    "variantCount": 20549,
+    "titleCount": 20431,
+    "file": "pc.json"
   },
   {
     "key": "pc98",
@@ -763,11 +763,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2023.12.04",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:30.688Z",
     "variantCount": 109,
     "titleCount": 109,
-    "file": "pc98.json",
-    "complete": true
+    "file": "pc98.json"
   },
   {
     "key": "pce",
@@ -777,11 +777,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:27.119Z",
     "variantCount": 496,
     "titleCount": 452,
-    "file": "pce.json",
-    "complete": true
+    "file": "pce.json"
   },
   {
     "key": "pcecd",
@@ -791,11 +791,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:28.288Z",
     "variantCount": 498,
     "titleCount": 462,
-    "file": "pcecd.json",
-    "complete": true
+    "file": "pcecd.json"
   },
   {
     "key": "pcfx",
@@ -805,11 +805,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:29.497Z",
     "variantCount": 79,
     "titleCount": 78,
-    "file": "pcfx.json",
-    "complete": true
+    "file": "pcfx.json"
   },
   {
     "key": "picno",
@@ -819,11 +819,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:29.344Z",
     "variantCount": 20,
     "titleCount": 20,
-    "file": "picno.json",
-    "complete": true
+    "file": "picno.json"
   },
   {
     "key": "pico",
@@ -833,11 +833,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.492Z",
     "variantCount": 339,
     "titleCount": 326,
-    "file": "pico.json",
-    "complete": true
+    "file": "pico.json"
   },
   {
     "key": "plus4",
@@ -847,11 +847,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:44.325Z",
     "variantCount": 5,
     "titleCount": 5,
-    "file": "plus4.json",
-    "complete": true
+    "file": "plus4.json"
   },
   {
     "key": "pocketchallenge",
@@ -861,11 +861,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:32.818Z",
     "variantCount": 75,
     "titleCount": 41,
-    "file": "pocketchallenge.json",
-    "complete": true
+    "file": "pocketchallenge.json"
   },
   {
     "key": "pokemonmini",
@@ -875,11 +875,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:17.982Z",
     "variantCount": 42,
     "titleCount": 34,
-    "file": "pokemonmini.json",
-    "complete": true
+    "file": "pokemonmini.json"
   },
   {
     "key": "ps1",
@@ -889,11 +889,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:19.564Z",
     "variantCount": 10095,
     "titleCount": 7767,
-    "file": "ps1.json",
-    "complete": true
+    "file": "ps1.json"
   },
   {
     "key": "ps2",
@@ -903,11 +903,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:20.424Z",
     "variantCount": 11072,
     "titleCount": 7594,
-    "file": "ps2.json",
-    "complete": true
+    "file": "ps2.json"
   },
   {
     "key": "ps3",
@@ -917,11 +917,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:20.595Z",
     "variantCount": 4436,
     "titleCount": 2350,
-    "file": "ps3.json",
-    "complete": true
+    "file": "ps3.json"
   },
   {
     "key": "psp",
@@ -931,11 +931,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:20.731Z",
     "variantCount": 3366,
     "titleCount": 2286,
-    "file": "psp.json",
-    "complete": true
+    "file": "psp.json"
   },
   {
     "key": "pv1000",
@@ -945,11 +945,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:24.543Z",
     "variantCount": 13,
     "titleCount": 13,
-    "file": "pv1000.json",
-    "complete": true
+    "file": "pv1000.json"
   },
   {
     "key": "satellaview",
@@ -959,11 +959,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.549Z",
     "variantCount": 569,
     "titleCount": 516,
-    "file": "satellaview.json",
-    "complete": true
+    "file": "satellaview.json"
   },
   {
     "key": "saturn",
@@ -973,11 +973,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.726Z",
     "variantCount": 2057,
     "titleCount": 1632,
-    "file": "saturn.json",
-    "complete": true
+    "file": "saturn.json"
   },
   {
     "key": "scv",
@@ -987,11 +987,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:25.835Z",
     "variantCount": 33,
     "titleCount": 30,
-    "file": "scv.json",
-    "complete": true
+    "file": "scv.json"
   },
   {
     "key": "sega32x",
@@ -1001,11 +1001,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.573Z",
     "variantCount": 63,
     "titleCount": 47,
-    "file": "sega32x.json",
-    "complete": true
+    "file": "sega32x.json"
   },
   {
     "key": "sg1000",
@@ -1015,11 +1015,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.322Z",
     "variantCount": 211,
     "titleCount": 124,
-    "file": "sg1000.json",
-    "complete": true
+    "file": "sg1000.json"
   },
   {
     "key": "sms",
@@ -1029,11 +1029,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.369Z",
     "variantCount": 1057,
     "titleCount": 806,
-    "file": "sms.json",
-    "complete": true
+    "file": "sms.json"
   },
   {
     "key": "snes",
@@ -1043,11 +1043,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.479Z",
     "variantCount": 3730,
     "titleCount": 2707,
-    "file": "snes.json",
-    "complete": true
+    "file": "snes.json"
   },
   {
     "key": "studio2",
@@ -1057,11 +1057,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:14.644Z",
     "variantCount": 18,
     "titleCount": 18,
-    "file": "studio2.json",
-    "complete": true
+    "file": "studio2.json"
   },
   {
     "key": "sufami",
@@ -1071,11 +1071,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.591Z",
     "variantCount": 13,
     "titleCount": 13,
-    "file": "sufami.json",
-    "complete": true
+    "file": "sufami.json"
   },
   {
     "key": "supervision",
@@ -1085,11 +1085,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:15.896Z",
     "variantCount": 73,
     "titleCount": 70,
-    "file": "supervision.json",
-    "complete": true
+    "file": "supervision.json"
   },
   {
     "key": "vc4000",
@@ -1099,11 +1099,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:13.383Z",
     "variantCount": 56,
     "titleCount": 56,
-    "file": "vc4000.json",
-    "complete": true
+    "file": "vc4000.json"
   },
   {
     "key": "vectrex",
@@ -1113,11 +1113,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:08.317Z",
     "variantCount": 45,
     "titleCount": 40,
-    "file": "vectrex.json",
-    "complete": true
+    "file": "vectrex.json"
   },
   {
     "key": "vic20",
@@ -1127,11 +1127,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:43.183Z",
     "variantCount": 236,
     "titleCount": 174,
-    "file": "vic20.json",
-    "complete": true
+    "file": "vic20.json"
   },
   {
     "key": "virtualboy",
@@ -1141,11 +1141,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:16.747Z",
     "variantCount": 64,
     "titleCount": 51,
-    "file": "virtualboy.json",
-    "complete": true
+    "file": "virtualboy.json"
   },
   {
     "key": "vita",
@@ -1155,11 +1155,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2021.10.24",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:21.939Z",
     "variantCount": 240,
     "titleCount": 228,
-    "file": "vita.json",
-    "complete": true
+    "file": "vita.json"
   },
   {
     "key": "vsmile",
@@ -1169,11 +1169,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:22.067Z",
     "variantCount": 456,
     "titleCount": 376,
-    "file": "vsmile.json",
-    "complete": true
+    "file": "vsmile.json"
   },
   {
     "key": "wii",
@@ -1183,11 +1183,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.273Z",
     "variantCount": 3637,
     "titleCount": 2240,
-    "file": "wii.json",
-    "complete": true
+    "file": "wii.json"
   },
   {
     "key": "wiiu",
@@ -1197,11 +1197,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:18.074Z",
     "variantCount": 3366,
     "titleCount": 2547,
-    "file": "wiiu.json",
-    "complete": true
+    "file": "wiiu.json"
   },
   {
     "key": "wonderswan",
@@ -1211,11 +1211,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:00.648Z",
     "variantCount": 219,
     "titleCount": 206,
-    "file": "wonderswan.json",
-    "complete": true
+    "file": "wonderswan.json"
   },
   {
     "key": "wonderswancolor",
@@ -1225,11 +1225,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:50:02.000Z",
     "variantCount": 229,
     "titleCount": 212,
-    "file": "wonderswancolor.json",
-    "complete": true
+    "file": "wonderswancolor.json"
   },
   {
     "key": "x1",
@@ -1239,11 +1239,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2023.12.04",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:53.043Z",
     "variantCount": 8,
     "titleCount": 8,
-    "file": "x1.json",
-    "complete": true
+    "file": "x1.json"
   },
   {
     "key": "x68000",
@@ -1253,11 +1253,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:54.203Z",
     "variantCount": 1,
     "titleCount": 1,
-    "file": "x68000.json",
-    "complete": true
+    "file": "x68000.json"
   },
   {
     "key": "xbox",
@@ -1267,11 +1267,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:23.217Z",
     "variantCount": 2557,
     "titleCount": 1441,
-    "file": "xbox.json",
-    "complete": true
+    "file": "xbox.json"
   },
   {
     "key": "xbox360",
@@ -1281,11 +1281,11 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:24.543Z",
     "variantCount": 3596,
     "titleCount": 2357,
-    "file": "xbox360.json",
-    "complete": true
+    "file": "xbox360.json"
   },
   {
     "key": "zxspectrum3",
@@ -1295,10 +1295,10 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Catalog data derived from libretro-database (metadat/no-intro, redump, serial, publisher, developer, genre, releaseyear), © libretro-database contributors, licensed CC-BY-SA-4.0. See LICENSES/libretro-database-LICENSE.txt.",
     "datVersion": "2026.10.07",
+    "complete": true,
     "generatedAt": "2026-11-08T16:49:51.841Z",
     "variantCount": 130,
     "titleCount": 130,
-    "file": "zxspectrum3.json",
-    "complete": true
+    "file": "zxspectrum3.json"
   }
 ]
