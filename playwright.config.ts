@@ -18,6 +18,16 @@ export default defineConfig({
                 ...devices['Desktop Firefox'],
                 headless: true,
             },
+            testIgnore: /mobile\.spec\.ts/,
+        },
+        {
+            name: 'mobile',
+            use: {
+                ...devices['Desktop Firefox'],
+                headless: true,
+                viewport: { width: 375, height: 667 },
+            },
+            testMatch: /mobile\.spec\.ts/,
         },
     ],
     webServer: {

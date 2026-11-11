@@ -37,6 +37,36 @@ select:focus {
     }
 }
 
+/* Mobile header: logo + theme toggle on top, icon-only nav below, then a
+   full-width search row. */
+@media (max-width: 640px) {
+    .app-logo {
+        margin-right: auto;
+    }
+
+    .nav-label {
+        display: none;
+    }
+
+    .nav-links {
+        flex: 1 1 100%;
+        justify-content: space-between;
+    }
+
+    .nav-links a {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .header-spacer {
+        display: none;
+    }
+
+    .global-search {
+        flex: 1 1 100% !important;
+    }
+}
+
 details > summary {
     list-style: none;
 }
