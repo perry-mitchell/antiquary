@@ -189,29 +189,29 @@ export async function computeCompletion(
  * skipped.
  */
 export function prefillCatalogFields(
-  fields: { id: string; name: string; type: string; options: string[] | null }[],
-  entry: SupersetEntry,
-  provided: { fieldId: string; value: unknown }[] = [],
+    fields: { id: string; name: string; type: string; options: string[] | null }[],
+    entry: SupersetEntry,
+    provided: { fieldId: string; value: unknown }[] = [],
 ): { fieldId: string; value: unknown }[] {
-  const byName = new Map(fields.map((f) => [f.name.trim().toLowerCase(), f]))
-  const providedIds = new Set(provided.map((v) => v.fieldId))
-  const picks: [string, unknown][] = [
-    ['Region', entry.region],
-    ['Serial', entry.serial],
-    ['Developer', entry.developer],
-    ['Publisher', entry.publisher],
-    ['Genre', entry.genre],
-    ['Year', entry.year],
-  ]
-  const prefilled: { fieldId: string; value: unknown }[] = []
-  for (const [name, value] of picks) {
-    if (value === null || value === undefined || value === '') continue
-    const field = byName.get(name.toLowerCase())
-    if (!field || providedIds.has(field.id)) continue
-    if (field.type === 'select' && !(field.options ?? []).includes(String(value))) continue
-    prefilled.push({ fieldId: field.id, value })
-  }
-  return [...provided, ...prefilled]
+    const byName = new Map(fields.map((f) => [f.name.trim().toLowerCase(), f]));
+    const providedIds = new Set(provided.map((v) => v.fieldId));
+    const picks: [string, unknown][] = [
+        ['Region', entry.region],
+        ['Serial', entry.serial],
+        ['Developer', entry.developer],
+        ['Publisher', entry.publisher],
+        ['Genre', entry.genre],
+        ['Year', entry.year],
+    ];
+    const prefilled: { fieldId: string; value: unknown }[] = [];
+    for (const [name, value] of picks) {
+        if (value === null || value === undefined || value === '') continue;
+        const field = byName.get(name.toLowerCase());
+        if (!field || providedIds.has(field.id)) continue;
+        if (field.type === 'select' && !(field.options ?? []).includes(String(value))) continue;
+        prefilled.push({ fieldId: field.id, value });
+    }
+    return [...provided, ...prefilled];
 }
 
 export function defaultCatalogDir(): string {
