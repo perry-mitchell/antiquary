@@ -9,6 +9,12 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { requireApiKey } from '../apiKeys.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
 import {
+    createCollectionSchema,
+    createTemplateSchema,
+    updateCollectionSchema,
+    updateTemplateSchema,
+} from '../schemas.js';
+import {
     MAX_IMAGE_BYTES,
     isAllowedImageMime,
     isUploadFilename,
@@ -21,6 +27,11 @@ import { stat } from 'node:fs/promises';
 
 function asText(result: unknown) {
     return { content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }] };
+}
+
+function assertSupersetKey(supersets: SupersetRegistry, key: string | null | undefined) {
+    if (key && !supersets.get(key))
+        throw new ValidationError(`Unknown superset "${key}" — call list_supersets for valid keys`);
 }
 
 const imageAttachSchema = z
@@ -270,19 +281,77 @@ function buildServer(
     server.registerTool(
         'create_collection',
         {
-            description: 'Create a collection.',
-            inputSchema: {
-                name: z.string().min(1),
-                description: z.string().nullable().optional(),
-                emoji: z.string().nullable().optional(),
-                color: z
-                    .string()
-                    .regex(/^#[0-9a-fA-F]{6}$/)
-                    .nullable()
-                    .optional(),
-            },
+            description:
+                'Create a collection. Pass templateId (from list_templates) to bind a template — ' +
+                'required for catalog-matched items, since the template carries the superset binding.',
+            inputSchema: { ...createCollectionSchema.shape },
         },
         async (params) => asText(await db.createCollection(params)),
+    );
+
+    server.registerTool(
+        'update_collection',
+        {
+            description:
+                'Update a collection (name, description, emoji, color, templateId). Rebinding ' +
+                'templateId re-points the collection at another superset catalog; items already ' +
+                'matched to the old catalog get flagged outsideSuperset.',
+            inputSchema: { id: z.string().uuid(), ...updateCollectionSchema.shape },
+        },
+        async ({ id, ...patch }) => {
+            const updated = await db.updateCollection(id, patch);
+            if (!updated) return asText({ error: 'Collection not found' });
+            return asText(updated);
+        },
+    );
+
+    server.registerTool(
+        'create_template',
+        {
+            description:
+                'Create a template. Bind it to a superset catalog (see list_supersets) to enable ' +
+                'catalog matching on items; fields define custom values (text, number, date, ' +
+                'rating, select with options, price, image, boolean).',
+            inputSchema: { ...createTemplateSchema.shape },
+        },
+        async (params) => {
+            assertSupersetKey(supersets, params.superset);
+            return asText(await db.createTemplate(params));
+        },
+    );
+
+    server.registerTool(
+        'update_template',
+        {
+            description:
+                'Update a template (name, description, superset binding, fields). Changing superset ' +
+                'affects new item matches; existing items keep their matched entries.',
+            inputSchema: { id: z.string().uuid(), ...updateTemplateSchema.shape },
+        },
+        async ({ id, ...patch }) => {
+            assertSupersetKey(supersets, patch.superset);
+            const updated = await db.updateTemplate(id, patch);
+            if (!updated) return asText({ error: 'Template not found' });
+            return asText(updated);
+        },
+    );
+
+    server.registerTool(
+        'delete_template',
+        {
+            description:
+                'Delete a template that is not used by any collection (fails with the usage ' +
+                'count otherwise).',
+            inputSchema: { id: z.string().uuid() },
+        },
+        async ({ id }) => {
+            const result = await db.deleteTemplate(id);
+            if (!result.ok)
+                throw new ValidationError(
+                    `Template is used by ${result.collectionCount} collection(s) and cannot be deleted`,
+                );
+            return asText({ ok: true });
+        },
     );
 
     server.registerTool(

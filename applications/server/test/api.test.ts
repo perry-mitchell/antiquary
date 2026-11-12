@@ -430,6 +430,158 @@ describe('mcp endpoint', () => {
         expect(tools).toContain('create_item');
         expect(tools).toContain('trash_item');
         expect(tools).toContain('purge_collection');
+        expect(tools).toContain('update_collection');
+        expect(tools).toContain('create_template');
+        expect(tools).toContain('update_template');
+        expect(tools).toContain('delete_template');
+    });
+
+    it('manages templates and template-bound collections over MCP', async () => {
+        // create a template bound to a superset
+        const template = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 30,
+            method: 'tools/call',
+            params: {
+                name: 'create_template',
+                arguments: {
+                    name: 'MCP dos shelf',
+                    superset: 'dos',
+                    fields: [
+                        { name: 'Notes', type: 'text' },
+                        { name: 'Setup', type: 'select', options: ['DOSBox', 'Native'] },
+                    ],
+                },
+            },
+        });
+        const templateResult = unwrap(template).result as {
+            isError?: boolean;
+            content: { text: string }[];
+        };
+        expect(templateResult.isError).toBeFalsy();
+        const tpl = JSON.parse(templateResult.content[0]!.text) as { id: string };
+        expect(tpl.id).toBeTruthy();
+
+        // invalid superset key is rejected
+        const bogusSuperset = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 31,
+            method: 'tools/call',
+            params: {
+                name: 'create_template',
+                arguments: { name: 'Bogus', superset: 'nonsense' },
+            },
+        });
+        const bogusResult = unwrap(bogusSuperset).result as {
+            isError?: boolean;
+            content: { text: string }[];
+        };
+        expect(bogusResult.isError).toBe(true);
+        expect(bogusResult.content[0]!.text).toContain('Unknown superset');
+
+        // create a collection bound to the template directly
+        const collection = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 32,
+            method: 'tools/call',
+            params: {
+                name: 'create_collection',
+                arguments: { name: 'MCP dos games', templateId: tpl.id },
+            },
+        });
+        const collectionResult = unwrap(collection).result as { content: { text: string }[] };
+        const col = JSON.parse(collectionResult.content[0]!.text) as {
+            id: string;
+            templateId: string;
+        };
+        expect(col.templateId).toBe(tpl.id);
+
+        // items in the bound collection must match the catalog
+        const matched = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 33,
+            method: 'tools/call',
+            params: {
+                name: 'create_item',
+                arguments: { collectionId: col.id, name: 'Silverball', supersetEntry: 'Q16267078' },
+            },
+        });
+        const matchedResult = unwrap(matched).result as {
+            isError?: boolean;
+            content: { text: string }[];
+        };
+        expect(matchedResult.isError).toBeFalsy();
+        const item = JSON.parse(matchedResult.content[0]!.text) as { superset: string };
+        expect(item.superset).toBe('dos');
+
+        // update_collection can rebind to another template
+        const pcTemplate = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 34,
+            method: 'tools/call',
+            params: {
+                name: 'create_template',
+                arguments: { name: 'MCP pc shelf', superset: 'pc' },
+            },
+        });
+        const pcTemplateResult = unwrap(pcTemplate).result as { content: { text: string }[] };
+        const pcTpl = JSON.parse(pcTemplateResult.content[0]!.text) as { id: string };
+
+        const rebound = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 35,
+            method: 'tools/call',
+            params: {
+                name: 'update_collection',
+                arguments: { id: col.id, templateId: pcTpl.id },
+            },
+        });
+        const reboundResult = unwrap(rebound).result as { content: { text: string }[] };
+        const reboundCol = JSON.parse(reboundResult.content[0]!.text) as { templateId: string };
+        expect(reboundCol.templateId).toBe(pcTpl.id);
+
+        // delete_template refuses while a collection uses it
+        const inUse = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 36,
+            method: 'tools/call',
+            params: { name: 'delete_template', arguments: { id: pcTpl.id } },
+        });
+        const inUseResult = unwrap(inUse).result as {
+            isError?: boolean;
+            content: { text: string }[];
+        };
+        expect(inUseResult.isError).toBe(true);
+        expect(inUseResult.content[0]!.text).toContain('used by');
+
+        // cleanup: unbind, delete unused templates, trash collection
+        await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 37,
+            method: 'tools/call',
+            params: { name: 'update_collection', arguments: { id: col.id, templateId: null } },
+        });
+        const tplDelete = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 38,
+            method: 'tools/call',
+            params: { name: 'delete_template', arguments: { id: pcTpl.id } },
+        });
+        expect((unwrap(tplDelete).result as { isError?: boolean }).isError).toBeFalsy();
+        await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 39,
+            method: 'tools/call',
+            params: { name: 'delete_template', arguments: { id: tpl.id } },
+        });
+        await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 40,
+            method: 'tools/call',
+            params: { name: 'trash_collection', arguments: { id: col.id } },
+        });
+        const listed = await api.get('/api/collections');
+        expect(listed.body.some((c: { id: string }) => c.id === col.id)).toBe(false);
     });
 
     it('tools work end to end: create an item via MCP, find it, trash it', async () => {
