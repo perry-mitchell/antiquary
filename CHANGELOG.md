@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/perry-mitchell/antiquary/compare/v1.1.3...v1.1.4) (2026-11-12)
+
+
+### Bug Fixes
+
+* **catalogs:** recover findable titles for PC/DOS catalogs ([#9](https://github.com/perry-mitchell/antiquary/issues/9)) ([112f7c8](https://github.com/perry-mitchell/antiquary/commit/112f7c836c7376df78425d4c31898fd7ec5e0ac7))
+
 ## [1.1.3](https://github.com/perry-mitchell/antiquary/compare/v1.1.2...v1.1.3) (2026-11-11)
 
 
