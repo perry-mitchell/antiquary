@@ -173,6 +173,17 @@ test.describe.serial('collector journey', () => {
         await expect(img).toHaveAttribute('src', /\/uploads\/.+\.png/);
         const res = await page.request.get(await img.getAttribute('src'));
         expect(res.status()).toBe(200);
+
+        // Photo removal asks for confirmation first
+        const src = await img.getAttribute('src');
+        await page.getByTestId('remove-photo-button').click();
+        await expect(page.getByTestId('confirm-remove-photo')).toBeVisible();
+        expect(await page.locator(`img[src="${src}"]`).count()).toBeGreaterThan(0); // still there
+        await page.getByRole('button', { name: 'Cancel' }).click();
+        await expect(page.getByTestId('confirm-remove-photo')).toHaveCount(0);
+        await page.getByTestId('remove-photo-button').click();
+        await page.getByTestId('confirm-remove-photo').click();
+        await expect(page.locator(`img[src="${src}"]`)).toHaveCount(0);
     });
 
     test('editing an item records a history diff', async ({ page }) => {

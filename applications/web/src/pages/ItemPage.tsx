@@ -276,14 +276,25 @@ export function ItemPage() {
                             </Button>
                         ) : null}
                         {cover ? (
-                            <Button
-                                variant="soft"
-                                color="gray"
-                                onClick={() => removeImage(cover.id)}
-                                data-testid="remove-photo-button"
-                            >
-                                <TrashIcon /> Remove photo
-                            </Button>
+                            <ConfirmDialog
+                                title="Remove this photo?"
+                                description="The photo file is deleted permanently from the item. This cannot be undone."
+                                actionLabel="Remove photo"
+                                danger
+                                testId="confirm-remove-photo"
+                                onConfirm={async () => {
+                                    await removeImage(cover.id);
+                                }}
+                                trigger={
+                                    <Button
+                                        variant="soft"
+                                        color="gray"
+                                        data-testid="remove-photo-button"
+                                    >
+                                        <TrashIcon /> Remove photo
+                                    </Button>
+                                }
+                            />
                         ) : null}
                     </Flex>
                     {cover ? (
