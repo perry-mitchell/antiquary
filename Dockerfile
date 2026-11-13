@@ -21,6 +21,8 @@ ENV NODE_ENV=production
 
 COPY --from=build /app ./
 RUN npm prune --omit=dev && mkdir -p /data/uploads
+# Uploads live here by default in Docker — mount a volume at /data/uploads to persist them.
+ENV UPLOAD_DIR=/data/uploads
 
 EXPOSE 3000
 CMD ["sh", "-c", "node packages/database/dist/migrate.js latest && node applications/server/dist/index.js"]

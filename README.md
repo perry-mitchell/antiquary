@@ -46,6 +46,7 @@ services:
             - '3000:3000'
         environment:
             DATABASE_URL: postgres://antiquary:antiquary@db:5432/antiquary
+            UPLOAD_DIR: /data/uploads
         volumes:
             - ./uploads:/data/uploads
         depends_on:
@@ -62,6 +63,14 @@ docker compose up -d
 
 Then open <http://localhost:3000>. Migrations run automatically on boot, uploads land in `./uploads`,
 and the database lives in the `pgdata` volume.
+
+### Configuration
+
+| Variable       | Default                                           | Purpose                                                                                                                       |
+| -------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `DATABASE_URL` | —                                                 | PostgreSQL connection string (required).                                                                                      |
+| `UPLOAD_DIR`   | `./uploads` (`/data/uploads` in the Docker image) | Where uploaded images are stored. **Point it at a persistent volume** — anything else is lost when the container is replaced. |
+| `PORT`         | `3000`                                            | HTTP port.                                                                                                                    |
 
 ### Development
 
