@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/perry-mitchell/antiquary/compare/v1.1.4...v1.2.0) (2026-11-13)
+
+
+### Bug Fixes
+
+* **docs:** make Docker upload persistence explicit ([#10](https://github.com/perry-mitchell/antiquary/issues/10)) ([bceb20e](https://github.com/perry-mitchell/antiquary/commit/bceb20e51851c60837402a36be06b5247fca4cf9))
+* **web:** confirm before removing an item photo ([#12](https://github.com/perry-mitchell/antiquary/issues/12)) ([f2ec126](https://github.com/perry-mitchell/antiquary/commit/f2ec1260121af7cb99c00ca9f5dec308449a9713))
+
+
+### Features
+
+* **mcp:** template and collection management tools ([#11](https://github.com/perry-mitchell/antiquary/issues/11)) ([772ecff](https://github.com/perry-mitchell/antiquary/commit/772ecff323c8df03b1bd3c8afd0d104561dfec3b))
+
 ## [1.1.4](https://github.com/perry-mitchell/antiquary/compare/v1.1.3...v1.1.4) (2026-11-12)
 
 
