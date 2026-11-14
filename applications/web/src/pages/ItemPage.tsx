@@ -31,6 +31,7 @@ import {
 import type { HistoryEventDto, ItemDetailDto } from '@antiquary/database';
 import { api } from '../api';
 import { ConfirmDialog, EmptyState } from '../components/Dialogs';
+import { RarityTag } from '../components/RarityTag';
 import { FieldValueBadge } from '../components/FieldInput';
 import { useToast } from '../components/Toast';
 import {
@@ -409,6 +410,13 @@ export function ItemPage() {
                             <Badge color="gray" variant="soft" data-testid="outside-superset-badge">
                                 Outside of superset
                             </Badge>
+                        ) : null}
+                        {item.supersetRarity ? (
+                            <RarityTag
+                                rarity={item.supersetRarity.rarity}
+                                rarityLabel={item.supersetRarity.rarityLabel}
+                                rarityPercent={item.supersetRarity.rarityPercent}
+                            />
                         ) : null}
                         {item.tags.map((tag) => (
                             <Badge key={tag.id} color="indigo" variant="soft">

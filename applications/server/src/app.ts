@@ -39,7 +39,7 @@ export function createApp({ db, uploadDir, supersets, webDist }: AppDeps): Expre
     app.use('/api/tags', tagRoutes(db));
     app.use('/api/trash', trashRoutes(db));
     app.use('/api/stats', statsRoutes(db));
-    app.use('/api/supersets', supersetRoutes(supersets));
+    app.use('/api/supersets', supersetRoutes(db, supersets));
     app.use('/api/settings', settingsRoutes(db));
 
     app.use('/api', (_req, res) => {

@@ -31,6 +31,7 @@ export function collectionRoutes(db: Database, supersets: SupersetRegistry): Rou
                     : null;
                 return {
                     ...collection,
+                    superset: key ?? null,
                     completion: key
                         ? await computeCompletion(
                               entriesByCollection.get(collection.id) ?? [],
@@ -53,14 +54,16 @@ export function collectionRoutes(db: Database, supersets: SupersetRegistry): Rou
         const collection = await db.getCollection(req.params.id);
         if (!collection) throw new HttpError(404, 'Collection not found');
         let completion = null;
+        let superset: string | null = null;
         if (collection.templateId) {
             const template = await db.getTemplate(collection.templateId);
             if (template?.superset) {
+                superset = template.superset;
                 const entries = await db.getCollectionSupersetEntries(collection.id);
                 completion = await computeCompletion(entries, supersets, template.superset);
             }
         }
-        res.json({ ...collection, completion });
+        res.json({ ...collection, superset, completion });
     });
 
     router.patch('/:id', async (req, res) => {

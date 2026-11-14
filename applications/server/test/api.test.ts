@@ -955,9 +955,122 @@ describe('supersets', () => {
         expect((await api.get('/api/supersets/snes/entries/DEADBEEF')).status).toBe(404);
     });
 
+    it('browses catalog entries paginated, searchable and ordered', async () => {
+        const list = await api.get('/api/supersets');
+        const snes = list.body.find((s: { key: string }) => s.key === 'snes');
+
+        const res = await api.get('/api/supersets/snes/entries?limit=5&page=2');
+        expect(res.status).toBe(200);
+        expect(res.body.entries).toHaveLength(5);
+        expect(res.body.page).toBe(2);
+        expect(res.body.limit).toBe(5);
+        expect(res.body.total).toBe(snes.variantCount);
+        const titles = res.body.entries.map((e: { parentTitle: string }) => e.parentTitle);
+        expect(titles).toEqual([...titles].sort((a: string, b: string) => a.localeCompare(b)));
+
+        const search = await api.get('/api/supersets/snes/entries?q=chrono+trigger');
+        expect(search.status).toBe(200);
+        expect(search.body.total).toBeGreaterThanOrEqual(2);
+        expect(search.body.entries.map((e: { id: string }) => e.id)).toContain('2D206BF7');
+        expect(search.body.total).toBeLessThan(res.body.total);
+
+        expect((await api.get('/api/supersets/nope/entries')).status).toBe(404);
+        expect((await api.get('/api/supersets/snes/entries?ownership=bogus')).status).toBe(400);
+    });
+
+    it('flags owned entries across collections and filters by ownership', async () => {
+        // Earlier tests matched Chrono Trigger (USA) in another collection —
+        // ownership spans every collection.
+        const before = await api.get('/api/supersets/snes/entries?q=chrono+trigger');
+        expect(before.body.entries.find((e: { id: string }) => e.id === '2D206BF7').owned).toBe(
+            true,
+        );
+
+        const tpl = await api
+            .post('/api/templates')
+            .send({ name: 'Browse template', superset: 'snes', fields: [] });
+        const shelf = await api
+            .post('/api/collections')
+            .send({ name: 'Browse shelf', templateId: tpl.body.id });
+        const target = before.body.entries.find((e: { owned: boolean }) => !e.owned);
+        expect(target).toBeDefined();
+        const created = await api.post('/api/items').send({
+            collectionId: shelf.body.id,
+            name: target.parentTitle,
+            supersetEntry: target.id,
+        });
+        expect(created.status).toBe(201);
+
+        const all = await api.get('/api/supersets/snes/entries?q=chrono+trigger');
+        const match = all.body.entries.find((e: { id: string }) => e.id === target.id);
+        expect(match.owned).toBe(true);
+        expect(match.itemId).toBe(created.body.id);
+
+        const owned = await api.get('/api/supersets/snes/entries?ownership=owned&q=chrono+trigger');
+        expect(owned.body.entries.every((e: { owned: boolean }) => e.owned)).toBe(true);
+        expect(owned.body.entries.map((e: { id: string }) => e.id)).toContain(target.id);
+
+        const missing = await api.get(
+            '/api/supersets/snes/entries?ownership=missing&q=chrono+trigger',
+        );
+        expect(missing.body.entries.every((e: { owned: boolean }) => !e.owned)).toBe(true);
+        expect(missing.body.entries.map((e: { id: string }) => e.id)).not.toContain(target.id);
+        expect(owned.body.total + missing.body.total).toBe(all.body.total);
+    });
+
+    it('enriches entries and search results with compiled rarity', async () => {
+        // Aladdin (USA) on Game Boy ships a compiled rarity file
+        const entry = await api.get('/api/supersets/gb/entries/AF6BDC50');
+        expect(entry.status).toBe(200);
+        expect(entry.body.rarity).toEqual({
+            rarity: 5,
+            rarityLabel: 'Sought After',
+            rarityPercent: 44,
+        });
+
+        const search = await api.get('/api/supersets/gb/search?q=aladdin');
+        expect(search.status).toBe(200);
+        const title = search.body.results.find((r: { title: string }) =>
+            r.title.startsWith('Aladdin'),
+        );
+        expect(title).toBeDefined();
+        expect(title.variants.every((v: { rarity?: unknown }) => v.rarity !== undefined)).toBe(
+            true,
+        );
+
+        // supersets without a rarity file keep entries plain
+        const plain = await api.get('/api/supersets/snes/entries/2D206BF7');
+        expect(plain.body.rarity).toBeUndefined();
+    });
+
     it('validates the search query and catalog key', async () => {
         expect((await api.get('/api/supersets/snes/search')).status).toBe(400);
         expect((await api.get('/api/supersets/nope/search?q=x')).status).toBe(404);
+    });
+
+    it('exposes compiled rarity on matched item details', async () => {
+        const tpl = await api.post('/api/templates').send({
+            name: 'GB template',
+            superset: 'gb',
+            fields: [{ name: 'Condition', type: 'text' }],
+        });
+        const shelf = await api
+            .post('/api/collections')
+            .send({ name: 'GB shelf', templateId: tpl.body.id });
+        const created = await api.post('/api/items').send({
+            collectionId: shelf.body.id,
+            name: 'Aladdin',
+            supersetEntry: 'AF6BDC50',
+        });
+        expect(created.status).toBe(201);
+
+        const detail = await api.get(`/api/items/${created.body.id}`);
+        expect(detail.status).toBe(200);
+        expect(detail.body.supersetRarity).toEqual({
+            rarity: 5,
+            rarityLabel: 'Sought After',
+            rarityPercent: 44,
+        });
     });
 
     it('requires a catalog match when the collection template has a superset', async () => {

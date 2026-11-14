@@ -77,6 +77,13 @@ export const listItemsQuerySchema = z.object({
     limit: z.coerce.number().int().min(1).max(100).optional(),
 });
 
+export const listSupersetEntriesQuerySchema = z.object({
+    q: z.string().trim().max(200).optional(),
+    ownership: z.enum(['all', 'owned', 'missing']).optional(),
+    page: z.coerce.number().int().min(1).optional(),
+    limit: z.coerce.number().int().min(1).max(100).optional(),
+});
+
 export const createTagSchema = z.object({
     name: z.string().trim().min(1, 'Name is required').max(50),
     color: z
@@ -100,5 +107,6 @@ export type UpdateTemplateBody = z.infer<typeof updateTemplateSchema>;
 export type CreateItemBody = z.infer<typeof createItemSchema>;
 export type UpdateItemBody = z.infer<typeof updateItemSchema>;
 export type ListItemsQuery = z.infer<typeof listItemsQuerySchema>;
+export type ListSupersetEntriesQuery = z.infer<typeof listSupersetEntriesQuerySchema>;
 export type CreateTagBody = z.infer<typeof createTagSchema>;
 export type UpdateTagBody = z.infer<typeof updateTagSchema>;

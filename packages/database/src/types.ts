@@ -174,6 +174,8 @@ export interface CollectionDto {
     parentId: string | null;
     templateId: string | null;
     itemCount: number;
+    /** Catalog key of the collection's template, filled in by the API. */
+    superset?: string | null;
     /** Catalog coverage, filled in by the API when the collection's template uses a superset. */
     completion?: { owned: number; total: number; percent: number } | null;
     createdAt: string;
@@ -290,6 +292,12 @@ export interface ItemDetailDto {
     supersetEntry: string | null;
     /** Filled in by the API layer when the item is matched to a catalog entry. */
     supersetLabel?: string | null;
+    /** Filled in by the API layer when the matched entry has compiled rarity data. */
+    supersetRarity?: {
+        rarity: number;
+        rarityLabel: string | null;
+        rarityPercent: number | null;
+    } | null;
     collectionId: string;
     collectionName: string;
     collectionEmoji: string | null;

@@ -505,6 +505,31 @@ export class Database {
         );
     }
 
+    /** All catalog-matched active items with item ids, for superset browsing. */
+    async listSupersetMatches(): Promise<
+        { itemId: string; collectionId: string; superset: string; supersetEntry: string }[]
+    > {
+        const rows = await this.db
+            .selectFrom('items')
+            .where('items.deletedAt', 'is', null)
+            .where('items.superset', 'is not', null)
+            .where('items.supersetEntry', 'is not', null)
+            .select(['items.id', 'items.collectionId', 'items.superset', 'items.supersetEntry'])
+            .execute();
+        return rows.flatMap((row) =>
+            row.superset !== null && row.supersetEntry !== null
+                ? [
+                      {
+                          itemId: row.id,
+                          collectionId: row.collectionId,
+                          superset: row.superset,
+                          supersetEntry: row.supersetEntry,
+                      },
+                  ]
+                : [],
+        );
+    }
+
     /** Catalog matches for one collection. */
     async getCollectionSupersetEntries(
         collectionId: string,
