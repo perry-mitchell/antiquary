@@ -371,8 +371,26 @@ test.describe.serial('collector journey', () => {
         await expect(shelfCard.getByTestId('collection-completion')).toBeVisible();
         await shelfCard.click();
         await expect(page.getByTestId('collection-completion-text')).toContainText(
-            /1 \/ \d+ titles · 0(\.\d+)?%/,
+            /1 \/ \d+ titles · 0(\.\d)?%/,
         );
+
+        // 7. Browse the catalog from the collection: search, owned flag, missing-only
+        await page.getByTestId('browse-superset-button').click();
+        await expect(page.getByTestId('superset-title')).toContainText(
+            'Super Nintendo Entertainment System',
+        );
+        await expect(page.getByTestId('back-to-collection')).toContainText('SNES shelf');
+
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        const chronoRow = page.getByTestId('superset-entry-chrono-trigger-usa');
+        await expect(chronoRow).toContainText('Chrono Trigger');
+        await expect(chronoRow).toContainText('SNS-ACTE-USA');
+        await expect(chronoRow.getByTestId('owned-badge')).toBeVisible();
+        await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toHaveCount(1);
+
+        await page.getByTestId('missing-only').click();
+        await expect(chronoRow).toHaveCount(0);
+        await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toBeVisible();
     });
 
     test('rarity tags render for supersets with compiled rarity', async ({ page }) => {

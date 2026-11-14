@@ -174,6 +174,8 @@ export interface CollectionDto {
     parentId: string | null;
     templateId: string | null;
     itemCount: number;
+    /** Catalog key of the collection's template, filled in by the API. */
+    superset?: string | null;
     /** Catalog coverage, filled in by the API when the collection's template uses a superset. */
     completion?: { owned: number; total: number; percent: number } | null;
     createdAt: string;

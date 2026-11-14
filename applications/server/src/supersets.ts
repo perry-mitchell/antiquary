@@ -61,6 +61,24 @@ export interface SupersetSearchResult {
     variants: SupersetEntry[];
 }
 
+export type SupersetOwnership = 'all' | 'owned' | 'missing';
+
+export interface SupersetEntryListOptions {
+    query?: string;
+    page?: number;
+    limit?: number;
+    /** Filter by ownership; requires `isOwned` when not "all". */
+    ownership?: SupersetOwnership;
+    isOwned?: (entryId: string) => boolean;
+}
+
+export interface SupersetEntryListResult {
+    entries: SupersetEntry[];
+    total: number;
+    page: number;
+    limit: number;
+}
+
 export interface SupersetCompletion {
     owned: number;
     total: number;
@@ -127,6 +145,55 @@ export class SupersetRegistry {
     /** Compiled rarity for an entry, if the superset ships a rarity file with one. */
     async getRarity(key: string, id: string): Promise<SupersetRarity | null> {
         if (!this.index.has(key)) return null;
+        return (await this.rarityMapFor(key)).get(id) ?? null;
+    }
+
+    /**
+     * Paginated catalog browser: every entry (variants included), searched
+     * across titles, variant names and serials, alphabetically ordered and
+     * optionally filtered to owned or missing entries.
+     */
+    async listEntries(
+        key: string,
+        opts: SupersetEntryListOptions = {},
+    ): Promise<SupersetEntryListResult | null> {
+        const catalog = await this.withCatalog(key);
+        if (!catalog) return null;
+
+        const page = Math.max(1, opts.page ?? 1);
+        const limit = Math.min(100, Math.max(1, opts.limit ?? 24));
+        const needle = (opts.query ?? '').trim().toLowerCase();
+        const ownership = opts.ownership ?? 'all';
+
+        let entries = catalog.entries;
+        if (needle.length > 0) {
+            entries = entries.filter(
+                (entry) =>
+                    entry.parentTitle.toLowerCase().includes(needle) ||
+                    entry.name.toLowerCase().includes(needle) ||
+                    (entry.serial?.toLowerCase().includes(needle) ?? false),
+            );
+        }
+        if (ownership !== 'all') {
+            const isOwned = opts.isOwned ?? (() => false);
+            entries = entries.filter((entry) =>
+                ownership === 'owned' ? isOwned(entry.id) : !isOwned(entry.id),
+            );
+        }
+
+        entries = [...entries].sort(
+            (a, b) => a.parentTitle.localeCompare(b.parentTitle) || a.name.localeCompare(b.name),
+        );
+
+        const rarityMap = await this.rarityMapFor(key);
+        const slice = entries.slice((page - 1) * limit, (page - 1) * limit + limit).map((entry) => {
+            const rarity = rarityMap.get(entry.id);
+            return rarity ? { ...entry, rarity } : entry;
+        });
+        return { entries: slice, total: entries.length, page, limit };
+    }
+
+    private async rarityMapFor(key: string): Promise<Map<string, SupersetRarity>> {
         let rarityMap = this.rarityCache.get(key);
         if (!rarityMap) {
             rarityMap = new Map();
@@ -147,7 +214,7 @@ export class SupersetRegistry {
             }
             this.rarityCache.set(key, rarityMap);
         }
-        return rarityMap.get(id) ?? null;
+        return rarityMap;
     }
 
     /** Free-text search across titles, variant names and serials, grouped by title. */
