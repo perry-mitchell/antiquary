@@ -290,6 +290,12 @@ export interface ItemDetailDto {
     supersetEntry: string | null;
     /** Filled in by the API layer when the item is matched to a catalog entry. */
     supersetLabel?: string | null;
+    /** Filled in by the API layer when the matched entry has compiled rarity data. */
+    supersetRarity?: {
+        rarity: number;
+        rarityLabel: string | null;
+        rarityPercent: number | null;
+    } | null;
     collectionId: string;
     collectionName: string;
     collectionEmoji: string | null;

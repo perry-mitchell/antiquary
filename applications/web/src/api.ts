@@ -51,6 +51,12 @@ export interface ItemListParams {
     limit?: number;
 }
 
+export interface SupersetRarityDto {
+    rarity: number;
+    rarityLabel: string | null;
+    rarityPercent: number | null;
+}
+
 export interface SupersetEntryDto {
     id: string;
     name: string;
@@ -61,6 +67,8 @@ export interface SupersetEntryDto {
     publisher: string | null;
     genre: string | null;
     year: number | null;
+    /** Compiled reference rarity, when the superset has one. */
+    rarity?: SupersetRarityDto;
 }
 
 export interface SupersetInfoDto {

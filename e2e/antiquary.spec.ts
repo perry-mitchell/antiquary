@@ -375,6 +375,43 @@ test.describe.serial('collector journey', () => {
         );
     });
 
+    test('rarity tags render for supersets with compiled rarity', async ({ page }) => {
+        // GB superset ships a compiled rarity file
+        await page.goto('/');
+        await page.getByTestId('nav-templates').click();
+        await page.getByTestId('new-template-button').click();
+        await page.getByTestId('template-name-input').fill('GB games');
+        await page.getByTestId('template-superset-select').selectOption('gb');
+        await page.getByTestId('save-template-button').click();
+
+        await page.goto('/');
+        await page.getByTestId('new-collection-button').click();
+        await page.getByTestId('collection-name-input').fill('GB shelf');
+        await page
+            .getByTestId('collection-template-select')
+            .selectOption({ label: 'GB games ⋆ catalog (6 fields)' });
+        await page.getByTestId('collection-save-button').click();
+
+        await page.getByTestId('collection-card').filter({ hasText: 'GB shelf' }).click();
+        await page.getByTestId('empty-add-item').click();
+        await page.getByTestId('catalog-search').fill('blues brothers');
+
+        // Title row carries the heat/star tag; The Blues Brothers is R9 (Super Rare)
+        const taggedTitle = page
+            .locator('[data-testid^="catalog-title-"]')
+            .filter({ has: page.getByTestId('rarity-tag') })
+            .first();
+        await expect(taggedTitle).toBeVisible();
+        await taggedTitle.click();
+        await page.locator('[data-testid^="catalog-variant-"]').first().click();
+        await page.getByTestId('save-item-button').click();
+
+        const tag = page.getByTestId('rarity-tag');
+        await expect(tag).toBeVisible();
+        await expect(tag).toHaveText('★★');
+        await expect(tag).toHaveAttribute('title', 'Rarity 9/10 — Super Rare — 81%');
+    });
+
     test('incomplete superset: items can be marked outside the catalog', async ({ page }) => {
         // Template bound to the PC catalog (curated, not exhaustive)
         await page.goto('/');

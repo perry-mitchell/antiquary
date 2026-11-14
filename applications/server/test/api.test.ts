@@ -955,9 +955,59 @@ describe('supersets', () => {
         expect((await api.get('/api/supersets/snes/entries/DEADBEEF')).status).toBe(404);
     });
 
+    it('enriches entries and search results with compiled rarity', async () => {
+        // Aladdin (USA) on Game Boy ships a compiled rarity file
+        const entry = await api.get('/api/supersets/gb/entries/AF6BDC50');
+        expect(entry.status).toBe(200);
+        expect(entry.body.rarity).toEqual({
+            rarity: 5,
+            rarityLabel: 'Sought After',
+            rarityPercent: 44,
+        });
+
+        const search = await api.get('/api/supersets/gb/search?q=aladdin');
+        expect(search.status).toBe(200);
+        const title = search.body.results.find((r: { title: string }) =>
+            r.title.startsWith('Aladdin'),
+        );
+        expect(title).toBeDefined();
+        expect(title.variants.every((v: { rarity?: unknown }) => v.rarity !== undefined)).toBe(
+            true,
+        );
+
+        // supersets without a rarity file keep entries plain
+        const plain = await api.get('/api/supersets/snes/entries/2D206BF7');
+        expect(plain.body.rarity).toBeUndefined();
+    });
+
     it('validates the search query and catalog key', async () => {
         expect((await api.get('/api/supersets/snes/search')).status).toBe(400);
         expect((await api.get('/api/supersets/nope/search?q=x')).status).toBe(404);
+    });
+
+    it('exposes compiled rarity on matched item details', async () => {
+        const tpl = await api.post('/api/templates').send({
+            name: 'GB template',
+            superset: 'gb',
+            fields: [{ name: 'Condition', type: 'text' }],
+        });
+        const shelf = await api
+            .post('/api/collections')
+            .send({ name: 'GB shelf', templateId: tpl.body.id });
+        const created = await api.post('/api/items').send({
+            collectionId: shelf.body.id,
+            name: 'Aladdin',
+            supersetEntry: 'AF6BDC50',
+        });
+        expect(created.status).toBe(201);
+
+        const detail = await api.get(`/api/items/${created.body.id}`);
+        expect(detail.status).toBe(200);
+        expect(detail.body.supersetRarity).toEqual({
+            rarity: 5,
+            rarityLabel: 'Sought After',
+            rarityPercent: 44,
+        });
     });
 
     it('requires a catalog match when the collection template has a superset', async () => {
