@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/perry-mitchell/antiquary/compare/v1.2.0...v1.3.0) (2026-11-15)
+
+
+### Features
+
+* **rarity:** compiled rarity reference data and catalog tags ([#13](https://github.com/perry-mitchell/antiquary/issues/13)) ([582f50c](https://github.com/perry-mitchell/antiquary/commit/582f50cfa2ecd68ad3e15cec62694060ba382132))
+
 # [1.2.0](https://github.com/perry-mitchell/antiquary/compare/v1.1.4...v1.2.0) (2026-11-13)
 
 
