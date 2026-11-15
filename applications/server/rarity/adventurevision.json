@@ -1,0 +1,28 @@
+{
+    "key": "adventurevision",
+    "name": "Entex Adventure Vision",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "3E280096": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 82
+        },
+        "C70D4028": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 88
+        },
+        "B6045C9E": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 94
+        },
+        "33A23EBA": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 92
+        }
+    }
+}
