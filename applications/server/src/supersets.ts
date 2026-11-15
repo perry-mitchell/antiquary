@@ -13,6 +13,23 @@ export interface SupersetEntry {
     publisher: string | null;
     genre: string | null;
     year: number | null;
+    /** Compiled reference rarity, when the superset has one. */
+    rarity?: SupersetRarity;
+}
+
+/** Rarity reference values for a catalog entry (1–10 integer scale). */
+export interface SupersetRarity {
+    rarity: number;
+    rarityLabel: string | null;
+    rarityPercent: number | null;
+}
+
+interface RarityFile {
+    key: string;
+    entries: Record<
+        string,
+        { rarity?: number; rarityLabel?: string | null; rarityPercent?: number | null }
+    >;
 }
 
 interface CatalogFile {
@@ -44,6 +61,24 @@ export interface SupersetSearchResult {
     variants: SupersetEntry[];
 }
 
+export type SupersetOwnership = 'all' | 'owned' | 'missing';
+
+export interface SupersetEntryListOptions {
+    query?: string;
+    page?: number;
+    limit?: number;
+    /** Filter by ownership; requires `isOwned` when not "all". */
+    ownership?: SupersetOwnership;
+    isOwned?: (entryId: string) => boolean;
+}
+
+export interface SupersetEntryListResult {
+    entries: SupersetEntry[];
+    total: number;
+    page: number;
+    limit: number;
+}
+
 export interface SupersetCompletion {
     owned: number;
     total: number;
@@ -63,6 +98,7 @@ export class SupersetRegistry {
     private readonly dir: string;
     private readonly index = new Map<string, IndexEntry>();
     private readonly cache = new Map<string, CatalogFile>();
+    private readonly rarityCache = new Map<string, Map<string, SupersetRarity>>();
 
     private constructor(dir: string, index: IndexEntry[]) {
         this.dir = dir;
@@ -99,7 +135,86 @@ export class SupersetRegistry {
 
     async getEntry(key: string, id: string): Promise<SupersetEntry | null> {
         const catalog = await this.withCatalog(key);
-        return catalog?.entries.find((entry) => entry.id === id) ?? null;
+        if (!catalog) return null;
+        const entry = catalog.entries.find((e) => e.id === id);
+        if (!entry) return null;
+        const rarity = await this.getRarity(key, id);
+        return rarity ? { ...entry, rarity } : entry;
+    }
+
+    /** Compiled rarity for an entry, if the superset ships a rarity file with one. */
+    async getRarity(key: string, id: string): Promise<SupersetRarity | null> {
+        if (!this.index.has(key)) return null;
+        return (await this.rarityMapFor(key)).get(id) ?? null;
+    }
+
+    /**
+     * Paginated catalog browser: every entry (variants included), searched
+     * across titles, variant names and serials, alphabetically ordered and
+     * optionally filtered to owned or missing entries.
+     */
+    async listEntries(
+        key: string,
+        opts: SupersetEntryListOptions = {},
+    ): Promise<SupersetEntryListResult | null> {
+        const catalog = await this.withCatalog(key);
+        if (!catalog) return null;
+
+        const page = Math.max(1, opts.page ?? 1);
+        const limit = Math.min(100, Math.max(1, opts.limit ?? 24));
+        const needle = (opts.query ?? '').trim().toLowerCase();
+        const ownership = opts.ownership ?? 'all';
+
+        let entries = catalog.entries;
+        if (needle.length > 0) {
+            entries = entries.filter(
+                (entry) =>
+                    entry.parentTitle.toLowerCase().includes(needle) ||
+                    entry.name.toLowerCase().includes(needle) ||
+                    (entry.serial?.toLowerCase().includes(needle) ?? false),
+            );
+        }
+        if (ownership !== 'all') {
+            const isOwned = opts.isOwned ?? (() => false);
+            entries = entries.filter((entry) =>
+                ownership === 'owned' ? isOwned(entry.id) : !isOwned(entry.id),
+            );
+        }
+
+        entries = [...entries].sort(
+            (a, b) => a.parentTitle.localeCompare(b.parentTitle) || a.name.localeCompare(b.name),
+        );
+
+        const rarityMap = await this.rarityMapFor(key);
+        const slice = entries.slice((page - 1) * limit, (page - 1) * limit + limit).map((entry) => {
+            const rarity = rarityMap.get(entry.id);
+            return rarity ? { ...entry, rarity } : entry;
+        });
+        return { entries: slice, total: entries.length, page, limit };
+    }
+
+    private async rarityMapFor(key: string): Promise<Map<string, SupersetRarity>> {
+        let rarityMap = this.rarityCache.get(key);
+        if (!rarityMap) {
+            rarityMap = new Map();
+            try {
+                const file = JSON.parse(
+                    await readFile(join(dirname(this.dir), 'rarity', `${key}.json`), 'utf-8'),
+                ) as RarityFile;
+                for (const [entryId, values] of Object.entries(file.entries ?? {})) {
+                    if (typeof values.rarity !== 'number') continue;
+                    rarityMap.set(entryId, {
+                        rarity: values.rarity,
+                        rarityLabel: values.rarityLabel ?? null,
+                        rarityPercent: values.rarityPercent ?? null,
+                    });
+                }
+            } catch {
+                // no rarity data for this superset
+            }
+            this.rarityCache.set(key, rarityMap);
+        }
+        return rarityMap;
     }
 
     /** Free-text search across titles, variant names and serials, grouped by title. */
@@ -110,11 +225,14 @@ export class SupersetRegistry {
         if (needle.length === 0) return [];
 
         const groups = new Map<string, SupersetEntry[]>();
+        const rarityByEntry = new Map<string, SupersetRarity>();
         for (const entry of catalog.entries) {
             const titleMatch = entry.parentTitle.toLowerCase().includes(needle);
             const serialMatch = entry.serial?.toLowerCase().includes(needle) ?? false;
             const nameMatch = entry.name.toLowerCase().includes(needle);
             if (!titleMatch && !serialMatch && !nameMatch) continue;
+            const rarity = await this.getRarity(key, entry.id);
+            if (rarity) rarityByEntry.set(entry.id, rarity);
             const list = groups.get(entry.parentTitle) ?? [];
             list.push(entry);
             groups.set(entry.parentTitle, list);
@@ -129,7 +247,12 @@ export class SupersetRegistry {
             .slice(0, maxTitles)
             .map(([title, variants]) => ({
                 title,
-                variants: [...variants].sort((a, b) => a.name.localeCompare(b.name)),
+                variants: variants
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((variant) => {
+                        const rarity = rarityByEntry.get(variant.id);
+                        return rarity ? { ...variant, rarity } : variant;
+                    }),
             }));
     }
 

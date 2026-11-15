@@ -1,0 +1,338 @@
+{
+    "key": "supervision",
+    "name": "Watara Supervision",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "21864295": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "69068337": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "8DBB2C53": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "8188B755": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "0A3DB285": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "5E6706B9": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "E5C2CFB5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "5ECFB674": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45
+        },
+        "E0266CE7": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56
+        },
+        "C92382CE": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54
+        },
+        "4A458AA8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "EDED8AEC": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52
+        },
+        "12C45309": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54
+        },
+        "32CCDF89": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52
+        },
+        "DB0F463F": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52
+        },
+        "01CB8364": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "A6CBB074": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "917CAB48": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57
+        },
+        "2861DE5E": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61
+        },
+        "B494BC5C": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61
+        },
+        "581703BE": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "CEF3F295": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "112F5EED": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "552AFA89": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "6BD7C885": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "99BF6CF5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "25DDD6E1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "7D8A607F": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "AA4372D4": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "E9EA3AE0": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "9FB4DB9A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46
+        },
+        "32E68D6F": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "20225F5C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "7DAED2EB": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "6F8ABAF9": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "E406A91C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "85DC8111": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "748F9DAE": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45
+        },
+        "1A89AC88": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "E5DCE795": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 62
+        },
+        "FE5F9774": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "531F0B51": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60
+        },
+        "E11A756C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "E0BFE163": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50
+        },
+        "C36BD216": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "46FB22C5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "45204DC4": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56
+        },
+        "7CD650C8": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61
+        },
+        "BE9B6F10": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56
+        },
+        "02E2C7AD": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 58
+        },
+        "59C7FF64": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55
+        },
+        "181D12DD": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "3D5F3964": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "BD004CB7": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61
+        },
+        "EAA08104": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61
+        },
+        "AD147842": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56
+        },
+        "DB35B809": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "DB3FE76A": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 59
+        },
+        "24A115F9": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45
+        },
+        "345CA42A": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52
+        },
+        "A2B50209": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54
+        },
+        "10DCC110": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54
+        },
+        "72A96443": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "96E2E6D7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "E856875A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "C99B985A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        }
+    }
+}

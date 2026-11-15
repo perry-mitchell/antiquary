@@ -1,0 +1,83 @@
+{
+    "key": "jaguarcd",
+    "name": "Atari Jaguar CD",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "AC17FDBF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17
+        },
+        "936E7A8C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35
+        },
+        "E5C477E1": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35
+        },
+        "A6DD3088": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 8
+        },
+        "DFDCF849": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 8
+        },
+        "C674FDE4": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 88
+        },
+        "47B6B34C": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55
+        },
+        "51483E8F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DBE05C5F": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 86
+        },
+        "276320BC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28
+        },
+        "B4B246B7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "227791BC": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "5C8ECC9F": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "1FDC2748": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "F8B3497D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        }
+    }
+}

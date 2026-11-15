@@ -6,6 +6,7 @@ Ensure you follow, as a coding/review/general agent, all of the rules and guidan
 
 - When creating commits/PRs, never assume something is a breaking change. The user will specify this.
 - We merge squash style, so PR titles must use conventional format: `fix(xx): ...` / `feat(yy): ...`.
+- One branch and PR per feature: combine related follow-up work into the same branch rather than stacking PRs.
 - Never assume authorship for some work. Everything produced belongs to the git owner on the current machine.
 - Keep documentation and comments concise and short, in all scenarios, unless instructed otherwise.
 - Write tests (including E2E) for new functionality wherever viable.

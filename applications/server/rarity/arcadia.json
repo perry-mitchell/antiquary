@@ -1,0 +1,118 @@
+{
+    "key": "arcadia",
+    "name": "Emerson Arcadia 2001",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "22624414": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37
+        },
+        "F3C08E19": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "1F65B21E": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "1CF08155": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39
+        },
+        "CA58B3F8": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 65
+        },
+        "33C348C1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45
+        },
+        "AEB803E4": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38
+        },
+        "FD2CF496": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "FC7EBA76": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "8BF2DFA9": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 82
+        },
+        "DFB5DD55": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50
+        },
+        "A615F068": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47
+        },
+        "449E80CB": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 68
+        },
+        "06A86F4A": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 91
+        },
+        "8C0C456E": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "E3794A2C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "3FF224E5": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 74
+        },
+        "88DEFACF": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34
+        },
+        "7666A712": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 72
+        },
+        "F9D9EC5B": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 85
+        },
+        "83E6E40B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 58
+        },
+        "0076422E": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38
+        }
+    }
+}

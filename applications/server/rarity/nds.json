@@ -1,0 +1,4943 @@
+{
+    "key": "nds",
+    "name": "Nintendo DS",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "14554275": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "17787275": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "19284879": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "19936579": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "21967689": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "24880277": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "27883409": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "28971835": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "35199157": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "37433519": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "37688131": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "38392357": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "48864105": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "54732860": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "60168002": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "66804811": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "72906404": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "76484147": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "84427823": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "90069978": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "94127754": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "95679586": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A9C59AA6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A5174778": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EE869BEB": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C29D7A43": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "61857FAE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3CAF6644": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BD1021D4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2FF8F43B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EAC313F3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6F622416": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "03068C47": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7A850E39": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F4F0EC07": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0297F9EA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FE1C5D3C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "731611C9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C9F3DB0F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "44041FA9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "AB5E2DF3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8DBC8E8B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C86CEAF4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E9F907D8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "53BB8BE5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1BD192BD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "86FBC850": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7DFF7A89": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6F04FF83": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "884E6A7B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AC27D1EF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A78A429E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B701BBB0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6AB7327F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4AF31B14": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E71780B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D9E5FB82": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DFA4FDE4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F84D84E1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8733CEA8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7D6EA6D2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FF272421": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C97F2508": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A9F2DA3B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "15371F70": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9E8405D3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D63F033A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8D75EC2F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1227C7C2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "743B50E4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BF1AAD8C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B85D81D0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2FC1DDBB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9E1A76C6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "845DF6C8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7CE79D34": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4C8926E2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6DA4E5B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CB996A39": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "25F7FD6B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F1A9B438": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A6E49863": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B7B718A5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DED151F6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C6AC89CC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8A069C60": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9917B5B2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "58582FF3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "AFD3B264": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7782665A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C7B76136": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "88E2E48E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BCCC90D8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "FB1091F8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F4479FDD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "35F18A79": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "302B12E3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B7AFCF8F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0C9D35D8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "922DE7C7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "19280A8A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "20B3C074": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "EE4A5DE7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "74DD3A4B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E8FEC966": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CF9D1D19": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0140762B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D27D9336": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F9E20411": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5E30F9F0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "35026EFB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "46124ADD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "957BA1BD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BD094CF4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A6895EE0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9700C2CC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E40BD22D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FA404498": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CBB4FD0C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F567CFF8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "38ED5008": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8A312A42": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A2BAD06F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1059711F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "25E220C1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "46C593F8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "26AC32AC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "796CC1E3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A2163F59": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F0DFFA6F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EA4EE284": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A48DAC6E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "30BD0463": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "02646F8C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D9F8A18D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "82B3787C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D33AA850": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B3836946": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B45E7897": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "7953C7C4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D8B8971A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D8BD08F9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AAB1F63D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1BB41377": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "16B304D9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9095FC53": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4786B763": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B859BC90": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6F9C0F14": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4FFB3E53": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6EBF287C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "115483A3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DB4385C1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B9DF4B8E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F7541D3F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AD7377C7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A5023FA7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4550B2E9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7FE24E59": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "23AEA513": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "49B3BEE9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7A55F7FD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "15C10919": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "693B162F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BF3FAD70": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7A0AA15D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3EE1F11F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C04A8447": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "984CC23B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "0EF26D15": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "BF409862": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "9BFD58CC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "72DD3F7A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "67A04C56": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "29400C53": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9443E07B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "A82ACE80": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "359C6A0B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C0CB9794": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "CAB7AD8A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C9ED3664": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "76DE1867": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8DD512F7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "135EB52F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "26C92ADE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "782E5578": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "62749E3A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "09E1A9B6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D3DF606F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0D6C64A7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BA576BF0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "51F6DD56": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C433DB29": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BB656CAF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BADEEC6E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "48C6C7D3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "366C5200": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8314800B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8C68BDD9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "500FCA9D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "34AB0AA4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "355A4D8C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A920F2D7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "66B7A941": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9D7C30F9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CF8F43B2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7FD43B34": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "04688385": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F1602201": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "13AA29B7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B63A41FA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "05F027B4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5B1EB3E3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6F86D8CF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "BFC297D5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "65CD5BB0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "CEC54D7E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "E7B13369": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "26BC50A1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "3E3370EA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F56C9B6C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "77DC42B4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "FF5D9F45": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D4B26125": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2A33F1D1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7DDB8260": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BCF22D3F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "39FD75CC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4BEEFB6A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "99DCC9B3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9E59890D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "89BF210C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9BF6F0F0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3FC9804B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "274D1180": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "54B95690": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7A3B1A57": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "856E17F4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "264FAC77": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "926E4CC3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BD78C09E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "FED8157C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BBE09C34": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "68CA6E8B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8D7AA9DB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8DB1FA1C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7C74EE53": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "96B4F76B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A1F2C734": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5DAF7774": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "256AE075": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6010BB62": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E9030DE4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "525802E5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "62C5D502": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "110C6E3C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "335B5C8E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5455A181": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A41E4AA8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CC50CF7E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A707EB2F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C9DDE7C5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B8CA18A9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F4484112": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "093DE80D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "817226FD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BEEE460A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0428568B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8FECEC09": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1B83F10A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "343B65E1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "BF79BC51": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B56FB363": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5AC11ECE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "85CDFBDC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "473E7609": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3EF026F5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "808A0F6A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "858FF792": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "97E127E9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2F39D4AF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2721A0F7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "913E9B6A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1FFC42F8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F4EB7FC9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "040ECC6E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "ACA5EA73": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DA360A4D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F6107EC4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0717C9DF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5F3FA78A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4A4734F2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D54B4112": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E90329C8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F465638A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "423028B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3E8ED16A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "11081C30": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1696B681": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F0616F61": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9D769DF7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5F2E802D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4964B55C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DA68B34C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C58B6F76": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "504F45C0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "87B70061": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C046E007": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "53B5993C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D37DA4C0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C07CC7CE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D6F159BB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "46BAF1EE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DEEA0792": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BBFC2343": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "32D66B37": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D91CF040": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6D509874": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BE648DEF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E4DAA42E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C28F01B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "492D0671": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E5180F9C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F6EBAB97": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2D2895C1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "953C143D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7574E508": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B90F4264": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E8021C0A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F4666DB9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "7292AD5D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0D6C9774": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F7A53A4E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7A16E586": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A5971825": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "47960EC0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9A0C4346": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "60C05BFB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6E9DD543": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0CA68C04": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B703DDEC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9BA1FF9F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6A9F1141": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "745E782C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "67AAFC3D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2241AF15": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F3742334": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E635814F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5B25AA66": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1305CBE1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D0EDE00B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "26B07024": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "757CBB5A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A07A3304": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "52ECCB2C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0C758CA1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C57E62E9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B806189C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3BCA9934": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BDC9723C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "1849501D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "13AAB60B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D5C86213": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "EFDC88B7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6ACFDFDB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5033DA1E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CD0E9477": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B725EE53": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2442F725": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DBAC8944": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "849E1C80": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "FCA5FB4F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BF022C66": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C94E373C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4CD4D171": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "ECB67FB0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "308DAA4E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "25C218AC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1760F73C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F3FEE46E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "061CF999": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FE3963D8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "15291DED": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D32DC40F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E3D8CCAE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0B9EF61A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B8F98F79": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "5CD1D2F9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0B58B40B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1059A815": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2DAC2DEE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "ECA2FC85": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8B431C41": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "30D335A9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6D565D05": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "84AA2400": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "4F9E66F0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "319A13E5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "AA9976F0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "A25972C5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "AA6D2A85": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "9999E966": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4287EF0B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2DD89C37": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B782F09A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7A984F9A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "00BB6D1E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C2622E34": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4591A35A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "51D009D4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "61D9A2D5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "90769F96": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "50DC9232": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5D926EF9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5A74E002": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BC39E766": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "30585C28": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "56BDCAE9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "45F2849D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A31F3325": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B32936EF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "54D83EF8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EAF2AAA2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "41F41AA0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A3C3AE10": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "FF2B6EA8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "FE1CE45D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0BFE77E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "EC023E1C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "CCC8D876": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "94E8127E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "226E8DB6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9F0FD1C9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D47555BE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A3653797": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "715F0BFE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1FA7CE0F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4E7A446C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9E821492": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8BE58BC7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "43D2D75F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "33F05209": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E7A4CA05": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4FFC3B2F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4C18DA27": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4FCBB5C3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3892A3DE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E2287B2E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "140383F5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BD561BC1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "ABDFE38C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "AEE21C62": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "274407F9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2E227618": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D69C1CA2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B58A27BD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F9C1F31B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "35AA534A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4E246D9C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E76D465B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B0C5FBFD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4D38E8DD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "76B76DC6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8714A7F5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3CE3E8A6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "89F4BBA2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "2B466823": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "15D5765D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "25BFC1F0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F0E68923": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2831F1D8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "901A62E1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B979FB0C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8D3EEAB8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F15B594B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "469458C4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C17B045E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E84B85BF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F6B0937D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "47C100FF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "04A63BEA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6533CFCD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7A88A740": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "43FF71D8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7373F434": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "01BE268A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0EF29F8F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7DC81903": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "EE94F418": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D67C751D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "979E86E8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "67D64CD5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "05E2314D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F16604F9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D53A4504": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "769C6B81": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6D1EB967": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2A44C7B1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0F92A1C8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5AAB7E1E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7F2EEEA6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "A98070B8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9615164E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "57EC9D99": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1D0D68C3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B97162A2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4796D731": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6A57D189": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8F065AB9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F3F40864": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "4C32ECB7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1D482D0F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "519FCC92": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F13C1195": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "03EE3D5B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4563D165": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F0B3AC90": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FA454CA3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "87BD0C34": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B3AF0B75": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "361A71B7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CC7CEEEA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "26E0A043": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "550CD668": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2BA2E191": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3904225B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C5A1183E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8F342699": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "759991FD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7EB5E848": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F443F9BF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "39109F4A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "75EDA821": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0197576A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "876D743F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "323FFE7D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A63AC839": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "00DE7C81": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CF1B37F7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F257DD5B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E25979EF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7F9656C3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4823C71C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BAE32F4B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C9549D69": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8E7FAA00": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "370D3376": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "616F5D3F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "FF4B80E0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F3CF9346": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7820F22D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "18669C99": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2C061046": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F9FAC140": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "29BCB3D5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D6A09E69": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3542376B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "48426B4C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "3C348761": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "57A90726": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "26CE866C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1045B8BC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5B4E1C98": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "38CDCEC9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B9027C0C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "512251F9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "AFFB07CF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "B54D6FE3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "92E66267": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E3987C82": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "96F197B8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "31FFCC53": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D7BC0B45": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B64A5EFB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "C180A0E9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "71ACA63A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "9253921D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "69D628E8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "968CDE08": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "D8EA6090": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "5D8D853A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F2EE539E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5D2537E9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "22DDE080": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "53A6E192": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8ADF152B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5A8AAEDB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D4F9C8E7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E752BBA0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5F520677": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0DFE5C99": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9CFE0379": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2643663D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7CC20F7B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "408E9D5B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "E38F5AEF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B975F850": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "718C4C80": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "99C2554E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "784131D7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "922EAD91": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4E666D7E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5AEBF633": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8FB8FE1A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E0100D61": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FCACBCF3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "663F4AFE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "35DB7975": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2F988654": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "045DABD2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5B85A976": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3FDD9B7C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "63CAC63F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EAEAB8DF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5C3A21A4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "074CD34F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DB9094B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A4A10C79": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BC14E0EA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CE57A734": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5C359236": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A0BF3F34": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2695D582": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "6D81940E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "231653FA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "A22CE554": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E59A779A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "5A59C479": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "DB809995": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "77BE5315": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "5CAEEFD2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6F288244": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "71F896C3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "ED1D5899": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "176769F0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DC8E7C56": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9E53E020": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "13C65089": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5313BB9C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E5C131F5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C2F1F95C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "567CD3AE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FB2ED0CF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "359A4F84": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B995A233": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5FF5CCBA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "566483FF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D91CC91F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D02BB8FB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A5BFABE1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "518ED07A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E88E631E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "81BC0F3C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1AB8EDDE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5AC3D233": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D5DE26A7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CF2B59D2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A3D01C84": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8B1362E2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8E86A6A1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E4D48825": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B7481FF7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BF0D969A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "8CB2F045": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A94F0662": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CF39943B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4D9FACAF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "9A9C345B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4CD060FC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "267B48D4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AC7EC192": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9F04AE42": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0F98E0D5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A5C114B1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9D3C8784": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "956D4244": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A6A5BFE4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E8EB63AF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0FC9CB9A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C1E2F2D1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A221CE07": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "304A0C57": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "4C2B9B9F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "8B8FE107": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "752534C9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7FD3419A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "503C3E4C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3E3F7FBE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D58E1404": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "7344DF65": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0A0DEC19": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "047DCE52": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3D630830": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9E5D62F5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7EF137E4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F77A20B1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "30DD90B9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "20378C12": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "85BAEA42": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DE1A431B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0ABB2A6F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "01DEF6AE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CB401FBA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8F062E72": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1C50ABF9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D8206F3C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "21558AA6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5276C359": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E231B00B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A780E985": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "168F7A5F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F0C7C3E3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "10DF2F17": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "466DE28B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D0D7B1AB": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "223E3C87": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AE73DBFA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8D62A5CB": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9CE3D509": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "521D0385": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FA56F874": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "34FCE891": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C3DC5217": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E1189DEC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "53F47E71": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8954639E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DF6C1C61": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "22A0EA2B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "270E3F47": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F96A8447": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "A8E23F74": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8AEE2A97": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "866829BD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "EB370104": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8BA3CDD4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0AF9FC56": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1EE10E68": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F7907CE0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "6FC7131C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "40F4B6DD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "29715DEC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "AAC9842D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "868F8A89": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "29F0A03E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "23A00DDF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "E6321562": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "5D9502D1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "0EBE7432": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "7B4B6099": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "7394B0C2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AD0C8379": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "78EE391B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D0FCFAFD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A5885631": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8E13A21B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B623F3D1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DD1E378E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8F77022A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "36B073C4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "79EACC84": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C36F6185": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CE707991": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C6C4CB7B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "9240BD76": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "6B8503AC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "7D5B643D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "86B42FE5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9360D4FE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B7F17C60": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4A9A6858": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3EC7D11B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "641A1018": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "493EFF97": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D05FEF5A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DB2787DF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2589EA2D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "0312A174": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F1F17C78": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4EB4FBFD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F941572A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "40CCCDDF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "4B56A2EB": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "ADE928AA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DCD56D67": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4FE4678E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "01CB0F2C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "04A69055": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DAF78896": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F592BE70": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CABE0499": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0E1E6F0B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E9871681": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "479145FB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "097731D4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B1211B2E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "E580B2BA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "942CDF3D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "469E717C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "984D71F0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D3507A04": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "75D03242": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C4854647": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C6AA73CF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "10FE7AF9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D7B9EDB0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "272B8EAD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "7598842E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A26AEEE3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "91333FAF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F6ABCD20": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1BEAD722": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5D481257": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CBD4684D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1D695960": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "54F1A6D0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C0FCCCCD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D65288C2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "A8CDBD0D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "82E2C308": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BBCA5354": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "1ABC7938": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "16188A7B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4DDF622A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "E9CE7EA2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C8EFDFFD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "898322BA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "4E8C3E1B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A9F0B8F9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F10D73F7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1E81171A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D672517D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4474F07A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "8A359188": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "ABD8B717": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "E3F487B5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D4A4803A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "ECCE83F6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "0C2F12C7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9590E91C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CEA0FDCD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "195E6918": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "D85F5875": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "67A01417": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DAD8D83C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "146857B4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "97CCDCF5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D6ADF980": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E5A63478": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5A941EB1": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2C597266": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4E84EDD3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "80F426F5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "61B69AC8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D9B1BE9D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F6D5D40A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5797ADFE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6ADBB28F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3F8F632E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A3775564": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CFEDAEA0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "381A4B76": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A18AF333": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "76BCF4AE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "69EDCD3C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2395A5E8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9CF961E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "6754DE98": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "5768CF04": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "95E16D30": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2D04F2E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "32E2EFB5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "806E8E92": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "7D7746E3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C3570DA7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A70C1AB6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "70F7511F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2ACCAE3C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B0260E7C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "C423097D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "E54AF139": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "A831C6F4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "86B38CFF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "17743BFA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "F6ABCF2C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B8DBBDC3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3DF6EA16": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "82AEB330": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4D26735B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "962C007E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3E5FA048": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BFA4EAA8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9C2F90A6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "32C9F882": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "CC024EF0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "3109EA8C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "75B65AFD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F3F2C670": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "65C3856C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F4E4D69B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9E6FB36C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "87B0EF2E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "B1BB205B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "08DAC15E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F1D133E3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DA8A9E0C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "C301B360": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B1188800": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "43DF3C0B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1B13922F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "1E6C4B77": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "625AD315": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "402AD3BE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "CC67E8F9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6D826FFE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FAF7324E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "76540B07": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "5E59FC20": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "2DD68AF2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4A0AB07E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "EF72CED6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "CDC18B1B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8EB65028": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "FE973143": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "DCF7050B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "904069FA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DC88EAB4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "40BB7A81": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "10E8D76B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "BA6CE57D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "949F32C7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "F5F656DC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "34BE56B9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "FE57245D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "82F8549F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "8B9FB168": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "D3728F40": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "3A9061E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "4A1B59C1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "BA6D0397": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "E2D87EBF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "DA734A09": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "D955594C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "A192BF0E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "67CD0929": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "2D2809D2": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "3207F819": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "1844DAF8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "27B6C532": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "46D8AB9C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "85B02397": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "1B026848": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "97C355EC": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "073E9898": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "816D41B0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "A3F447E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "30D0D715": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30
+        },
+        "EAC6CA42": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "89C6F92E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "06A9C66B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "CAB704BA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "DF5DA6D7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "4C96234F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "B5EBAB09": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9C838251": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "57079FB5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "B75DFCCF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F1433EC7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "AD5FAE8C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9B12E0DD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "842B6C3A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "58446CE7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "208E5D68": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "999CD993": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "8B97D00B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "50E20880": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9E61FCAB": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "087EBF40": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "9C30BA47": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "265F4544": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "C162A262": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "35BB6F02": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "29BBE320": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15
+        },
+        "879FE873": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "29C63518": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "E12D6A2D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25
+        },
+        "F727CFC0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        },
+        "6DDBE196": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20
+        }
+    }
+}

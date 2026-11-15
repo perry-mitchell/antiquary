@@ -1,0 +1,5945 @@
+{
+    "key": "gbc",
+    "name": "Nintendo Game Boy Color",
+    "generatedAt": "2026-11-14T19:20:08.037Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); regions: jp/na/pal regional availability; games without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "11763934": {
+            "regions": ["na", "pal"]
+        },
+        "14375072": {
+            "regions": ["jp"]
+        },
+        "15430979": {
+            "regions": ["pal"]
+        },
+        "16796957": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 79,
+            "regions": ["jp", "na", "pal"]
+        },
+        "19828751": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na"]
+        },
+        "22621803": {
+            "regions": ["na", "pal"]
+        },
+        "22952662": {
+            "regions": ["na", "pal"]
+        },
+        "23223670": {
+            "regions": ["jp"]
+        },
+        "27310900": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na"]
+        },
+        "31740097": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "34411753": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "36536324": {
+            "regions": ["pal"]
+        },
+        "44767443": {
+            "regions": ["jp"]
+        },
+        "46407106": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "49101556": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["na", "pal"]
+        },
+        "51972995": {
+            "regions": ["pal"]
+        },
+        "54617416": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "55210934": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 82,
+            "regions": ["jp", "na", "pal"]
+        },
+        "66328695": {
+            "regions": ["jp"]
+        },
+        "68610203": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "69989152": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57,
+            "regions": ["jp", "na", "pal"]
+        },
+        "71214856": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 13,
+            "regions": ["na", "pal"]
+        },
+        "72895639": {
+            "regions": ["jp"]
+        },
+        "78206460": {
+            "regions": ["jp"]
+        },
+        "81230564": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "84872999": {
+            "regions": ["na"]
+        },
+        "85264877": {
+            "regions": ["jp"]
+        },
+        "87431672": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["na", "pal"]
+        },
+        "87588725": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "89140949": {
+            "regions": ["jp"]
+        },
+        "96461918": {
+            "regions": ["jp"]
+        },
+        "97822948": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "98285775": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "98575306": {
+            "regions": ["jp"]
+        },
+        "E038E666": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "5449CAC0": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "720C7023": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "56B83539": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "1766E558": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "8CDAB77F": {
+            "regions": ["pal"]
+        },
+        "F62AD75E": {
+            "regions": ["na", "pal"]
+        },
+        "1226499E": {
+            "regions": ["na", "pal"]
+        },
+        "D0D3DFED": {
+            "regions": ["pal"]
+        },
+        "5DFFF5E2": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FF31CC92": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na", "pal"]
+        },
+        "446573CD": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "A91EC059": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "6F9EF15E": {
+            "regions": ["pal"]
+        },
+        "85545D81": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "3199F65F": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "BEC3C24B": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "952B94E5": {
+            "regions": ["pal"]
+        },
+        "DEFF8DFB": {
+            "regions": ["pal"]
+        },
+        "9890BCB4": {
+            "regions": ["pal"]
+        },
+        "E17F59A5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "BC562466": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na"]
+        },
+        "7FF2042F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "C145C036": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "C62A4C30": {
+            "regions": ["jp"]
+        },
+        "83D838C3": {
+            "regions": ["jp"]
+        },
+        "B14920F0": {
+            "regions": ["jp"]
+        },
+        "7FD46DA1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "B4F293CC": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "B54D264A": {
+            "regions": ["pal"]
+        },
+        "4839E0C1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "DC0BE439": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "F625A959": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "DFDF90C0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "67C7F85C": {
+            "regions": ["pal"]
+        },
+        "E243FEB4": {
+            "regions": ["jp"]
+        },
+        "8EE043EA": {
+            "regions": ["jp"]
+        },
+        "D952CBAB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na"]
+        },
+        "EA3B9C73": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "B0D1DE8C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "71B857EA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 19,
+            "regions": ["na", "pal"]
+        },
+        "2272BACA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "F03599A3": {
+            "regions": ["na", "pal"]
+        },
+        "6628CDEE": {
+            "regions": ["pal"]
+        },
+        "89D5D936": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na", "pal"]
+        },
+        "56D61DED": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na", "pal"]
+        },
+        "28F7D5E3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 11,
+            "regions": ["na", "pal"]
+        },
+        "4E052510": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 11,
+            "regions": ["na", "pal"]
+        },
+        "D594D24B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 11,
+            "regions": ["na", "pal"]
+        },
+        "BF99F8CB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "BB89190E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "693F50DA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "ABA42B78": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "98F63BD4": {
+            "regions": ["jp"]
+        },
+        "F9CCAB09": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 72,
+            "regions": ["jp", "na", "pal"]
+        },
+        "71D52876": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 72,
+            "regions": ["jp", "na", "pal"]
+        },
+        "DDCE76D6": {
+            "regions": ["jp"]
+        },
+        "547A9A69": {
+            "regions": ["jp"]
+        },
+        "B3681854": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "E25407F1": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "7DED5C71": {
+            "regions": ["pal"]
+        },
+        "D33D6F7B": {
+            "regions": ["jp", "pal"]
+        },
+        "712A49B3": {
+            "regions": ["jp", "pal"]
+        },
+        "4DD29B09": {
+            "regions": ["jp"]
+        },
+        "5C95D5A2": {
+            "regions": ["jp"]
+        },
+        "92C8B9B5": {
+            "regions": ["jp"]
+        },
+        "D514C9A0": {
+            "regions": ["jp", "na"]
+        },
+        "570BAFDB": {
+            "regions": ["jp", "na"]
+        },
+        "BC306EA4": {
+            "regions": ["jp"]
+        },
+        "A9050F72": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["jp", "na"]
+        },
+        "D2AF64CE": {
+            "regions": ["jp"]
+        },
+        "09EE93A8": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "57F1A202": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na"]
+        },
+        "FDC8E7F1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "746936C6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "48E638CE": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "1FC972CC": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "F6D291A9": {
+            "regions": ["jp"]
+        },
+        "DDFCF4B7": {
+            "regions": ["jp"]
+        },
+        "B70028E4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "E025067B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["na", "pal"]
+        },
+        "B241A4F3": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["na", "pal"]
+        },
+        "B8B1F8F8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "B32F4586": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "F9D5B399": {
+            "regions": ["na", "pal"]
+        },
+        "8E6F8037": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "2FCECB70": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "4431F8E7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "82D1A721": {
+            "regions": ["na", "pal"]
+        },
+        "B92A6D16": {
+            "regions": ["jp"]
+        },
+        "0D9CB195": {
+            "regions": ["jp"]
+        },
+        "59BEB372": {
+            "regions": ["jp"]
+        },
+        "E4C410F0": {
+            "regions": ["na", "pal"]
+        },
+        "6DE1D581": {
+            "regions": ["na", "pal"]
+        },
+        "1EC9DB95": {
+            "regions": ["jp"]
+        },
+        "4D39FBFE": {
+            "regions": ["pal"]
+        },
+        "8874ACD4": {
+            "regions": ["pal"]
+        },
+        "5BE2517C": {
+            "regions": ["jp"]
+        },
+        "FA1E6853": {
+            "regions": ["na", "pal"]
+        },
+        "C2531D36": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "A663CF31": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 58,
+            "regions": ["na"]
+        },
+        "E44977DC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "582FE338": {
+            "regions": ["jp"]
+        },
+        "2DD5907F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "2F91E17C": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 84,
+            "regions": ["jp", "na", "pal"]
+        },
+        "45AE061B": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 84,
+            "regions": ["jp", "na", "pal"]
+        },
+        "748D1345": {
+            "regions": ["na"]
+        },
+        "F89F58B7": {
+            "regions": ["na"]
+        },
+        "A7152869": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "A4C6523D": {
+            "regions": ["pal"]
+        },
+        "EA33FE3D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "A8EBD88B": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "F319E823": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "93FA37BD": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "C87120B5": {
+            "regions": ["jp"]
+        },
+        "EE993302": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "3A18B41F": {
+            "regions": ["jp", "na"]
+        },
+        "75AF0E84": {
+            "regions": ["jp", "na"]
+        },
+        "5CCB66CF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["jp", "na"]
+        },
+        "7A44CE88": {
+            "regions": ["jp", "na"]
+        },
+        "4853F586": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["jp", "na"]
+        },
+        "48B60E8E": {
+            "regions": ["jp", "na"]
+        },
+        "5A9B9AE6": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 82,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A089C656": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 82,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5FE759C7": {
+            "regions": ["jp"]
+        },
+        "5D5D294A": {
+            "regions": ["jp"]
+        },
+        "3374918B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55
+        },
+        "5692E262": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 62,
+            "regions": ["na", "pal"]
+        },
+        "DB93E0F6": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 9,
+            "regions": ["na", "pal"]
+        },
+        "8360047A": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 9,
+            "regions": ["na", "pal"]
+        },
+        "AE839CAE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "7A2801FB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F0CC407F": {
+            "regions": ["na", "pal"]
+        },
+        "53155E60": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "98DBFFE0": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1ABCEDBE": {
+            "regions": ["jp"]
+        },
+        "9092B0EB": {
+            "regions": ["jp"]
+        },
+        "8E818E6F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F8DA0C4A": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "84E29B87": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "351BA5EA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "824C3BF3": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 75,
+            "regions": ["na", "pal"]
+        },
+        "26F8E1A0": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 75,
+            "regions": ["na", "pal"]
+        },
+        "89BA58ED": {
+            "regions": ["jp"]
+        },
+        "43F28E22": {
+            "regions": ["jp"]
+        },
+        "7243E258": {
+            "regions": ["jp"]
+        },
+        "F78F7998": {
+            "regions": ["jp"]
+        },
+        "D2CC40C2": {
+            "regions": ["jp"]
+        },
+        "0BD8E676": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32
+        },
+        "DAEFE53C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "E6B9F155": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "C775D653": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "5EDD88B5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "41E78645": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "E8DFAE9D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "12F0C196": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "099D6555": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "769A2C5A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "255DB8BE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "13AD07B1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "8E523F2A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "CBB336ED": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na"]
+        },
+        "CFDF816B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na", "pal"]
+        },
+        "7C7FDEFC": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1AAB415D": {
+            "regions": ["jp"]
+        },
+        "9E988FFE": {
+            "regions": ["jp"]
+        },
+        "1C13DBB0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "3C39BCAB": {
+            "regions": ["jp"]
+        },
+        "20FAA0D1": {
+            "regions": ["jp"]
+        },
+        "F8BD2A01": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "36C04BE0": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "A0F66D87": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "C1B22246": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "E93AF9C8": {
+            "regions": ["pal"]
+        },
+        "FBE5DE37": {
+            "regions": ["jp"]
+        },
+        "D10B5645": {
+            "regions": ["jp"]
+        },
+        "4AF4CC9C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "A50BE9A8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na", "pal"]
+        },
+        "D29E3EC1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na", "pal"]
+        },
+        "04FE7790": {
+            "regions": ["pal"]
+        },
+        "E6C91FB8": {
+            "regions": ["na", "pal"]
+        },
+        "53E02B87": {
+            "regions": ["na", "pal"]
+        },
+        "4664A167": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "C1D60129": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "F402797D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "B7B91FE9": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "48E1BA7D": {
+            "regions": ["jp"]
+        },
+        "623C1516": {
+            "regions": ["jp"]
+        },
+        "858010E0": {
+            "regions": ["jp"]
+        },
+        "9562E7E8": {
+            "regions": ["na"]
+        },
+        "909BB02D": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na"]
+        },
+        "9F883B0F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14
+        },
+        "E470CAFA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "392D630F": {
+            "regions": ["jp"]
+        },
+        "E86BF12E": {
+            "regions": ["jp"]
+        },
+        "F41BB392": {
+            "regions": ["jp"]
+        },
+        "45EBF09C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5B4507D9": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "692D6794": {
+            "regions": ["jp"]
+        },
+        "E2071293": {
+            "regions": ["jp"]
+        },
+        "C64FF2B6": {
+            "regions": ["jp"]
+        },
+        "B31A59BF": {
+            "regions": ["jp"]
+        },
+        "565FEC36": {
+            "regions": ["jp"]
+        },
+        "58F26F36": {
+            "regions": ["jp"]
+        },
+        "3263F692": {
+            "regions": ["jp"]
+        },
+        "C958AD75": {
+            "regions": ["jp"]
+        },
+        "96071AD0": {
+            "regions": ["jp"]
+        },
+        "2DF6E230": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 12,
+            "regions": ["na", "pal"]
+        },
+        "753BDCE4": {
+            "regions": ["pal"]
+        },
+        "C08F3254": {
+            "regions": ["pal"]
+        },
+        "C25EE35A": {
+            "regions": ["pal"]
+        },
+        "402DE378": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "0FD34427": {
+            "regions": ["jp"]
+        },
+        "40A715FB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na"]
+        },
+        "BAF2CC96": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 58,
+            "regions": ["jp", "na"]
+        },
+        "71F798B5": {
+            "regions": ["jp", "na"]
+        },
+        "C6E7F3C6": {
+            "regions": ["jp", "na"]
+        },
+        "AD0937F4": {
+            "regions": ["jp", "na"]
+        },
+        "C5501FCE": {
+            "regions": ["jp"]
+        },
+        "7E515A7E": {
+            "regions": ["jp"]
+        },
+        "38F00974": {
+            "regions": ["pal"]
+        },
+        "AAFC35C3": {
+            "regions": ["pal"]
+        },
+        "B72603FC": {
+            "regions": ["jp"]
+        },
+        "D24D6601": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "D9F071BB": {
+            "regions": ["jp"]
+        },
+        "B0106777": {
+            "regions": ["jp"]
+        },
+        "0AA8D0CC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "276ECAAE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "F4609FE3": {
+            "regions": ["pal"]
+        },
+        "EBE0ECD6": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "CE8DD179": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "A8397183": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "4FE9E966": {
+            "regions": ["jp"]
+        },
+        "19A73F60": {
+            "regions": ["jp"]
+        },
+        "83E47A1A": {
+            "regions": ["jp"]
+        },
+        "333C124C": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "4685909B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["jp", "na", "pal"]
+        },
+        "07A13B5B": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "B1743477": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["jp", "na"]
+        },
+        "28D7E8D3": {
+            "regions": ["jp"]
+        },
+        "F6D79A79": {
+            "regions": ["jp"]
+        },
+        "2FA46211": {
+            "regions": ["jp"]
+        },
+        "CF1A2038": {
+            "regions": ["jp"]
+        },
+        "D187CEC4": {
+            "regions": ["jp"]
+        },
+        "3BBF9EA8": {
+            "regions": ["jp"]
+        },
+        "915356E3": {
+            "regions": ["jp"]
+        },
+        "9E80199A": {
+            "regions": ["jp"]
+        },
+        "67413F65": {
+            "regions": ["jp"]
+        },
+        "70156DA7": {
+            "regions": ["jp"]
+        },
+        "A8A353D8": {
+            "regions": ["jp"]
+        },
+        "B6FFBCCA": {
+            "regions": ["na", "pal"]
+        },
+        "5DC254D1": {
+            "regions": ["na", "pal"]
+        },
+        "08E3D065": {
+            "regions": ["na", "pal"]
+        },
+        "EC168A61": {
+            "regions": ["jp"]
+        },
+        "2F7AEF51": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "283742E4": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "7D28689A": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7BF836DB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["jp", "na", "pal"]
+        },
+        "025AA88A": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["jp", "na", "pal"]
+        },
+        "8B0DD3B2": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0602DBE1": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A053B42E": {
+            "regions": ["jp", "na"]
+        },
+        "66B83E3A": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "D263D88D": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "4702C4F1": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "68BA18D7": {
+            "regions": ["jp", "na"]
+        },
+        "649E8D97": {
+            "regions": ["jp", "na"]
+        },
+        "2C428A87": {
+            "regions": ["jp", "na"]
+        },
+        "DE390609": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na"]
+        },
+        "137D7B45": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "191D31EC": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "71D693DA": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 74,
+            "regions": ["jp", "na"]
+        },
+        "0FD9C59C": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 75,
+            "regions": ["jp", "na"]
+        },
+        "E56C35B1": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 65,
+            "regions": ["jp", "na", "pal"]
+        },
+        "AB7BFDD5": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 70,
+            "regions": ["jp", "na"]
+        },
+        "35EC5FB2": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50,
+            "regions": ["jp", "na"]
+        },
+        "BF076CA5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["na", "pal"]
+        },
+        "E9E67403": {
+            "regions": ["na", "pal"]
+        },
+        "D4C7F6DF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "1E71B67E": {
+            "regions": ["pal"]
+        },
+        "42CEB854": {
+            "regions": ["jp"]
+        },
+        "FC3D1BB7": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["na", "pal"]
+        },
+        "846FC830": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["na", "pal"]
+        },
+        "21826ADC": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 65,
+            "regions": ["na", "pal"]
+        },
+        "FB08DCEB": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 65,
+            "regions": ["na", "pal"]
+        },
+        "0180364B": {
+            "regions": ["jp"]
+        },
+        "2BCB5F78": {
+            "regions": ["jp"]
+        },
+        "7E15B3DD": {
+            "regions": ["jp"]
+        },
+        "3F1E076C": {
+            "regions": ["jp"]
+        },
+        "513F38B7": {
+            "regions": ["na"]
+        },
+        "B25F3DB5": {
+            "regions": ["na", "pal"]
+        },
+        "086106DE": {
+            "regions": ["na", "pal"]
+        },
+        "8321A1B9": {
+            "regions": ["na", "pal"]
+        },
+        "32C87958": {
+            "regions": ["na", "pal"]
+        },
+        "2E65DAAF": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "484EBA10": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "2154763C": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "B70C4DDB": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7967320E": {
+            "regions": ["jp"]
+        },
+        "EB29C584": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "6EBAD539": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "4005D541": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["jp", "na", "pal"]
+        },
+        "600F61F9": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na"]
+        },
+        "5A0B7C72": {
+            "regions": ["na", "pal"]
+        },
+        "DFD6A908": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "51E951B5": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "CC777B98": {
+            "regions": ["pal"]
+        },
+        "5C0E7B44": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39,
+            "regions": ["na", "pal"]
+        },
+        "8D9A9182": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["jp", "pal"]
+        },
+        "410FA858": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "5E3844FB": {
+            "regions": ["pal"]
+        },
+        "F4F5ED18": {
+            "regions": ["pal"]
+        },
+        "5C10315E": {
+            "regions": ["pal"]
+        },
+        "93A9789F": {
+            "regions": ["pal"]
+        },
+        "9EC98CAB": {
+            "regions": ["pal"]
+        },
+        "C4D3628F": {
+            "regions": ["jp"]
+        },
+        "B59A51C4": {
+            "regions": ["jp"]
+        },
+        "E6BC2E8C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "D6ABC1F8": {
+            "regions": ["na", "pal"]
+        },
+        "5DFC61E8": {
+            "regions": ["pal"]
+        },
+        "A5B09726": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60,
+            "regions": ["na"]
+        },
+        "14D8CC5D": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60,
+            "regions": ["na"]
+        },
+        "08B9E4AA": {
+            "regions": ["pal"]
+        },
+        "2DCD0A0A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na"]
+        },
+        "E689BF16": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na"]
+        },
+        "703C057F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na"]
+        },
+        "06C8E50A": {
+            "regions": ["pal"]
+        },
+        "EE79117D": {
+            "regions": ["na", "pal"]
+        },
+        "B6BF0672": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "AF46EA77": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "BA907064": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "D9A22E5D": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "6A2666AA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na"]
+        },
+        "E3227B7D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na"]
+        },
+        "A7317BB8": {
+            "regions": ["jp"]
+        },
+        "A4DDE805": {
+            "regions": ["jp"]
+        },
+        "C693AA37": {
+            "regions": ["jp"]
+        },
+        "F48E1643": {
+            "regions": ["jp", "na"]
+        },
+        "6EEA9243": {
+            "regions": ["jp"]
+        },
+        "2C97E90F": {
+            "regions": ["jp"]
+        },
+        "F3C20FBE": {
+            "regions": ["jp"]
+        },
+        "B8147B5C": {
+            "regions": ["jp"]
+        },
+        "EF2CFD99": {
+            "regions": ["jp"]
+        },
+        "E3C4ABC6": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na"]
+        },
+        "969C8961": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "1AC625DA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "E99BEBA5": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6935FEA1": {
+            "regions": ["na", "pal"]
+        },
+        "149F807E": {
+            "regions": ["na", "pal"]
+        },
+        "2549FDDE": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "C69DC37B": {
+            "regions": ["jp"]
+        },
+        "30C26262": {
+            "regions": ["jp"]
+        },
+        "994314B3": {
+            "regions": ["jp"]
+        },
+        "308A4CCB": {
+            "regions": ["na", "pal"]
+        },
+        "73311CFA": {
+            "regions": ["jp"]
+        },
+        "2EA8D9D4": {
+            "regions": ["jp"]
+        },
+        "D829EB2F": {
+            "regions": ["jp"]
+        },
+        "FFD919A7": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "1C0368FA": {
+            "regions": ["jp"]
+        },
+        "AABA1EA4": {
+            "regions": ["jp"]
+        },
+        "DE7505C0": {
+            "regions": ["jp", "na"]
+        },
+        "918A40E7": {
+            "regions": ["jp"]
+        },
+        "DCCC7514": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "025F305D": {
+            "regions": ["na", "pal"]
+        },
+        "85A98C7D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "AE024C23": {
+            "regions": ["na", "pal"]
+        },
+        "1B0034E8": {
+            "regions": ["pal"]
+        },
+        "19681AC2": {
+            "regions": ["pal"]
+        },
+        "D8E357BA": {
+            "regions": ["pal"]
+        },
+        "B97A8CB8": {
+            "regions": ["pal"]
+        },
+        "96B929E8": {
+            "regions": ["pal"]
+        },
+        "F1908391": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "2E61C391": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60,
+            "regions": ["na", "pal"]
+        },
+        "A6007CE1": {
+            "regions": ["na", "pal"]
+        },
+        "E7EBB394": {
+            "regions": ["na", "pal"]
+        },
+        "2A073369": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "DD716EFE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "B16F1752": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "B7D49490": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "BB9B597D": {
+            "regions": ["na", "pal"]
+        },
+        "14D1ADBE": {
+            "regions": ["na", "pal"]
+        },
+        "80444A86": {
+            "regions": ["jp"]
+        },
+        "38273BDD": {
+            "regions": ["jp", "na"]
+        },
+        "634B2D43": {
+            "regions": ["jp"]
+        },
+        "E45E99D2": {
+            "regions": ["jp"]
+        },
+        "81FB43E1": {
+            "regions": ["jp"]
+        },
+        "25BA9231": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "924DE366": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["na", "pal"]
+        },
+        "AD563BD9": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "D589C501": {
+            "regions": ["jp"]
+        },
+        "7122136D": {
+            "regions": ["jp"]
+        },
+        "B471C095": {
+            "regions": ["jp"]
+        },
+        "053BC315": {
+            "regions": ["pal"]
+        },
+        "432DC371": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["jp", "na", "pal"]
+        },
+        "7EAEEEAC": {
+            "regions": ["jp"]
+        },
+        "03FBFC9E": {
+            "regions": ["jp"]
+        },
+        "B17DC263": {
+            "regions": ["jp"]
+        },
+        "70F3B431": {
+            "regions": ["pal"]
+        },
+        "D56D68FF": {
+            "regions": ["jp"]
+        },
+        "79CEEF4E": {
+            "regions": ["jp"]
+        },
+        "8A4D86A0": {
+            "regions": ["jp"]
+        },
+        "2FB398F9": {
+            "regions": ["jp"]
+        },
+        "ABD59939": {
+            "regions": ["jp"]
+        },
+        "F520CB19": {
+            "regions": ["jp"]
+        },
+        "542C78B6": {
+            "regions": ["jp"]
+        },
+        "B9E1F3B0": {
+            "regions": ["jp"]
+        },
+        "14CAC67C": {
+            "regions": ["jp"]
+        },
+        "C460DC88": {
+            "regions": ["jp"]
+        },
+        "45BE9D9B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1271117F": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FF454711": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "469F0284": {
+            "regions": ["jp"]
+        },
+        "6E988C07": {
+            "regions": ["jp"]
+        },
+        "F519F4C3": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "136E9D0C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "4FD8B7C5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["jp", "na", "pal"]
+        },
+        "2DA2686A": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "160CA990": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "32A04C29": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "08906220": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A0D67417": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 85,
+            "regions": ["jp", "na"]
+        },
+        "C8A6F68A": {
+            "regions": ["na", "pal"]
+        },
+        "D3896652": {
+            "regions": ["na", "pal"]
+        },
+        "AB5738A1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "159FE5E7": {
+            "regions": ["jp"]
+        },
+        "F6768930": {
+            "regions": ["jp"]
+        },
+        "45F4159B": {
+            "regions": ["jp"]
+        },
+        "018EED29": {
+            "regions": ["jp"]
+        },
+        "9606A07F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "937729F6": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "C0EDE71F": {
+            "regions": ["pal"]
+        },
+        "8CABDCA4": {
+            "regions": ["jp"]
+        },
+        "E0B9FD3B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "BB0672A6": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "0753927E": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "53156D4D": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 68,
+            "regions": ["na", "pal"]
+        },
+        "84084E5F": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "2C6BDCFA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35
+        },
+        "BDAE91E8": {
+            "regions": ["jp"]
+        },
+        "70F10315": {
+            "regions": ["jp"]
+        },
+        "27A53965": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na"]
+        },
+        "8BD1F635": {
+            "regions": ["jp", "pal"]
+        },
+        "77D7E5B7": {
+            "regions": ["jp", "pal"]
+        },
+        "ABD8CEAE": {
+            "regions": ["na", "pal"]
+        },
+        "05DCBD55": {
+            "regions": ["jp"]
+        },
+        "3A96E868": {
+            "regions": ["jp"]
+        },
+        "72A5E820": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56,
+            "regions": ["na", "pal"]
+        },
+        "DD5D3713": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na"]
+        },
+        "413473B0": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na"]
+        },
+        "685CAFCC": {
+            "regions": ["pal"]
+        },
+        "24B76CD0": {
+            "regions": ["pal"]
+        },
+        "FAB64B18": {
+            "regions": ["pal"]
+        },
+        "A1361642": {
+            "regions": ["jp"]
+        },
+        "D23C6A75": {
+            "regions": ["jp"]
+        },
+        "CAFB8035": {
+            "regions": ["pal"]
+        },
+        "24846D65": {
+            "regions": ["pal"]
+        },
+        "A9B8F072": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "77F76EBC": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7FFF1142": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 68,
+            "regions": ["na", "pal"]
+        },
+        "3390B056": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "1AF0B489": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "12E00808": {
+            "regions": ["pal"]
+        },
+        "B85FD752": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na", "pal"]
+        },
+        "57EA1EC8": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "E8FA7203": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "1B76D115": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "9D0290A7": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "D826C75F": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "327EC81F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["jp", "na", "pal"]
+        },
+        "803D5D57": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["jp", "na", "pal"]
+        },
+        "39E34650": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "834091BA": {
+            "regions": ["jp"]
+        },
+        "B3F38F16": {
+            "regions": ["jp"]
+        },
+        "558F4631": {
+            "regions": ["jp"]
+        },
+        "AEB634C5": {
+            "regions": ["jp"]
+        },
+        "AB3F3CEF": {
+            "regions": ["jp"]
+        },
+        "D60E1C0A": {
+            "regions": ["jp"]
+        },
+        "32C8EE13": {
+            "regions": ["pal"]
+        },
+        "A41ED926": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na"]
+        },
+        "F0F9ABE6": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "666D2A75": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "20C4CCF6": {
+            "regions": ["jp"]
+        },
+        "48C99939": {
+            "regions": ["na", "pal"]
+        },
+        "851C8710": {
+            "regions": ["na", "pal"]
+        },
+        "0FAFA3F2": {
+            "regions": ["na", "pal"]
+        },
+        "3C476C6F": {
+            "regions": ["na", "pal"]
+        },
+        "3204B92C": {
+            "regions": ["na", "pal"]
+        },
+        "27632F4F": {
+            "regions": ["pal"]
+        },
+        "62C49DA9": {
+            "regions": ["pal"]
+        },
+        "C8D46E99": {
+            "regions": ["jp"]
+        },
+        "9C56977E": {
+            "regions": ["jp"]
+        },
+        "55EFA05E": {
+            "regions": ["jp"]
+        },
+        "69C6DBEF": {
+            "regions": ["jp"]
+        },
+        "D9062E49": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "F7E83313": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "9FA5CDB5": {
+            "regions": ["jp"]
+        },
+        "6D50772D": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 59,
+            "regions": ["na"]
+        },
+        "B609ECEA": {
+            "regions": ["na", "pal"]
+        },
+        "9B6B755F": {
+            "regions": ["na", "pal"]
+        },
+        "4039C187": {
+            "regions": ["jp"]
+        },
+        "69F08C89": {
+            "regions": ["jp"]
+        },
+        "4C7258D9": {
+            "regions": ["jp"]
+        },
+        "9CFA76C3": {
+            "regions": ["jp"]
+        },
+        "459A126B": {
+            "regions": ["jp"]
+        },
+        "4FBEC464": {
+            "regions": ["jp"]
+        },
+        "18CAA513": {
+            "regions": ["jp"]
+        },
+        "81FD8918": {
+            "regions": ["jp"]
+        },
+        "2D4D8597": {
+            "regions": ["jp"]
+        },
+        "25EFA1D7": {
+            "regions": ["jp"]
+        },
+        "6D5B59C0": {
+            "regions": ["jp"]
+        },
+        "6C568E06": {
+            "regions": ["jp"]
+        },
+        "DD948071": {
+            "regions": ["jp"]
+        },
+        "BF80C897": {
+            "regions": ["jp"]
+        },
+        "456D4DFC": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "F0B09DDB": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "3791DCA1": {
+            "regions": ["jp"]
+        },
+        "6FCE1AD0": {
+            "regions": ["jp"]
+        },
+        "B868E846": {
+            "regions": ["pal"]
+        },
+        "8B61CFCC": {
+            "regions": ["jp"]
+        },
+        "FB528F66": {
+            "regions": ["jp"]
+        },
+        "1E64D19C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na"]
+        },
+        "6427CD7A": {
+            "regions": ["jp"]
+        },
+        "DE52FFDC": {
+            "regions": ["jp"]
+        },
+        "E2E4328B": {
+            "regions": ["jp"]
+        },
+        "42DE9092": {
+            "regions": ["jp"]
+        },
+        "E2F6253E": {
+            "regions": ["jp"]
+        },
+        "E541ACF1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50,
+            "regions": ["jp", "na"]
+        },
+        "783BC02D": {
+            "regions": ["pal"]
+        },
+        "948F4A96": {
+            "regions": ["jp"]
+        },
+        "E915337C": {
+            "regions": ["jp"]
+        },
+        "A29D862F": {
+            "regions": ["jp"]
+        },
+        "7181CBD0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na"]
+        },
+        "577E1521": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "F9C6E0A5": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "65DA9075": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "3F8D6041": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "A0D64934": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 16,
+            "regions": ["na"]
+        },
+        "203F8727": {
+            "regions": ["pal"]
+        },
+        "A6499792": {
+            "regions": ["pal"]
+        },
+        "D4D6243D": {
+            "regions": ["pal"]
+        },
+        "8800F1C9": {
+            "regions": ["pal"]
+        },
+        "1C644040": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "C6758B0B": {
+            "regions": ["jp"]
+        },
+        "D390430E": {
+            "regions": ["jp"]
+        },
+        "B6381744": {
+            "regions": ["jp"]
+        },
+        "380F19ED": {
+            "regions": ["jp"]
+        },
+        "430EB1E1": {
+            "regions": ["jp"]
+        },
+        "6910FF3A": {
+            "regions": ["jp"]
+        },
+        "F253E082": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "BCE9CB16": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "BEF1CDE4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "A58C8282": {
+            "regions": ["na", "pal"]
+        },
+        "CF8E2371": {
+            "regions": ["na", "pal"]
+        },
+        "E2BFF286": {
+            "regions": ["na", "pal"]
+        },
+        "1B49D07D": {
+            "regions": ["na", "pal"]
+        },
+        "F24D010A": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["jp", "na", "pal"]
+        },
+        "840FD525": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 52,
+            "regions": ["jp", "na", "pal"]
+        },
+        "87EF9530": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "1241F3F5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "7E821F47": {
+            "regions": ["na", "pal"]
+        },
+        "4E2B75E7": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F48824FE": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EFB76777": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FED5959B": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "B38EB9DE": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "06887A34": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 71,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5933E3FA": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "3800A387": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "DBAC1357": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 78,
+            "regions": ["jp", "na", "pal"]
+        },
+        "D7E9F5D7": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 78,
+            "regions": ["jp", "na", "pal"]
+        },
+        "690C0373": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "6D7EC41B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "921ABB21": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "B14FA7E7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "0A109F13": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "F6865B09": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "05CC01FB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "DA084760": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "5EA0796B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53
+        },
+        "97E5CE2F": {
+            "regions": ["jp", "na"]
+        },
+        "947D45AE": {
+            "regions": ["jp", "na"]
+        },
+        "C6859B34": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["jp", "na"]
+        },
+        "D5B4B7BB": {
+            "regions": ["na", "pal"]
+        },
+        "CA38283D": {
+            "regions": ["jp"]
+        },
+        "9FEC297E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "6B974B2D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "364F9CCD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "ECEAB84E": {
+            "regions": ["jp"]
+        },
+        "66E166BB": {
+            "regions": ["jp"]
+        },
+        "5EEE76C4": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "D67275F7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "11FB5617": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na", "pal"]
+        },
+        "698D7BE4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "76CF3E3A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "4EF3DDD7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "54509D24": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5D85DFAD": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "BC46A2D2": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7EFDCA8A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na"]
+        },
+        "66792CDE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na"]
+        },
+        "034D2686": {
+            "regions": ["jp"]
+        },
+        "1C877ABD": {
+            "regions": ["jp"]
+        },
+        "55DD0BA6": {
+            "regions": ["jp"]
+        },
+        "3AEBFAD8": {
+            "regions": ["jp"]
+        },
+        "412FB57C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "A5E29F34": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "CE7F108A": {
+            "regions": ["pal"]
+        },
+        "470DCB1D": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5BAE3C04": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 60,
+            "regions": ["jp", "na", "pal"]
+        },
+        "60683BC4": {
+            "regions": ["na", "pal"]
+        },
+        "A666F54D": {
+            "regions": ["na", "pal"]
+        },
+        "8649D7A0": {
+            "regions": ["na", "pal"]
+        },
+        "83293B1B": {
+            "regions": ["na", "pal"]
+        },
+        "2B7ABBA4": {
+            "regions": ["jp"]
+        },
+        "482944AA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "160E9E3C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na"]
+        },
+        "DE1338D2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na"]
+        },
+        "5042450B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na"]
+        },
+        "15E5D499": {
+            "regions": ["jp"]
+        },
+        "EA9EE203": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na"]
+        },
+        "E4188A79": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na"]
+        },
+        "0A421839": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na", "pal"]
+        },
+        "C82BE2F4": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F53CF66C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na", "pal"]
+        },
+        "7D83A5E8": {
+            "regions": ["jp"]
+        },
+        "C870B88F": {
+            "regions": ["jp"]
+        },
+        "0D16A545": {
+            "regions": ["jp"]
+        },
+        "934F4B0A": {
+            "regions": ["jp"]
+        },
+        "4EC78785": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "6144FC66": {
+            "regions": ["jp"]
+        },
+        "A132417D": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["jp", "na", "pal"]
+        },
+        "905AD0CB": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0510D601": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A781C63C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "46FAA730": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "69DB3CD8": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 19,
+            "regions": ["na", "pal"]
+        },
+        "84A880B9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "35D6DDCC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "909C870F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "2C92AD12": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "515C1459": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "A3F23D7E": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 69,
+            "regions": ["na"]
+        },
+        "FD11138E": {
+            "regions": ["pal"]
+        },
+        "142B6EFB": {
+            "regions": ["pal"]
+        },
+        "983B1D26": {
+            "regions": ["pal"]
+        },
+        "BF6BD446": {
+            "regions": ["jp"]
+        },
+        "5B8FFD37": {
+            "regions": ["jp"]
+        },
+        "159673DB": {
+            "regions": ["jp"]
+        },
+        "E655632C": {
+            "regions": ["jp"]
+        },
+        "BC617834": {
+            "regions": ["jp"]
+        },
+        "C192A368": {
+            "regions": ["jp"]
+        },
+        "6A29B9D8": {
+            "regions": ["jp"]
+        },
+        "A3C1756E": {
+            "regions": ["jp"]
+        },
+        "014083A8": {
+            "regions": ["jp"]
+        },
+        "4F03D80A": {
+            "regions": ["jp"]
+        },
+        "A3735F81": {
+            "regions": ["jp"]
+        },
+        "3A4D94D5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "8FEDB6D8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["jp", "na", "pal"]
+        },
+        "BD9BA639": {
+            "regions": ["jp", "na"]
+        },
+        "9CAA00B5": {
+            "regions": ["jp"]
+        },
+        "3B5F24FC": {
+            "regions": ["jp"]
+        },
+        "E620FAE2": {
+            "regions": ["jp"]
+        },
+        "CABDD802": {
+            "regions": ["jp"]
+        },
+        "65B8B343": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na"]
+        },
+        "CA675933": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "8B63F36F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "C5290CEE": {
+            "regions": ["pal"]
+        },
+        "00733C77": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7831F84D": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "04B0C5D6": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 79,
+            "regions": ["jp", "na", "pal"]
+        },
+        "3BE68391": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["jp", "na"]
+        },
+        "A76EED5B": {
+            "regions": ["jp"]
+        },
+        "D77971C0": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "D5E845F4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "5DD337EB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "B8064453": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "E66E093B": {
+            "regions": ["pal"]
+        },
+        "EE4CBA24": {
+            "regions": ["na", "pal"]
+        },
+        "0777B8D7": {
+            "regions": ["na", "pal"]
+        },
+        "0F02D708": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50,
+            "regions": ["na", "pal"]
+        },
+        "D2D88CFA": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50,
+            "regions": ["na", "pal"]
+        },
+        "4EB7DB14": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57,
+            "regions": ["na", "pal"]
+        },
+        "504F55C5": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57,
+            "regions": ["na", "pal"]
+        },
+        "4C1ECECB": {
+            "regions": ["na", "pal"]
+        },
+        "F40199C9": {
+            "regions": ["na", "pal"]
+        },
+        "B57DABAE": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5CB4FC8A": {
+            "regions": ["jp"]
+        },
+        "F766015A": {
+            "regions": ["jp"]
+        },
+        "D47AE577": {
+            "regions": ["jp"]
+        },
+        "18216E26": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "47543C51": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "0AF32BAA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na", "pal"]
+        },
+        "41230D11": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na", "pal"]
+        },
+        "9C51F4C7": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na", "pal"]
+        },
+        "FC1F100F": {
+            "regions": ["jp"]
+        },
+        "35FC5B32": {
+            "regions": ["jp"]
+        },
+        "DA7FB08F": {
+            "regions": ["jp"]
+        },
+        "BC1809CE": {
+            "regions": ["jp", "pal"]
+        },
+        "0503E567": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na"]
+        },
+        "E559A717": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na"]
+        },
+        "69B88F1E": {
+            "regions": ["jp", "na"]
+        },
+        "B985F0D8": {
+            "regions": ["jp"]
+        },
+        "50DDF120": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["jp", "na"]
+        },
+        "6C35E8F0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["jp", "na"]
+        },
+        "F60A376E": {
+            "regions": ["jp"]
+        },
+        "5D596CF6": {
+            "regions": ["jp"]
+        },
+        "63E3BBB4": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "712D40A5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "3726858A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "183DBB31": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na", "pal"]
+        },
+        "659693DE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "DE04772F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na", "pal"]
+        },
+        "45543BA2": {
+            "regions": ["jp", "pal"]
+        },
+        "B7C1025B": {
+            "regions": ["pal"]
+        },
+        "4EB71448": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "17D27FA9": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "BDF9B05C": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53,
+            "regions": ["jp", "na", "pal"]
+        },
+        "773729AF": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53,
+            "regions": ["jp", "na", "pal"]
+        },
+        "35FD440D": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53,
+            "regions": ["jp", "na", "pal"]
+        },
+        "492C0EBF": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53,
+            "regions": ["jp", "na", "pal"]
+        },
+        "4E37C741": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "59F67529": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "103E212D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "F2335DA9": {
+            "regions": ["na", "pal"]
+        },
+        "B7B2354B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "744561F3": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "904663AF": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "64052B9B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "C997F45B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "84FC838A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "C6BA9F27": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0BAB7A61": {
+            "regions": ["jp"]
+        },
+        "E5C9569A": {
+            "regions": ["jp"]
+        },
+        "B9FA3CE4": {
+            "regions": ["jp"]
+        },
+        "DD7666CE": {
+            "regions": ["jp"]
+        },
+        "7E5C8542": {
+            "regions": ["jp"]
+        },
+        "98D0FCB0": {
+            "regions": ["jp"]
+        },
+        "866095C2": {
+            "regions": ["jp"]
+        },
+        "FA4E9896": {
+            "regions": ["jp"]
+        },
+        "1A382367": {
+            "regions": ["jp"]
+        },
+        "E5EC7BE5": {
+            "regions": ["jp"]
+        },
+        "AC5E477D": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "54D90A4C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na"]
+        },
+        "39C6B868": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 16,
+            "regions": ["na"]
+        },
+        "FA83B37C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na"]
+        },
+        "F39A5C4F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na"]
+        },
+        "8C195F49": {
+            "regions": ["pal"]
+        },
+        "001F4754": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na"]
+        },
+        "5011A419": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na"]
+        },
+        "F6BAE9A0": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "BE949F74": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "E6AF6D07": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "FDB38C49": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "3AA75F1C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "84BE0EED": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "748564AE": {
+            "regions": ["na", "pal"]
+        },
+        "7AE23888": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na"]
+        },
+        "8BC9BE45": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na"]
+        },
+        "6E33D509": {
+            "regions": ["jp"]
+        },
+        "D65C8BA1": {
+            "regions": ["jp"]
+        },
+        "56F52663": {
+            "regions": ["jp"]
+        },
+        "FBB97680": {
+            "regions": ["pal"]
+        },
+        "910DF34B": {
+            "regions": ["pal"]
+        },
+        "DCA4474E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "D731DED7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "107D734B": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "090C7DAC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na"]
+        },
+        "61C653AE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na"]
+        },
+        "BB625129": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "A890ADB2": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "8BC5B62A": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na"]
+        },
+        "A3F079D4": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39,
+            "regions": ["na"]
+        },
+        "4631D8BF": {
+            "regions": ["jp"]
+        },
+        "2F7D62F3": {
+            "regions": ["jp"]
+        },
+        "0F69F574": {
+            "regions": ["pal"]
+        },
+        "845B4E44": {
+            "regions": ["pal"]
+        },
+        "F770878B": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na"]
+        },
+        "AC52F6EF": {
+            "regions": ["jp"]
+        },
+        "62F560D8": {
+            "regions": ["pal"]
+        },
+        "3485761A": {
+            "regions": ["pal"]
+        },
+        "4B83B14F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "5C260D5A": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "E338C118": {
+            "regions": ["jp"]
+        },
+        "840EF32F": {
+            "regions": ["jp"]
+        },
+        "9E0799F4": {
+            "regions": ["jp"]
+        },
+        "ED7461D2": {
+            "regions": ["jp"]
+        },
+        "C7800576": {
+            "regions": ["jp"]
+        },
+        "C6F1ABD4": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "3EAC3D1C": {
+            "regions": ["pal"]
+        },
+        "D47C0DCF": {
+            "regions": ["jp"]
+        },
+        "2A39A874": {
+            "regions": ["jp"]
+        },
+        "3485EF86": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "F565647F": {
+            "regions": ["na", "pal"]
+        },
+        "F75E269E": {
+            "regions": ["jp"]
+        },
+        "1A631BAB": {
+            "regions": ["jp"]
+        },
+        "1E443D1B": {
+            "regions": ["jp"]
+        },
+        "C0A98305": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na", "pal"]
+        },
+        "DA3A3278": {
+            "regions": ["pal"]
+        },
+        "AFA1AAC3": {
+            "regions": ["jp"]
+        },
+        "0601BEF6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "2267360B": {
+            "regions": ["jp"]
+        },
+        "F911BB5D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FA09CEBE": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "A92DCB79": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "91D7CCCA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "375C35E0": {
+            "regions": ["pal"]
+        },
+        "3B46E7C9": {
+            "regions": ["jp"]
+        },
+        "FA2A66E9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na", "pal"]
+        },
+        "26589B79": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na"]
+        },
+        "3ED30908": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na"]
+        },
+        "911007E1": {
+            "regions": ["jp"]
+        },
+        "389CF56F": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "08DC0AF4": {
+            "regions": ["jp"]
+        },
+        "C73EB10E": {
+            "regions": ["jp"]
+        },
+        "F5AB554D": {
+            "regions": ["jp"]
+        },
+        "4D26E880": {
+            "regions": ["jp"]
+        },
+        "2A273244": {
+            "regions": ["jp"]
+        },
+        "C424874E": {
+            "regions": ["jp"]
+        },
+        "2AC77C5A": {
+            "regions": ["jp", "pal"]
+        },
+        "9E120D94": {
+            "regions": ["jp", "pal"]
+        },
+        "AF0C51B8": {
+            "regions": ["jp"]
+        },
+        "DEE71D44": {
+            "regions": ["jp"]
+        },
+        "35A29628": {
+            "regions": ["jp"]
+        },
+        "1BFB531E": {
+            "regions": ["pal"]
+        },
+        "E6DDA84F": {
+            "regions": ["pal"]
+        },
+        "C4387812": {
+            "regions": ["pal"]
+        },
+        "419D4565": {
+            "regions": ["pal"]
+        },
+        "D4EBBA41": {
+            "regions": ["jp"]
+        },
+        "2A6EF6A8": {
+            "regions": ["jp"]
+        },
+        "45661EC3": {
+            "regions": ["jp"]
+        },
+        "870DB337": {
+            "regions": ["jp"]
+        },
+        "C884037A": {
+            "regions": ["jp"]
+        },
+        "573613D7": {
+            "regions": ["jp"]
+        },
+        "FBF97372": {
+            "regions": ["jp", "pal"]
+        },
+        "E8F5824F": {
+            "regions": ["pal"]
+        },
+        "BB6DD80C": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 91,
+            "regions": ["jp", "na", "pal"]
+        },
+        "3358E30A": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 91,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EE6F5188": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 91,
+            "regions": ["jp", "na", "pal"]
+        },
+        "6BDE3C3E": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "8AD48636": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 88,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1926F570": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6BF7E4A6": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "479F3C4E": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 85
+        },
+        "39C432A4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["jp", "na", "pal"]
+        },
+        "13C70DE9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["jp", "na", "pal"]
+        },
+        "03CE8D9A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["jp", "na", "pal"]
+        },
+        "8206B1CE": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 67,
+            "regions": ["jp", "na", "pal"]
+        },
+        "D06BBA96": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 67,
+            "regions": ["jp", "na", "pal"]
+        },
+        "3F1D7E58": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 77,
+            "regions": ["jp", "na", "pal"]
+        },
+        "966DAEF1": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 77,
+            "regions": ["jp", "na", "pal"]
+        },
+        "942D0B7F": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 77,
+            "regions": ["jp", "na", "pal"]
+        },
+        "4523376E": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 77,
+            "regions": ["jp", "na", "pal"]
+        },
+        "81069D53": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 77,
+            "regions": ["jp", "na", "pal"]
+        },
+        "DD8B189E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "476BD39D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "8505D139": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "622690DA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "07E6CA95": {
+            "regions": ["jp"]
+        },
+        "9B2429A7": {
+            "regions": ["jp"]
+        },
+        "48C3C6EF": {
+            "regions": ["jp"]
+        },
+        "FC67F7E4": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "1CFFB764": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "913AC306": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "894D88F2": {
+            "regions": ["jp"]
+        },
+        "145540D8": {
+            "regions": ["jp"]
+        },
+        "C2A4A3EB": {
+            "regions": ["jp"]
+        },
+        "30E1E567": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "DAD6F6B4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "AE57D1C3": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 16,
+            "regions": ["na", "pal"]
+        },
+        "834CAF7A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "548A287A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "A111704F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "75D1063A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "24B23AF1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "788859AE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "D8455984": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "E3D6964C": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "9D47261A": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "295B3646": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "443367AE": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "98E4B0C4": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "310B52F7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "91DEF753": {
+            "regions": ["pal"]
+        },
+        "D7DBBE1E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "E6BEC6D1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "834A72C0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22,
+            "regions": ["na"]
+        },
+        "A9905932": {
+            "regions": ["na", "pal"]
+        },
+        "1461D8D8": {
+            "regions": ["jp"]
+        },
+        "F03016F5": {
+            "regions": ["jp"]
+        },
+        "21A4DA64": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "2611FA3D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "20CEE2E8": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "EDDF2923": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "A9A89DDA": {
+            "regions": ["jp", "pal"]
+        },
+        "F0D0C36D": {
+            "regions": ["jp", "pal"]
+        },
+        "D79B6F46": {
+            "regions": ["jp", "pal"]
+        },
+        "A97EA742": {
+            "regions": ["jp", "pal"]
+        },
+        "67350BC9": {
+            "regions": ["jp"]
+        },
+        "AF858234": {
+            "regions": ["jp", "na"]
+        },
+        "79A35284": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "00FDED94": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "73ED3042": {
+            "regions": ["jp"]
+        },
+        "06EB7A01": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na"]
+        },
+        "15B44D68": {
+            "regions": ["na", "pal"]
+        },
+        "F03FFDAF": {
+            "regions": ["na", "pal"]
+        },
+        "90F46D7E": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na"]
+        },
+        "D729DB40": {
+            "regions": ["jp", "pal"]
+        },
+        "5ACEA4A9": {
+            "regions": ["jp", "pal"]
+        },
+        "BB3744A9": {
+            "regions": ["jp", "pal"]
+        },
+        "9AC27645": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["jp", "na"]
+        },
+        "CE55A4DE": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["na", "pal"]
+        },
+        "D903DB7D": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["na", "pal"]
+        },
+        "56D76BA2": {
+            "regions": ["jp"]
+        },
+        "3623EBB6": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FC1D4089": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "6DECC6B3": {
+            "regions": ["pal"]
+        },
+        "B029017F": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 17,
+            "regions": ["na", "pal"]
+        },
+        "20B86F1E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "D5AEED2E": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 15,
+            "regions": ["na"]
+        },
+        "17635AD1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "C430A89A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EDA12F0D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["jp", "na", "pal"]
+        },
+        "E9878197": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["jp", "na", "pal"]
+        },
+        "3FDE5BAC": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6F5C315D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29
+        },
+        "250015D4": {
+            "regions": ["na", "pal"]
+        },
+        "8EF95773": {
+            "regions": ["na", "pal"]
+        },
+        "5C201286": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 19,
+            "regions": ["na", "pal"]
+        },
+        "BEA36BF9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "345E20A4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "AFFF6BB9": {
+            "regions": ["jp"]
+        },
+        "16B81C36": {
+            "regions": ["jp"]
+        },
+        "77A4DC63": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43
+        },
+        "F85C3F2C": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 83,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F8C5021B": {
+            "rarity": 9,
+            "rarityLabel": "Super Rare",
+            "rarityPercent": 83,
+            "regions": ["jp", "na", "pal"]
+        },
+        "8E04849A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "A07DA702": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "DF445C4A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "D1A65D74": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na"]
+        },
+        "73160E05": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 56,
+            "regions": ["na", "pal"]
+        },
+        "AB8C3A31": {
+            "regions": ["pal"]
+        },
+        "98C59706": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "11025EEB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 30,
+            "regions": ["na", "pal"]
+        },
+        "FE2995A1": {
+            "regions": ["na"]
+        },
+        "717B3525": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na"]
+        },
+        "38B022BE": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na"]
+        },
+        "D4F84329": {
+            "regions": ["pal"]
+        },
+        "6C6423E2": {
+            "regions": ["pal"]
+        },
+        "32CAEF11": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na"]
+        },
+        "4AA209CD": {
+            "regions": ["jp"]
+        },
+        "87A29030": {
+            "regions": ["jp"]
+        },
+        "B28F32AC": {
+            "regions": ["jp"]
+        },
+        "CB0B8003": {
+            "regions": ["jp", "na"]
+        },
+        "E99BDEE6": {
+            "regions": ["pal"]
+        },
+        "7025EB63": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 13,
+            "regions": ["na", "pal"]
+        },
+        "919077AB": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "17913DD0": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "9AA5B021": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 32,
+            "regions": ["na"]
+        },
+        "E48ADF8D": {
+            "regions": ["jp"]
+        },
+        "10DBDE7C": {
+            "regions": ["pal"]
+        },
+        "A856C066": {
+            "regions": ["na", "pal"]
+        },
+        "D0204F10": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "1F5EC131": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["na", "pal"]
+        },
+        "4BD73D99": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39,
+            "regions": ["jp", "na", "pal"]
+        },
+        "2E944775": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0B614307": {
+            "regions": ["jp"]
+        },
+        "57F82031": {
+            "regions": ["jp"]
+        },
+        "9C743F03": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 13,
+            "regions": ["na", "pal"]
+        },
+        "FC6195EF": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 18,
+            "regions": ["na", "pal"]
+        },
+        "8B195237": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 12,
+            "regions": ["na", "pal"]
+        },
+        "3FF71758": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 12,
+            "regions": ["na", "pal"]
+        },
+        "B4091600": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "FEBE2606": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "2CF48188": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "818F3AF6": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "5D39A9B0": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "AFE8F647": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 14,
+            "regions": ["na", "pal"]
+        },
+        "B5412C6F": {
+            "regions": ["jp"]
+        },
+        "EF503D50": {
+            "regions": ["jp"]
+        },
+        "47636A2C": {
+            "regions": ["jp"]
+        },
+        "44A9DDFB": {
+            "regions": ["jp"]
+        },
+        "EF368F16": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "E787B44C": {
+            "regions": ["jp"]
+        },
+        "6555B740": {
+            "regions": ["jp"]
+        },
+        "458B579D": {
+            "regions": ["jp"]
+        },
+        "179DA7F3": {
+            "regions": ["jp"]
+        },
+        "EFE51E17": {
+            "regions": ["jp"]
+        },
+        "A744DF64": {
+            "regions": ["pal"]
+        },
+        "B02564FC": {
+            "regions": ["jp", "pal"]
+        },
+        "E3704755": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["na", "pal"]
+        },
+        "998657B7": {
+            "regions": ["pal"]
+        },
+        "365BF43F": {
+            "regions": ["jp"]
+        },
+        "8804F856": {
+            "regions": ["jp"]
+        },
+        "0B1B928C": {
+            "regions": ["jp"]
+        },
+        "23FA5F53": {
+            "regions": ["jp"]
+        },
+        "3BF7FCD4": {
+            "regions": ["na", "pal"]
+        },
+        "1833FB38": {
+            "regions": ["na", "pal"]
+        },
+        "20158FBC": {
+            "regions": ["na", "pal"]
+        },
+        "CC1FB2A9": {
+            "regions": ["na", "pal"]
+        },
+        "41228EE7": {
+            "regions": ["na", "pal"]
+        },
+        "2C4C2A5F": {
+            "regions": ["na", "pal"]
+        },
+        "55BE1A6E": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "4ED4AAFA": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na", "pal"]
+        },
+        "521A2F77": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 66,
+            "regions": ["jp", "na"]
+        },
+        "D337F450": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F6A876A5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1BCD7D70": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "EFB9196D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "D8FAC36C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "9401BA47": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "D529DAFD": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "A5E3ECE9": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "E994B59B": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 94,
+            "regions": ["na"]
+        },
+        "1EF9FA6B": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 94,
+            "regions": ["na"]
+        },
+        "96D2774E": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 94,
+            "regions": ["na"]
+        },
+        "5009B832": {
+            "rarity": 10,
+            "rarityLabel": "Ultra Rare",
+            "rarityPercent": 94,
+            "regions": ["na"]
+        },
+        "709CDA93": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na"]
+        },
+        "767CAA42": {
+            "regions": ["na", "pal"]
+        },
+        "C1E27556": {
+            "regions": ["jp"]
+        },
+        "F90C4977": {
+            "regions": ["jp"]
+        },
+        "3D4AE536": {
+            "regions": ["jp"]
+        },
+        "55B9AF51": {
+            "regions": ["jp"]
+        },
+        "39A10855": {
+            "regions": ["jp"]
+        },
+        "79EA53F4": {
+            "regions": ["jp"]
+        },
+        "5337FF55": {
+            "regions": ["jp"]
+        },
+        "A7748D2B": {
+            "regions": ["jp"]
+        },
+        "64B479FA": {
+            "regions": ["jp"]
+        },
+        "387E6459": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "36E781CD": {
+            "regions": ["jp"]
+        },
+        "EBAF4888": {
+            "regions": ["na", "pal"]
+        },
+        "6F97B043": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["na", "pal"]
+        },
+        "B50CAFE4": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["na", "pal"]
+        },
+        "8C2D9B43": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "D088EEFD": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "D882ECCC": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "C9C68471": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "8DD38534": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "4BA47DBC": {
+            "regions": ["na", "pal"]
+        },
+        "237ECEF9": {
+            "regions": ["pal"]
+        },
+        "6AEE0958": {
+            "regions": ["jp", "na"]
+        },
+        "C9A25B0C": {
+            "regions": ["jp"]
+        },
+        "A80EEEAD": {
+            "regions": ["jp"]
+        },
+        "081D7FCB": {
+            "regions": ["jp"]
+        },
+        "3FFCD45B": {
+            "regions": ["jp"]
+        },
+        "DAB7460C": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na", "pal"]
+        },
+        "C016BC79": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "4F83B35E": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["jp", "na"]
+        },
+        "F606D369": {
+            "regions": ["jp"]
+        },
+        "01F96353": {
+            "regions": ["jp"]
+        },
+        "63353C0F": {
+            "regions": ["pal"]
+        },
+        "72FCB0AD": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na"]
+        },
+        "C97D74F5": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61,
+            "regions": ["na", "pal"]
+        },
+        "AE82AFA4": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 61,
+            "regions": ["na", "pal"]
+        },
+        "F6334DC5": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["jp", "na", "pal"]
+        },
+        "5A83DFC4": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["jp", "na", "pal"]
+        },
+        "34E2B3BA": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A7FAACCF": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 45,
+            "regions": ["na", "pal"]
+        },
+        "3E9BC90B": {
+            "regions": ["pal"]
+        },
+        "713C6C17": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "6CA71209": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0E783117": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EB47D63B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F0463D51": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "549BF1E4": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["jp", "na", "pal"]
+        },
+        "8C7DDBDA": {
+            "regions": ["jp"]
+        },
+        "6314DA32": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "E584DFC2": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57,
+            "regions": ["na", "pal"]
+        },
+        "0E697582": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 57,
+            "regions": ["na", "pal"]
+        },
+        "0EBC5758": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "816A4D94": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "28A3AB3A": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "CDF56F1A": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "32739B34": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "AA5F14D2": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 80,
+            "regions": ["jp", "na", "pal"]
+        },
+        "ACB08666": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "EB273887": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "B7F77B6A": {
+            "regions": ["jp"]
+        },
+        "AE466545": {
+            "regions": ["jp", "na"]
+        },
+        "34C8A4A5": {
+            "regions": ["jp"]
+        },
+        "6833923D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "52F51CB5": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "3AB3AA4F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "DCDAA333": {
+            "regions": ["jp"]
+        },
+        "DF50473F": {
+            "regions": ["jp"]
+        },
+        "62BBAE83": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["jp", "na", "pal"]
+        },
+        "866B1212": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F4E91F63": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["jp", "na", "pal"]
+        },
+        "A4CD26FF": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["jp", "na", "pal"]
+        },
+        "90AB047B": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 73,
+            "regions": ["jp", "na", "pal"]
+        },
+        "315CAA18": {
+            "regions": ["jp"]
+        },
+        "00865161": {
+            "regions": ["jp"]
+        },
+        "6E330FCD": {
+            "regions": ["jp"]
+        },
+        "4D3E0F51": {
+            "regions": ["pal"]
+        },
+        "53B1E661": {
+            "regions": ["na", "pal"]
+        },
+        "61FA675C": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "C46ABA56": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 68,
+            "regions": ["jp", "na", "pal"]
+        },
+        "BD366D22": {
+            "regions": ["jp"]
+        },
+        "AB8B25D8": {
+            "regions": ["jp"]
+        },
+        "0F7264BA": {
+            "regions": ["pal"]
+        },
+        "A13CF42E": {
+            "regions": ["pal"]
+        },
+        "4BE9B159": {
+            "regions": ["jp"]
+        },
+        "44D30B7A": {
+            "regions": ["pal"]
+        },
+        "C6FE4497": {
+            "regions": ["jp"]
+        },
+        "F82D391F": {
+            "regions": ["jp"]
+        },
+        "AD6F3BDF": {
+            "regions": ["jp"]
+        },
+        "ABF32B8B": {
+            "regions": ["jp"]
+        },
+        "6BB3B0DC": {
+            "regions": ["na", "pal"]
+        },
+        "95310C8B": {
+            "regions": ["jp"]
+        },
+        "388C6760": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6A0C272D": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "725CF31C": {
+            "regions": ["jp"]
+        },
+        "CE8AE58C": {
+            "regions": ["jp"]
+        },
+        "C503AFBB": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["jp", "na", "pal"]
+        },
+        "39D04581": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["jp", "na", "pal"]
+        },
+        "F2005973": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["jp", "na", "pal"]
+        },
+        "4224F930": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 10,
+            "regions": ["jp", "na", "pal"]
+        },
+        "683752A0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "3611D0D8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 27,
+            "regions": ["na", "pal"]
+        },
+        "2838996F": {
+            "regions": ["pal"]
+        },
+        "C07EBE70": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "BB894EC7": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na"]
+        },
+        "5333C5DB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "13691CEB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "2F179045": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "5CE00547": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "E32BB06F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na"]
+        },
+        "E6D6AC8F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "0FDD5B9E": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 43,
+            "regions": ["na", "pal"]
+        },
+        "EAF6E4F2": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "B7C0831F": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "1CBEA1AA": {
+            "regions": ["na", "pal"]
+        },
+        "B5BECECF": {
+            "regions": ["pal"]
+        },
+        "A6DFB1D9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "B2205D49": {
+            "regions": ["pal"]
+        },
+        "6832F38A": {
+            "regions": ["pal"]
+        },
+        "7AA371ED": {
+            "regions": ["na", "pal"]
+        },
+        "800EFB3D": {
+            "regions": ["na", "pal"]
+        },
+        "5A0D41AA": {
+            "regions": ["pal"]
+        },
+        "23BB87A5": {
+            "regions": ["pal"]
+        },
+        "2F9F19DE": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "BA70D28F": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "00A14D18": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["jp", "na"]
+        },
+        "B509892B": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na", "pal"]
+        },
+        "0A0F9289": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 53,
+            "regions": ["na", "pal"]
+        },
+        "4BE4A8ED": {
+            "regions": ["jp"]
+        },
+        "78E14FA9": {
+            "regions": ["jp"]
+        },
+        "9139E307": {
+            "regions": ["jp"]
+        },
+        "B97C0BD9": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na", "pal"]
+        },
+        "5FC6BEC0": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 64,
+            "regions": ["na", "pal"]
+        },
+        "9D9C84F4": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "38CE3F76": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "CE4CA7B1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["na", "pal"]
+        },
+        "E72F2683": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31
+        },
+        "269F0852": {
+            "regions": ["na", "pal"]
+        },
+        "2988FC78": {
+            "regions": ["na", "pal"]
+        },
+        "02C1035A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "A8628F7A": {
+            "regions": ["pal"]
+        },
+        "8142A3E8": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na"]
+        },
+        "E108B2C2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na", "pal"]
+        },
+        "BC07F4FB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na", "pal"]
+        },
+        "A5AF4B28": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23,
+            "regions": ["na", "pal"]
+        },
+        "48F17F97": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 6,
+            "regions": ["na", "pal"]
+        },
+        "8D8BB5C4": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 6,
+            "regions": ["na", "pal"]
+        },
+        "2C27C61F": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 9,
+            "regions": ["na", "pal"]
+        },
+        "FD5290A1": {
+            "regions": ["na", "pal"]
+        },
+        "3D6B598C": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["na"]
+        },
+        "6573B88F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "096D0C27": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "1972CBF7": {
+            "regions": ["pal"]
+        },
+        "EBCCA3DA": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["jp", "na", "pal"]
+        },
+        "84499FC1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EFB87F80": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["jp", "na", "pal"]
+        },
+        "EB0838D6": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["jp", "na", "pal"]
+        },
+        "FC680273": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1845F25A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["jp", "na", "pal"]
+        },
+        "337E5DD3": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "017773CD": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "E2AD5A0F": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "0AEAE8FB": {
+            "regions": ["jp"]
+        },
+        "7B9B2468": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na", "pal"]
+        },
+        "47AECB95": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42,
+            "regions": ["na", "pal"]
+        },
+        "F660ED94": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "D911DD97": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 47,
+            "regions": ["na", "pal"]
+        },
+        "EFE3FC64": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "E856DC3D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 35,
+            "regions": ["jp", "na", "pal"]
+        },
+        "74E04C07": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "260EED04": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na"]
+        },
+        "1BE00A6E": {
+            "regions": ["jp"]
+        },
+        "6F2CBD1D": {
+            "regions": ["jp"]
+        },
+        "786B5AB4": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "F095B446": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6EDA6A3A": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["jp", "na", "pal"]
+        },
+        "6D48765E": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21,
+            "regions": ["na", "pal"]
+        },
+        "9306EDD0": {
+            "regions": ["pal"]
+        },
+        "C7B61220": {
+            "regions": ["pal"]
+        },
+        "CA9E5385": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "7361D6BC": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "4E226396": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 63,
+            "regions": ["jp", "na", "pal"]
+        },
+        "219E42E3": {
+            "regions": ["jp"]
+        },
+        "4B314D4B": {
+            "regions": ["na", "pal"]
+        },
+        "92A5A1AD": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "D5F036CE": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34,
+            "regions": ["na", "pal"]
+        },
+        "6DCFDFE2": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 51,
+            "regions": ["na", "pal"]
+        },
+        "B3398A9B": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55,
+            "regions": ["jp", "na", "pal"]
+        },
+        "E84DF1F0": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55,
+            "regions": ["jp", "na", "pal"]
+        },
+        "70760CCE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "F026D509": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "1312B3F7": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "FAB9D941": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "DA300C6C": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "81B2BB8D": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "40B5EA96": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "4167CF29": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 33,
+            "regions": ["na", "pal"]
+        },
+        "D1A188DC": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28,
+            "regions": ["na"]
+        },
+        "DBDD6D85": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "436C87D4": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 38,
+            "regions": ["na", "pal"]
+        },
+        "37EA6093": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na", "pal"]
+        },
+        "543ABB1B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48,
+            "regions": ["jp", "na", "pal"]
+        },
+        "E54B22B9": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["na", "pal"]
+        },
+        "56BEB694": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40,
+            "regions": ["na", "pal"]
+        },
+        "E93F1582": {
+            "regions": ["jp"]
+        },
+        "480D0259": {
+            "rarity": 7,
+            "rarityLabel": "Highly Collectible",
+            "rarityPercent": 70,
+            "regions": ["jp", "na", "pal"]
+        },
+        "047BDF80": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["jp", "na", "pal"]
+        },
+        "CFA0DF0F": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44,
+            "regions": ["na"]
+        },
+        "EF9F5BEA": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 31,
+            "regions": ["na", "pal"]
+        },
+        "BC767B25": {
+            "regions": ["jp"]
+        },
+        "584669E4": {
+            "regions": ["jp"]
+        },
+        "395003EF": {
+            "regions": ["jp"]
+        },
+        "9F8620D1": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "1A0BF4D7": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 28
+        },
+        "4AC6907B": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 37,
+            "regions": ["na", "pal"]
+        },
+        "6215C5B3": {
+            "regions": ["jp", "pal"]
+        },
+        "6830B7AF": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49,
+            "regions": ["na"]
+        },
+        "0E1465CB": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na"]
+        },
+        "6D59104F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "C94A413A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24,
+            "regions": ["na", "pal"]
+        },
+        "1DB0840C": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "066A2196": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "7ADC90E1": {
+            "regions": ["jp"]
+        },
+        "FA82620F": {
+            "regions": ["jp"]
+        },
+        "1A10552B": {
+            "regions": ["jp"]
+        },
+        "A99A33DC": {
+            "regions": ["jp"]
+        },
+        "DD727F1A": {
+            "regions": ["jp"]
+        },
+        "D44D3596": {
+            "regions": ["jp"]
+        },
+        "2612F8C4": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "BD2D1F8B": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "F59DAA99": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "B0F43498": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na", "pal"]
+        },
+        "0424CF43": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41,
+            "regions": ["jp", "na", "pal"]
+        },
+        "DD18DB5F": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "6775B29E": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "CB04F34D": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "E241EDDE": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "626DFADB": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "D5FDF68A": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 29,
+            "regions": ["na", "pal"]
+        },
+        "6C28BCB5": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 19,
+            "regions": ["na", "pal"]
+        },
+        "FCBA12AE": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36,
+            "regions": ["na", "pal"]
+        },
+        "8162ADC1": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["jp", "na"]
+        },
+        "EC6278A3": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["jp", "na"]
+        },
+        "234E1E9C": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["jp", "na"]
+        },
+        "921999E2": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 25,
+            "regions": ["na", "pal"]
+        },
+        "83AD5B99": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["na", "pal"]
+        },
+        "12FC1A6E": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 54,
+            "regions": ["na", "pal"]
+        },
+        "F0DE3CE7": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 72,
+            "regions": ["na", "pal"]
+        },
+        "B8A3ECDD": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na"]
+        },
+        "C0437E08": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 20,
+            "regions": ["na"]
+        },
+        "E101246F": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "129465DB": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "30132AB8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 46,
+            "regions": ["na", "pal"]
+        },
+        "E0A06018": {
+            "regions": ["jp"]
+        },
+        "D6A26444": {
+            "regions": ["na", "pal"]
+        },
+        "F817E978": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 39,
+            "regions": ["jp", "na", "pal"]
+        },
+        "338E2CDA": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 13,
+            "regions": ["jp", "na", "pal"]
+        },
+        "803A56AE": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 13,
+            "regions": ["jp", "na", "pal"]
+        },
+        "1371E872": {
+            "regions": ["jp"]
+        },
+        "147BFD68": {
+            "regions": ["jp"]
+        },
+        "C9E2B613": {
+            "regions": ["jp"]
+        },
+        "88198DB7": {
+            "regions": ["jp"]
+        },
+        "87C7B4BA": {
+            "regions": ["jp"]
+        },
+        "FC398A9B": {
+            "regions": ["jp"]
+        },
+        "8EF209B9": {
+            "regions": ["jp"]
+        },
+        "975D1612": {
+            "regions": ["jp"]
+        },
+        "9187F577": {
+            "regions": ["jp"]
+        },
+        "298BD054": {
+            "regions": ["jp"]
+        },
+        "7C3D2B6E": {
+            "regions": ["jp"]
+        },
+        "E3FEBB5B": {
+            "regions": ["jp"]
+        },
+        "A4D06001": {
+            "regions": ["jp"]
+        },
+        "AECA7189": {
+            "regions": ["jp"]
+        },
+        "38C11949": {
+            "regions": ["jp"]
+        },
+        "A702897C": {
+            "regions": ["jp"]
+        },
+        "8813B725": {
+            "regions": ["jp"]
+        },
+        "BA7182C3": {
+            "regions": ["jp"]
+        },
+        "E514F2BC": {
+            "regions": ["jp"]
+        },
+        "6A5C73FF": {
+            "regions": ["jp"]
+        },
+        "32158E04": {
+            "regions": ["jp"]
+        },
+        "D6F4BA0A": {
+            "regions": ["jp"]
+        },
+        "30DAECBB": {
+            "regions": ["jp"]
+        },
+        "4A657067": {
+            "regions": ["jp"]
+        },
+        "09D03EE2": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "3199F6F4": {
+            "regions": ["jp", "na", "pal"]
+        },
+        "3CC6B1F9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26,
+            "regions": ["na", "pal"]
+        },
+        "EFAD8B34": {
+            "regions": ["jp"]
+        },
+        "E96DBFB5": {
+            "regions": ["pal"]
+        },
+        "38D91885": {
+            "rarity": 8,
+            "rarityLabel": "Extremely Collectible",
+            "rarityPercent": 78,
+            "regions": ["na"]
+        },
+        "F36C874D": {
+            "regions": ["jp"]
+        },
+        "530705A1": {
+            "regions": ["jp"]
+        },
+        "C09F9E1B": {
+            "regions": ["jp"]
+        }
+    }
+}

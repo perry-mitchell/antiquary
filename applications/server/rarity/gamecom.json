@@ -1,0 +1,108 @@
+{
+    "key": "gamecom",
+    "name": "Tiger Game.com",
+    "generatedAt": "2026-11-15T07:32:21.151Z",
+    "scale": "rarity: 1-10 derived as ceil(percentile/10); entries without rarity are unrated (typically non-NTSC releases)",
+    "entries": {
+        "B336E530": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "1A041FF0": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 36
+        },
+        "061E943F": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 26
+        },
+        "10E4C5CD": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 34
+        },
+        "75D3C8D8": {
+            "rarity": 4,
+            "rarityLabel": "Uncommon",
+            "rarityPercent": 40
+        },
+        "845ED281": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 16
+        },
+        "8C512912": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 41
+        },
+        "B422C5F8": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 42
+        },
+        "496EFA62": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 8
+        },
+        "D6A65A07": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 48
+        },
+        "BD29C844": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 24
+        },
+        "0E018F6A": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 44
+        },
+        "0984C7F5": {
+            "rarity": 1,
+            "rarityLabel": "Extremely Common",
+            "rarityPercent": 5
+        },
+        "4D4AD909": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 23
+        },
+        "8B4A63F9": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 50
+        },
+        "E7FB8FD9": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 21
+        },
+        "048347A0": {
+            "rarity": 3,
+            "rarityLabel": "Common",
+            "rarityPercent": 22
+        },
+        "B91E2E32": {
+            "rarity": 6,
+            "rarityLabel": "Very Sought After",
+            "rarityPercent": 55
+        },
+        "F894065D": {
+            "rarity": 2,
+            "rarityLabel": "Very Common",
+            "rarityPercent": 16
+        },
+        "884568D1": {
+            "rarity": 5,
+            "rarityLabel": "Sought After",
+            "rarityPercent": 49
+        }
+    }
+}

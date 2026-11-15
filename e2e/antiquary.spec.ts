@@ -371,8 +371,63 @@ test.describe.serial('collector journey', () => {
         await expect(shelfCard.getByTestId('collection-completion')).toBeVisible();
         await shelfCard.click();
         await expect(page.getByTestId('collection-completion-text')).toContainText(
-            /1 \/ \d+ titles · 0(\.\d+)?%/,
+            /1 \/ \d+ titles · 0(\.\d)?%/,
         );
+
+        // 7. Browse the catalog from the collection: search, owned flag, missing-only
+        await page.getByTestId('browse-superset-button').click();
+        await expect(page.getByTestId('superset-title')).toContainText(
+            'Super Nintendo Entertainment System',
+        );
+        await expect(page.getByTestId('back-to-collection')).toContainText('SNES shelf');
+
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        const chronoRow = page.getByTestId('superset-entry-chrono-trigger-usa');
+        await expect(chronoRow).toContainText('Chrono Trigger');
+        await expect(chronoRow).toContainText('SNS-ACTE-USA');
+        await expect(chronoRow.getByTestId('owned-badge')).toBeVisible();
+        await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toHaveCount(1);
+
+        await page.getByTestId('missing-only').click();
+        await expect(chronoRow).toHaveCount(0);
+        await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toBeVisible();
+    });
+
+    test('rarity tags render for supersets with compiled rarity', async ({ page }) => {
+        // GB superset ships a compiled rarity file
+        await page.goto('/');
+        await page.getByTestId('nav-templates').click();
+        await page.getByTestId('new-template-button').click();
+        await page.getByTestId('template-name-input').fill('GB games');
+        await page.getByTestId('template-superset-select').selectOption('gb');
+        await page.getByTestId('save-template-button').click();
+
+        await page.goto('/');
+        await page.getByTestId('new-collection-button').click();
+        await page.getByTestId('collection-name-input').fill('GB shelf');
+        await page
+            .getByTestId('collection-template-select')
+            .selectOption({ label: 'GB games ⋆ catalog (6 fields)' });
+        await page.getByTestId('collection-save-button').click();
+
+        await page.getByTestId('collection-card').filter({ hasText: 'GB shelf' }).click();
+        await page.getByTestId('empty-add-item').click();
+        await page.getByTestId('catalog-search').fill('blues brothers');
+
+        // Title row carries the heat/star tag; The Blues Brothers is R9 (Super Rare)
+        const taggedTitle = page
+            .locator('[data-testid^="catalog-title-"]')
+            .filter({ has: page.getByTestId('rarity-tag') })
+            .first();
+        await expect(taggedTitle).toBeVisible();
+        await taggedTitle.click();
+        await page.locator('[data-testid^="catalog-variant-"]').first().click();
+        await page.getByTestId('save-item-button').click();
+
+        const tag = page.getByTestId('rarity-tag');
+        await expect(tag).toBeVisible();
+        await expect(tag).toHaveText('★★');
+        await expect(tag).toHaveAttribute('title', 'Rarity 9/10 — Super Rare — 81%');
     });
 
     test('incomplete superset: items can be marked outside the catalog', async ({ page }) => {

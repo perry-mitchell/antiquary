@@ -229,6 +229,13 @@ export function CollectionPage() {
                         }
                     }}
                 />
+                {collection.superset ? (
+                    <Button variant="soft" asChild data-testid="browse-superset-button">
+                        <Link to={`/supersets/${collection.superset}?collection=${collection.id}`}>
+                            Browse catalog
+                        </Link>
+                    </Button>
+                ) : null}
                 <Button
                     data-testid="add-item-button"
                     onClick={() => navigate(`/items/new?collection=${collection.id}`)}

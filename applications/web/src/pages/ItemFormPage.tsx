@@ -18,6 +18,7 @@ import {
 import type { CollectionDto, FieldValue, TagDto, TemplateDetailDto } from '@antiquary/database';
 import { api, type SupersetEntryDto, type SupersetInfoDto } from '../api';
 import { FieldInput } from '../components/FieldInput';
+import { RarityTag } from '../components/RarityTag';
 import { useToast } from '../components/Toast';
 import { slug } from '../lib/format';
 
@@ -378,102 +379,144 @@ export function ItemFormPage({ mode }: { mode: 'create' | 'edit' }) {
                                                 gap="1"
                                                 style={{ maxHeight: 320, overflowY: 'auto' }}
                                             >
-                                                {supersetResults.map((result) => (
-                                                    <Box key={result.title}>
-                                                        <button
-                                                            type="button"
-                                                            data-testid={`catalog-title-${slug(result.title)}`}
-                                                            onClick={() =>
-                                                                setExpandedTitle(
-                                                                    expandedTitle === result.title
-                                                                        ? null
-                                                                        : result.title,
-                                                                )
-                                                            }
-                                                            style={{
-                                                                width: '100%',
-                                                                textAlign: 'left',
-                                                                padding: 'var(--space-2)',
-                                                                background:
-                                                                    expandedTitle === result.title
-                                                                        ? 'var(--accent-a3)'
-                                                                        : 'transparent',
-                                                                border: 'none',
-                                                                borderBottom:
-                                                                    '1px solid var(--gray-a4)',
-                                                                cursor: 'pointer',
-                                                                color: 'var(--gray-12)',
-                                                            }}
-                                                        >
-                                                            <Flex align="center" gap="2">
-                                                                <Text size="2" weight="medium">
-                                                                    {result.title}
-                                                                </Text>
-                                                                <Badge color="gray" variant="soft">
-                                                                    {result.variants.length} variant
-                                                                    {result.variants.length === 1
-                                                                        ? ''
-                                                                        : 's'}
-                                                                </Badge>
-                                                            </Flex>
-                                                        </button>
-                                                        {expandedTitle === result.title
-                                                            ? result.variants.map((variant) => (
-                                                                  <button
-                                                                      key={variant.id}
-                                                                      type="button"
-                                                                      data-testid={`catalog-variant-${slug(result.title)}`}
-                                                                      onClick={() =>
-                                                                          selectVariant(variant)
-                                                                      }
-                                                                      style={{
-                                                                          width: '100%',
-                                                                          textAlign: 'left',
-                                                                          padding:
-                                                                              'var(--space-2) var(--space-4)',
-                                                                          background: 'transparent',
-                                                                          border: 'none',
-                                                                          borderBottom:
-                                                                              '1px solid var(--gray-a4)',
-                                                                          cursor: 'pointer',
-                                                                          color: 'var(--gray-12)',
-                                                                          display: 'flex',
-                                                                          alignItems: 'center',
-                                                                          gap: 'var(--space-2)',
-                                                                      }}
-                                                                  >
-                                                                      <Text size="2">
-                                                                          {variant.name}
-                                                                      </Text>
-                                                                      {variant.region ? (
-                                                                          <Badge
-                                                                              color="iris"
-                                                                              variant="soft"
-                                                                          >
-                                                                              {variant.region}
-                                                                          </Badge>
-                                                                      ) : null}
-                                                                      {variant.serial ? (
-                                                                          <Text
-                                                                              size="1"
-                                                                              color="gray"
-                                                                          >
-                                                                              {variant.serial}
+                                                {supersetResults.map((result) => {
+                                                    const titleRarity = result.variants.find(
+                                                        (variant) => variant.rarity,
+                                                    )?.rarity;
+                                                    return (
+                                                        <Box key={result.title}>
+                                                            <button
+                                                                type="button"
+                                                                data-testid={`catalog-title-${slug(result.title)}`}
+                                                                onClick={() =>
+                                                                    setExpandedTitle(
+                                                                        expandedTitle ===
+                                                                            result.title
+                                                                            ? null
+                                                                            : result.title,
+                                                                    )
+                                                                }
+                                                                style={{
+                                                                    width: '100%',
+                                                                    textAlign: 'left',
+                                                                    padding: 'var(--space-2)',
+                                                                    background:
+                                                                        expandedTitle ===
+                                                                        result.title
+                                                                            ? 'var(--accent-a3)'
+                                                                            : 'transparent',
+                                                                    border: 'none',
+                                                                    borderBottom:
+                                                                        '1px solid var(--gray-a4)',
+                                                                    cursor: 'pointer',
+                                                                    color: 'var(--gray-12)',
+                                                                }}
+                                                            >
+                                                                <Flex align="center" gap="2">
+                                                                    <Text size="2" weight="medium">
+                                                                        {result.title}
+                                                                    </Text>
+                                                                    {titleRarity ? (
+                                                                        <RarityTag
+                                                                            rarity={
+                                                                                titleRarity.rarity
+                                                                            }
+                                                                            rarityLabel={
+                                                                                titleRarity.rarityLabel
+                                                                            }
+                                                                            rarityPercent={
+                                                                                titleRarity.rarityPercent
+                                                                            }
+                                                                        />
+                                                                    ) : null}
+                                                                    <Badge
+                                                                        color="gray"
+                                                                        variant="soft"
+                                                                    >
+                                                                        {result.variants.length}{' '}
+                                                                        variant
+                                                                        {result.variants.length ===
+                                                                        1
+                                                                            ? ''
+                                                                            : 's'}
+                                                                    </Badge>
+                                                                </Flex>
+                                                            </button>
+                                                            {expandedTitle === result.title
+                                                                ? result.variants.map((variant) => (
+                                                                      <button
+                                                                          key={variant.id}
+                                                                          type="button"
+                                                                          data-testid={`catalog-variant-${slug(result.title)}`}
+                                                                          onClick={() =>
+                                                                              selectVariant(variant)
+                                                                          }
+                                                                          style={{
+                                                                              width: '100%',
+                                                                              textAlign: 'left',
+                                                                              padding:
+                                                                                  'var(--space-2) var(--space-4)',
+                                                                              background:
+                                                                                  'transparent',
+                                                                              border: 'none',
+                                                                              borderBottom:
+                                                                                  '1px solid var(--gray-a4)',
+                                                                              cursor: 'pointer',
+                                                                              color: 'var(--gray-12)',
+                                                                              display: 'flex',
+                                                                              alignItems: 'center',
+                                                                              gap: 'var(--space-2)',
+                                                                          }}
+                                                                      >
+                                                                          <Text size="2">
+                                                                              {variant.name}
                                                                           </Text>
-                                                                      ) : null}
-                                                                      {variant.year ? (
-                                                                          <Text
-                                                                              size="1"
-                                                                              color="gray"
-                                                                          >
-                                                                              {variant.year}
-                                                                          </Text>
-                                                                      ) : null}
-                                                                  </button>
-                                                              ))
-                                                            : null}
-                                                    </Box>
-                                                ))}
+                                                                          {variant.region ? (
+                                                                              <Badge
+                                                                                  color="iris"
+                                                                                  variant="soft"
+                                                                              >
+                                                                                  {variant.region}
+                                                                              </Badge>
+                                                                          ) : null}
+                                                                          {variant.rarity ? (
+                                                                              <RarityTag
+                                                                                  rarity={
+                                                                                      variant.rarity
+                                                                                          .rarity
+                                                                                  }
+                                                                                  rarityLabel={
+                                                                                      variant.rarity
+                                                                                          .rarityLabel
+                                                                                  }
+                                                                                  rarityPercent={
+                                                                                      variant.rarity
+                                                                                          .rarityPercent
+                                                                                  }
+                                                                              />
+                                                                          ) : null}
+                                                                          {variant.serial ? (
+                                                                              <Text
+                                                                                  size="1"
+                                                                                  color="gray"
+                                                                              >
+                                                                                  {variant.serial}
+                                                                              </Text>
+                                                                          ) : null}
+                                                                          {variant.year ? (
+                                                                              <Text
+                                                                                  size="1"
+                                                                                  color="gray"
+                                                                              >
+                                                                                  {variant.year}
+                                                                              </Text>
+                                                                          ) : null}
+                                                                      </button>
+                                                                  ))
+                                                                : null}
+                                                        </Box>
+                                                    );
+                                                })}
                                             </Flex>
                                         ) : supersetQuery.trim().length > 0 ? (
                                             <Text size="2" color="gray">

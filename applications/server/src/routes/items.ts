@@ -7,11 +7,11 @@ import { createItemSchema, listItemsQuerySchema, updateItemSchema } from '../sch
 import { createUploadMiddleware } from '../upload.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
 
-/** Fills in supersetLabel for items matched against a catalog entry. */
+/** Fills in supersetLabel/supersetRarity for items matched against a catalog entry. */
 async function enrich(item: ItemDetailDto, supersets: SupersetRegistry): Promise<ItemDetailDto> {
     if (!item.superset || !item.supersetEntry) return { ...item, supersetLabel: null };
     const entry = await supersets.getEntry(item.superset, item.supersetEntry);
-    return { ...item, supersetLabel: entry?.name ?? null };
+    return { ...item, supersetLabel: entry?.name ?? null, supersetRarity: entry?.rarity ?? null };
 }
 
 export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetRegistry): Router {

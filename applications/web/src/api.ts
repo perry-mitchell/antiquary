@@ -51,6 +51,12 @@ export interface ItemListParams {
     limit?: number;
 }
 
+export interface SupersetRarityDto {
+    rarity: number;
+    rarityLabel: string | null;
+    rarityPercent: number | null;
+}
+
 export interface SupersetEntryDto {
     id: string;
     name: string;
@@ -61,6 +67,21 @@ export interface SupersetEntryDto {
     publisher: string | null;
     genre: string | null;
     year: number | null;
+    /** Compiled reference rarity, when the superset has one. */
+    rarity?: SupersetRarityDto;
+}
+
+export interface SupersetEntryListItemDto extends SupersetEntryDto {
+    owned: boolean;
+    itemId: string | null;
+}
+
+export interface SupersetEntryListResultDto {
+    entries: SupersetEntryListItemDto[];
+    total: number;
+    page: number;
+    limit: number;
+    ownedCount: number;
 }
 
 export interface SupersetInfoDto {
@@ -83,6 +104,18 @@ export const api = {
 
     supersets: {
         list: () => request<SupersetInfoDto[]>('/api/supersets'),
+        get: (key: string) => request<SupersetInfoDto>(`/api/supersets/${key}`),
+        entries: (
+            key: string,
+            params: { q?: string; ownership?: string; page?: number; limit?: number } = {},
+        ) => {
+            const qs = new URLSearchParams();
+            for (const [k, value] of Object.entries(params)) {
+                if (value !== undefined && value !== null && value !== '') qs.set(k, String(value));
+            }
+            const suffix = qs.size > 0 ? `?${qs.toString()}` : '';
+            return request<SupersetEntryListResultDto>(`/api/supersets/${key}/entries${suffix}`);
+        },
         search: (key: string, q: string) =>
             request<{ results: { title: string; variants: SupersetEntryDto[] }[] }>(
                 `/api/supersets/${key}/search?q=${encodeURIComponent(q)}`,
