@@ -1038,8 +1038,17 @@ describe('supersets', () => {
             true,
         );
 
+        // supersets with a rarity file return it on plain entries too
+        const rated = await api.get('/api/supersets/snes/entries/2D206BF7');
+        expect(rated.body.rarity).toEqual({
+            rarity: 8,
+            rarityLabel: 'Extremely Collectible',
+            rarityPercent: 76,
+        });
+
         // supersets without a rarity file keep entries plain
-        const plain = await api.get('/api/supersets/snes/entries/2D206BF7');
+        const plain = await api.get('/api/supersets/fds/entries/DCC7A8D6');
+        expect(plain.status).toBe(200);
         expect(plain.body.rarity).toBeUndefined();
     });
 
