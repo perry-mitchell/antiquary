@@ -356,3 +356,31 @@ export interface TrashDto {
     items: DeletedItemDto[];
     collections: DeletedCollectionDto[];
 }
+
+/** One NDJSON line from a transfer archive — unknown fields are dropped on ingest. */
+export type ExportRow = Record<string, unknown>;
+
+/** Full table snapshot carried by export/import archives. */
+export interface ExportBundle {
+    collections: ExportRow[];
+    templates: ExportRow[];
+    templateFields: ExportRow[];
+    tags: ExportRow[];
+    items: ExportRow[];
+    itemFieldValues: ExportRow[];
+    itemTags: ExportRow[];
+    images: ExportRow[];
+    itemHistory: ExportRow[];
+}
+
+export interface ImportSummaryDto {
+    collections: number;
+    templates: number;
+    templateFields: number;
+    tags: number;
+    items: number;
+    itemFieldValues: number;
+    itemTags: number;
+    images: number;
+    itemHistory: number;
+}
