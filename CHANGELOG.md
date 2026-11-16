@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/perry-mitchell/antiquary/compare/v1.4.0...v1.5.0) (2026-11-16)
+
+
+### Features
+
+* **transfer:** full import and export of collection data ([#16](https://github.com/perry-mitchell/antiquary/issues/16)) ([6ebeb4e](https://github.com/perry-mitchell/antiquary/commit/6ebeb4e43b37566cbe79979e0f86019f7cdb754d))
+
 # [1.4.0](https://github.com/perry-mitchell/antiquary/compare/v1.3.0...v1.4.0) (2026-11-16)
 
 
