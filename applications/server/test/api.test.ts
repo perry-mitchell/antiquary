@@ -1448,6 +1448,93 @@ describe('transfer', () => {
         expect(patched.body.notes).toBe('from archive');
     });
 
+    it('rejects archives containing symlinks', async () => {
+        const evil = await new Promise<Buffer>((resolve, reject) => {
+            const archive = archiver('zip');
+            const chunks: Buffer[] = [];
+            archive.on('data', (chunk: Buffer) => chunks.push(chunk));
+            archive.on('error', reject);
+            archive.on('end', () => resolve(Buffer.concat(chunks)));
+            archive.append(JSON.stringify({ format: 'antiquary-export', version: 1 }), {
+                name: 'manifest.json',
+            });
+            archive.append(
+                `${JSON.stringify({ id: importedCollectionId, name: 'Symlink Shelf' })}\n`,
+                { name: 'collections.ndjson' },
+            );
+            archive.symlink('images/evil', '/etc/passwd');
+            void archive.finalize();
+        });
+
+        const res = await api.post('/api/transfer/import').attach('file', evil, 'import.zip');
+        expect(res.status).toBe(400);
+        expect(res.body.error).toMatch(/symlink/i);
+
+        const collections = await api.get('/api/collections');
+        expect(
+            collections.body.find((c: { name: string }) => c.name === 'Symlink Shelf'),
+        ).toBeUndefined();
+    });
+
+    it('skips rows with dangling references instead of failing the import', async () => {
+        const orphanItemId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00a2';
+        const goodCollectionId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00b1';
+        const goodItemId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00b2';
+        const archive = await zipBuffer({
+            'manifest.json': JSON.stringify({ format: 'antiquary-export', version: 1 }),
+            'collections.ndjson':
+                [
+                    JSON.stringify({ id: goodCollectionId, name: 'Good Ref Shelf' }),
+                    JSON.stringify({
+                        id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00c1',
+                        name: 'Orphan Shelf',
+                        parentId: '00000000-0000-4000-8000-0000000000ff',
+                    }),
+                ].join('\n') + '\n',
+            'items.ndjson':
+                [
+                    // dangling collection reference — must be skipped
+                    JSON.stringify({
+                        id: orphanItemId,
+                        collectionId: '00000000-0000-4000-8000-0000000000ee',
+                        name: 'Orphan Item',
+                    }),
+                    JSON.stringify({
+                        id: goodItemId,
+                        collectionId: goodCollectionId,
+                        name: 'Good Ref Item',
+                    }),
+                ].join('\n') + '\n',
+            'images.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00d1',
+                itemId: orphanItemId,
+                filename: importedImageFilename,
+                mime: 'image/png',
+                size: PNG_1x1.length,
+            })}\n`,
+            'itemHistory.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00d2',
+                itemId: '00000000-0000-4000-8000-0000000000dd',
+                action: 'created',
+                snapshot: { name: 'nope' },
+            })}\n`,
+        });
+
+        const res = await api.post('/api/transfer/import').attach('file', archive, 'import.zip');
+        expect(res.status).toBe(200);
+        expect(res.body).toMatchObject({ collections: 2, items: 1, images: 0, itemHistory: 0 });
+
+        const good = await api.get(`/api/items/${goodItemId}`);
+        expect(good.status).toBe(200);
+        const orphan = await api.get(`/api/items/${orphanItemId}`);
+        expect(orphan.status).toBe(404);
+        // referenced file for the skipped image row must not be copied either
+        const collections = await api.get('/api/collections');
+        expect(
+            collections.body.find((c: { name: string }) => c.name === 'Orphan Shelf'),
+        ).toBeDefined(); // row kept, dangling parent reference dropped
+    });
+
     it('rejects archives without a manifest', async () => {
         const bogus = await zipBuffer({ 'hello.txt': 'not an archive' });
         const res = await api.post('/api/transfer/import').attach('file', bogus, 'import.zip');

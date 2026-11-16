@@ -1,4 +1,13 @@
-import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
+import {
+    copyFile,
+    lstat,
+    mkdir,
+    mkdtemp,
+    readFile,
+    readdir,
+    rm,
+    writeFile,
+} from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { basename, join } from 'node:path';
 import { Router } from 'express';
@@ -6,6 +15,7 @@ import archiver from 'archiver';
 import extract from 'extract-zip';
 import multer from 'multer';
 import type { Database, ExportBundle, ExportRow } from '@antiquary/database';
+import { validateArchive } from '../archive.js';
 import { HttpError } from '../errors.js';
 
 const EXPORT_FORMAT = 'antiquary-export';
@@ -123,6 +133,7 @@ export function transferRoutes(db: Database, uploadDir: string): Router {
         try {
             if (!file) throw new HttpError(400, 'No archive uploaded');
 
+            await validateArchive(file.path);
             await extract(file.path, { dir: extractDir });
 
             let manifest: unknown;
@@ -193,7 +204,7 @@ async function readNdjson(path: string): Promise<ExportRow[]> {
 
 async function isFile(path: string): Promise<boolean> {
     try {
-        return (await stat(path)).isFile();
+        return (await lstat(path)).isFile();
     } catch {
         return false;
     }

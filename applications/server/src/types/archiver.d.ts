@@ -4,6 +4,7 @@ declare module 'archiver' {
 
     export interface Archiver extends Transform {
         append(source: string | Buffer, data: { name: string }): this;
+        symlink(filepath: string, target: string): this;
         directory(dir: string, destpath?: string | false): this;
         finalize(): Promise<void>;
         abort(): void;

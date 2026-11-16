@@ -1652,7 +1652,7 @@ export class Database {
                 const id = transferId(fields);
                 if (!id || (!templateIds.has(id) && !('name' in fields && 'type' in fields)))
                     continue;
-                dropUnknownRef(fields, 'templateId', templateIds, templateFieldIds.has(id));
+                dropUnknownRef(fields, 'templateId', templateIds);
                 if (!('templateId' in fields) && !templateFieldIds.has(id)) continue;
                 await upsert('templateFields', id, fields, templateFieldIds, {
                     required: false,
@@ -1714,7 +1714,7 @@ export class Database {
                 const fields = pickTransferFields(row, TRANSFER_COLUMNS.items);
                 const id = transferId(fields);
                 if (!id || (!itemIds.has(id) && !('name' in fields))) continue;
-                dropUnknownRef(fields, 'collectionId', collectionIds, itemIds.has(id));
+                dropUnknownRef(fields, 'collectionId', collectionIds);
                 if (!('collectionId' in fields) && !itemIds.has(id)) continue;
                 await upsert('items', id, fields, itemIds, {
                     quantity: 1,
@@ -1729,8 +1729,8 @@ export class Database {
                 const fields = pickTransferFields(row, TRANSFER_COLUMNS.itemFieldValues);
                 const id = transferId(fields);
                 if (!id || (!valueIds.has(id) && !('value' in fields))) continue;
-                dropUnknownRef(fields, 'itemId', itemIds, valueIds.has(id));
-                dropUnknownRef(fields, 'fieldId', templateFieldIds, valueIds.has(id));
+                dropUnknownRef(fields, 'itemId', itemIds);
+                dropUnknownRef(fields, 'fieldId', templateFieldIds);
                 if ((!('itemId' in fields) || !('fieldId' in fields)) && !valueIds.has(id)) {
                     continue;
                 }
@@ -1758,7 +1758,7 @@ export class Database {
                 if (!known && !('filename' in fields && 'mime' in fields && 'size' in fields)) {
                     continue;
                 }
-                dropUnknownRef(fields, 'itemId', itemIds, known);
+                dropUnknownRef(fields, 'itemId', itemIds);
                 if (!('itemId' in fields) && !known) continue;
                 await upsert('images', id, fields, imageIds, {
                     isCover: false,
@@ -1775,7 +1775,7 @@ export class Database {
                 if (!id) continue;
                 const known = historyIds.has(id);
                 if (!known && !('action' in fields && 'snapshot' in fields)) continue;
-                dropUnknownRef(fields, 'itemId', itemIds, known);
+                dropUnknownRef(fields, 'itemId', itemIds);
                 if (!('itemId' in fields) && !known) continue;
                 await upsert('itemHistory', id, fields, historyIds, { createdAt: new Date() });
                 summary.itemHistory++;
@@ -2421,16 +2421,12 @@ function transferId(fields: Record<string, unknown>): string | null {
     return typeof fields.id === 'string' && fields.id.length > 0 ? fields.id : null;
 }
 
-/** Keeps a reference column only when it points at a known row; new rows lose
- * the whole record instead, existing rows just ignore the bad reference. */
-function dropUnknownRef(
-    fields: Record<string, unknown>,
-    column: string,
-    known: Set<string>,
-    exists: boolean,
-): void {
+/** Drops a reference column whose value does not point at a known row. Rows
+ * that then lack a required reference are skipped by the caller instead of
+ * being inserted with a dangling foreign key. */
+function dropUnknownRef(fields: Record<string, unknown>, column: string, known: Set<string>): void {
     if (!(column in fields)) return;
     const value = fields[column];
     if (typeof value === 'string' && known.has(value)) return;
-    if (exists) delete fields[column];
+    delete fields[column];
 }
