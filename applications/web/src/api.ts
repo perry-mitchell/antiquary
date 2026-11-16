@@ -3,6 +3,7 @@ import type {
     CollectionDto,
     HistoryEventDto,
     ImageDto,
+    ImportSummaryDto,
     ItemDetailDto,
     ItemListResultDto,
     ItemListItemDto,
@@ -283,6 +284,23 @@ export const api = {
                 ),
             revoke: (id: string) =>
                 request<{ ok: boolean }>(`/api/settings/api-keys/${id}`, { method: 'DELETE' }),
+        },
+    },
+    transfer: {
+        exportZip: async (): Promise<{ blob: Blob; filename: string }> => {
+            const res = await fetch('/api/transfer/export');
+            if (!res.ok) throw new ApiError(`Export failed (${res.status})`, res.status);
+            const disposition = res.headers.get('Content-Disposition') ?? '';
+            const filename = /filename="([^"]+)"/.exec(disposition)?.[1] ?? 'antiquary-export.zip';
+            return { blob: await res.blob(), filename };
+        },
+        importZip: (file: File) => {
+            const form = new FormData();
+            form.append('file', file);
+            return request<ImportSummaryDto>('/api/transfer/import', {
+                method: 'POST',
+                body: form,
+            });
         },
     },
 };

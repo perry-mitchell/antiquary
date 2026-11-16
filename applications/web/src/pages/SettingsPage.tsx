@@ -1,11 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
     CheckIcon,
     ClockIcon,
     CopyIcon,
+    DownloadIcon,
     GearIcon,
     LockClosedIcon,
     TrashIcon,
+    UploadIcon,
 } from '@radix-ui/react-icons';
 import {
     Badge,
@@ -19,7 +21,7 @@ import {
     Text,
     TextField,
 } from '@radix-ui/themes';
-import type { ApiKeyDto } from '@antiquary/database';
+import type { ApiKeyDto, ImportSummaryDto } from '@antiquary/database';
 import { api } from '../api';
 import { ConfirmDialog, EmptyState } from '../components/Dialogs';
 import { useToast } from '../components/Toast';
@@ -33,6 +35,9 @@ export function SettingsPage() {
     const [saving, setSaving] = useState(false);
     const [created, setCreated] = useState<{ apiKey: ApiKeyDto; key: string } | null>(null);
     const [copied, setCopied] = useState(false);
+    const [exporting, setExporting] = useState(false);
+    const [importing, setImporting] = useState(false);
+    const importInputRef = useRef<HTMLInputElement>(null);
 
     const load = useCallback(() => {
         api.settings.apiKeys
@@ -78,6 +83,41 @@ export function SettingsPage() {
             load();
         } catch (error) {
             toast({ title: 'Could not revoke key', description: String(error), variant: 'error' });
+        }
+    };
+
+    const runExport = async () => {
+        setExporting(true);
+        try {
+            const { blob, filename } = await api.transfer.exportZip();
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement('a');
+            anchor.href = url;
+            anchor.download = filename;
+            anchor.click();
+            URL.revokeObjectURL(url);
+        } catch (error) {
+            toast({ title: 'Export failed', description: String(error), variant: 'error' });
+        } finally {
+            setExporting(false);
+        }
+    };
+
+    const runImport = async (file: File) => {
+        setImporting(true);
+        try {
+            const summary = await api.transfer.importZip(file);
+            const parts = describeImport(summary);
+            toast({
+                title: 'Import complete',
+                description: parts.length > 0 ? parts.join(', ') : 'Nothing new to import.',
+                variant: 'success',
+            });
+        } catch (error) {
+            toast({ title: 'Import failed', description: String(error), variant: 'error' });
+        } finally {
+            setImporting(false);
+            if (importInputRef.current) importInputRef.current.value = '';
         }
     };
 
@@ -213,6 +253,50 @@ export function SettingsPage() {
                 </Flex>
             </Card>
 
+            <Card size="3" data-testid="transfer-card">
+                <Flex direction="column" gap="4">
+                    <Box>
+                        <Heading size="4">Import &amp; export</Heading>
+                        <Text as="div" size="2" color="gray" mt="1">
+                            Back up everything — collections, templates, items and images — to a zip
+                            archive, or restore one. Imports are idempotent: existing records are
+                            matched by id and only updated, so importing the same archive twice
+                            changes nothing. Unrecognised content is ignored.
+                        </Text>
+                    </Box>
+                    <Flex gap="3" align="center" wrap="wrap">
+                        <Button
+                            onClick={runExport}
+                            disabled={exporting || importing}
+                            data-testid="export-button"
+                        >
+                            {exporting ? <Spinner /> : <DownloadIcon />}
+                            {exporting ? 'Preparing export…' : 'Export everything'}
+                        </Button>
+                        <input
+                            ref={importInputRef}
+                            type="file"
+                            accept=".zip,application/zip"
+                            hidden
+                            data-testid="import-input"
+                            onChange={(event) => {
+                                const file = event.target.files?.[0];
+                                if (file) void runImport(file);
+                            }}
+                        />
+                        <Button
+                            variant="soft"
+                            onClick={() => importInputRef.current?.click()}
+                            disabled={exporting || importing}
+                            data-testid="import-button"
+                        >
+                            {importing ? <Spinner /> : <UploadIcon />}
+                            {importing ? 'Importing…' : 'Import archive'}
+                        </Button>
+                    </Flex>
+                </Flex>
+            </Card>
+
             {created ? (
                 <Card
                     size="3"
@@ -267,4 +351,18 @@ export function SettingsPage() {
             ) : null}
         </Flex>
     );
+}
+
+function describeImport(summary: ImportSummaryDto): string[] {
+    return (
+        [
+            ['collections', summary.collections, 'collection'],
+            ['items', summary.items, 'item'],
+            ['templates', summary.templates, 'template'],
+            ['images', summary.images, 'image'],
+            ['tags', summary.tags, 'tag'],
+        ] as const
+    )
+        .filter(([, count]) => count > 0)
+        .map(([, count, label]) => `${count} ${label}${count === 1 ? '' : 's'}`);
 }

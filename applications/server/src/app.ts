@@ -9,6 +9,7 @@ import { statsRoutes, tagRoutes, trashRoutes } from './routes/tags.js';
 import { supersetRoutes } from './routes/supersets.js';
 import { templateRoutes } from './routes/templates.js';
 import { settingsRoutes } from './routes/settings.js';
+import { transferRoutes } from './routes/transfer.js';
 import { mcpRoutes } from './routes/mcp.js';
 import type { SupersetRegistry } from './supersets.js';
 
@@ -41,6 +42,7 @@ export function createApp({ db, uploadDir, supersets, webDist }: AppDeps): Expre
     app.use('/api/stats', statsRoutes(db, supersets));
     app.use('/api/supersets', supersetRoutes(db, supersets));
     app.use('/api/settings', settingsRoutes(db));
+    app.use('/api/transfer', transferRoutes(db, uploadDir));
 
     app.use('/api', (_req, res) => {
         res.status(404).json({ error: 'Not found' });

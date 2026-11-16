@@ -1,8 +1,11 @@
-import { mkdtemp, utimes, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, rm, utimes, writeFile } from 'node:fs/promises';
+import type { IncomingMessage } from 'node:http';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import request from 'supertest';
+import archiver from 'archiver';
+import extract from 'extract-zip';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { Database, ensureDatabase, resetDatabase } from '@antiquary/database';
 import { createApp } from '../src/app.js';
@@ -1300,5 +1303,242 @@ describe('supersets', () => {
         // Plain collections report no completion
         const plain = list.body.find((c: { name: string }) => c.name === 'Vinyl');
         expect(plain.completion).toBeNull();
+    });
+});
+
+describe('transfer', () => {
+    function zipBuffer(files: Record<string, string | Buffer>): Promise<Buffer> {
+        return new Promise((resolve, reject) => {
+            const archive = archiver('zip');
+            const chunks: Buffer[] = [];
+            archive.on('data', (chunk: Buffer) => chunks.push(chunk));
+            archive.on('error', reject);
+            archive.on('end', () => resolve(Buffer.concat(chunks)));
+            for (const [name, content] of Object.entries(files)) {
+                archive.append(content, { name });
+            }
+            void archive.finalize();
+        });
+    }
+
+    const importedCollectionId = '9f1c3a5e-1111-4111-8111-9f1c3a5e0001';
+    const importedItemId = '9f1c3a5e-1111-4111-8111-9f1c3a5e0002';
+    const importedImageId = '9f1c3a5e-1111-4111-8111-9f1c3a5e0003';
+    const importedImageFilename = 'b0000000-0000-4000-8000-00000000000b.png';
+
+    function importArchive(): Promise<Buffer> {
+        return zipBuffer({
+            'manifest.json': JSON.stringify({
+                format: 'antiquary-export',
+                version: 1,
+                exportedAt: '2026-11-16T00:00:00.000Z',
+            }),
+            'collections.ndjson': `${JSON.stringify({
+                id: importedCollectionId,
+                name: 'Imported Shelf',
+                emoji: '📦',
+                mystery: 'ignored field',
+                createdAt: '2026-01-01T00:00:00.000Z',
+            })}\n`,
+            'items.ndjson': `${JSON.stringify({
+                id: importedItemId,
+                collectionId: importedCollectionId,
+                name: 'Imported Gadget',
+                quantity: 3,
+                isFavorite: true,
+                notes: 'from archive',
+                createdAt: '2026-01-01T00:00:00.000Z',
+                updatedAt: '2026-01-02T00:00:00.000Z',
+            })}\n`,
+            'images.ndjson': `${JSON.stringify({
+                id: importedImageId,
+                itemId: importedItemId,
+                filename: importedImageFilename,
+                mime: 'image/png',
+                size: PNG_1x1.length,
+                isCover: true,
+                position: 0,
+                createdAt: '2026-01-01T00:00:00.000Z',
+            })}\n`,
+            [`images/${importedImageFilename}`]: PNG_1x1,
+            'gizmos.ndjson': '{"id":"nope"}\n',
+            'readme.txt': 'stray file',
+        });
+    }
+
+    it('exports a zip with manifest, datasets and images', async () => {
+        const res = await api
+            .get('/api/transfer/export')
+            .buffer(true)
+            .parse((res: IncomingMessage, cb: (err: Error | null, body: unknown) => void) => {
+                const chunks: Buffer[] = [];
+                res.on('data', (chunk: Buffer) => chunks.push(chunk));
+                res.on('end', () => cb(null, Buffer.concat(chunks)));
+            });
+        expect(res.status).toBe(200);
+        expect(res.headers['content-type']).toBe('application/zip');
+        expect(res.headers['content-disposition']).toMatch(/antiquary-export-.*\.zip/);
+        expect(res.body.subarray(0, 2).toString()).toBe('PK');
+
+        const dir = await mkdtemp(join(tmpdir(), 'collector-export-'));
+        const zipPath = join(dir, 'export.zip');
+        await writeFile(zipPath, res.body as Buffer);
+        await extract(zipPath, { dir: join(dir, 'unzipped') });
+
+        const manifest = JSON.parse(await readFile(join(dir, 'unzipped', 'manifest.json'), 'utf8'));
+        expect(manifest.format).toBe('antiquary-export');
+        expect(manifest.counts.collections).toBeGreaterThanOrEqual(1);
+
+        const collections = await readFile(join(dir, 'unzipped', 'collections.ndjson'), 'utf8');
+        expect(collections).toContain(collectionId);
+        const items = await readFile(join(dir, 'unzipped', 'items.ndjson'), 'utf8');
+        expect(items).toContain('"name":"Chrono Trigger"');
+        const exportedImages = await readdir(join(dir, 'unzipped', 'images'));
+        expect(exportedImages.length).toBeGreaterThan(0);
+        await rm(dir, { recursive: true, force: true });
+    });
+
+    it('imports archives idempotently and ignores unknown content', async () => {
+        const before = await api.get('/api/collections');
+        const countBefore = before.body.length;
+
+        const first = await api
+            .post('/api/transfer/import')
+            .attach('file', await importArchive(), 'import.zip');
+        expect(first.status).toBe(200);
+        expect(first.body).toMatchObject({
+            collections: 1,
+            items: 1,
+            images: 1,
+        });
+
+        const after = await api.get('/api/collections');
+        expect(after.body).toHaveLength(countBefore + 1);
+
+        const detail = await api.get(`/api/items/${importedItemId}`);
+        expect(detail.status).toBe(200);
+        expect(detail.body.name).toBe('Imported Gadget');
+        expect(detail.body.quantity).toBe(3);
+        expect(detail.body.isFavorite).toBe(true);
+
+        const image = await api.get(`/uploads/${importedImageFilename}`);
+        expect(image.status).toBe(200);
+
+        const second = await api
+            .post('/api/transfer/import')
+            .attach('file', await importArchive(), 'import.zip');
+        expect(second.status).toBe(200);
+        expect(second.body).toMatchObject(first.body);
+
+        const unchanged = await api.get('/api/collections');
+        expect(unchanged.body).toHaveLength(countBefore + 1);
+        const stillOne = await api.get(`/api/items?collectionId=${importedCollectionId}`);
+        expect(stillOne.body.total).toBe(1);
+
+        // patch semantics: a row mentioning only the name leaves other fields alone
+        const renamed = await zipBuffer({
+            'manifest.json': JSON.stringify({ format: 'antiquary-export', version: 1 }),
+            'items.ndjson': `${JSON.stringify({ id: importedItemId, name: 'Renamed Gadget' })}\n`,
+        });
+        const third = await api.post('/api/transfer/import').attach('file', renamed, 'import.zip');
+        expect(third.status).toBe(200);
+        const patched = await api.get(`/api/items/${importedItemId}`);
+        expect(patched.body.name).toBe('Renamed Gadget');
+        expect(patched.body.quantity).toBe(3);
+        expect(patched.body.notes).toBe('from archive');
+    });
+
+    it('rejects archives containing symlinks', async () => {
+        const evil = await new Promise<Buffer>((resolve, reject) => {
+            const archive = archiver('zip');
+            const chunks: Buffer[] = [];
+            archive.on('data', (chunk: Buffer) => chunks.push(chunk));
+            archive.on('error', reject);
+            archive.on('end', () => resolve(Buffer.concat(chunks)));
+            archive.append(JSON.stringify({ format: 'antiquary-export', version: 1 }), {
+                name: 'manifest.json',
+            });
+            archive.append(
+                `${JSON.stringify({ id: importedCollectionId, name: 'Symlink Shelf' })}\n`,
+                { name: 'collections.ndjson' },
+            );
+            archive.symlink('images/evil', '/etc/passwd');
+            void archive.finalize();
+        });
+
+        const res = await api.post('/api/transfer/import').attach('file', evil, 'import.zip');
+        expect(res.status).toBe(400);
+        expect(res.body.error).toMatch(/symlink/i);
+
+        const collections = await api.get('/api/collections');
+        expect(
+            collections.body.find((c: { name: string }) => c.name === 'Symlink Shelf'),
+        ).toBeUndefined();
+    });
+
+    it('skips rows with dangling references instead of failing the import', async () => {
+        const orphanItemId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00a2';
+        const goodCollectionId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00b1';
+        const goodItemId = '9f1c3a5e-1111-4111-8111-9f1c3a5e00b2';
+        const archive = await zipBuffer({
+            'manifest.json': JSON.stringify({ format: 'antiquary-export', version: 1 }),
+            'collections.ndjson':
+                [
+                    JSON.stringify({ id: goodCollectionId, name: 'Good Ref Shelf' }),
+                    JSON.stringify({
+                        id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00c1',
+                        name: 'Orphan Shelf',
+                        parentId: '00000000-0000-4000-8000-0000000000ff',
+                    }),
+                ].join('\n') + '\n',
+            'items.ndjson':
+                [
+                    // dangling collection reference — must be skipped
+                    JSON.stringify({
+                        id: orphanItemId,
+                        collectionId: '00000000-0000-4000-8000-0000000000ee',
+                        name: 'Orphan Item',
+                    }),
+                    JSON.stringify({
+                        id: goodItemId,
+                        collectionId: goodCollectionId,
+                        name: 'Good Ref Item',
+                    }),
+                ].join('\n') + '\n',
+            'images.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00d1',
+                itemId: orphanItemId,
+                filename: importedImageFilename,
+                mime: 'image/png',
+                size: PNG_1x1.length,
+            })}\n`,
+            'itemHistory.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e00d2',
+                itemId: '00000000-0000-4000-8000-0000000000dd',
+                action: 'created',
+                snapshot: { name: 'nope' },
+            })}\n`,
+        });
+
+        const res = await api.post('/api/transfer/import').attach('file', archive, 'import.zip');
+        expect(res.status).toBe(200);
+        expect(res.body).toMatchObject({ collections: 2, items: 1, images: 0, itemHistory: 0 });
+
+        const good = await api.get(`/api/items/${goodItemId}`);
+        expect(good.status).toBe(200);
+        const orphan = await api.get(`/api/items/${orphanItemId}`);
+        expect(orphan.status).toBe(404);
+        // referenced file for the skipped image row must not be copied either
+        const collections = await api.get('/api/collections');
+        expect(
+            collections.body.find((c: { name: string }) => c.name === 'Orphan Shelf'),
+        ).toBeDefined(); // row kept, dangling parent reference dropped
+    });
+
+    it('rejects archives without a manifest', async () => {
+        const bogus = await zipBuffer({ 'hello.txt': 'not an archive' });
+        const res = await api.post('/api/transfer/import').attach('file', bogus, 'import.zip');
+        expect(res.status).toBe(400);
+        expect(res.body.error).toBeDefined();
     });
 });

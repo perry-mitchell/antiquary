@@ -1,4 +1,10 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+import { createWriteStream } from 'node:fs';
+import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import archiver from 'archiver';
+import extract from 'extract-zip';
 
 const PNG_1x1 = Buffer.from(
     '89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000d49444154789c63f8cfc0f01f0005050201edb5ca9f0000000049454e44ae426082',
@@ -527,4 +533,146 @@ test.describe.serial('collector journey', () => {
         );
         expect(darkBg).not.toBe(lightBg);
     });
+});
+
+test.describe.serial('transfer journey', () => {
+    const importedCollectionId = 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeee0001';
+    const importedItemId = 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeee0002';
+    const importedImageId = 'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeee0003';
+    const importedImageFilename = 'cccccccc-dddd-4eee-8fff-00000000000c.png';
+
+    function craftImportZip(target: string): Promise<void> {
+        const files: Record<string, string | Buffer> = {
+            'manifest.json': JSON.stringify({
+                format: 'antiquary-export',
+                version: 1,
+                exportedAt: '2026-11-16T00:00:00.000Z',
+            }),
+            'collections.ndjson': `${JSON.stringify({
+                id: importedCollectionId,
+                name: 'Journey Import Shelf',
+                emoji: '🧳',
+                mysteryField: 'ignored',
+            })}\n`,
+            'items.ndjson': `${JSON.stringify({
+                id: importedItemId,
+                collectionId: importedCollectionId,
+                name: 'Journey Import Item',
+                quantity: 2,
+            })}\n`,
+            'images.ndjson': `${JSON.stringify({
+                id: importedImageId,
+                itemId: importedItemId,
+                filename: importedImageFilename,
+                mime: 'image/png',
+                size: PNG_1x1.length,
+                isCover: true,
+            })}\n`,
+            [`images/${importedImageFilename}`]: PNG_1x1,
+            'unknown-dataset.ndjson': '{"id":"ignored"}\n',
+            'stray.txt': 'ignored',
+        };
+        return new Promise((resolve, reject) => {
+            const archive = archiver('zip');
+            archive.on('error', reject);
+            archive.on('end', () => resolve());
+            const output = createWriteStream(target);
+            output.on('error', reject);
+            archive.pipe(output);
+            for (const [name, content] of Object.entries(files)) {
+                archive.append(content, { name });
+            }
+            void archive.finalize();
+        });
+    }
+
+    test('export downloads a zip containing everything', async ({ page }) => {
+        await page.goto('/settings');
+        await expect(page.getByTestId('transfer-card')).toBeVisible();
+
+        const [download] = await Promise.all([
+            page.waitForEvent('download'),
+            page.getByTestId('export-button').click(),
+        ]);
+        expect(download.suggestedFilename()).toMatch(/^antiquary-export-.*\.zip$/);
+
+        const dir = await mkdtemp(join(tmpdir(), 'antiquary-e2e-export-'));
+        const zipPath = join(dir, 'export.zip');
+        await download.saveAs(zipPath);
+        await extract(zipPath, { dir: join(dir, 'unzipped') });
+
+        const manifest = JSON.parse(await readFile(join(dir, 'unzipped', 'manifest.json'), 'utf8'));
+        expect(manifest.format).toBe('antiquary-export');
+        expect(manifest.counts.items).toBeGreaterThan(0);
+
+        const collections = await readFile(join(dir, 'unzipped', 'collections.ndjson'), 'utf8');
+        expect(collections).toContain('Books');
+        const images = await readdir(join(dir, 'unzipped', 'images'));
+        expect(images.length).toBeGreaterThan(0);
+        await rm(dir, { recursive: true, force: true });
+    });
+
+    test('import ingests an archive with unknown content ignored', async ({ page }) => {
+        const dir = await mkdtemp(join(tmpdir(), 'antiquary-e2e-import-'));
+        const zipPath = join(dir, 'import.zip');
+        await craftImportZip(zipPath);
+
+        await page.goto('/');
+        const before = await statNumber(page, 'stat-collections');
+
+        await page.getByTestId('nav-settings').click();
+        await page.getByTestId('import-input').setInputFiles(zipPath);
+        await expect(page.getByTestId('toast-success').last()).toContainText('Import complete');
+
+        await page.goto('/');
+        await expect(
+            page.getByTestId('collection-card').filter({ hasText: 'Journey Import Shelf' }),
+        ).toBeVisible();
+        const after = await statNumber(page, 'stat-collections');
+        expect(after).toBe(before + 1);
+
+        await page
+            .getByTestId('collection-card')
+            .filter({ hasText: 'Journey Import Shelf' })
+            .click();
+        await expect(page.getByTestId('collection-title')).toContainText('Journey Import Shelf');
+        const card = page.getByTestId('item-card').filter({ hasText: 'Journey Import Item' });
+        await expect(card).toBeVisible();
+        await expect(card.locator('img')).toHaveAttribute(
+            'src',
+            `/uploads/${importedImageFilename}`,
+        );
+        await rm(dir, { recursive: true, force: true });
+    });
+
+    test('importing the same archive again changes nothing', async ({ page }) => {
+        const dir = await mkdtemp(join(tmpdir(), 'antiquary-e2e-import2-'));
+        const zipPath = join(dir, 'import.zip');
+        await craftImportZip(zipPath);
+
+        await page.goto('/');
+        const collectionsBefore = await statNumber(page, 'stat-collections');
+        const itemsBefore = await statNumber(page, 'stat-items');
+
+        await page.getByTestId('nav-settings').click();
+        await page.getByTestId('import-input').setInputFiles(zipPath);
+        await expect(page.getByTestId('toast-success').last()).toContainText('Import complete');
+
+        await page.goto('/');
+        expect(await statNumber(page, 'stat-collections')).toBe(collectionsBefore);
+        expect(await statNumber(page, 'stat-items')).toBe(itemsBefore);
+
+        await page
+            .getByTestId('collection-card')
+            .filter({ hasText: 'Journey Import Shelf' })
+            .click();
+        await expect(page.getByTestId('item-card')).toHaveCount(1);
+        await rm(dir, { recursive: true, force: true });
+    });
+
+    async function statNumber(page: Page, testId: string) {
+        const text = await page.getByTestId(testId).textContent();
+        const match = /(\d+)/.exec(text ?? '');
+        return Number(match?.[1] ?? 0);
+    }
 });

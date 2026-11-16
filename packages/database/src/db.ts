@@ -12,12 +12,15 @@ import { ConflictError, ValidationError } from './errors.js';
 import type {
     CollectionDto,
     DBSchema,
+    ExportBundle,
+    ExportRow,
     FieldValue,
     FieldType,
     HistoryAction,
     HistoryChange,
     HistoryEventDto,
     ImageDto,
+    ImportSummaryDto,
     ItemDetailDto,
     ItemFieldWithValueDto,
     ItemListImageDto,
@@ -1503,6 +1506,286 @@ export class Database {
     }
 
     /* --------------------------------------------------------------- */
+    /* Transfer (export/import)                                        */
+    /* --------------------------------------------------------------- */
+
+    /** Read-only snapshot of every table. API keys are credentials and excluded. */
+    async exportAll(): Promise<ExportBundle> {
+        const [
+            collections,
+            templates,
+            templateFields,
+            tags,
+            items,
+            itemFieldValues,
+            itemTags,
+            images,
+            itemHistory,
+        ] = await Promise.all([
+            this.db.selectFrom('collections').selectAll().execute(),
+            this.db.selectFrom('templates').selectAll().execute(),
+            this.db.selectFrom('templateFields').selectAll().execute(),
+            this.db.selectFrom('tags').selectAll().execute(),
+            this.db.selectFrom('items').selectAll().execute(),
+            this.db.selectFrom('itemFieldValues').selectAll().execute(),
+            this.db.selectFrom('itemTags').selectAll().execute(),
+            this.db.selectFrom('images').selectAll().execute(),
+            this.db.selectFrom('itemHistory').selectAll().execute(),
+        ]);
+        return {
+            collections,
+            templates,
+            templateFields,
+            tags,
+            items,
+            itemFieldValues,
+            itemTags,
+            images,
+            itemHistory,
+        };
+    }
+
+    /**
+     * Idempotent ingest: rows are matched by id — existing rows are patched with
+     * the fields present in the archive, new rows are inserted, unmentioned
+     * fields keep their value. Rows with dangling references and unknown
+     * fields/files are ignored, never fatal.
+     */
+    async ingestExport(
+        bundle: ExportBundle,
+    ): Promise<{ summary: ImportSummaryDto; imageFilenames: string[] }> {
+        const summary: ImportSummaryDto = {
+            collections: 0,
+            templates: 0,
+            templateFields: 0,
+            tags: 0,
+            items: 0,
+            itemFieldValues: 0,
+            itemTags: 0,
+            images: 0,
+            itemHistory: 0,
+        };
+        const imageFilenames: string[] = [];
+
+        await this.db.transaction().execute(async (rawTx) => {
+            const tx = asExec(rawTx);
+
+            const loadIds = async (table: keyof DBSchema) =>
+                new Set(
+                    (
+                        await tx
+                            .selectFrom(table as 'collections')
+                            .select('id' as never)
+                            .execute()
+                    ).map((row) => String((row as { id: string }).id)),
+                );
+            const [
+                templateIds,
+                templateFieldIds,
+                tagIds,
+                collectionIds,
+                itemIds,
+                valueIds,
+                imageIds,
+                historyIds,
+            ] = await Promise.all([
+                loadIds('templates'),
+                loadIds('templateFields'),
+                loadIds('tags'),
+                loadIds('collections'),
+                loadIds('items'),
+                loadIds('itemFieldValues'),
+                loadIds('images'),
+                loadIds('itemHistory'),
+            ]);
+            const tagNameSet = new Set(
+                (await tx.selectFrom('tags').select('name').execute()).map((row) => row.name),
+            );
+
+            // Inserts a new row or patches the existing one; never touches the PK.
+            const upsert = async (
+                table:
+                    | 'collections'
+                    | 'templates'
+                    | 'templateFields'
+                    | 'tags'
+                    | 'items'
+                    | 'itemFieldValues'
+                    | 'images'
+                    | 'itemHistory',
+                id: string,
+                fields: Record<string, unknown>,
+                known: Set<string>,
+                defaults: Record<string, unknown>,
+            ) => {
+                const { id: _ignored, ...rest } = fields;
+                if (known.has(id)) {
+                    if (Object.keys(rest).length > 0) {
+                        await tx
+                            .updateTable(table)
+                            .set(rest as never)
+                            .where('id', '=', id)
+                            .execute();
+                    }
+                } else {
+                    await tx
+                        .insertInto(table)
+                        .values({ ...defaults, ...rest, id } as never)
+                        .execute();
+                    known.add(id);
+                }
+            };
+
+            for (const row of bundle.templates ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.templates);
+                const id = transferId(fields);
+                if (!id || (!templateIds.has(id) && !('name' in fields))) continue;
+                await upsert('templates', id, fields, templateIds, {
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                });
+                summary.templates++;
+            }
+
+            for (const row of bundle.templateFields ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.templateFields);
+                const id = transferId(fields);
+                if (!id || (!templateIds.has(id) && !('name' in fields && 'type' in fields)))
+                    continue;
+                dropUnknownRef(fields, 'templateId', templateIds);
+                if (!('templateId' in fields) && !templateFieldIds.has(id)) continue;
+                await upsert('templateFields', id, fields, templateFieldIds, {
+                    required: false,
+                    position: 0,
+                    createdAt: new Date(),
+                });
+                summary.templateFields++;
+            }
+
+            for (const row of bundle.tags ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.tags);
+                const id = transferId(fields);
+                if (!id || (!tagIds.has(id) && !('name' in fields))) continue;
+                if (tagNameSet.has(String(fields.name)) && !tagIds.has(id)) continue;
+                await upsert('tags', id, fields, tagIds, { createdAt: new Date() });
+                tagNameSet.add(String(fields.name));
+                summary.tags++;
+            }
+
+            const allCollectionIds = new Set(collectionIds);
+            for (const row of bundle.collections ?? []) allCollectionIds.add(String(row.id));
+            let pending = (bundle.collections ?? [])
+                .map((row) => pickTransferFields(row, TRANSFER_COLUMNS.collections))
+                .filter((fields) => {
+                    const id = transferId(fields);
+                    if (!id || (!collectionIds.has(id) && !('name' in fields))) return false;
+                    for (const ref of ['parentId', 'templateId'] as const) {
+                        if (ref in fields) {
+                            const value = fields[ref];
+                            if (typeof value !== 'string' || !allCollectionIds.has(value)) {
+                                if (ref === 'parentId') delete fields.parentId;
+                                else delete fields.templateId;
+                            }
+                        }
+                    }
+                    return true;
+                });
+            // Parents must be inserted before children (immediate FK checks).
+            while (pending.length > 0) {
+                const ready = pending.filter(
+                    (fields) =>
+                        typeof fields.parentId !== 'string' || collectionIds.has(fields.parentId),
+                );
+                const batch = ready.length > 0 ? ready : pending;
+                if (ready.length === 0) for (const fields of batch) delete fields.parentId;
+                for (const fields of batch) {
+                    const id = transferId(fields)!;
+                    await upsert('collections', id, fields, collectionIds, {
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                    });
+                    summary.collections++;
+                }
+                const imported = new Set(batch.map((fields) => transferId(fields)!));
+                pending = pending.filter((fields) => !imported.has(transferId(fields)!));
+            }
+
+            for (const row of bundle.items ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.items);
+                const id = transferId(fields);
+                if (!id || (!itemIds.has(id) && !('name' in fields))) continue;
+                dropUnknownRef(fields, 'collectionId', collectionIds);
+                if (!('collectionId' in fields) && !itemIds.has(id)) continue;
+                await upsert('items', id, fields, itemIds, {
+                    quantity: 1,
+                    isFavorite: false,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                });
+                summary.items++;
+            }
+
+            for (const row of bundle.itemFieldValues ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.itemFieldValues);
+                const id = transferId(fields);
+                if (!id || (!valueIds.has(id) && !('value' in fields))) continue;
+                dropUnknownRef(fields, 'itemId', itemIds);
+                dropUnknownRef(fields, 'fieldId', templateFieldIds);
+                if ((!('itemId' in fields) || !('fieldId' in fields)) && !valueIds.has(id)) {
+                    continue;
+                }
+                await upsert('itemFieldValues', id, fields, valueIds, {});
+                summary.itemFieldValues++;
+            }
+
+            for (const row of bundle.itemTags ?? []) {
+                const itemId = typeof row.itemId === 'string' ? row.itemId : null;
+                const tagId = typeof row.tagId === 'string' ? row.tagId : null;
+                if (!itemId || !tagId || !itemIds.has(itemId) || !tagIds.has(tagId)) continue;
+                await tx
+                    .insertInto('itemTags')
+                    .values({ itemId, tagId })
+                    .onConflict((oc) => oc.doNothing())
+                    .execute();
+                summary.itemTags++;
+            }
+
+            for (const row of bundle.images ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.images);
+                const id = transferId(fields);
+                if (!id) continue;
+                const known = imageIds.has(id);
+                if (!known && !('filename' in fields && 'mime' in fields && 'size' in fields)) {
+                    continue;
+                }
+                dropUnknownRef(fields, 'itemId', itemIds);
+                if (!('itemId' in fields) && !known) continue;
+                await upsert('images', id, fields, imageIds, {
+                    isCover: false,
+                    position: 0,
+                    createdAt: new Date(),
+                });
+                summary.images++;
+                if (typeof fields.filename === 'string') imageFilenames.push(fields.filename);
+            }
+
+            for (const row of bundle.itemHistory ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.itemHistory);
+                const id = transferId(fields);
+                if (!id) continue;
+                const known = historyIds.has(id);
+                if (!known && !('action' in fields && 'snapshot' in fields)) continue;
+                dropUnknownRef(fields, 'itemId', itemIds);
+                if (!('itemId' in fields) && !known) continue;
+                await upsert('itemHistory', id, fields, historyIds, { createdAt: new Date() });
+                summary.itemHistory++;
+            }
+        });
+
+        return { summary, imageFilenames };
+    }
+
+    /* --------------------------------------------------------------- */
     /* Internals                                                        */
     /* --------------------------------------------------------------- */
 
@@ -2026,3 +2309,124 @@ export function diffItemDetails(before: ItemDetailDto, after: ItemDetailDto): Hi
 }
 
 export { iso };
+
+/* --------------------------------------------------------------- */
+/* Transfer helpers                                                 */
+/* --------------------------------------------------------------- */
+
+type TransferColumnType = 'string' | 'number' | 'boolean' | 'date' | 'json';
+
+const TRANSFER_COLUMNS = {
+    collections: {
+        id: 'string',
+        name: 'string',
+        description: 'string',
+        emoji: 'string',
+        color: 'string',
+        parentId: 'string',
+        templateId: 'string',
+        deletedAt: 'date',
+        createdAt: 'date',
+        updatedAt: 'date',
+    },
+    templates: {
+        id: 'string',
+        name: 'string',
+        description: 'string',
+        superset: 'string',
+        createdAt: 'date',
+        updatedAt: 'date',
+    },
+    templateFields: {
+        id: 'string',
+        templateId: 'string',
+        name: 'string',
+        type: 'string',
+        options: 'json',
+        required: 'boolean',
+        position: 'number',
+        createdAt: 'date',
+    },
+    tags: { id: 'string', name: 'string', color: 'string', createdAt: 'date' },
+    items: {
+        id: 'string',
+        collectionId: 'string',
+        name: 'string',
+        notes: 'string',
+        quantity: 'number',
+        isFavorite: 'boolean',
+        superset: 'string',
+        supersetEntry: 'string',
+        deletedAt: 'date',
+        createdAt: 'date',
+        updatedAt: 'date',
+    },
+    itemFieldValues: { id: 'string', itemId: 'string', fieldId: 'string', value: 'json' },
+    itemTags: { itemId: 'string', tagId: 'string' },
+    images: {
+        id: 'string',
+        itemId: 'string',
+        filename: 'string',
+        mime: 'string',
+        size: 'number',
+        caption: 'string',
+        isCover: 'boolean',
+        position: 'number',
+        createdAt: 'date',
+    },
+    itemHistory: {
+        id: 'string',
+        itemId: 'string',
+        action: 'string',
+        changes: 'json',
+        snapshot: 'json',
+        createdAt: 'date',
+    },
+} satisfies Record<string, Record<string, TransferColumnType>>;
+
+/** Keeps only known columns, coercing values; unknown or malformed fields are dropped. */
+function pickTransferFields(
+    row: ExportRow,
+    columns: Record<string, TransferColumnType>,
+): Record<string, unknown> {
+    const fields: Record<string, unknown> = {};
+    for (const [column, kind] of Object.entries(columns)) {
+        if (!(column in row)) continue;
+        const value = row[column];
+        switch (kind) {
+            case 'string':
+                if (typeof value === 'string') fields[column] = value;
+                break;
+            case 'number':
+                if (typeof value === 'number' && Number.isFinite(value)) fields[column] = value;
+                break;
+            case 'boolean':
+                if (typeof value === 'boolean') fields[column] = value;
+                break;
+            case 'date':
+                if (typeof value === 'string') {
+                    const parsed = new Date(value);
+                    if (!Number.isNaN(parsed.getTime())) fields[column] = parsed;
+                }
+                break;
+            case 'json':
+                if (value !== undefined) fields[column] = value;
+                break;
+        }
+    }
+    return fields;
+}
+
+function transferId(fields: Record<string, unknown>): string | null {
+    return typeof fields.id === 'string' && fields.id.length > 0 ? fields.id : null;
+}
+
+/** Drops a reference column whose value does not point at a known row. Rows
+ * that then lack a required reference are skipped by the caller instead of
+ * being inserted with a dangling foreign key. */
+function dropUnknownRef(fields: Record<string, unknown>, column: string, known: Set<string>): void {
+    if (!(column in fields)) return;
+    const value = fields[column];
+    if (typeof value === 'string' && known.has(value)) return;
+    delete fields[column];
+}

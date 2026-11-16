@@ -9,4 +9,5 @@ Ensure you follow, as a coding/review/general agent, all of the rules and guidan
 - One branch and PR per feature: combine related follow-up work into the same branch rather than stacking PRs.
 - Never assume authorship for some work. Everything produced belongs to the git owner on the current machine.
 - Keep documentation and comments concise and short, in all scenarios, unless instructed otherwise.
+- When adding features or changing any data set, update import/export (`/api/transfer`) to cover it.
 - Write tests (including E2E) for new functionality wherever viable.
