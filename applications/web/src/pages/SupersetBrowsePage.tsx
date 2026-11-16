@@ -8,6 +8,7 @@ import {
     Flex,
     Heading,
     IconButton,
+    Select,
     Skeleton,
     Switch,
     Text,
@@ -37,6 +38,8 @@ export function SupersetBrowsePage() {
     const [searchInput, setSearchInput] = useState('');
     const [search, setSearch] = useState('');
     const [missingOnly, setMissingOnly] = useState(false);
+    const [collectedOnly, setCollectedOnly] = useState(false);
+    const [sort, setSort] = useState<'title' | 'rarity-asc' | 'rarity-desc'>('title');
     const [page, setPage] = useState(1);
 
     const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -51,7 +54,7 @@ export function SupersetBrowsePage() {
 
     useEffect(() => {
         setPage(1);
-    }, [missingOnly, key]);
+    }, [missingOnly, collectedOnly, sort, key]);
 
     useEffect(() => {
         setMissingCatalog(false);
@@ -75,12 +78,13 @@ export function SupersetBrowsePage() {
     const loadEntries = useCallback(async () => {
         const res = await api.supersets.entries(key, {
             q: search || undefined,
-            ownership: missingOnly ? 'missing' : 'all',
+            ownership: collectedOnly ? 'owned' : missingOnly ? 'missing' : 'all',
+            sort,
             page,
             limit: PAGE_SIZE,
         });
         setResult(res);
-    }, [key, search, missingOnly, page]);
+    }, [key, search, missingOnly, collectedOnly, sort, page]);
 
     useEffect(() => {
         loadEntries().catch((error) =>
@@ -158,18 +162,52 @@ export function SupersetBrowsePage() {
                 </TextField.Root>
                 <Flex align="center" gap="2">
                     <Switch
+                        checked={collectedOnly}
+                        onCheckedChange={(checked) => {
+                            setCollectedOnly(checked);
+                            if (checked) setMissingOnly(false);
+                        }}
+                        data-testid="collected-only"
+                    />
+                    <Text size="2" color={collectedOnly ? undefined : 'gray'}>
+                        Collected only
+                    </Text>
+                </Flex>
+                <Flex align="center" gap="2">
+                    <Switch
                         checked={missingOnly}
-                        onCheckedChange={setMissingOnly}
+                        onCheckedChange={(checked) => {
+                            setMissingOnly(checked);
+                            if (checked) setCollectedOnly(false);
+                        }}
                         data-testid="missing-only"
                     />
                     <Text size="2" color={missingOnly ? undefined : 'gray'}>
                         Missing only
                     </Text>
                 </Flex>
+                <Select.Root
+                    value={sort}
+                    onValueChange={(value) =>
+                        setSort(value as 'title' | 'rarity-asc' | 'rarity-desc')
+                    }
+                    size="2"
+                >
+                    <Select.Trigger
+                        variant="soft"
+                        data-testid="superset-sort"
+                        style={{ minWidth: 170 }}
+                    />
+                    <Select.Content>
+                        <Select.Item value="title">Title A → Z</Select.Item>
+                        <Select.Item value="rarity-desc">Rarity high → low</Select.Item>
+                        <Select.Item value="rarity-asc">Rarity low → high</Select.Item>
+                    </Select.Content>
+                </Select.Root>
             </Flex>
 
             {entries.length === 0 ? (
-                result && (search || missingOnly) ? (
+                result && (search || missingOnly || collectedOnly) ? (
                     <EmptyState
                         icon="🔍"
                         title="No matching entries"
@@ -181,6 +219,7 @@ export function SupersetBrowsePage() {
                                     setSearchInput('');
                                     setSearch('');
                                     setMissingOnly(false);
+                                    setCollectedOnly(false);
                                 }}
                             >
                                 Clear filters

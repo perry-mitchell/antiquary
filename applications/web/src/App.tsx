@@ -8,6 +8,7 @@ import { ItemPage } from './pages/ItemPage';
 import { SearchPage } from './pages/SearchPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { SupersetBrowsePage } from './pages/SupersetBrowsePage';
+import { SupersetsPage } from './pages/SupersetsPage';
 import { TemplateFormPage } from './pages/TemplateFormPage';
 import { TemplatesPage } from './pages/TemplatesPage';
 import { TrashPage } from './pages/TrashPage';
@@ -19,6 +20,7 @@ export default function App() {
                 <Route element={<AppShell />}>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/collections/:id" element={<CollectionPage />} />
+                    <Route path="/supersets" element={<SupersetsPage />} />
                     <Route path="/supersets/:key" element={<SupersetBrowsePage />} />
                     <Route path="/items/new" element={<ItemFormPage mode="create" />} />
                     <Route path="/items/:id" element={<ItemPage />} />
