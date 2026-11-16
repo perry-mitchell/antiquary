@@ -1,4 +1,5 @@
 import { mkdtemp, readFile, readdir, rm, utimes, writeFile } from 'node:fs/promises';
+import type { IncomingMessage } from 'node:http';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -1369,16 +1370,11 @@ describe('transfer', () => {
         const res = await api
             .get('/api/transfer/export')
             .buffer(true)
-            .parse(
-                (
-                    res: import('http').IncomingMessage,
-                    cb: (err: Error | null, body: unknown) => void,
-                ) => {
-                    const chunks: Buffer[] = [];
-                    res.on('data', (chunk: Buffer) => chunks.push(chunk));
-                    res.on('end', () => cb(null, Buffer.concat(chunks)));
-                },
-            );
+            .parse((res: IncomingMessage, cb: (err: Error | null, body: unknown) => void) => {
+                const chunks: Buffer[] = [];
+                res.on('data', (chunk: Buffer) => chunks.push(chunk));
+                res.on('end', () => cb(null, Buffer.concat(chunks)));
+            });
         expect(res.status).toBe(200);
         expect(res.headers['content-type']).toBe('application/zip');
         expect(res.headers['content-disposition']).toMatch(/antiquary-export-.*\.zip/);

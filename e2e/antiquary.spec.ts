@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { createWriteStream } from 'node:fs';
 import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -670,7 +670,7 @@ test.describe.serial('transfer journey', () => {
         await rm(dir, { recursive: true, force: true });
     });
 
-    async function statNumber(page: import('@playwright/test').Page, testId: string) {
+    async function statNumber(page: Page, testId: string) {
         const text = await page.getByTestId(testId).textContent();
         const match = /(\d+)/.exec(text ?? '');
         return Number(match?.[1] ?? 0);

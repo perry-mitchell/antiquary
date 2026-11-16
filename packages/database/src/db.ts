@@ -1603,24 +1603,34 @@ export class Database {
             );
 
             // Inserts a new row or patches the existing one; never touches the PK.
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic cross-table ingest
             const upsert = async (
-                table: string,
+                table:
+                    | 'collections'
+                    | 'templates'
+                    | 'templateFields'
+                    | 'tags'
+                    | 'items'
+                    | 'itemFieldValues'
+                    | 'images'
+                    | 'itemHistory',
                 id: string,
                 fields: Record<string, unknown>,
                 known: Set<string>,
                 defaults: Record<string, unknown>,
-                exec: any,
             ) => {
                 const { id: _ignored, ...rest } = fields;
                 if (known.has(id)) {
                     if (Object.keys(rest).length > 0) {
-                        await exec.updateTable(table).set(rest).where('id', '=', id).execute();
+                        await tx
+                            .updateTable(table)
+                            .set(rest as never)
+                            .where('id', '=', id)
+                            .execute();
                     }
                 } else {
-                    await exec
+                    await tx
                         .insertInto(table)
-                        .values({ ...defaults, ...rest, id })
+                        .values({ ...defaults, ...rest, id } as never)
                         .execute();
                     known.add(id);
                 }
@@ -1630,14 +1640,10 @@ export class Database {
                 const fields = pickTransferFields(row, TRANSFER_COLUMNS.templates);
                 const id = transferId(fields);
                 if (!id || (!templateIds.has(id) && !('name' in fields))) continue;
-                await upsert(
-                    'templates',
-                    id,
-                    fields,
-                    templateIds,
-                    { createdAt: new Date(), updatedAt: new Date() },
-                    tx,
-                );
+                await upsert('templates', id, fields, templateIds, {
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                });
                 summary.templates++;
             }
 
@@ -1648,14 +1654,11 @@ export class Database {
                     continue;
                 dropUnknownRef(fields, 'templateId', templateIds, templateFieldIds.has(id));
                 if (!('templateId' in fields) && !templateFieldIds.has(id)) continue;
-                await upsert(
-                    'templateFields',
-                    id,
-                    fields,
-                    templateFieldIds,
-                    { required: false, position: 0, createdAt: new Date() },
-                    tx,
-                );
+                await upsert('templateFields', id, fields, templateFieldIds, {
+                    required: false,
+                    position: 0,
+                    createdAt: new Date(),
+                });
                 summary.templateFields++;
             }
 
@@ -1664,7 +1667,7 @@ export class Database {
                 const id = transferId(fields);
                 if (!id || (!tagIds.has(id) && !('name' in fields))) continue;
                 if (tagNameSet.has(String(fields.name)) && !tagIds.has(id)) continue;
-                await upsert('tags', id, fields, tagIds, { createdAt: new Date() }, tx);
+                await upsert('tags', id, fields, tagIds, { createdAt: new Date() });
                 tagNameSet.add(String(fields.name));
                 summary.tags++;
             }
@@ -1697,14 +1700,10 @@ export class Database {
                 if (ready.length === 0) for (const fields of batch) delete fields.parentId;
                 for (const fields of batch) {
                     const id = transferId(fields)!;
-                    await upsert(
-                        'collections',
-                        id,
-                        fields,
-                        collectionIds,
-                        { createdAt: new Date(), updatedAt: new Date() },
-                        tx,
-                    );
+                    await upsert('collections', id, fields, collectionIds, {
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                    });
                     summary.collections++;
                 }
                 const imported = new Set(batch.map((fields) => transferId(fields)!));
@@ -1717,19 +1716,12 @@ export class Database {
                 if (!id || (!itemIds.has(id) && !('name' in fields))) continue;
                 dropUnknownRef(fields, 'collectionId', collectionIds, itemIds.has(id));
                 if (!('collectionId' in fields) && !itemIds.has(id)) continue;
-                await upsert(
-                    'items',
-                    id,
-                    fields,
-                    itemIds,
-                    {
-                        quantity: 1,
-                        isFavorite: false,
-                        createdAt: new Date(),
-                        updatedAt: new Date(),
-                    },
-                    tx,
-                );
+                await upsert('items', id, fields, itemIds, {
+                    quantity: 1,
+                    isFavorite: false,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                });
                 summary.items++;
             }
 
@@ -1742,7 +1734,7 @@ export class Database {
                 if ((!('itemId' in fields) || !('fieldId' in fields)) && !valueIds.has(id)) {
                     continue;
                 }
-                await upsert('itemFieldValues', id, fields, valueIds, {}, tx);
+                await upsert('itemFieldValues', id, fields, valueIds, {});
                 summary.itemFieldValues++;
             }
 
@@ -1763,23 +1755,16 @@ export class Database {
                 const id = transferId(fields);
                 if (!id) continue;
                 const known = imageIds.has(id);
-                if (
-                    !known &&
-                    !known &&
-                    !('filename' in fields && 'mime' in fields && 'size' in fields)
-                ) {
+                if (!known && !('filename' in fields && 'mime' in fields && 'size' in fields)) {
                     continue;
                 }
                 dropUnknownRef(fields, 'itemId', itemIds, known);
                 if (!('itemId' in fields) && !known) continue;
-                await upsert(
-                    'images',
-                    id,
-                    fields,
-                    imageIds,
-                    { isCover: false, position: 0, createdAt: new Date() },
-                    tx,
-                );
+                await upsert('images', id, fields, imageIds, {
+                    isCover: false,
+                    position: 0,
+                    createdAt: new Date(),
+                });
                 summary.images++;
                 if (typeof fields.filename === 'string') imageFilenames.push(fields.filename);
             }
@@ -1789,10 +1774,10 @@ export class Database {
                 const id = transferId(fields);
                 if (!id) continue;
                 const known = historyIds.has(id);
-                if (!known && !known && !('action' in fields && 'snapshot' in fields)) continue;
+                if (!known && !('action' in fields && 'snapshot' in fields)) continue;
                 dropUnknownRef(fields, 'itemId', itemIds, known);
                 if (!('itemId' in fields) && !known) continue;
-                await upsert('itemHistory', id, fields, historyIds, { createdAt: new Date() }, tx);
+                await upsert('itemHistory', id, fields, historyIds, { createdAt: new Date() });
                 summary.itemHistory++;
             }
         });
