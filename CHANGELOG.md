@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/perry-mitchell/antiquary/compare/v1.3.0...v1.4.0) (2026-11-16)
+
+
+### Features
+
+* **web:** rarity on cards, homepage rare count and collection rarity filter ([#15](https://github.com/perry-mitchell/antiquary/issues/15)) ([00d454d](https://github.com/perry-mitchell/antiquary/commit/00d454db8d45d7eb0ee6322d6c0ffa57e610aa9d))
+
 # [1.3.0](https://github.com/perry-mitchell/antiquary/compare/v1.2.0...v1.3.0) (2026-11-15)
 
 
