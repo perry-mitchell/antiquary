@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PlusIcon, StarIcon, LayersIcon, BoxIcon, BookmarkIcon } from '@radix-ui/react-icons';
+import {
+    PlusIcon,
+    StarIcon,
+    LayersIcon,
+    BoxIcon,
+    BookmarkIcon,
+    LightningBoltIcon,
+} from '@radix-ui/react-icons';
 import {
     Badge,
     Box,
@@ -84,7 +91,7 @@ export function HomePage() {
                 />
             ) : (
                 <>
-                    <Grid columns={{ initial: '2', sm: '4' }} gap="3">
+                    <Grid columns={{ initial: '2', sm: '5' }} gap="3">
                         {statCard(
                             'Collections',
                             stats.collectionCount,
@@ -94,6 +101,12 @@ export function HomePage() {
                         {statCard('Items', stats.itemCount, <BoxIcon />, 'stat-items')}
                         {statCard('Favorites', stats.favoriteCount, <StarIcon />, 'stat-favorites')}
                         {statCard('Tags', stats.tagCount, <BookmarkIcon />, 'stat-tags')}
+                        {statCard(
+                            'Rare items',
+                            stats.rareItemCount,
+                            <LightningBoltIcon />,
+                            'stat-rare-items',
+                        )}
                     </Grid>
 
                     <Flex align="center" justify="between">

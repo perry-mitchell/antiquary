@@ -256,6 +256,14 @@ export interface ItemListItemDto {
     thumbnailUrl: string | null;
     isFavorite: boolean;
     quantity: number;
+    superset: string | null;
+    supersetEntry: string | null;
+    /** Filled in by the API layer when the matched entry has compiled rarity data. */
+    supersetRarity?: {
+        rarity: number;
+        rarityLabel: string | null;
+        rarityPercent: number | null;
+    } | null;
     createdAt: string;
     updatedAt: string;
     tags: ItemTagDto[];
@@ -323,6 +331,8 @@ export interface StatsDto {
     itemCount: number;
     favoriteCount: number;
     tagCount: number;
+    /** Items matched to catalog entries rated R7 or higher; filled by the API layer. */
+    rareItemCount: number;
     recentItems: ItemListItemDto[];
 }
 

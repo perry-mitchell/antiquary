@@ -45,6 +45,7 @@ export interface ItemListParams {
     search?: string;
     favorite?: boolean;
     tagId?: string;
+    minRarity?: number;
     sort?: 'created' | 'updated' | 'name';
     order?: 'asc' | 'desc';
     page?: number;

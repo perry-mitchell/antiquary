@@ -71,6 +71,7 @@ export const listItemsQuerySchema = z.object({
         .transform((v) => v === 'true')
         .optional(),
     tagId: uuid.optional(),
+    minRarity: z.coerce.number().int().min(1).max(10).optional(),
     sort: z.enum(['created', 'updated', 'name']).optional(),
     order: z.enum(['asc', 'desc']).optional(),
     page: z.coerce.number().int().min(1).optional(),

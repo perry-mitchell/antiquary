@@ -58,6 +58,8 @@ export interface ItemListOptions {
     search?: string;
     favorite?: boolean;
     tagId?: string;
+    /** Restrict to these item ids (used for rarity filtering, resolved above the DB). */
+    ids?: string[];
     sort?: 'created' | 'updated' | 'name';
     order?: 'asc' | 'desc';
     page?: number;
@@ -756,6 +758,13 @@ export class Database {
                     sql<boolean>`exists (select 1 from item_tags it where it.item_id = items.id and it.tag_id = ${opts.tagId})`,
                 );
             }
+            if (opts.ids) {
+                if (opts.ids.length === 0) conds.push(sql<boolean>`false`);
+                else
+                    conds.push(
+                        sql<boolean>`items.id in (${sql.join(opts.ids.map((id) => sql`${id}`))})`,
+                    );
+            }
             if (opts.search) {
                 const like = `%${escapeLike(opts.search)}%`;
                 conds.push(
@@ -802,6 +811,8 @@ export class Database {
                 'items.collectionId',
                 'items.isFavorite',
                 'items.quantity',
+                'items.superset',
+                'items.supersetEntry',
                 'items.createdAt',
                 'items.updatedAt',
                 'collections.name as collectionName',
@@ -1463,8 +1474,32 @@ export class Database {
             itemCount: Number(itemRow.count),
             favoriteCount: Number(favoriteRow.count),
             tagCount: Number(tagRow.count),
+            // replaced by the stats route, which resolves rarity above the DB
+            rareItemCount: 0,
             recentItems: recent.items,
         };
+    }
+
+    /** Live items matched to superset entries — input for rarity resolution. */
+    async listSupersetRefs(
+        collectionId?: string,
+    ): Promise<{ id: string; superset: string; supersetEntry: string }[]> {
+        const rows = await this.db
+            .selectFrom('items')
+            .where((eb) =>
+                eb.and([
+                    sql<boolean>`items.deleted_at is null`,
+                    sql<boolean>`items.superset_entry is not null`,
+                    ...(collectionId ? [sql<boolean>`items.collection_id = ${collectionId}`] : []),
+                ]),
+            )
+            .select(['id', 'superset', 'supersetEntry'])
+            .execute();
+        return rows
+            .filter((r): r is { id: string; superset: string; supersetEntry: string } =>
+                Boolean(r.superset),
+            )
+            .map((r) => ({ id: r.id, superset: r.superset!, supersetEntry: r.supersetEntry! }));
     }
 
     /* --------------------------------------------------------------- */
@@ -1608,6 +1643,8 @@ export class Database {
             thumbnailUrl: r.thumbnailUrl,
             isFavorite: r.isFavorite,
             quantity: r.quantity,
+            superset: r.superset ?? null,
+            supersetEntry: r.supersetEntry ?? null,
             createdAt: r.createdAt.toISOString(),
             updatedAt: r.updatedAt.toISOString(),
             tags: tagsByItem.get(r.id) ?? [],
@@ -1773,6 +1810,8 @@ interface ItemRow {
     thumbnailUrl: string | null;
     isFavorite: boolean;
     quantity: number;
+    superset: string | null;
+    supersetEntry: string | null;
     createdAt: Date;
     updatedAt: Date;
 }

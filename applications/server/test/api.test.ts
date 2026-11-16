@@ -1080,6 +1080,42 @@ describe('supersets', () => {
             rarityLabel: 'Sought After',
             rarityPercent: 44,
         });
+
+        // list results carry rarity for the item grid
+        const listed = await api.get(`/api/items?collectionId=${shelf.body.id}`);
+        expect(listed.status).toBe(200);
+        const listedItem = listed.body.items.find((i: { id: string }) => i.id === created.body.id);
+        expect(listedItem.supersetRarity).toEqual({
+            rarity: 5,
+            rarityLabel: 'Sought After',
+            rarityPercent: 44,
+        });
+
+        // a rarer sibling drives the minRarity filter and the rare stats
+        const rare = await api.post('/api/items').send({
+            collectionId: shelf.body.id,
+            name: 'The Blues Brothers',
+            supersetEntry: 'ADB66EFF',
+        });
+        expect(rare.status).toBe(201);
+
+        const filtered = await api.get(`/api/items?collectionId=${shelf.body.id}&minRarity=7`);
+        expect(filtered.status).toBe(200);
+        expect(filtered.body.total).toBe(1);
+        expect(filtered.body.items[0].id).toBe(rare.body.id);
+        expect(filtered.body.items[0].supersetRarity.rarity).toBe(9);
+
+        const none = await api.get(`/api/items?collectionId=${shelf.body.id}&minRarity=10`);
+        expect(none.body.total).toBe(0);
+        expect(none.body.items).toEqual([]);
+
+        const stats = await api.get('/api/stats');
+        expect(stats.status).toBe(200);
+        expect(stats.body.rareItemCount).toBeGreaterThanOrEqual(1);
+        const rareRecent = stats.body.recentItems.find(
+            (i: { id: string }) => i.id === rare.body.id,
+        );
+        expect(rareRecent.supersetRarity.rarity).toBe(9);
     });
 
     it('requires a catalog match when the collection template has a superset', async () => {

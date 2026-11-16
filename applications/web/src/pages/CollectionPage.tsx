@@ -53,6 +53,7 @@ export function CollectionPage() {
     const [order, setOrder] = useState<'asc' | 'desc'>('desc');
     const [favorite, setFavorite] = useState(false);
     const [tagId, setTagId] = useState<string>('');
+    const [minRarity, setMinRarity] = useState<string>('');
     const [page, setPage] = useState(1);
     const [editOpen, setEditOpen] = useState(false);
     const [trashOpen, setTrashOpen] = useState(false);
@@ -80,7 +81,7 @@ export function CollectionPage() {
 
     useEffect(() => {
         setPage(1);
-    }, [favorite, tagId, sort, order]);
+    }, [favorite, tagId, minRarity, sort, order]);
 
     const loadItems = useCallback(async () => {
         const res = await api.items.list({
@@ -90,11 +91,12 @@ export function CollectionPage() {
             order,
             favorite,
             tagId: tagId || undefined,
+            minRarity: minRarity && minRarity !== 'any' ? Number(minRarity) : undefined,
             page,
             limit: PAGE_SIZE,
         });
         setResult(res);
-    }, [id, search, sort, order, favorite, tagId, page]);
+    }, [id, search, sort, order, favorite, tagId, minRarity, page]);
 
     useEffect(() => {
         loadItems().catch((error) =>
@@ -280,6 +282,22 @@ export function CollectionPage() {
                             <Select.Item value="name:asc">Name A → Z</Select.Item>
                             <Select.Item value="name:desc">Name Z → A</Select.Item>
                             <Select.Item value="updated:desc">Recently updated</Select.Item>
+                        </Select.Content>
+                    </Select.Root>
+                    <Select.Root value={minRarity} onValueChange={setMinRarity} size="2">
+                        <Select.Trigger
+                            variant="soft"
+                            placeholder="Any rarity"
+                            data-testid="rarity-filter"
+                            style={{ minWidth: 120 }}
+                        />
+                        <Select.Content>
+                            <Select.Item value="any">Any rarity</Select.Item>
+                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
+                                <Select.Item key={r} value={String(r)}>
+                                    R{r} and above
+                                </Select.Item>
+                            ))}
                         </Select.Content>
                     </Select.Root>
                     <Flex align="center" gap="2">

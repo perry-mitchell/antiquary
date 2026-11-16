@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import type { Database } from '@antiquary/database';
 import { HttpError } from '../errors.js';
+import type { SupersetRegistry } from '../supersets.js';
+import { attachListRarity, itemIdsWithRarity } from './items.js';
 import { createTagSchema, updateTagSchema } from '../schemas.js';
 
 export function tagRoutes(db: Database): Router {
@@ -38,10 +40,16 @@ export function trashRoutes(db: Database): Router {
     return router;
 }
 
-export function statsRoutes(db: Database): Router {
+export function statsRoutes(db: Database, supersets: SupersetRegistry): Router {
     const router = Router();
     router.get('/', async (_req, res) => {
-        res.json(await db.getStats());
+        const stats = await db.getStats();
+        const rareIds = await itemIdsWithRarity(db, supersets, 7);
+        res.json({
+            ...stats,
+            rareItemCount: rareIds.length,
+            recentItems: await attachListRarity(stats.recentItems, supersets),
+        });
     });
     return router;
 }
