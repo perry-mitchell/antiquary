@@ -3,6 +3,7 @@ import { StarFilledIcon, StarIcon } from '@radix-ui/react-icons';
 import { Badge, Box, Card, Flex, IconButton, Inset, Text } from '@radix-ui/themes';
 import type { ItemListItemDto } from '@antiquary/database';
 import { useToast } from './Toast';
+import { RarityTag } from './RarityTag';
 import { api } from '../api';
 import { timeAgo } from '../lib/format';
 
@@ -79,6 +80,13 @@ export function ItemCard({
                     </Text>
                     <Flex align="center" gap="2" wrap="wrap">
                         {item.quantity > 1 ? <Badge color="gray">×{item.quantity}</Badge> : null}
+                        {item.supersetRarity ? (
+                            <RarityTag
+                                rarity={item.supersetRarity.rarity}
+                                rarityLabel={item.supersetRarity.rarityLabel}
+                                rarityPercent={item.supersetRarity.rarityPercent}
+                            />
+                        ) : null}
                         {item.tags.slice(0, 2).map((tag) => (
                             <Badge key={tag.id} color="indigo" variant="soft">
                                 {tag.name}

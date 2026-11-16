@@ -427,7 +427,25 @@ test.describe.serial('collector journey', () => {
         const tag = page.getByTestId('rarity-tag');
         await expect(tag).toBeVisible();
         await expect(tag).toHaveText('★★');
-        await expect(tag).toHaveAttribute('title', 'Rarity 9/10 — Super Rare — 81%');
+        await expect(tag).toHaveAttribute('title', 'R9/10 · Super Rare · 81%');
+
+        // the collection card carries the tag too, and the rarity filter narrows the grid
+        await page.getByTestId('breadcrumb-collection').click();
+        const card = page.getByTestId('item-card').filter({ hasText: 'Blues Brothers' });
+        await expect(card.getByTestId('rarity-tag')).toHaveText('★★');
+        await page.getByTestId('rarity-filter').click();
+        await page.getByRole('option', { name: 'R7 and above' }).click();
+        await expect(
+            page.getByTestId('item-card').filter({ hasText: 'Blues Brothers' }),
+        ).toBeVisible();
+        await page.getByTestId('rarity-filter').click();
+        await page.getByRole('option', { name: 'R10 and above' }).click();
+        await expect(page.getByTestId('item-card')).toHaveCount(0);
+
+        // homepage counts rare items
+        await page.goto('/');
+        await expect(page.getByTestId('stat-rare-items')).toBeVisible();
+        await expect(page.getByTestId('stat-rare-items')).toContainText(/\d+/);
     });
 
     test('incomplete superset: items can be marked outside the catalog', async ({ page }) => {

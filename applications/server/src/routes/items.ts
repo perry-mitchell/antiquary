@@ -1,17 +1,50 @@
 import { unlink } from 'node:fs/promises';
 import { join } from 'node:path';
 import { Router } from 'express';
-import type { Database, ItemDetailDto } from '@antiquary/database';
+import type { Database, ItemDetailDto, ItemListItemDto } from '@antiquary/database';
 import { HttpError } from '../errors.js';
 import { createItemSchema, listItemsQuerySchema, updateItemSchema } from '../schemas.js';
 import { createUploadMiddleware } from '../upload.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
 
 /** Fills in supersetLabel/supersetRarity for items matched against a catalog entry. */
-async function enrich(item: ItemDetailDto, supersets: SupersetRegistry): Promise<ItemDetailDto> {
+export async function enrich(
+    item: ItemDetailDto,
+    supersets: SupersetRegistry,
+): Promise<ItemDetailDto> {
     if (!item.superset || !item.supersetEntry) return { ...item, supersetLabel: null };
     const entry = await supersets.getEntry(item.superset, item.supersetEntry);
     return { ...item, supersetLabel: entry?.name ?? null, supersetRarity: entry?.rarity ?? null };
+}
+
+/** Resolves compiled rarity for many items at once (rarity maps are cached per superset). */
+export async function attachListRarity(
+    items: ItemListItemDto[],
+    supersets: SupersetRegistry,
+): Promise<ItemListItemDto[]> {
+    return Promise.all(
+        items.map(async (item) => {
+            if (!item.superset || !item.supersetEntry) return item;
+            const rarity = await supersets.getRarity(item.superset, item.supersetEntry);
+            return { ...item, supersetRarity: rarity ?? null };
+        }),
+    );
+}
+
+/** Item ids whose compiled rarity meets the threshold — empty array means nothing qualifies. */
+export async function itemIdsWithRarity(
+    db: Database,
+    supersets: SupersetRegistry,
+    minRarity: number,
+    collectionId?: string,
+): Promise<string[]> {
+    const refs = await db.listSupersetRefs(collectionId);
+    const ids: string[] = [];
+    for (const ref of refs) {
+        const rarity = await supersets.getRarity(ref.superset, ref.supersetEntry);
+        if (rarity && rarity.rarity >= minRarity) ids.push(ref.id);
+    }
+    return ids;
 }
 
 export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetRegistry): Router {
@@ -20,7 +53,16 @@ export function itemRoutes(db: Database, uploadDir: string, supersets: SupersetR
 
     router.get('/', async (req, res) => {
         const query = listItemsQuerySchema.parse(req.query);
-        res.json(await db.listItems(query));
+        let ids: string[] | undefined;
+        if (query.minRarity) {
+            ids = await itemIdsWithRarity(db, supersets, query.minRarity, query.collectionId);
+            if (ids.length === 0) {
+                res.json({ items: [], total: 0, page: query.page ?? 1, limit: query.limit ?? 24 });
+                return;
+            }
+        }
+        const result = await db.listItems({ ...query, ids });
+        res.json({ ...result, items: await attachListRarity(result.items, supersets) });
     });
 
     router.post('/', async (req, res) => {
