@@ -11,6 +11,7 @@ import type {
     TagDto,
     TemplateDetailDto,
     TrashDto,
+    WantedDto,
 } from '@antiquary/database';
 
 export class ApiError extends Error {
@@ -76,6 +77,14 @@ export interface SupersetEntryDto {
 export interface SupersetEntryListItemDto extends SupersetEntryDto {
     owned: boolean;
     itemId: string | null;
+    wanted: boolean;
+}
+
+export interface WantedListItemDto extends WantedDto {
+    supersetName: string | null;
+    entry: SupersetEntryDto | null;
+    owned: boolean;
+    ownedItemId: string | null;
 }
 
 export interface SupersetEntryListResultDto {
@@ -270,6 +279,17 @@ export const api = {
         update: (id: string, body: { name?: string; color?: string | null }) =>
             request<TagDto>(`/api/tags/${id}`, jsonInit('PATCH', body)),
         remove: (id: string) => request<{ ok: boolean }>(`/api/tags/${id}`, { method: 'DELETE' }),
+    },
+
+    wanted: {
+        list: () => request<WantedListItemDto[]>('/api/wanted'),
+        add: (body: { superset: string; supersetEntry: string }) =>
+            request<WantedListItemDto>('/api/wanted', jsonInit('POST', body)),
+        remove: (superset: string, supersetEntry: string) =>
+            request<{ ok: boolean }>(
+                `/api/wanted/${encodeURIComponent(superset)}/entries/${encodeURIComponent(supersetEntry)}`,
+                { method: 'DELETE' },
+            ),
     },
 
     trash: () => request<TrashDto>('/api/trash'),

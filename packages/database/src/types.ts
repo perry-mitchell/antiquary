@@ -138,6 +138,13 @@ export interface ItemHistoryTable {
     createdAt: GeneratedAlways<Date>;
 }
 
+export interface WantedTable {
+    id: Generated<string>;
+    superset: string;
+    supersetEntry: string;
+    createdAt: GeneratedAlways<Date>;
+}
+
 export interface ApiKeysTable {
     id: Generated<string>;
     name: string;
@@ -159,6 +166,7 @@ export interface DBSchema {
     tags: TagsTable;
     itemTags: ItemTagsTable;
     itemHistory: ItemHistoryTable;
+    wanted: WantedTable;
 }
 
 /* ------------------------------------------------------------------ */
@@ -352,6 +360,13 @@ export interface ApiKeyDto {
     revokedAt: string | null;
 }
 
+export interface WantedDto {
+    id: string;
+    superset: string;
+    supersetEntry: string;
+    createdAt: string;
+}
+
 export interface TrashDto {
     items: DeletedItemDto[];
     collections: DeletedCollectionDto[];
@@ -371,6 +386,7 @@ export interface ExportBundle {
     itemTags: ExportRow[];
     images: ExportRow[];
     itemHistory: ExportRow[];
+    wanted: ExportRow[];
 }
 
 export interface ImportSummaryDto {
@@ -383,4 +399,5 @@ export interface ImportSummaryDto {
     itemTags: number;
     images: number;
     itemHistory: number;
+    wanted: number;
 }

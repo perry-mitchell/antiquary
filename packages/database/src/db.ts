@@ -35,6 +35,7 @@ import type {
     TemplateFieldDto,
     TrashDto,
     ApiKeyDto,
+    WantedDto,
 } from './types.js';
 
 /**
@@ -138,6 +139,11 @@ export interface UpdateItemInput {
 export interface CreateTagInput {
     name: string;
     color?: string | null;
+}
+
+export interface AddWantedInput {
+    superset: string;
+    supersetEntry: string;
 }
 
 export interface AddImageInput {
@@ -1186,6 +1192,52 @@ export class Database {
     }
 
     /* --------------------------------------------------------------- */
+    /* Wanted list                                                      */
+    /* --------------------------------------------------------------- */
+
+    async listWanted(): Promise<WantedDto[]> {
+        const rows = await this.db
+            .selectFrom('wanted')
+            .orderBy('wanted.createdAt', 'desc')
+            .selectAll()
+            .execute();
+        return rows.map((r) => ({
+            id: r.id,
+            superset: r.superset,
+            supersetEntry: r.supersetEntry,
+            createdAt: r.createdAt.toISOString(),
+        }));
+    }
+
+    async addWanted(input: AddWantedInput): Promise<WantedDto> {
+        const row = await this.db
+            .insertInto('wanted')
+            .values({ superset: input.superset, supersetEntry: input.supersetEntry })
+            .onConflict((oc) => oc.doNothing())
+            .returningAll()
+            .executeTakeFirst();
+        if (row) {
+            return {
+                id: row.id,
+                superset: row.superset,
+                supersetEntry: row.supersetEntry,
+                createdAt: row.createdAt.toISOString(),
+            };
+        }
+        throw new ConflictError('Entry is already on the wanted list');
+    }
+
+    async removeWanted(superset: string, supersetEntry: string): Promise<boolean> {
+        const deleted = await this.db
+            .deleteFrom('wanted')
+            .where('superset', '=', superset)
+            .where('supersetEntry', '=', supersetEntry)
+            .returning('id')
+            .executeTakeFirst();
+        return deleted !== undefined;
+    }
+
+    /* --------------------------------------------------------------- */
     /* Images                                                           */
     /* --------------------------------------------------------------- */
 
@@ -1521,6 +1573,7 @@ export class Database {
             itemTags,
             images,
             itemHistory,
+            wanted,
         ] = await Promise.all([
             this.db.selectFrom('collections').selectAll().execute(),
             this.db.selectFrom('templates').selectAll().execute(),
@@ -1531,6 +1584,7 @@ export class Database {
             this.db.selectFrom('itemTags').selectAll().execute(),
             this.db.selectFrom('images').selectAll().execute(),
             this.db.selectFrom('itemHistory').selectAll().execute(),
+            this.db.selectFrom('wanted').selectAll().execute(),
         ]);
         return {
             collections,
@@ -1542,6 +1596,7 @@ export class Database {
             itemTags,
             images,
             itemHistory,
+            wanted,
         };
     }
 
@@ -1564,6 +1619,7 @@ export class Database {
             itemTags: 0,
             images: 0,
             itemHistory: 0,
+            wanted: 0,
         };
         const imageFilenames: string[] = [];
 
@@ -1588,6 +1644,7 @@ export class Database {
                 valueIds,
                 imageIds,
                 historyIds,
+                wantedIds,
             ] = await Promise.all([
                 loadIds('templates'),
                 loadIds('templateFields'),
@@ -1597,9 +1654,15 @@ export class Database {
                 loadIds('itemFieldValues'),
                 loadIds('images'),
                 loadIds('itemHistory'),
+                loadIds('wanted'),
             ]);
             const tagNameSet = new Set(
                 (await tx.selectFrom('tags').select('name').execute()).map((row) => row.name),
+            );
+            const wantedPairs = new Set(
+                (await tx.selectFrom('wanted').select(['superset', 'supersetEntry']).execute()).map(
+                    (row) => `${row.superset}\u0000${row.supersetEntry}`,
+                ),
             );
 
             // Inserts a new row or patches the existing one; never touches the PK.
@@ -1612,7 +1675,8 @@ export class Database {
                     | 'items'
                     | 'itemFieldValues'
                     | 'images'
-                    | 'itemHistory',
+                    | 'itemHistory'
+                    | 'wanted',
                 id: string,
                 fields: Record<string, unknown>,
                 known: Set<string>,
@@ -1779,6 +1843,23 @@ export class Database {
                 if (!('itemId' in fields) && !known) continue;
                 await upsert('itemHistory', id, fields, historyIds, { createdAt: new Date() });
                 summary.itemHistory++;
+            }
+
+            for (const row of bundle.wanted ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.wanted);
+                const id = transferId(fields);
+                if (
+                    !id ||
+                    (!wantedIds.has(id) && !('superset' in fields && 'supersetEntry' in fields))
+                )
+                    continue;
+                // the (superset, supersetEntry) pair is unique — skip rows that would
+                // duplicate a pair already tracked by another row
+                const pair = `${fields.superset}\u0000${fields.supersetEntry}`;
+                if (wantedPairs.has(pair) && !wantedIds.has(id)) continue;
+                await upsert('wanted', id, fields, wantedIds, { createdAt: new Date() });
+                wantedPairs.add(pair);
+                summary.wanted++;
             }
         });
 
@@ -2380,6 +2461,12 @@ const TRANSFER_COLUMNS = {
         action: 'string',
         changes: 'json',
         snapshot: 'json',
+        createdAt: 'date',
+    },
+    wanted: {
+        id: 'string',
+        superset: 'string',
+        supersetEntry: 'string',
         createdAt: 'date',
     },
 } satisfies Record<string, Record<string, TransferColumnType>>;

@@ -96,6 +96,11 @@ export const createTagSchema = z.object({
 
 export const updateTagSchema = createTagSchema.partial();
 
+export const addWantedSchema = z.object({
+    superset: z.string().trim().min(1, 'Catalog key is required').max(50),
+    supersetEntry: z.string().trim().min(1, 'Catalog entry is required').max(100),
+});
+
 export const updateImageSchema = z.object({
     caption: z.string().trim().max(300).nullable().optional(),
     isCover: z.boolean().optional(),
@@ -111,3 +116,4 @@ export type ListItemsQuery = z.infer<typeof listItemsQuerySchema>;
 export type ListSupersetEntriesQuery = z.infer<typeof listSupersetEntriesQuerySchema>;
 export type CreateTagBody = z.infer<typeof createTagSchema>;
 export type UpdateTagBody = z.infer<typeof updateTagSchema>;
+export type AddWantedBody = z.infer<typeof addWantedSchema>;

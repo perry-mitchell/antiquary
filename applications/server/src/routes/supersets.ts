@@ -36,6 +36,11 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
                 itemIdByEntry.set(match.supersetEntry, match.itemId);
             }
         }
+        const wantedEntries = new Set(
+            (await db.listWanted())
+                .filter((w) => w.superset === req.params.key)
+                .map((w) => w.supersetEntry),
+        );
 
         const result = await registry.listEntries(req.params.key, {
             query: query.q,
@@ -51,7 +56,12 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
             ownedCount: itemIdByEntry.size,
             entries: result.entries.map((entry) => {
                 const itemId = itemIdByEntry.get(entry.id) ?? null;
-                return { ...entry, owned: itemId !== null, itemId };
+                return {
+                    ...entry,
+                    owned: itemId !== null,
+                    itemId,
+                    wanted: wantedEntries.has(entry.id),
+                };
             }),
         });
     });

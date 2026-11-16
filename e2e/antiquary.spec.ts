@@ -399,6 +399,35 @@ test.describe.serial('collector journey', () => {
         await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toBeVisible();
     });
 
+    test('wanted list: star entries while browsing, manage them on the wanted page', async ({
+        page,
+    }) => {
+        await page.goto('/supersets/snes');
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        const jpRow = page.getByTestId('superset-entry-chrono-trigger-japan');
+        await expect(jpRow).toBeVisible();
+
+        // star the missing Japan variant
+        await jpRow.getByTestId('wanted-toggle').click();
+        await expect(page.getByTestId('toast-success').last()).toContainText('Added to wanted');
+        await expect(jpRow.getByTestId('wanted-toggle')).toBeVisible();
+
+        // the menu bar shortcut lists it with catalog details
+        await page.getByTestId('nav-wanted').click();
+        const row = page.getByTestId('wanted-entry-chrono-trigger-japan');
+        await expect(page.getByTestId('wanted-count')).toHaveText('1');
+        await expect(row).toContainText('Chrono Trigger (Japan)');
+        await expect(row).toContainText('Super Nintendo');
+        await expect(row.getByTestId('missing-badge')).toBeVisible();
+        await expect(row.getByTestId('owned-badge')).toHaveCount(0);
+
+        // remove it — the list empties out
+        await row.getByTestId('wanted-remove-chrono-trigger-japan').click();
+        await expect(page.getByTestId('toast-success').last()).toContainText('Removed');
+        await expect(page.getByTestId('wanted-entries')).toHaveCount(0);
+        await expect(page.getByTestId('empty-state')).toContainText('Nothing on the wanted list');
+    });
+
     test('rarity tags render for supersets with compiled rarity', async ({ page }) => {
         // GB superset ships a compiled rarity file
         await page.goto('/');

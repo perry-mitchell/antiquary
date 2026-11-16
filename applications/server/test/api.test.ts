@@ -423,6 +423,8 @@ describe('mcp endpoint', () => {
             'update_item',
             'create_tag',
             'upload_image',
+            'add_wanted',
+            'remove_wanted',
         ]) {
             expect(tools).not.toContain(banned);
         }
@@ -437,6 +439,9 @@ describe('mcp endpoint', () => {
         expect(tools).toContain('create_template');
         expect(tools).toContain('update_template');
         expect(tools).toContain('delete_template');
+        expect(tools).toContain('list_wanted');
+        expect(tools).toContain('add_wanted');
+        expect(tools).toContain('remove_wanted');
     });
 
     it('manages templates and template-bound collections over MCP', async () => {
@@ -631,6 +636,72 @@ describe('mcp endpoint', () => {
         });
         const goneResult = unwrap(gone).result as { content: { text: string }[] };
         expect(JSON.parse(goneResult.content[0]!.text).total).toBe(0);
+    });
+
+    it('manages the wanted list over MCP', async () => {
+        const call = async (key: string, id: number, name: string, arguments_: unknown) => {
+            const res = await rpc(key, {
+                jsonrpc: '2.0',
+                id,
+                method: 'tools/call',
+                params: { name, arguments: arguments_ },
+            });
+            return unwrap(res).result as { isError?: boolean; content: { text: string }[] };
+        };
+
+        // read-only keys can list the wanted list
+        const listed = await call(readOnlyKey, 21, 'list_wanted', {});
+        expect(listed.isError).toBeFalsy();
+        expect(Array.isArray(JSON.parse(listed.content[0]!.text))).toBe(true);
+
+        const added = await call(fullKey, 22, 'add_wanted', {
+            superset: 'gb',
+            entryId: 'AF6BDC50',
+        });
+        expect(added.isError).toBeFalsy();
+        const addedRow = JSON.parse(added.content[0]!.text) as {
+            superset: string;
+            supersetName: string;
+            entry: { name: string };
+        };
+        expect(addedRow.superset).toBe('gb');
+        expect(addedRow.supersetName).toContain('Game Boy');
+        expect(addedRow.entry.name).toContain('Aladdin');
+
+        const duplicate = await call(fullKey, 23, 'add_wanted', {
+            superset: 'gb',
+            entryId: 'AF6BDC50',
+        });
+        expect(duplicate.isError).toBe(true);
+        expect(duplicate.content[0]!.text).toContain('already');
+
+        const bogusCatalog = await call(fullKey, 24, 'add_wanted', {
+            superset: 'nonsense',
+            entryId: 'X',
+        });
+        expect(bogusCatalog.isError).toBe(true);
+        expect(bogusCatalog.content[0]!.text).toContain('Unknown catalog');
+
+        const bogusEntry = await call(fullKey, 25, 'add_wanted', {
+            superset: 'gb',
+            entryId: 'DEADBEEF',
+        });
+        expect(bogusEntry.isError).toBe(true);
+        expect(bogusEntry.content[0]!.text).toContain('Unknown catalog entry');
+
+        const removed = await call(fullKey, 26, 'remove_wanted', {
+            superset: 'gb',
+            entryId: 'AF6BDC50',
+        });
+        expect(removed.isError).toBeFalsy();
+        expect(JSON.parse(removed.content[0]!.text).ok).toBe(true);
+
+        const removeAgain = await call(fullKey, 27, 'remove_wanted', {
+            superset: 'gb',
+            entryId: 'AF6BDC50',
+        });
+        expect(removeAgain.isError).toBeFalsy();
+        expect(JSON.parse(removeAgain.content[0]!.text).error).toContain('not on the wanted list');
     });
 
     it('rejects unknown and dropped tools cleanly', async () => {
@@ -1306,6 +1377,73 @@ describe('supersets', () => {
     });
 });
 
+describe('wanted', () => {
+    it('validates the body', async () => {
+        expect((await api.post('/api/wanted').send({ superset: '' })).status).toBe(400);
+    });
+
+    it('rejects unknown catalogs and entries', async () => {
+        const bogusCatalog = await api
+            .post('/api/wanted')
+            .send({ superset: 'nope', supersetEntry: 'X' });
+        expect(bogusCatalog.status).toBe(404);
+        expect(bogusCatalog.body.error).toContain('Catalog not found');
+
+        const bogusEntry = await api
+            .post('/api/wanted')
+            .send({ superset: 'snes', supersetEntry: 'DEADBEEF' });
+        expect(bogusEntry.status).toBe(404);
+        expect(bogusEntry.body.error).toContain('entry');
+    });
+
+    it('adds, lists and removes entries with catalog enrichment', async () => {
+        // F-Zero (USA) is not owned anywhere; Chrono Trigger (USA) is owned by an earlier test
+        const missing = await api
+            .post('/api/wanted')
+            .send({ superset: 'snes', supersetEntry: 'AA0E31DE' });
+        expect(missing.status).toBe(201);
+        expect(missing.body.superset).toBe('snes');
+        expect(missing.body.supersetName).toBe('Super Nintendo Entertainment System');
+        expect(missing.body.entry.name).toBe('F-Zero (USA)');
+        expect(missing.body.owned).toBe(false);
+        expect(missing.body.ownedItemId).toBeNull();
+
+        const owned = await api
+            .post('/api/wanted')
+            .send({ superset: 'snes', supersetEntry: '2D206BF7' });
+        expect(owned.status).toBe(201);
+        expect(owned.body.owned).toBe(true);
+        expect(owned.body.ownedItemId).toBeTruthy();
+
+        const duplicate = await api
+            .post('/api/wanted')
+            .send({ superset: 'snes', supersetEntry: '2D206BF7' });
+        expect(duplicate.status).toBe(409);
+
+        const list = await api.get('/api/wanted');
+        expect(list.body).toHaveLength(2);
+        // newest first
+        expect(list.body[0].supersetEntry).toBe('2D206BF7');
+
+        // catalog browsing flags wanted entries
+        const entries = await api.get('/api/supersets/snes/entries?q=chrono+trigger');
+        expect(entries.status).toBe(200);
+        const byId = new Map(
+            entries.body.entries.map((e: { id: string; wanted: boolean }) => [e.id, e.wanted]),
+        );
+        expect(byId.get('2D206BF7')).toBe(true);
+        expect(byId.get('4D014C20')).toBe(false);
+
+        const removed = await api.delete('/api/wanted/snes/entries/AA0E31DE');
+        expect(removed.status).toBe(200);
+        expect(removed.body).toEqual({ ok: true });
+        expect((await api.get('/api/wanted')).body).toHaveLength(1);
+
+        const removeAgain = await api.delete('/api/wanted/snes/entries/AA0E31DE');
+        expect(removeAgain.status).toBe(404);
+    });
+});
+
 describe('transfer', () => {
     function zipBuffer(files: Record<string, string | Buffer>): Promise<Buffer> {
         return new Promise((resolve, reject) => {
@@ -1361,6 +1499,12 @@ describe('transfer', () => {
                 createdAt: '2026-01-01T00:00:00.000Z',
             })}\n`,
             [`images/${importedImageFilename}`]: PNG_1x1,
+            'wanted.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e0004',
+                superset: 'snes',
+                supersetEntry: '4D014C20',
+                createdAt: '2026-01-01T00:00:00.000Z',
+            })}\n`,
             'gizmos.ndjson': '{"id":"nope"}\n',
             'readme.txt': 'stray file',
         });
@@ -1388,11 +1532,14 @@ describe('transfer', () => {
         const manifest = JSON.parse(await readFile(join(dir, 'unzipped', 'manifest.json'), 'utf8'));
         expect(manifest.format).toBe('antiquary-export');
         expect(manifest.counts.collections).toBeGreaterThanOrEqual(1);
+        expect(manifest.counts.wanted).toBeGreaterThanOrEqual(1);
 
         const collections = await readFile(join(dir, 'unzipped', 'collections.ndjson'), 'utf8');
         expect(collections).toContain(collectionId);
         const items = await readFile(join(dir, 'unzipped', 'items.ndjson'), 'utf8');
         expect(items).toContain('"name":"Chrono Trigger"');
+        const wanted = await readFile(join(dir, 'unzipped', 'wanted.ndjson'), 'utf8');
+        expect(wanted).toContain('2D206BF7');
         const exportedImages = await readdir(join(dir, 'unzipped', 'images'));
         expect(exportedImages.length).toBeGreaterThan(0);
         await rm(dir, { recursive: true, force: true });
@@ -1410,6 +1557,7 @@ describe('transfer', () => {
             collections: 1,
             items: 1,
             images: 1,
+            wanted: 1,
         });
 
         const after = await api.get('/api/collections');
@@ -1434,6 +1582,10 @@ describe('transfer', () => {
         expect(unchanged.body).toHaveLength(countBefore + 1);
         const stillOne = await api.get(`/api/items?collectionId=${importedCollectionId}`);
         expect(stillOne.body.total).toBe(1);
+        const stillOneWanted = await api.get('/api/wanted');
+        expect(
+            stillOneWanted.body.filter((w: { superset: string }) => w.superset === 'snes'),
+        ).toHaveLength(2);
 
         // patch semantics: a row mentioning only the name leaves other fields alone
         const renamed = await zipBuffer({

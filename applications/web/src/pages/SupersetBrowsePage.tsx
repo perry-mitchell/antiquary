@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import {
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    MagnifyingGlassIcon,
+    StarIcon,
+} from '@radix-ui/react-icons';
 import {
     Badge,
     Box,
@@ -20,6 +25,7 @@ import { EmptyState } from '../components/Dialogs';
 import { RarityTag } from '../components/RarityTag';
 import { useToast } from '../components/Toast';
 import { slug } from '../lib/format';
+import type { SupersetEntryListItemDto } from '../api';
 
 const PAGE_SIZE = 24;
 
@@ -91,6 +97,34 @@ export function SupersetBrowsePage() {
             }),
         );
     }, [loadEntries, toast]);
+
+    const toggleWanted = async (entry: SupersetEntryListItemDto) => {
+        try {
+            if (entry.wanted) {
+                await api.wanted.remove(key, entry.id);
+                toast({ title: 'Removed from wanted', variant: 'success' });
+            } else {
+                await api.wanted.add({ superset: key, supersetEntry: entry.id });
+                toast({ title: 'Added to wanted', variant: 'success' });
+            }
+            setResult((prev) =>
+                prev
+                    ? {
+                          ...prev,
+                          entries: prev.entries.map((e) =>
+                              e.id === entry.id ? { ...e, wanted: !entry.wanted } : e,
+                          ),
+                      }
+                    : prev,
+            );
+        } catch (error) {
+            toast({
+                title: 'Could not update the wanted list',
+                description: String(error),
+                variant: 'error',
+            });
+        }
+    };
 
     if (missingCatalog) {
         return (
@@ -251,6 +285,18 @@ export function SupersetBrowsePage() {
                                     Missing
                                 </Badge>
                             )}
+                            <IconButton
+                                variant={entry.wanted ? 'solid' : 'soft'}
+                                color={entry.wanted ? 'amber' : 'gray'}
+                                onClick={() => toggleWanted(entry)}
+                                aria-label={
+                                    entry.wanted ? 'Remove from wanted list' : 'Add to wanted list'
+                                }
+                                title={entry.wanted ? 'Remove from wanted' : 'Add to wanted'}
+                                data-testid="wanted-toggle"
+                            >
+                                <StarIcon />
+                            </IconButton>
                         </Flex>
                     ))}
                 </Flex>

@@ -8,6 +8,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { requireApiKey } from '../apiKeys.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
+import { enrichWanted } from './wanted.js';
 import {
     createCollectionSchema,
     createTemplateSchema,
@@ -144,6 +145,16 @@ function buildServer(
 
     server.registerTool('list_tags', { description: 'List tags with item counts.' }, async () =>
         asText(await db.listTags()),
+    );
+
+    server.registerTool(
+        'list_wanted',
+        {
+            description:
+                'List the wanted list: catalog entries marked as wanted, with catalog details ' +
+                '(name, region, serial, rarity) and whether each one is already owned.',
+        },
+        async () => asText(await enrichWanted(db, supersets, await db.listWanted())),
     );
 
     server.registerTool(
@@ -550,6 +561,45 @@ function buildServer(
             },
         },
         async (params) => asText(await db.createTag(params)),
+    );
+
+    server.registerTool(
+        'add_wanted',
+        {
+            description:
+                'Add a catalog entry to the global wanted list. Find entries with search_catalog, ' +
+                'then pass the catalog key (superset) and the entry id (entryId).',
+            inputSchema: { superset: z.string().min(1), entryId: z.string().min(1) },
+        },
+        async ({ superset, entryId }) => {
+            if (!supersets.get(superset)) {
+                throw new ValidationError(
+                    `Unknown catalog "${superset}" — call list_supersets for valid keys`,
+                );
+            }
+            if (!(await supersets.getEntry(superset, entryId))) {
+                throw new ValidationError(
+                    `Unknown catalog entry "${entryId}" in "${superset}" — find ids via search_catalog`,
+                );
+            }
+            const created = await db.addWanted({ superset, supersetEntry: entryId });
+            return asText((await enrichWanted(db, supersets, [created]))[0]);
+        },
+    );
+
+    server.registerTool(
+        'remove_wanted',
+        {
+            description:
+                'Remove a catalog entry from the wanted list, identified by catalog key and entry id.',
+            inputSchema: { superset: z.string().min(1), entryId: z.string().min(1) },
+        },
+        async ({ superset, entryId }) => {
+            const removed = await db.removeWanted(superset, entryId);
+            return removed
+                ? asText({ ok: true })
+                : asText({ error: 'Entry is not on the wanted list' });
+        },
     );
 
     // ---- deletion actions (full keys only — dropped for non-destructive keys) ----

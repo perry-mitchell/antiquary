@@ -2,6 +2,7 @@ export * from './types.js';
 export { Database, createKysely, diffItemDetails } from './db.js';
 export type {
     AddImageInput,
+    AddWantedInput,
     CreateCollectionInput,
     CreateItemInput,
     CreateTagInput,
