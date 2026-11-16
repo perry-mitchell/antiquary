@@ -548,10 +548,7 @@ test.describe.serial('collector journey', () => {
         // rarest owned entries first
         await page.getByTestId('superset-sort').click();
         await page.getByRole('option', { name: 'Rarity high → low' }).click();
-        const firstTag = page
-            .getByTestId('superset-entries')
-            .getByTestId('rarity-tag')
-            .first();
+        const firstTag = page.getByTestId('superset-entries').getByTestId('rarity-tag').first();
         await expect(firstTag).toHaveAttribute('title', 'R8/10 · Extremely Collectible · 76%');
     });
 
