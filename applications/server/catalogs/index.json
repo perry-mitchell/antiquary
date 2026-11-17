@@ -271,12 +271,12 @@
     "source": "Wikidata",
     "sourceUrl": "https://www.wikidata.org",
     "license": "CC0-1.0",
-    "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.",
+    "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Included are the games Wikidata credits to a developer or publisher; the release date, developer, publisher and genre are left empty where Wikidata records none.",
     "datVersion": null,
     "complete": false,
-    "generatedAt": "2026-11-11T20:23:02.600Z",
-    "variantCount": 1700,
-    "titleCount": 1695,
+    "generatedAt": "2026-11-17T19:33:26.757Z",
+    "variantCount": 2043,
+    "titleCount": 2036,
     "file": "dos.json"
   },
   {
@@ -747,12 +747,12 @@
     "source": "Wikidata",
     "sourceUrl": "https://www.wikidata.org",
     "license": "CC0-1.0",
-    "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.",
+    "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Included are the games Wikidata credits to a developer or publisher; the release date, developer, publisher and genre are left empty where Wikidata records none.",
     "datVersion": null,
     "complete": false,
-    "generatedAt": "2026-11-11T20:19:53.054Z",
-    "variantCount": 20549,
-    "titleCount": 20431,
+    "generatedAt": "2026-11-17T19:32:51.993Z",
+    "variantCount": 26236,
+    "titleCount": 26099,
     "file": "pc.json"
   },
   {

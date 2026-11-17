@@ -4,11 +4,22 @@
   "source": "Wikidata",
   "sourceUrl": "https://www.wikidata.org",
   "license": "CC0-1.0",
-  "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.",
+  "attribution": "Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Included are the games Wikidata credits to a developer or publisher; the release date, developer, publisher and genre are left empty where Wikidata records none.",
   "datVersion": null,
   "complete": false,
-  "generatedAt": "2026-11-11T20:23:02.600Z",
+  "generatedAt": "2026-11-17T19:33:26.757Z",
   "entries": [
+    {
+      "id": "Q55538",
+      "name": "007: Licence to Kill",
+      "parentTitle": "007: Licence to Kill",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Domark Software",
+      "genre": "shoot 'em up",
+      "year": 1989
+    },
     {
       "id": "Q55536",
       "name": "10th Frame",
@@ -98,6 +109,28 @@
       "year": 1987
     },
     {
+      "id": "Q102423836",
+      "name": "3 in 1 College & Pro Football",
+      "parentTitle": "3 in 1 College & Pro Football",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Lance Haffner Games",
+      "genre": "American football video game",
+      "year": null
+    },
+    {
+      "id": "Q229648",
+      "name": "3 Skulls of the Toltecs",
+      "parentTitle": "3 Skulls of the Toltecs",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "WarnerMedia",
+      "genre": "point-and-click adventure",
+      "year": 1996
+    },
+    {
       "id": "Q55561",
       "name": "3D Construction Kit",
       "parentTitle": "3D Construction Kit",
@@ -129,6 +162,17 @@
       "publisher": "JumpStart Games",
       "genre": "educational video game",
       "year": 1993
+    },
+    {
+      "id": "Q615921",
+      "name": "3D Lemmings",
+      "parentTitle": "3D Lemmings",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "puzzle video game",
+      "year": 1995
     },
     {
       "id": "Q2413273",
@@ -164,6 +208,28 @@
       "year": 1987
     },
     {
+      "id": "Q88226",
+      "name": "4x4 Off-Road Racing",
+      "parentTitle": "4x4 Off-Road Racing",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epyx",
+      "genre": "racing video game",
+      "year": 1988
+    },
+    {
+      "id": "Q635707",
+      "name": "50 Mission Crush",
+      "parentTitle": "50 Mission Crush",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "role-playing video game",
+      "year": 1984
+    },
+    {
       "id": "Q104230935",
       "name": "5th Fleet",
       "parentTitle": "5th Fleet",
@@ -195,6 +261,17 @@
       "publisher": "Infogrames",
       "genre": "puzzle video game",
       "year": 1991
+    },
+    {
+      "id": "Q12051285",
+      "name": "7 dní a 7 nocí",
+      "parentTitle": "7 dní a 7 nocí",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Vochozka Trading",
+      "genre": "adventure video game",
+      "year": 1994
     },
     {
       "id": "Q300483",
@@ -263,6 +340,17 @@
       "year": 1991
     },
     {
+      "id": "Q88519",
+      "name": "Aaargh!",
+      "parentTitle": "Aaargh!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Arcadia Systems, Inc.",
+      "genre": "action game",
+      "year": 1987
+    },
+    {
       "id": "Q339348",
       "name": "Abandoned Places",
       "parentTitle": "Abandoned Places",
@@ -296,6 +384,17 @@
       "year": 1989
     },
     {
+      "id": "Q4650273",
+      "name": "ABC Wide World of Sports Boxing",
+      "parentTitle": "ABC Wide World of Sports Boxing",
+      "region": null,
+      "serial": null,
+      "developer": "Cinemaware",
+      "publisher": "Data East",
+      "genre": "boxing video game",
+      "year": null
+    },
+    {
       "id": "Q106634936",
       "name": "Abenteuer Europa",
       "parentTitle": "Abenteuer Europa",
@@ -305,6 +404,17 @@
       "publisher": "Social Democratic Party of Germany",
       "genre": "point-and-click adventure",
       "year": 1994
+    },
+    {
+      "id": "Q55441091",
+      "name": "Abracadabra",
+      "parentTitle": "Abracadabra",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Coktel Vision",
+      "genre": null,
+      "year": 1991
     },
     {
       "id": "Q2742131",
@@ -384,6 +494,28 @@
       "year": 1992
     },
     {
+      "id": "Q2633781",
+      "name": "Aces Over Europe",
+      "parentTitle": "Aces Over Europe",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": null,
+      "year": 1993
+    },
+    {
+      "id": "Q4677156",
+      "name": "Action Soccer",
+      "parentTitle": "Action Soccer",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ubisoft",
+      "genre": "sports video game",
+      "year": null
+    },
+    {
       "id": "Q3549559",
       "name": "Advanced V.G.",
       "parentTitle": "Advanced V.G.",
@@ -404,6 +536,28 @@
       "publisher": "Infogrames",
       "genre": "tennis video game",
       "year": 1991
+    },
+    {
+      "id": "Q379928",
+      "name": "Adventure Construction Set",
+      "parentTitle": "Adventure Construction Set",
+      "region": null,
+      "serial": null,
+      "developer": "Stuart Smith",
+      "publisher": "Electronic Arts",
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
+      "id": "Q4651290",
+      "name": "AEGIS: Guardian of the Fleet",
+      "parentTitle": "AEGIS: Guardian of the Fleet",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari Games",
+      "genre": null,
+      "year": 1994
     },
     {
       "id": "Q24935478",
@@ -527,6 +681,17 @@
       "year": 1996
     },
     {
+      "id": "Q16150648",
+      "name": "Alcatraz",
+      "parentTitle": "Alcatraz",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Infogrames",
+      "genre": "first-person shooter",
+      "year": 1992
+    },
+    {
       "id": "Q965458",
       "name": "Alien Breed",
       "parentTitle": "Alien Breed",
@@ -571,6 +736,28 @@
       "year": 1996
     },
     {
+      "id": "Q4033714",
+      "name": "Alien Legacy",
+      "parentTitle": "Alien Legacy",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "real-time strategy",
+      "year": 1994
+    },
+    {
+      "id": "Q18161905",
+      "name": "Alien Logic: A Skyrealms of Jorune Adventure",
+      "parentTitle": "Alien Logic: A Skyrealms of Jorune Adventure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "role-playing video game",
+      "year": 1994
+    },
+    {
       "id": "Q103820055",
       "name": "Alien Odyssey",
       "parentTitle": "Alien Odyssey",
@@ -580,6 +767,17 @@
       "publisher": "Koninklijke Philips NV",
       "genre": "action-adventure game",
       "year": 1995
+    },
+    {
+      "id": "Q4726454",
+      "name": "Alien Olympics",
+      "parentTitle": "Alien Olympics",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "sports video game",
+      "year": 1992
     },
     {
       "id": "Q3273389",
@@ -758,6 +956,17 @@
       "year": 1992
     },
     {
+      "id": "Q4747366",
+      "name": "Amnesia",
+      "parentTitle": "Amnesia",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "interactive fiction",
+      "year": 1986
+    },
+    {
       "id": "Q3282654",
       "name": "Amok",
       "parentTitle": "Amok",
@@ -791,6 +1000,17 @@
       "year": 1994
     },
     {
+      "id": "Q4752987",
+      "name": "Ancients 1: Death Watch",
+      "parentTitle": "Ancients 1: Death Watch",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "role-playing video game",
+      "year": 1991
+    },
+    {
       "id": "Q2846940",
       "name": "Andromeda Conquest",
       "parentTitle": "Andromeda Conquest",
@@ -810,6 +1030,17 @@
       "developer": "Electric Dreams",
       "publisher": "Mindscape",
       "genre": "cyberpunk video game",
+      "year": 1996
+    },
+    {
+      "id": "Q4764752",
+      "name": "Animal",
+      "parentTitle": "Animal",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "adventure video game",
       "year": 1996
     },
     {
@@ -879,6 +1110,28 @@
       "year": 1987
     },
     {
+      "id": "Q28028502",
+      "name": "Apollo 18: Mission to the Moon",
+      "parentTitle": "Apollo 18: Mission to the Moon",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "space simulator",
+      "year": 1988
+    },
+    {
+      "id": "Q141620903",
+      "name": "Aquaphobia",
+      "parentTitle": "Aquaphobia",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Softdisk",
+      "genre": "horizontally scrolling shooter",
+      "year": 1992
+    },
+    {
       "id": "Q648698",
       "name": "Arabian Nights",
       "parentTitle": "Arabian Nights",
@@ -912,6 +1165,17 @@
       "year": 1994
     },
     {
+      "id": "Q2688184",
+      "name": "Arcade Volleyball",
+      "parentTitle": "Arcade Volleyball",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Compute!",
+      "genre": "volleyball video game",
+      "year": 1988
+    },
+    {
       "id": "Q14590677",
       "name": "Archimedean Dynasty",
       "parentTitle": "Archimedean Dynasty",
@@ -921,6 +1185,17 @@
       "publisher": "Ubisoft Blue Byte",
       "genre": "submarine simulator",
       "year": 1996
+    },
+    {
+      "id": "Q4787335",
+      "name": "Archon Ultra",
+      "parentTitle": "Archon Ultra",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "action game",
+      "year": 1994
     },
     {
       "id": "Q91268",
@@ -943,6 +1218,17 @@
       "publisher": null,
       "genre": "platform game",
       "year": 1991
+    },
+    {
+      "id": "Q2877664",
+      "name": "Arctic Moves",
+      "parentTitle": "Arctic Moves",
+      "region": null,
+      "serial": null,
+      "developer": "Dinamic Software",
+      "publisher": "Imagine Software",
+      "genre": "run and gun",
+      "year": null
     },
     {
       "id": "Q2570101",
@@ -989,6 +1275,28 @@
       "year": 1987
     },
     {
+      "id": "Q55384018",
+      "name": "Armada",
+      "parentTitle": "Armada",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari",
+      "genre": "turn-based strategy video game",
+      "year": 1989
+    },
+    {
+      "id": "Q4793688",
+      "name": "Armor Alley",
+      "parentTitle": "Armor Alley",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Three-Sixty Pacific",
+      "genre": "real-time tactics",
+      "year": 1990
+    },
+    {
       "id": "Q55604214",
       "name": "Armored Fist",
       "parentTitle": "Armored Fist",
@@ -1033,6 +1341,17 @@
       "year": 1986
     },
     {
+      "id": "Q3261679",
+      "name": "Arnhem",
+      "parentTitle": "Arnhem",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "computer wargame",
+      "year": 1985
+    },
+    {
       "id": "Q115469094",
       "name": "Arnie Goes 4 Gold",
       "parentTitle": "Arnie Goes 4 Gold",
@@ -1064,6 +1383,28 @@
       "publisher": "Virgin Interactive",
       "genre": "4X",
       "year": 1995
+    },
+    {
+      "id": "Q4804882",
+      "name": "Ashes of Empire",
+      "parentTitle": "Ashes of Empire",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroProse",
+      "genre": "strategy video game",
+      "year": 1992
+    },
+    {
+      "id": "Q17416404",
+      "name": "Asmodeus: Tajemný kraj Ruthaniolu",
+      "parentTitle": "Asmodeus: Tajemný kraj Ruthaniolu",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "2K Czech",
+      "genre": null,
+      "year": 1997
     },
     {
       "id": "Q16200106",
@@ -1130,6 +1471,28 @@
       "publisher": "SCE Studio Liverpool",
       "genre": "puzzle video game",
       "year": 1991
+    },
+    {
+      "id": "Q2316017",
+      "name": "Atomix",
+      "parentTitle": "Atomix",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Thalion Software",
+      "genre": "puzzle video game",
+      "year": 1990
+    },
+    {
+      "id": "Q22906552",
+      "name": "Austerlitz",
+      "parentTitle": "Austerlitz",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mirrorsoft",
+      "genre": null,
+      "year": 1989
     },
     {
       "id": "Q4034619",
@@ -1207,6 +1570,17 @@
       "publisher": "Mindscape",
       "genre": "adventure video game",
       "year": 1996
+    },
+    {
+      "id": "Q4833650",
+      "name": "B-1 Nuclear Bomber",
+      "parentTitle": "B-1 Nuclear Bomber",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Avalon Hill",
+      "genre": "flight simulation video game",
+      "year": 1980
     },
     {
       "id": "Q1052492",
@@ -1341,6 +1715,17 @@
       "year": 1985
     },
     {
+      "id": "Q2446941",
+      "name": "Baldies",
+      "parentTitle": "Baldies",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari",
+      "genre": "construction and management simulation",
+      "year": 1995
+    },
+    {
       "id": "Q2881306",
       "name": "Ballistix",
       "parentTitle": "Ballistix",
@@ -1418,6 +1803,17 @@
       "year": 1991
     },
     {
+      "id": "Q2016922",
+      "name": "Barbie: Super Model",
+      "parentTitle": "Barbie: Super Model",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Hi Tech Expressions",
+      "genre": "action game",
+      "year": 1993
+    },
+    {
       "id": "Q18209905",
       "name": "Bargon Attack",
       "parentTitle": "Bargon Attack",
@@ -1471,6 +1867,17 @@
       "publisher": "Konami",
       "genre": "adventure video game",
       "year": 1992
+    },
+    {
+      "id": "Q1029538",
+      "name": "Batman: The Caped Crusader",
+      "parentTitle": "Batman: The Caped Crusader",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "action-adventure game",
+      "year": 1988
     },
     {
       "id": "Q810984",
@@ -1605,6 +2012,17 @@
       "year": 1988
     },
     {
+      "id": "Q141515051",
+      "name": "BattleStar",
+      "parentTitle": "BattleStar",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Softdisk",
+      "genre": null,
+      "year": 1992
+    },
+    {
       "id": "Q4869961",
       "name": "BattleTech: The Crescent Hawk's Inception",
       "parentTitle": "BattleTech: The Crescent Hawk's Inception",
@@ -1669,6 +2087,17 @@
       "publisher": "LJN",
       "genre": "action game",
       "year": 1991
+    },
+    {
+      "id": "Q816152",
+      "name": "Below the Root",
+      "parentTitle": "Below the Root",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Windham Classics",
+      "genre": "adventure video game",
+      "year": 1984
     },
     {
       "id": "Q816823",
@@ -1770,6 +2199,17 @@
       "year": 1983
     },
     {
+      "id": "Q4907840",
+      "name": "Bill & Ted's Excellent Adventure",
+      "parentTitle": "Bill & Ted's Excellent Adventure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Capstone Software",
+      "genre": "adventure video game",
+      "year": 1989
+    },
+    {
       "id": "Q4908891",
       "name": "Bill Elliott's NASCAR Challenge",
       "parentTitle": "Bill Elliott's NASCAR Challenge",
@@ -1836,6 +2276,17 @@
       "year": 1997
     },
     {
+      "id": "Q4916110",
+      "name": "Birds of Prey",
+      "parentTitle": "Birds of Prey",
+      "region": null,
+      "serial": null,
+      "developer": "Argonaut Games",
+      "publisher": "Electronic Arts",
+      "genre": "flight simulation video game",
+      "year": null
+    },
+    {
       "id": "Q2904560",
       "name": "Birthright: The Gorgon's Alliance",
       "parentTitle": "Birthright: The Gorgon's Alliance",
@@ -1878,6 +2329,17 @@
       "publisher": "Interplay Entertainment",
       "genre": "action game",
       "year": 1994
+    },
+    {
+      "id": "Q4923709",
+      "name": "Blade Warrior",
+      "parentTitle": "Blade Warrior",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Image Works",
+      "genre": "beat 'em up",
+      "year": 1988
     },
     {
       "id": "Q2710703",
@@ -1946,6 +2408,17 @@
       "year": 1997
     },
     {
+      "id": "Q2906932",
+      "name": "Blood & Magic",
+      "parentTitle": "Blood & Magic",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interplay Entertainment",
+      "genre": "real-time strategy",
+      "year": 1996
+    },
+    {
       "id": "Q16321489",
       "name": "Blood Lion",
       "parentTitle": "Blood Lion",
@@ -1988,6 +2461,17 @@
       "publisher": null,
       "genre": "role-playing video game",
       "year": 1993
+    },
+    {
+      "id": "Q885249",
+      "name": "Bloodwych",
+      "parentTitle": "Bloodwych",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Image Works",
+      "genre": "role-playing video game",
+      "year": 1989
     },
     {
       "id": "Q4929118",
@@ -2045,6 +2529,17 @@
       "year": 1996
     },
     {
+      "id": "Q4930790",
+      "name": "Bluppo",
+      "parentTitle": "Bluppo",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Webfoot Technologies",
+      "genre": "puzzle video game",
+      "year": 1996
+    },
+    {
       "id": "Q4931103",
       "name": "Bo Jackson Baseball",
       "parentTitle": "Bo Jackson Baseball",
@@ -2054,6 +2549,17 @@
       "publisher": "Data East",
       "genre": "sports video game",
       "year": 1990
+    },
+    {
+      "id": "Q121036149",
+      "name": "Bobby Fischer Teaches Chess",
+      "parentTitle": "Bobby Fischer Teaches Chess",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mission Studios",
+      "genre": "chess video game",
+      "year": 1994
     },
     {
       "id": "Q686072",
@@ -2089,6 +2595,17 @@
       "year": 1988
     },
     {
+      "id": "Q3642333",
+      "name": "Boppin'",
+      "parentTitle": "Boppin'",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "puzzle video game",
+      "year": 1991
+    },
+    {
       "id": "Q893416",
       "name": "Border Zone",
       "parentTitle": "Border Zone",
@@ -2120,6 +2637,17 @@
       "publisher": "SCE Studio Liverpool",
       "genre": "first-person shooter",
       "year": 1993
+    },
+    {
+      "id": "Q4959097",
+      "name": "Breach 2",
+      "parentTitle": "Breach 2",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Impressions Games",
+      "genre": "science fiction video game",
+      "year": 1990
     },
     {
       "id": "Q4959234",
@@ -2232,6 +2760,17 @@
       "year": 1994
     },
     {
+      "id": "Q118307529",
+      "name": "BSS Jane Seymour",
+      "parentTitle": "BSS Jane Seymour",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "dungeon crawl",
+      "year": 1990
+    },
+    {
       "id": "Q88759",
       "name": "Bubble Bobble",
       "parentTitle": "Bubble Bobble",
@@ -2340,6 +2879,17 @@
       "publisher": "Max Design",
       "genre": "post-apocalyptic video game",
       "year": 1994
+    },
+    {
+      "id": "Q1018343",
+      "name": "Buzz Aldrin's Race Into Space",
+      "parentTitle": "Buzz Aldrin's Race Into Space",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interplay Entertainment",
+      "genre": "construction and management simulation",
+      "year": 1993
     },
     {
       "id": "Q88921",
@@ -2529,6 +3079,17 @@
       "year": 1992
     },
     {
+      "id": "Q65040572",
+      "name": "Cardinal of the Kremlin",
+      "parentTitle": "Cardinal of the Kremlin",
+      "region": null,
+      "serial": null,
+      "developer": "Capstone Software",
+      "publisher": "IntraCorp",
+      "genre": "government simulation game",
+      "year": null
+    },
+    {
       "id": "Q379169",
       "name": "Carmageddon",
       "parentTitle": "Carmageddon",
@@ -2582,6 +3143,17 @@
       "publisher": "Incentive Software",
       "genre": "puzzle video game",
       "year": 1990
+    },
+    {
+      "id": "Q5050383",
+      "name": "Castle of Dr. Brain",
+      "parentTitle": "Castle of Dr. Brain",
+      "region": null,
+      "serial": null,
+      "developer": "Sierra Entertainment",
+      "publisher": null,
+      "genre": "puzzle video game",
+      "year": null
     },
     {
       "id": "Q1049570",
@@ -2670,6 +3242,17 @@
       "publisher": "Electronic Arts",
       "genre": "sports video game",
       "year": 1988
+    },
+    {
+      "id": "Q2264526",
+      "name": "Centurion: Defender of Rome",
+      "parentTitle": "Centurion: Defender of Rome",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "action game",
+      "year": 1990
     },
     {
       "id": "Q111150835",
@@ -2826,6 +3409,17 @@
       "year": 1996
     },
     {
+      "id": "Q18387177",
+      "name": "Chewy: Esc from F5",
+      "parentTitle": "Chewy: Esc from F5",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ubisoft Blue Byte",
+      "genre": "point-and-click adventure",
+      "year": 1995
+    },
+    {
       "id": "Q5094556",
       "name": "Chex Quest",
       "parentTitle": "Chex Quest",
@@ -2868,6 +3462,17 @@
       "publisher": "Simon & Schuster",
       "genre": "educational video game",
       "year": 1996
+    },
+    {
+      "id": "Q8141343",
+      "name": "Chip 'n Dale Rescue Rangers: The Adventures in Nimnul's Castle",
+      "parentTitle": "Chip 'n Dale Rescue Rangers: The Adventures in Nimnul's Castle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Disney Interactive Studios",
+      "genre": "action game",
+      "year": 1990
     },
     {
       "id": "Q2746450",
@@ -2969,6 +3574,17 @@
       "year": 1990
     },
     {
+      "id": "Q130526689",
+      "name": "Circus Games",
+      "parentTitle": "Circus Games",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Keypunch Software",
+      "genre": null,
+      "year": null
+    },
+    {
       "id": "Q2085448",
       "name": "Cisco Heat",
       "parentTitle": "Cisco Heat",
@@ -3044,6 +3660,17 @@
       "publisher": null,
       "genre": null,
       "year": 1994
+    },
+    {
+      "id": "Q4036348",
+      "name": "Cobra Mission: Panic in Cobra City",
+      "parentTitle": "Cobra Mission: Panic in Cobra City",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Megatech Software",
+      "genre": "adventure video game",
+      "year": 1991
     },
     {
       "id": "Q2168378",
@@ -3266,6 +3893,17 @@
       "year": 1985
     },
     {
+      "id": "Q4036465",
+      "name": "Companions of Xanth",
+      "parentTitle": "Companions of Xanth",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Legend Entertainment",
+      "genre": "adventure video game",
+      "year": 1993
+    },
+    {
       "id": "Q5156478",
       "name": "Complete Onside Soccer",
       "parentTitle": "Complete Onside Soccer",
@@ -3286,6 +3924,17 @@
       "publisher": "Virgin Interactive",
       "genre": null,
       "year": 1991
+    },
+    {
+      "id": "Q1125352",
+      "name": "Conflict: Middle East Political Simulator",
+      "parentTitle": "Conflict: Middle East Political Simulator",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Virgin Interactive",
+      "genre": "government simulation game",
+      "year": 1990
     },
     {
       "id": "Q2993562",
@@ -3453,6 +4102,17 @@
       "year": 1990
     },
     {
+      "id": "Q16273567",
+      "name": "Counter Action",
+      "parentTitle": "Counter Action",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Doca",
+      "genre": "computer wargame",
+      "year": 1997
+    },
+    {
       "id": "Q3696306",
       "name": "Cover Girl Strip Poker",
       "parentTitle": "Cover Girl Strip Poker",
@@ -3486,6 +4146,17 @@
       "year": 1987
     },
     {
+      "id": "Q55327153",
+      "name": "Creative Contraptions",
+      "parentTitle": "Creative Contraptions",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Bantam Books",
+      "genre": "puzzle video game",
+      "year": 1985
+    },
+    {
       "id": "Q739312",
       "name": "Creature Shock",
       "parentTitle": "Creature Shock",
@@ -3508,6 +4179,61 @@
       "year": 1992
     },
     {
+      "id": "Q5184950",
+      "name": "Cricket 96",
+      "parentTitle": "Cricket 96",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "EA Sports",
+      "genre": "sports video game",
+      "year": null
+    },
+    {
+      "id": "Q5184951",
+      "name": "Cricket 97",
+      "parentTitle": "Cricket 97",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "EA Sports",
+      "genre": "sports video game",
+      "year": null
+    },
+    {
+      "id": "Q5185208",
+      "name": "Crime Patrol 2: Drug Wars",
+      "parentTitle": "Crime Patrol 2: Drug Wars",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "American Laser Games",
+      "genre": "action game",
+      "year": 1993
+    },
+    {
+      "id": "Q64030627",
+      "name": "Crime Time",
+      "parentTitle": "Crime Time",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Starbyte",
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
+      "id": "Q1140164",
+      "name": "Crisis in the Kremlin",
+      "parentTitle": "Crisis in the Kremlin",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroProse",
+      "genre": "strategy video game",
+      "year": 1991
+    },
+    {
       "id": "Q54878419",
       "name": "Crossbow: The Legend Of William Tell",
       "parentTitle": "Crossbow: The Legend Of William Tell",
@@ -3517,6 +4243,17 @@
       "publisher": "Screen 7",
       "genre": "adventure video game",
       "year": 1990
+    },
+    {
+      "id": "Q140834761",
+      "name": "Crosscheck",
+      "parentTitle": "Crosscheck",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Datasoft",
+      "genre": "board video game",
+      "year": 1986
     },
     {
       "id": "Q970794",
@@ -3662,6 +4399,17 @@
       "year": 1988
     },
     {
+      "id": "Q5197757",
+      "name": "Cyberbykes: Shadow Racer VR",
+      "parentTitle": "Cyberbykes: Shadow Racer VR",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "GameTek",
+      "genre": "action game",
+      "year": 1995
+    },
+    {
       "id": "Q1147147",
       "name": "Cyberia",
       "parentTitle": "Cyberia",
@@ -3693,6 +4441,17 @@
       "publisher": "Cyberdreams",
       "genre": "racing video game",
       "year": 1993
+    },
+    {
+      "id": "Q5198187",
+      "name": "Cyclemania",
+      "parentTitle": "Cyclemania",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "racing video game",
+      "year": 1994
     },
     {
       "id": "Q3699815",
@@ -3750,6 +4509,17 @@
       "year": 1997
     },
     {
+      "id": "Q108749534",
+      "name": "D.R.A.G.O.N. Force",
+      "parentTitle": "D.R.A.G.O.N. Force",
+      "region": null,
+      "serial": null,
+      "developer": "Interstel Corporation",
+      "publisher": "Interstel Corporation",
+      "genre": "computer wargame",
+      "year": null
+    },
+    {
       "id": "Q2596204",
       "name": "D/Generation",
       "parentTitle": "D/Generation",
@@ -3803,6 +4573,17 @@
       "publisher": "Softdisk",
       "genre": "platform game",
       "year": 1993
+    },
+    {
+      "id": "Q583063",
+      "name": "Dark Ages",
+      "parentTitle": "Dark Ages",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "3D Realms",
+      "genre": "platform game",
+      "year": 1991
     },
     {
       "id": "Q843485",
@@ -3935,6 +4716,28 @@
       "publisher": "Ascaron",
       "genre": "combat flight simulator game",
       "year": 1996
+    },
+    {
+      "id": "Q120318847",
+      "name": "Das Telekommando kehrt zurück",
+      "parentTitle": "Das Telekommando kehrt zurück",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Deutsche Telekom",
+      "genre": "point-and-click adventure",
+      "year": null
+    },
+    {
+      "id": "Q123996247",
+      "name": "Das Telekommando!",
+      "parentTitle": "Das Telekommando!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Deutsche Telekom",
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q5228843",
@@ -4080,6 +4883,28 @@
       "year": 1987
     },
     {
+      "id": "Q28057501",
+      "name": "Decisive Battles of the American Civil War, Vol. 3",
+      "parentTitle": "Decisive Battles of the American Civil War, Vol. 3",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Studies Group",
+      "genre": "computer wargame",
+      "year": 1989
+    },
+    {
+      "id": "Q102313872",
+      "name": "Deep Space: Operation Copernicus",
+      "parentTitle": "Deep Space: Operation Copernicus",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sir-Tech",
+      "genre": "space combat simulation game",
+      "year": 1987
+    },
+    {
       "id": "Q1182594",
       "name": "Defender of the Crown",
       "parentTitle": "Defender of the Crown",
@@ -4144,6 +4969,17 @@
       "publisher": "Strategic Simulations",
       "genre": "role-playing video game",
       "year": 1988
+    },
+    {
+      "id": "Q135214299",
+      "name": "Denarius Avaricius Sextus",
+      "parentTitle": "Denarius Avaricius Sextus",
+      "region": null,
+      "serial": null,
+      "developer": "Marnanel Thurman",
+      "publisher": null,
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q18351245",
@@ -4377,6 +5213,17 @@
       "year": 1993
     },
     {
+      "id": "Q60785034",
+      "name": "Dinotopia",
+      "parentTitle": "Dinotopia",
+      "region": null,
+      "serial": null,
+      "developer": "The Dreamers Guild",
+      "publisher": null,
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
       "id": "Q3029768",
       "name": "Disc",
       "parentTitle": "Disc",
@@ -4432,6 +5279,17 @@
       "year": 1993
     },
     {
+      "id": "Q5283862",
+      "name": "Dive Bomber",
+      "parentTitle": "Dive Bomber",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "combat flight simulator game",
+      "year": 1988
+    },
+    {
       "id": "Q5285113",
       "name": "Dizzy Down the Rapids",
       "parentTitle": "Dizzy Down the Rapids",
@@ -4454,6 +5312,17 @@
       "year": 1991
     },
     {
+      "id": "Q25401173",
+      "name": "DJ Puff",
+      "parentTitle": "DJ Puff",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Codemasters",
+      "genre": "2D platform game",
+      "year": 1992
+    },
+    {
       "id": "Q1059405",
       "name": "Dōkyūsei",
       "parentTitle": "Dōkyūsei",
@@ -4474,6 +5343,17 @@
       "publisher": null,
       "genre": "bishōjo game",
       "year": 1995
+    },
+    {
+      "id": "Q107980180",
+      "name": "Don't Go Alone",
+      "parentTitle": "Don't Go Alone",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": null,
+      "year": 1989
     },
     {
       "id": "Q1239831",
@@ -4518,6 +5398,17 @@
       "publisher": "Activision",
       "genre": "action game",
       "year": 1994
+    },
+    {
+      "id": "Q130207422",
+      "name": "Dossier Kha",
+      "parentTitle": "Dossier Kha",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Microids",
+      "genre": "adventure video game",
+      "year": null
     },
     {
       "id": "Q5299706",
@@ -4586,6 +5477,17 @@
       "year": 1996
     },
     {
+      "id": "Q106457686",
+      "name": "Drachen von Laas",
+      "parentTitle": "Drachen von Laas",
+      "region": null,
+      "serial": null,
+      "developer": "Attic Entertainment Software",
+      "publisher": "Attic Entertainment Software",
+      "genre": null,
+      "year": null
+    },
+    {
       "id": "Q1254867",
       "name": "Dragon Knight 4",
       "parentTitle": "Dragon Knight 4",
@@ -4627,6 +5529,17 @@
       "developer": "Interplay Entertainment",
       "publisher": "Activision",
       "genre": "role-playing video game",
+      "year": 1991
+    },
+    {
+      "id": "Q3715016",
+      "name": "Dragon's Lair II: Time Warp",
+      "parentTitle": "Dragon's Lair II: Time Warp",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Digital Leisure",
+      "genre": "action game",
       "year": 1991
     },
     {
@@ -4707,6 +5620,28 @@
       "year": 1987
     },
     {
+      "id": "Q1967833",
+      "name": "Dreamweb",
+      "parentTitle": "Dreamweb",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "adventure video game",
+      "year": 1994
+    },
+    {
+      "id": "Q2006183",
+      "name": "Driller",
+      "parentTitle": "Driller",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Incentive Software",
+      "genre": "puzzle video game",
+      "year": 1987
+    },
+    {
       "id": "Q122641503",
       "name": "Dstroy",
       "parentTitle": "Dstroy",
@@ -4716,6 +5651,17 @@
       "publisher": "Fully Bugged",
       "genre": "arcade",
       "year": 1995
+    },
+    {
+      "id": "Q5311534",
+      "name": "Duckman: The Graphic Adventures of a Private Dick",
+      "parentTitle": "Duckman: The Graphic Adventures of a Private Dick",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Playmates Toys",
+      "genre": "adventure video game",
+      "year": 1997
     },
     {
       "id": "Q648302",
@@ -4850,6 +5796,17 @@
       "year": 1994
     },
     {
+      "id": "Q5316922",
+      "name": "Dusk of the Gods",
+      "parentTitle": "Dusk of the Gods",
+      "region": null,
+      "serial": null,
+      "developer": "DreamForge Intertainment",
+      "publisher": null,
+      "genre": "role-playing video game",
+      "year": null
+    },
+    {
       "id": "Q735199",
       "name": "E-Motion",
       "parentTitle": "E-Motion",
@@ -4870,6 +5827,17 @@
       "publisher": "Electronic Arts",
       "genre": "adventure video game",
       "year": 1994
+    },
+    {
+      "id": "Q102349759",
+      "name": "Earl Weaver Baseball II",
+      "parentTitle": "Earl Weaver Baseball II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "sports video game",
+      "year": 1991
     },
     {
       "id": "Q1277597",
@@ -4894,6 +5862,17 @@
       "year": 1994
     },
     {
+      "id": "Q5329789",
+      "name": "East vs. West: Berlin 1948",
+      "parentTitle": "East vs. West: Berlin 1948",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Rainbow Arts",
+      "genre": "adventure video game",
+      "year": 1989
+    },
+    {
       "id": "Q3047071",
       "name": "EcoQuest: The Search for Cetus",
       "parentTitle": "EcoQuest: The Search for Cetus",
@@ -4905,6 +5884,28 @@
       "year": 1991
     },
     {
+      "id": "Q3047109",
+      "name": "Ecstatica",
+      "parentTitle": "Ecstatica",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "action-adventure game",
+      "year": 1994
+    },
+    {
+      "id": "Q3047107",
+      "name": "Ecstatica II",
+      "parentTitle": "Ecstatica II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "action-adventure game",
+      "year": 1997
+    },
+    {
       "id": "Q5322953",
       "name": "EF2000",
       "parentTitle": "EF2000",
@@ -4914,6 +5915,28 @@
       "publisher": "Ocean Software",
       "genre": "combat flight simulator game",
       "year": 1995
+    },
+    {
+      "id": "Q3049661",
+      "name": "El-Fish",
+      "parentTitle": "El-Fish",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Maxis",
+      "genre": "biological simulation video game",
+      "year": 1993
+    },
+    {
+      "id": "Q4037980",
+      "name": "Electro Man",
+      "parentTitle": "Electro Man",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "side-scrolling video game",
+      "year": 1992
     },
     {
       "id": "Q111353631",
@@ -5026,6 +6049,17 @@
       "year": 1983
     },
     {
+      "id": "Q5376396",
+      "name": "Endorfun",
+      "parentTitle": "Endorfun",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "WarnerMedia",
+      "genre": "puzzle video game",
+      "year": 1995
+    },
+    {
       "id": "Q2101442",
       "name": "Epic",
       "parentTitle": "Epic",
@@ -5079,6 +6113,17 @@
       "publisher": "Electronic Arts",
       "genre": "role-playing video game",
       "year": 1990
+    },
+    {
+      "id": "Q5397041",
+      "name": "Escape from Singe's Castle",
+      "parentTitle": "Escape from Singe's Castle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Software Projects",
+      "genre": "action game",
+      "year": 1987
     },
     {
       "id": "Q1366821",
@@ -5145,6 +6190,17 @@
       "publisher": null,
       "genre": "association football video game",
       "year": 1992
+    },
+    {
+      "id": "Q5413262",
+      "name": "European Superleague",
+      "parentTitle": "European Superleague",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Idigicon Limited",
+      "genre": "association football video game",
+      "year": 1990
     },
     {
       "id": "Q2115150",
@@ -5301,6 +6357,17 @@
       "year": 1992
     },
     {
+      "id": "Q3396014",
+      "name": "F-16 Combat Pilot",
+      "parentTitle": "F-16 Combat Pilot",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "digital integration",
+      "genre": "combat flight simulator game",
+      "year": 1988
+    },
+    {
       "id": "Q3255718",
       "name": "F-19 Stealth Fighter",
       "parentTitle": "F-19 Stealth Fighter",
@@ -5323,6 +6390,17 @@
       "year": 1996
     },
     {
+      "id": "Q1386402",
+      "name": "F1 Manager Professional",
+      "parentTitle": "F1 Manager Professional",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Software 2000",
+      "genre": "business simulation game",
+      "year": 1997
+    },
+    {
       "id": "Q4038498",
       "name": "F29 Retaliator",
       "parentTitle": "F29 Retaliator",
@@ -5332,6 +6410,17 @@
       "publisher": "Ocean Software",
       "genre": "combat flight simulator game",
       "year": 1989
+    },
+    {
+      "id": "Q4038565",
+      "name": "Fable",
+      "parentTitle": "Fable",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "North America",
+      "genre": "adventure video game",
+      "year": 1996
     },
     {
       "id": "Q5428490",
@@ -5354,6 +6443,17 @@
       "publisher": "Electronic Arts",
       "genre": "action-adventure game",
       "year": 1995
+    },
+    {
+      "id": "Q65058275",
+      "name": "Faery Tale Adventure II: Halls of the Dead",
+      "parentTitle": "Faery Tale Adventure II: Halls of the Dead",
+      "region": null,
+      "serial": null,
+      "developer": "The Dreamers Guild",
+      "publisher": "Encore, Inc.",
+      "genre": "action role-playing game",
+      "year": null
     },
     {
       "id": "Q34071865",
@@ -5477,6 +6577,17 @@
       "year": 1996
     },
     {
+      "id": "Q2235655",
+      "name": "Feud",
+      "parentTitle": "Feud",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mastertronic",
+      "genre": "adventure video game",
+      "year": 1987
+    },
+    {
       "id": "Q5447220",
       "name": "Fields of Glory",
       "parentTitle": "Fields of Glory",
@@ -5486,6 +6597,17 @@
       "publisher": "MicroProse",
       "genre": "real-time strategy",
       "year": 1993
+    },
+    {
+      "id": "Q2033784",
+      "name": "Fiendish Freddy's Big Top O'Fun",
+      "parentTitle": "Fiendish Freddy's Big Top O'Fun",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "action game",
+      "year": 1990
     },
     {
       "id": "Q427337",
@@ -5519,6 +6641,17 @@
       "publisher": "EA Sports",
       "genre": "association football video game",
       "year": 1995
+    },
+    {
+      "id": "Q104176169",
+      "name": "Fifth Eskadra",
+      "parentTitle": "Fifth Eskadra",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Simulations Canada",
+      "genre": null,
+      "year": 1984
     },
     {
       "id": "Q5447839",
@@ -5587,6 +6720,17 @@
       "year": 1989
     },
     {
+      "id": "Q3167680",
+      "name": "Fire Power",
+      "parentTitle": "Fire Power",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroIllusions",
+      "genre": "action game",
+      "year": 1987
+    },
+    {
       "id": "Q16267587",
       "name": "Fire-Brigade: The Battle for Kiev - 1943",
       "parentTitle": "Fire-Brigade: The Battle for Kiev - 1943",
@@ -5609,6 +6753,17 @@
       "year": 1996
     },
     {
+      "id": "Q118859435",
+      "name": "Firezone",
+      "parentTitle": "Firezone",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Personal Software Services",
+      "genre": "computer wargame",
+      "year": 1987
+    },
+    {
       "id": "Q5452146",
       "name": "Firo and Klawd",
       "parentTitle": "Firo and Klawd",
@@ -5618,6 +6773,17 @@
       "publisher": "BMG Rights Management",
       "genre": "platform game",
       "year": 1996
+    },
+    {
+      "id": "Q104671103",
+      "name": "First Expedition",
+      "parentTitle": "First Expedition",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interstel Corporation",
+      "genre": "science fiction video game",
+      "year": 1988
     },
     {
       "id": "Q1984081",
@@ -5640,6 +6806,17 @@
       "publisher": "Telecomsoft",
       "genre": "interactive fiction",
       "year": 1988
+    },
+    {
+      "id": "Q3312743",
+      "name": "Flames of Freedom",
+      "parentTitle": "Flames of Freedom",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Telecomsoft",
+      "genre": "first-person shooter",
+      "year": 1991
     },
     {
       "id": "Q1001925",
@@ -5673,6 +6850,17 @@
       "publisher": null,
       "genre": "flight simulation video game",
       "year": 1990
+    },
+    {
+      "id": "Q1428744",
+      "name": "Flight of the Amazon Queen",
+      "parentTitle": "Flight of the Amazon Queen",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Renegade Software",
+      "genre": "adventure video game",
+      "year": 1995
     },
     {
       "id": "Q2800857",
@@ -5917,6 +7105,17 @@
       "year": 1992
     },
     {
+      "id": "Q3087317",
+      "name": "Freedom",
+      "parentTitle": "Freedom",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Coktel Vision",
+      "genre": "adventure video game",
+      "year": 1988
+    },
+    {
       "id": "Q55612125",
       "name": "Front Page Sports Football Pro",
       "parentTitle": "Front Page Sports Football Pro",
@@ -6049,6 +7248,17 @@
       "year": 1990
     },
     {
+      "id": "Q3094470",
+      "name": "Galactix",
+      "parentTitle": "Galactix",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mountain King Studios",
+      "genre": "shoot 'em up",
+      "year": 1992
+    },
+    {
       "id": "Q1192514",
       "name": "Galaxian",
       "parentTitle": "Galaxian",
@@ -6080,6 +7290,17 @@
       "publisher": "Dinamic Software",
       "genre": "platform game",
       "year": 1987
+    },
+    {
+      "id": "Q5525173",
+      "name": "Gary Grigsby's Pacific War",
+      "parentTitle": "Gary Grigsby's Pacific War",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "computer wargame",
+      "year": 1992
     },
     {
       "id": "Q11356772",
@@ -6170,6 +7391,17 @@
       "year": 1986
     },
     {
+      "id": "Q55612397",
+      "name": "Geisha",
+      "parentTitle": "Geisha",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Coktel Vision",
+      "genre": "adventure video game",
+      "year": 1990
+    },
+    {
       "id": "Q2398028",
       "name": "Gemfire",
       "parentTitle": "Gemfire",
@@ -6179,6 +7411,17 @@
       "publisher": "Koei",
       "genre": "turn-based strategy video game",
       "year": 1991
+    },
+    {
+      "id": "Q20875630",
+      "name": "Gender Wars",
+      "parentTitle": "Gender Wars",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari, Inc.",
+      "genre": "action game",
+      "year": 1996
     },
     {
       "id": "Q762644",
@@ -6223,6 +7466,17 @@
       "publisher": null,
       "genre": "educational entertainment",
       "year": 1984
+    },
+    {
+      "id": "Q55865696",
+      "name": "Ghostbusters II",
+      "parentTitle": "Ghostbusters II",
+      "region": null,
+      "serial": null,
+      "developer": "Dynamix",
+      "publisher": null,
+      "genre": "action game",
+      "year": null
     },
     {
       "id": "Q5570203",
@@ -6291,6 +7545,17 @@
       "year": 1993
     },
     {
+      "id": "Q5576059",
+      "name": "God of Thunder",
+      "parentTitle": "God of Thunder",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Software Creations",
+      "genre": "action game",
+      "year": 1993
+    },
+    {
       "id": "Q1486269",
       "name": "Gods",
       "parentTitle": "Gods",
@@ -6346,6 +7611,17 @@
       "year": 1990
     },
     {
+      "id": "Q29907051",
+      "name": "Golden Eagle",
+      "parentTitle": "Golden Eagle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Loriciels",
+      "genre": "action-adventure game",
+      "year": 1992
+    },
+    {
       "id": "Q4039598",
       "name": "Goody",
       "parentTitle": "Goody",
@@ -6366,6 +7642,28 @@
       "publisher": "Microsoft",
       "genre": "artillery game",
       "year": 1990
+    },
+    {
+      "id": "Q61654465",
+      "name": "Graeme Souness Soccer Manager",
+      "parentTitle": "Graeme Souness Soccer Manager",
+      "region": null,
+      "serial": null,
+      "developer": "Zeppelin Games",
+      "publisher": null,
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "Q1542626",
+      "name": "Grand Monster Slam",
+      "parentTitle": "Grand Monster Slam",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Rainbow Arts",
+      "genre": "sports video game",
+      "year": 1989
     },
     {
       "id": "Q2733995",
@@ -6412,6 +7710,17 @@
       "year": 1986
     },
     {
+      "id": "Q132041865",
+      "name": "Grand Slam Bridge II",
+      "parentTitle": "Grand Slam Bridge II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": null,
+      "year": 1986
+    },
+    {
       "id": "Q94501",
       "name": "Grand Theft Auto",
       "parentTitle": "Grand Theft Auto",
@@ -6442,6 +7751,17 @@
       "developer": "Sunsoft",
       "publisher": "Sunsoft",
       "genre": "platform game",
+      "year": 1990
+    },
+    {
+      "id": "Q16640103",
+      "name": "Gremlins 2: The New Batch",
+      "parentTitle": "Gremlins 2: The New Batch",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Elite Systems",
+      "genre": "action game",
       "year": 1990
     },
     {
@@ -6588,6 +7908,28 @@
       "year": 1989
     },
     {
+      "id": "Q1584984",
+      "name": "Hard Hat Mack",
+      "parentTitle": "Hard Hat Mack",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "platform game",
+      "year": 1983
+    },
+    {
+      "id": "Q1033908",
+      "name": "Hard Nova",
+      "parentTitle": "Hard Nova",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "role-playing video game",
+      "year": 1990
+    },
+    {
       "id": "Q393114",
       "name": "HardBall II",
       "parentTitle": "HardBall II",
@@ -6597,6 +7939,28 @@
       "publisher": "Accolade",
       "genre": "baseball video game",
       "year": 1989
+    },
+    {
+      "id": "Q2662389",
+      "name": "HardBall III",
+      "parentTitle": "HardBall III",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "accolade",
+      "genre": "sports video game",
+      "year": 1992
+    },
+    {
+      "id": "Q3949411",
+      "name": "HardBall IV",
+      "parentTitle": "HardBall IV",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "baseball video game",
+      "year": 1994
     },
     {
       "id": "Q392948",
@@ -6654,6 +8018,17 @@
       "year": 1989
     },
     {
+      "id": "Q2699180",
+      "name": "Harrier Combat Simulator",
+      "parentTitle": "Harrier Combat Simulator",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "simulation video game",
+      "year": 1986
+    },
+    {
       "id": "Q549466",
       "name": "Harvester",
       "parentTitle": "Harvester",
@@ -6663,6 +8038,17 @@
       "publisher": "Virgin Interactive",
       "genre": "full motion video",
       "year": 1996
+    },
+    {
+      "id": "Q140517964",
+      "name": "Hawaian Odyssey - Scenery Adventure",
+      "parentTitle": "Hawaian Odyssey - Scenery Adventure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sublogic",
+      "genre": null,
+      "year": 1989
     },
     {
       "id": "Q3129033",
@@ -6685,6 +8071,39 @@
       "publisher": "Data East",
       "genre": "run and gun",
       "year": 1987
+    },
+    {
+      "id": "Q1984146",
+      "name": "Heimdall",
+      "parentTitle": "Heimdall",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Core Design",
+      "genre": "action-adventure game",
+      "year": 1992
+    },
+    {
+      "id": "Q576773",
+      "name": "Heimdall 2",
+      "parentTitle": "Heimdall 2",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Core Design",
+      "genre": "action-adventure game",
+      "year": 1994
+    },
+    {
+      "id": "Q30895284",
+      "name": "Heirs to the Throne",
+      "parentTitle": "Heirs to the Throne",
+      "region": null,
+      "serial": null,
+      "developer": "German Design Group",
+      "publisher": "German Design Group",
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q13512085",
@@ -6764,6 +8183,17 @@
       "year": 1991
     },
     {
+      "id": "Q141102813",
+      "name": "Herrscher der Meere",
+      "parentTitle": "Herrscher der Meere",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Attic Entertainment Software",
+      "genre": "business simulation game",
+      "year": 1997
+    },
+    {
       "id": "Q58864635",
       "name": "Het EK '96 Voetbalspel",
       "parentTitle": "Het EK '96 Voetbalspel",
@@ -6808,6 +8238,17 @@
       "year": 1995
     },
     {
+      "id": "Q3785570",
+      "name": "Highway Hunter",
+      "parentTitle": "Highway Hunter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Safari Software",
+      "genre": "action game",
+      "year": 1995
+    },
+    {
       "id": "Q2306270",
       "name": "Hillsfar",
       "parentTitle": "Hillsfar",
@@ -6828,6 +8269,17 @@
       "publisher": "Ubisoft Blue Byte",
       "genre": "turn-based tactics",
       "year": 1992
+    },
+    {
+      "id": "Q2292666",
+      "name": "Hocus Pocus",
+      "parentTitle": "Hocus Pocus",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "3D Realms",
+      "genre": "platform game",
+      "year": 1994
     },
     {
       "id": "Q13630627",
@@ -6915,6 +8367,17 @@
       "developer": "Bit Managers",
       "publisher": "Infogrames",
       "genre": "action game",
+      "year": 1988
+    },
+    {
+      "id": "Q5909634",
+      "name": "HotShot",
+      "parentTitle": "HotShot",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Addictive Games",
+      "genre": "bat-and-ball game",
       "year": 1988
     },
     {
@@ -7160,6 +8623,17 @@
       "year": 1985
     },
     {
+      "id": "Q2610582",
+      "name": "Indiana Jones in Revenge of the Ancients",
+      "parentTitle": "Indiana Jones in Revenge of the Ancients",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "adventure video game",
+      "year": 1987
+    },
+    {
       "id": "Q687360",
       "name": "Indianapolis 500: The Simulation",
       "parentTitle": "Indianapolis 500: The Simulation",
@@ -7169,6 +8643,17 @@
       "publisher": "Electronic Arts",
       "genre": "sim racing",
       "year": 1989
+    },
+    {
+      "id": "Q6026409",
+      "name": "Indoor Sports",
+      "parentTitle": "Indoor Sports",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "sports video game",
+      "year": 1987
     },
     {
       "id": "Q3798412",
@@ -7204,6 +8689,17 @@
       "year": 1994
     },
     {
+      "id": "Q3150724",
+      "name": "Infestation",
+      "parentTitle": "Infestation",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "first-person adventure",
+      "year": 1990
+    },
+    {
       "id": "Q13476157",
       "name": "Infidel",
       "parentTitle": "Infidel",
@@ -7224,6 +8720,17 @@
       "publisher": "Mindscape",
       "genre": "action game",
       "year": 1985
+    },
+    {
+      "id": "Q102315102",
+      "name": "Infiltrator II",
+      "parentTitle": "Infiltrator II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "action game",
+      "year": 1987
     },
     {
       "id": "Q15036793",
@@ -7257,6 +8764,17 @@
       "publisher": "SCE Studio Liverpool",
       "genre": "adventure video game",
       "year": 1993
+    },
+    {
+      "id": "Q102315041",
+      "name": "Inside Trader: The Authentic Stock Trading Game",
+      "parentTitle": "Inside Trader: The Authentic Stock Trading Game",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Cosmi Corporation",
+      "genre": null,
+      "year": 1987
     },
     {
       "id": "Q138331802",
@@ -7323,6 +8841,28 @@
       "publisher": "Image Works",
       "genre": "cyberpunk video game",
       "year": 1989
+    },
+    {
+      "id": "Q6057997",
+      "name": "Into the Eagle's Nest",
+      "parentTitle": "Into the Eagle's Nest",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "shoot 'em up",
+      "year": 1987
+    },
+    {
+      "id": "Q87204693",
+      "name": "Invasion of the Mutant Space Bats of Doom",
+      "parentTitle": "Invasion of the Mutant Space Bats of Doom",
+      "region": null,
+      "serial": null,
+      "developer": "Pop Software",
+      "publisher": null,
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q28531238",
@@ -7422,6 +8962,17 @@
       "publisher": "Silmarils",
       "genre": "role-playing video game",
       "year": 1992
+    },
+    {
+      "id": "Q3155272",
+      "name": "Ishido: The Way of Stones",
+      "parentTitle": "Ishido: The Way of Stones",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "puzzle video game",
+      "year": 1990
     },
     {
       "id": "Q3155818",
@@ -7589,6 +9140,17 @@
       "year": 1989
     },
     {
+      "id": "Q1853282",
+      "name": "Jammit",
+      "parentTitle": "Jammit",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "GTE Interactive Media",
+      "genre": "sports video game",
+      "year": 1994
+    },
+    {
       "id": "Q6151003",
       "name": "Jane's AH-64D Longbow",
       "parentTitle": "Jane's AH-64D Longbow",
@@ -7609,6 +9171,17 @@
       "publisher": "Electronic Arts",
       "genre": "combat flight simulator game",
       "year": 1996
+    },
+    {
+      "id": "Q16259709",
+      "name": "Jason Jupiter",
+      "parentTitle": "Jason Jupiter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "PC Plus",
+      "genre": "platform game",
+      "year": 1989
     },
     {
       "id": "Q1366813",
@@ -7642,6 +9215,17 @@
       "publisher": "Interplay Entertainment",
       "genre": "combat flight simulator game",
       "year": 1998
+    },
+    {
+      "id": "Q11866441",
+      "name": "Jetpack",
+      "parentTitle": "Jetpack",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Software Creations",
+      "genre": "action game",
+      "year": 1993
     },
     {
       "id": "Q6189669",
@@ -7765,6 +9349,39 @@
       "year": 1987
     },
     {
+      "id": "Q2073676",
+      "name": "John Madden Football",
+      "parentTitle": "John Madden Football",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "American football video game",
+      "year": 1988
+    },
+    {
+      "id": "Q3181986",
+      "name": "John Madden Football II",
+      "parentTitle": "John Madden Football II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "American football video game",
+      "year": 1991
+    },
+    {
+      "id": "Q4041863",
+      "name": "Johnny Bazookatone",
+      "parentTitle": "Johnny Bazookatone",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "U.S. Gold",
+      "genre": "platform game",
+      "year": 1995
+    },
+    {
       "id": "Q970426",
       "name": "Jones in the Fast Lane",
       "parentTitle": "Jones in the Fast Lane",
@@ -7886,6 +9503,17 @@
       "year": 1993
     },
     {
+      "id": "Q3811898",
+      "name": "K240",
+      "parentTitle": "K240",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "real-time strategy",
+      "year": 1994
+    },
+    {
       "id": "Q123022842",
       "name": "Kaiser",
       "parentTitle": "Kaiser",
@@ -7994,6 +9622,17 @@
       "publisher": "Imagineer",
       "genre": "association football video game",
       "year": 1989
+    },
+    {
+      "id": "Q65081441",
+      "name": "Kickoff '97",
+      "parentTitle": "Kickoff '97",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Maxis",
+      "genre": "association football video game",
+      "year": null
     },
     {
       "id": "Q9017561",
@@ -8183,6 +9822,17 @@
       "year": 1989
     },
     {
+      "id": "Q104671353",
+      "name": "Knight Games",
+      "parentTitle": "Knight Games",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mastertronic",
+      "genre": "action game",
+      "year": 1986
+    },
+    {
       "id": "Q6422256",
       "name": "Knight Orc",
       "parentTitle": "Knight Orc",
@@ -8203,6 +9853,17 @@
       "publisher": "Origin Systems",
       "genre": "role-playing video game",
       "year": 1989
+    },
+    {
+      "id": "Q6422504",
+      "name": "Knights of the Desert",
+      "parentTitle": "Knights of the Desert",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "turn-based strategy video game",
+      "year": 1982
     },
     {
       "id": "Q3198011",
@@ -8447,6 +10108,28 @@
       "year": 1992
     },
     {
+      "id": "Q2433684",
+      "name": "Legend of Faerghail",
+      "parentTitle": "Legend of Faerghail",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "reLINE Software",
+      "genre": "role-playing video game",
+      "year": 1990
+    },
+    {
+      "id": "Q2354758",
+      "name": "Legend of the Sword",
+      "parentTitle": "Legend of the Sword",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Rainbird Software",
+      "genre": "adventure video game",
+      "year": 1987
+    },
+    {
       "id": "Q55383822",
       "name": "Legends",
       "parentTitle": "Legends",
@@ -8557,6 +10240,17 @@
       "year": 1993
     },
     {
+      "id": "Q19005540",
+      "name": "Leo the Lion",
+      "parentTitle": "Leo the Lion",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "cdp.pl",
+      "genre": "platform game",
+      "year": 1996
+    },
+    {
       "id": "Q3232213",
       "name": "Les Défenseurs de l'ombre",
       "parentTitle": "Les Défenseurs de l'ombre",
@@ -8634,6 +10328,17 @@
       "year": 1994
     },
     {
+      "id": "Q3832164",
+      "name": "Life & Death",
+      "parentTitle": "Life & Death",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "life simulation game",
+      "year": 1988
+    },
+    {
       "id": "Q109340210",
       "name": "Life & Death II: The Brain",
       "parentTitle": "Life & Death II: The Brain",
@@ -8689,6 +10394,17 @@
       "year": 1990
     },
     {
+      "id": "Q6553039",
+      "name": "LineWars II",
+      "parentTitle": "LineWars II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Safari Software",
+      "genre": null,
+      "year": 1994
+    },
+    {
       "id": "Q2331936",
       "name": "Linus Spacehead's Cosmic Crusade",
       "parentTitle": "Linus Spacehead's Cosmic Crusade",
@@ -8709,6 +10425,17 @@
       "publisher": "Sanctuary Woods",
       "genre": "biological simulation video game",
       "year": 1995
+    },
+    {
+      "id": "Q3087096",
+      "name": "Liquid War",
+      "parentTitle": "Liquid War",
+      "region": null,
+      "serial": null,
+      "developer": "GNU Project",
+      "publisher": null,
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q1884098",
@@ -8744,6 +10471,17 @@
       "year": 1997
     },
     {
+      "id": "Q3835510",
+      "name": "Liverpool",
+      "parentTitle": "Liverpool",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Grandslam Entertainments",
+      "genre": "association football video game",
+      "year": 1992
+    },
+    {
       "id": "Q3395615",
       "name": "Livingstone I Presume",
       "parentTitle": "Livingstone I Presume",
@@ -8753,6 +10491,17 @@
       "publisher": "Alligata Software Ltd.",
       "genre": "adventure video game",
       "year": 1986
+    },
+    {
+      "id": "Q6661051",
+      "name": "Llamatron",
+      "parentTitle": "Llamatron",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Jeff Minter",
+      "genre": "multidirectional shooter",
+      "year": 1991
     },
     {
       "id": "Q3257585",
@@ -8810,6 +10559,28 @@
       "year": 1994
     },
     {
+      "id": "Q117154880",
+      "name": "Logo",
+      "parentTitle": "Logo",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Starbyte",
+      "genre": "puzzle video game",
+      "year": 1990
+    },
+    {
+      "id": "Q3498071",
+      "name": "Lombard RAC Rally",
+      "parentTitle": "Lombard RAC Rally",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Europress",
+      "genre": "racing video game",
+      "year": 1988
+    },
+    {
       "id": "Q672380",
       "name": "Loom",
       "parentTitle": "Loom",
@@ -8832,6 +10603,17 @@
       "year": 1990
     },
     {
+      "id": "Q118078706",
+      "name": "Lord Avalot d'Argent",
+      "parentTitle": "Lord Avalot d'Argent",
+      "region": null,
+      "serial": null,
+      "developer": "Marnanel Thurman",
+      "publisher": null,
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
       "id": "Q6680126",
       "name": "Lord of the Rings: Game One",
       "parentTitle": "Lord of the Rings: Game One",
@@ -8841,6 +10623,17 @@
       "publisher": "Krome Studios Melbourne",
       "genre": "adventure video game",
       "year": 1985
+    },
+    {
+      "id": "Q6680164",
+      "name": "Lords of Conquest",
+      "parentTitle": "Lords of Conquest",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Don Daglow",
+      "genre": "strategy video game",
+      "year": 1986
     },
     {
       "id": "Q1869917",
@@ -8942,6 +10735,17 @@
       "year": 1993
     },
     {
+      "id": "Q683590",
+      "name": "Lost Patrol",
+      "parentTitle": "Lost Patrol",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "action game",
+      "year": 1990
+    },
+    {
       "id": "Q3837535",
       "name": "Lotus III: The Ultimate Challenge",
       "parentTitle": "Lotus III: The Ultimate Challenge",
@@ -8986,6 +10790,17 @@
       "year": 1992
     },
     {
+      "id": "Q1414432",
+      "name": "M.U.D.S. – Mean Ugly Dirty Sport",
+      "parentTitle": "M.U.D.S. – Mean Ugly Dirty Sport",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Rainbow Arts",
+      "genre": "action game",
+      "year": 1990
+    },
+    {
       "id": "Q1284570",
       "name": "M.U.L.E.",
       "parentTitle": "M.U.L.E.",
@@ -9028,6 +10843,17 @@
       "publisher": "Strategic Studies Group",
       "genre": "computer wargame",
       "year": 1988
+    },
+    {
+      "id": "Q3274225",
+      "name": "Mach 3",
+      "parentTitle": "Mach 3",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Loriciels",
+      "genre": "shoot 'em up",
+      "year": 1987
     },
     {
       "id": "Q3274315",
@@ -9217,6 +11043,17 @@
       "year": 1987
     },
     {
+      "id": "Q60786594",
+      "name": "Manic Karts",
+      "parentTitle": "Manic Karts",
+      "region": null,
+      "serial": null,
+      "developer": "Manic Media Productions",
+      "publisher": null,
+      "genre": "kart racing game",
+      "year": null
+    },
+    {
       "id": "Q582642",
       "name": "Marble Madness",
       "parentTitle": "Marble Madness",
@@ -9237,6 +11074,17 @@
       "publisher": "Mindscape",
       "genre": "educational video game",
       "year": 1993
+    },
+    {
+      "id": "Q3293323",
+      "name": "Mario's Game Gallery",
+      "parentTitle": "Mario's Game Gallery",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interplay Entertainment",
+      "genre": "card video game",
+      "year": 1995
     },
     {
       "id": "Q2701304",
@@ -9270,6 +11118,17 @@
       "publisher": "Indie Built",
       "genre": "adventure video game",
       "year": 1991
+    },
+    {
+      "id": "Q1851681",
+      "name": "Mass Destruction",
+      "parentTitle": "Mass Destruction",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "ASC Games",
+      "genre": "shoot 'em up",
+      "year": 1997
     },
     {
       "id": "Q1454006",
@@ -9756,6 +11615,28 @@
       "year": 1989
     },
     {
+      "id": "Q1932084",
+      "name": "Midwinter",
+      "parentTitle": "Midwinter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroProse",
+      "genre": "action role-playing game",
+      "year": 1989
+    },
+    {
+      "id": "Q122834457",
+      "name": "Mie",
+      "parentTitle": "Mie",
+      "region": null,
+      "serial": null,
+      "developer": "DOMO Production",
+      "publisher": "Softstar Entertainment",
+      "genre": null,
+      "year": null
+    },
+    {
       "id": "Q6826908",
       "name": "MiG-29 Fulcrum",
       "parentTitle": "MiG-29 Fulcrum",
@@ -9853,6 +11734,28 @@
       "publisher": null,
       "genre": "strategy video game",
       "year": 1989
+    },
+    {
+      "id": "Q28733270",
+      "name": "Mindbender",
+      "parentTitle": "Mindbender",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "puzzle video game",
+      "year": 1989
+    },
+    {
+      "id": "Q6863812",
+      "name": "Mindfighter",
+      "parentTitle": "Mindfighter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Activision",
+      "genre": "interactive fiction",
+      "year": 1988
     },
     {
       "id": "Q4044302",
@@ -10009,6 +11912,17 @@
       "year": 1997
     },
     {
+      "id": "Q1946230",
+      "name": "Montezuma's Revenge",
+      "parentTitle": "Montezuma's Revenge",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Parker Brothers",
+      "genre": "Metroidvania",
+      "year": 1984
+    },
+    {
       "id": "Q6906722",
       "name": "Monty Python's Complete Waste of Time",
       "parentTitle": "Monty Python's Complete Waste of Time",
@@ -10018,6 +11932,17 @@
       "publisher": null,
       "genre": "puzzle video game",
       "year": 1994
+    },
+    {
+      "id": "Q3862744",
+      "name": "Monuments of Mars",
+      "parentTitle": "Monuments of Mars",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "platform game",
+      "year": 1991
     },
     {
       "id": "Q24940327",
@@ -10031,6 +11956,17 @@
       "year": 1990
     },
     {
+      "id": "Q13233429",
+      "name": "Moonbase",
+      "parentTitle": "Moonbase",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "business simulation game",
+      "year": 1990
+    },
+    {
       "id": "Q1946760",
       "name": "Moonmist",
       "parentTitle": "Moonmist",
@@ -10040,6 +11976,17 @@
       "publisher": "Infocom",
       "genre": "interactive fiction",
       "year": 1986
+    },
+    {
+      "id": "Q124747585",
+      "name": "Moonshine Racers",
+      "parentTitle": "Moonshine Racers",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Millennium Interactive",
+      "genre": null,
+      "year": 1991
     },
     {
       "id": "Q383868",
@@ -10062,6 +12009,17 @@
       "publisher": null,
       "genre": "role-playing video game",
       "year": 1988
+    },
+    {
+      "id": "Q4044538",
+      "name": "Mortal Coil: Adrenalin Intelligence",
+      "parentTitle": "Mortal Coil: Adrenalin Intelligence",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Virgin Interactive",
+      "genre": "first-person shooter",
+      "year": 1995
     },
     {
       "id": "Q150294",
@@ -10196,6 +12154,17 @@
       "year": 1983
     },
     {
+      "id": "Q111107314",
+      "name": "Murder!",
+      "parentTitle": "Murder!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "U.S. Gold",
+      "genre": null,
+      "year": 1990
+    },
+    {
       "id": "Q6940664",
       "name": "Museum Madness",
       "parentTitle": "Museum Madness",
@@ -10205,6 +12174,17 @@
       "publisher": "Minnesota Educational Computing Consortium",
       "genre": "educational video game",
       "year": 1994
+    },
+    {
+      "id": "Q6948878",
+      "name": "Mystery at the Museums",
+      "parentTitle": "Mystery at the Museums",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Artech Digital Entertainment",
+      "genre": "educational video game",
+      "year": 1993
     },
     {
       "id": "Q123523287",
@@ -10238,6 +12218,17 @@
       "publisher": "Telecomsoft",
       "genre": "interactive fiction",
       "year": 1989
+    },
+    {
+      "id": "Q3284443",
+      "name": "NAM",
+      "parentTitle": "NAM",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari, Inc.",
+      "genre": "first-person shooter",
+      "year": 1998
     },
     {
       "id": "Q60742149",
@@ -10350,6 +12341,17 @@
       "year": 1996
     },
     {
+      "id": "Q6998149",
+      "name": "Netzone",
+      "parentTitle": "Netzone",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "GameTek",
+      "genre": "adventure video game",
+      "year": 1996
+    },
+    {
       "id": "Q1126146",
       "name": "Neuromancer",
       "parentTitle": "Neuromancer",
@@ -10425,6 +12427,28 @@
       "publisher": "EA Sports",
       "genre": "ice hockey video game",
       "year": 1995
+    },
+    {
+      "id": "Q1054477",
+      "name": "Nibbles",
+      "parentTitle": "Nibbles",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Microsoft",
+      "genre": "arcade",
+      "year": 1991
+    },
+    {
+      "id": "Q14942253",
+      "name": "Nick Faldo's Championship Golf",
+      "parentTitle": "Nick Faldo's Championship Golf",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Grandslam Entertainments",
+      "genre": "sports video game",
+      "year": 1992
     },
     {
       "id": "Q2805289",
@@ -10515,6 +12539,28 @@
       "year": 1983
     },
     {
+      "id": "Q7046447",
+      "name": "Noctropolis",
+      "parentTitle": "Noctropolis",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "adventure video game",
+      "year": 1994
+    },
+    {
+      "id": "Q16266984",
+      "name": "Nomad",
+      "parentTitle": "Nomad",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "GameTek",
+      "genre": "space trading and combat game",
+      "year": 1993
+    },
+    {
       "id": "Q1536551",
       "name": "Nord and Bert Couldn't Make Head or Tail of It",
       "parentTitle": "Nord and Bert Couldn't Make Head or Tail of It",
@@ -10592,6 +12638,17 @@
       "year": 1986
     },
     {
+      "id": "Q2387100",
+      "name": "Obitus",
+      "parentTitle": "Obitus",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "role-playing video game",
+      "year": 1991
+    },
+    {
       "id": "Q1988393",
       "name": "Obliterator",
       "parentTitle": "Obliterator",
@@ -10647,6 +12704,17 @@
       "year": 1983
     },
     {
+      "id": "Q142081268",
+      "name": "Oil's Well",
+      "parentTitle": "Oil's Well",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra On-Line",
+      "genre": null,
+      "year": 1990
+    },
+    {
       "id": "Q7085219",
       "name": "Old Time Baseball",
       "parentTitle": "Old Time Baseball",
@@ -10689,6 +12757,28 @@
       "publisher": "Ascaron",
       "genre": "association football video game",
       "year": 1993
+    },
+    {
+      "id": "Q74565591",
+      "name": "Once Upon a Forest",
+      "parentTitle": "Once Upon a Forest",
+      "region": null,
+      "serial": null,
+      "developer": "Sanctuary Woods",
+      "publisher": null,
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
+      "id": "Q1923697",
+      "name": "One Must Fall: 2097",
+      "parentTitle": "One Must Fall: 2097",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "fighting game",
+      "year": 1994
     },
     {
       "id": "Q1445841",
@@ -10779,6 +12869,17 @@
       "year": 1987
     },
     {
+      "id": "Q102309656",
+      "name": "Orbiter",
+      "parentTitle": "Orbiter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Spectrum HoloByte",
+      "genre": "space flight simulation game",
+      "year": 1986
+    },
+    {
       "id": "Q7102769",
       "name": "Orion Burger",
       "parentTitle": "Orion Burger",
@@ -10812,6 +12913,17 @@
       "year": 1993
     },
     {
+      "id": "Q124059775",
+      "name": "Osiris",
+      "parentTitle": "Osiris",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Boeder Software",
+      "genre": "board video game",
+      "year": null
+    },
+    {
       "id": "Q1142287",
       "name": "Out Run",
       "parentTitle": "Out Run",
@@ -10821,6 +12933,39 @@
       "publisher": "Sega",
       "genre": "racing video game",
       "year": 1986
+    },
+    {
+      "id": "Q7111404",
+      "name": "OutNumbered!",
+      "parentTitle": "OutNumbered!",
+      "region": null,
+      "serial": null,
+      "developer": "The Learning Company",
+      "publisher": null,
+      "genre": "educational video game",
+      "year": null
+    },
+    {
+      "id": "Q113110638",
+      "name": "Overdrive",
+      "parentTitle": "Overdrive",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Team17",
+      "genre": null,
+      "year": 1993
+    },
+    {
+      "id": "Q3887676",
+      "name": "Overkill",
+      "parentTitle": "Overkill",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "shoot 'em up",
+      "year": 1992
     },
     {
       "id": "Q7113814",
@@ -10878,6 +13023,17 @@
       "year": 1980
     },
     {
+      "id": "Q7122513",
+      "name": "Pacific Islands",
+      "parentTitle": "Pacific Islands",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "strategy video game",
+      "year": 1992
+    },
+    {
       "id": "Q1632099",
       "name": "Pacific Strike",
       "parentTitle": "Pacific Strike",
@@ -10887,6 +13043,17 @@
       "publisher": "Electronic Arts",
       "genre": "combat flight simulator game",
       "year": 1994
+    },
+    {
+      "id": "Q3888921",
+      "name": "Paganitzu",
+      "parentTitle": "Paganitzu",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "3D Realms",
+      "genre": "puzzle video game",
+      "year": 1991
     },
     {
       "id": "Q7124918",
@@ -11019,6 +13186,17 @@
       "publisher": null,
       "genre": "adventure video game",
       "year": 1993
+    },
+    {
+      "id": "Q1989723",
+      "name": "Perestroika",
+      "parentTitle": "Perestroika",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Nikita Online",
+      "genre": "arcade",
+      "year": 1990
     },
     {
       "id": "Q81819493",
@@ -11186,6 +13364,17 @@
       "year": 1995
     },
     {
+      "id": "Q3905148",
+      "name": "Pinball Mania",
+      "parentTitle": "Pinball Mania",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "21st Century Entertainment",
+      "genre": null,
+      "year": 1995
+    },
+    {
       "id": "Q1131067",
       "name": "Pipe Mania",
       "parentTitle": "Pipe Mania",
@@ -11283,6 +13472,28 @@
       "publisher": "Infocom",
       "genre": "interactive fiction",
       "year": 1987
+    },
+    {
+      "id": "Q11821540",
+      "name": "Polanie",
+      "parentTitle": "Polanie",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "TopWare Interactive",
+      "genre": "real-time strategy",
+      "year": 1996
+    },
+    {
+      "id": "Q25975491",
+      "name": "Polda 1",
+      "parentTitle": "Polda 1",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Zima Software",
+      "genre": "adventure video game",
+      "year": 1998
     },
     {
       "id": "Q4369590",
@@ -11406,6 +13617,17 @@
       "year": 1991
     },
     {
+      "id": "Q7231473",
+      "name": "Portal",
+      "parentTitle": "Portal",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Activision",
+      "genre": "interactive fiction",
+      "year": 1986
+    },
+    {
       "id": "Q2579033",
       "name": "Power DoLLS: Detachment of Limited Line Service",
       "parentTitle": "Power DoLLS: Detachment of Limited Line Service",
@@ -11461,6 +13683,28 @@
       "year": 1996
     },
     {
+      "id": "Q104837500",
+      "name": "Pray for Death",
+      "parentTitle": "Pray for Death",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interplay Entertainment",
+      "genre": "fighting game",
+      "year": 1996
+    },
+    {
+      "id": "Q3401506",
+      "name": "Predator 2",
+      "parentTitle": "Predator 2",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Image Works",
+      "genre": "shoot 'em up",
+      "year": 1990
+    },
+    {
       "id": "Q1372919",
       "name": "Prehistorik",
       "parentTitle": "Prehistorik",
@@ -11481,6 +13725,39 @@
       "publisher": "Titus Interactive",
       "genre": "platform game",
       "year": 1993
+    },
+    {
+      "id": "Q3401632",
+      "name": "Premier Manager",
+      "parentTitle": "Premier Manager",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "association football management game",
+      "year": 1992
+    },
+    {
+      "id": "Q3910383",
+      "name": "Premier Manager 2",
+      "parentTitle": "Premier Manager 2",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "association football management game",
+      "year": 1993
+    },
+    {
+      "id": "Q3910385",
+      "name": "Premier Manager 3",
+      "parentTitle": "Premier Manager 3",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gremlin Interactive",
+      "genre": "association football management game",
+      "year": 1994
     },
     {
       "id": "Q7241220",
@@ -11571,6 +13848,39 @@
       "year": 1995
     },
     {
+      "id": "Q7246752",
+      "name": "Pro Pinball: Big Race USA",
+      "parentTitle": "Pro Pinball: Big Race USA",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "action game",
+      "year": 1998
+    },
+    {
+      "id": "Q19298758",
+      "name": "Pro Pinball: Fantastic Journey",
+      "parentTitle": "Pro Pinball: Fantastic Journey",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "action game",
+      "year": 1999
+    },
+    {
+      "id": "Q7246753",
+      "name": "Pro Pinball: The Web",
+      "parentTitle": "Pro Pinball: The Web",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "action game",
+      "year": 1996
+    },
+    {
       "id": "Q119436951",
       "name": "Pro Tennis Tour",
       "parentTitle": "Pro Tennis Tour",
@@ -11615,6 +13925,17 @@
       "year": 1987
     },
     {
+      "id": "Q7249325",
+      "name": "Project Space Station",
+      "parentTitle": "Project Space Station",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "HESware",
+      "genre": "simulation video game",
+      "year": 1985
+    },
+    {
       "id": "Q1110216",
       "name": "Project-X",
       "parentTitle": "Project-X",
@@ -11624,6 +13945,17 @@
       "publisher": "Team17",
       "genre": "science fiction video game",
       "year": 1992
+    },
+    {
+      "id": "Q43705275",
+      "name": "Promille",
+      "parentTitle": "Promille",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Alko",
+      "genre": "educational video game",
+      "year": null
     },
     {
       "id": "Q7250272",
@@ -11670,6 +14002,28 @@
       "year": 1995
     },
     {
+      "id": "Q7256251",
+      "name": "Psychic Detective",
+      "parentTitle": "Psychic Detective",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "interactive film",
+      "year": 1995
+    },
+    {
+      "id": "Q56291083",
+      "name": "Psycho Killer",
+      "parentTitle": "Psycho Killer",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "On-Line Entertainment Ltd.",
+      "genre": "graphic adventure game",
+      "year": 1992
+    },
+    {
       "id": "Q3410052",
       "name": "Psycho Pinball",
       "parentTitle": "Psycho Pinball",
@@ -11690,6 +14044,17 @@
       "publisher": "Spectrum HoloByte",
       "genre": "simulation video game",
       "year": 1987
+    },
+    {
+      "id": "Q102309267",
+      "name": "Pure-Stat Baseball",
+      "parentTitle": "Pure-Stat Baseball",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sublogic",
+      "genre": "sports video game",
+      "year": 1986
     },
     {
       "id": "Q1975872",
@@ -11714,6 +14079,17 @@
       "year": 1992
     },
     {
+      "id": "Q7262435",
+      "name": "Putt-Putt's Fun Pack",
+      "parentTitle": "Putt-Putt's Fun Pack",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Humongous Entertainment",
+      "genre": "adventure video game",
+      "year": 1993
+    },
+    {
       "id": "Q7263621",
       "name": "Pyro 2",
       "parentTitle": "Pyro 2",
@@ -11733,6 +14109,17 @@
       "developer": "SCE Studio Liverpool",
       "publisher": "SCE Studio Liverpool",
       "genre": "first-person shooter",
+      "year": 1995
+    },
+    {
+      "id": "Q7267752",
+      "name": "Qin: Tomb of the Middle Kingdom",
+      "parentTitle": "Qin: Tomb of the Middle Kingdom",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "WarnerMedia",
+      "genre": "adventure video game",
       "year": 1995
     },
     {
@@ -11756,6 +14143,17 @@
       "publisher": "Activision",
       "genre": "first-person shooter",
       "year": 1996
+    },
+    {
+      "id": "Q2061841",
+      "name": "Quarantine",
+      "parentTitle": "Quarantine",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "GameTek",
+      "genre": "cyberpunk video game",
+      "year": 1994
     },
     {
       "id": "Q113299784",
@@ -11789,6 +14187,17 @@
       "publisher": null,
       "genre": "American football video game",
       "year": 1995
+    },
+    {
+      "id": "Q1132943",
+      "name": "Queen: The eYe",
+      "parentTitle": "Queen: The eYe",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "action-adventure game",
+      "year": 1997
     },
     {
       "id": "Q66915145",
@@ -11855,6 +14264,17 @@
       "publisher": "Accolade",
       "genre": "sports video game",
       "year": 1988
+    },
+    {
+      "id": "Q102309236",
+      "name": "Radio Baseball",
+      "parentTitle": "Radio Baseball",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "sports video game",
+      "year": 1986
     },
     {
       "id": "Q17042802",
@@ -12187,6 +14607,17 @@
       "year": 1994
     },
     {
+      "id": "Q1781750",
+      "name": "Rendezvous with Rama",
+      "parentTitle": "Rendezvous with Rama",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Telarium",
+      "genre": "interactive fiction",
+      "year": 1984
+    },
+    {
       "id": "Q88947",
       "name": "Renegade",
       "parentTitle": "Renegade",
@@ -12218,6 +14649,17 @@
       "publisher": "Softdisk",
       "genre": "puzzle video game",
       "year": 1991
+    },
+    {
+      "id": "Q121773710",
+      "name": "Rescue the Scientists!",
+      "parentTitle": "Rescue the Scientists!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Compton's New Media",
+      "genre": "educational video game",
+      "year": 1994
     },
     {
       "id": "Q112898760",
@@ -12330,6 +14772,17 @@
       "year": 1990
     },
     {
+      "id": "Q141958780",
+      "name": "Ring Cycle",
+      "parentTitle": "Ring Cycle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "SCE Studio Liverpool",
+      "genre": "action-adventure game",
+      "year": 1996
+    },
+    {
       "id": "Q2153992",
       "name": "Rings of Medusa",
       "parentTitle": "Rings of Medusa",
@@ -12385,6 +14838,17 @@
       "year": 1996
     },
     {
+      "id": "Q7335886",
+      "name": "Rise 2: Resurrection",
+      "parentTitle": "Rise 2: Resurrection",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Acclaim Entertainment",
+      "genre": "cyberpunk video game",
+      "year": 1996
+    },
+    {
       "id": "Q2319072",
       "name": "Rise of the Dragon",
       "parentTitle": "Rise of the Dragon",
@@ -12394,6 +14858,17 @@
       "publisher": "Sierra Entertainment",
       "genre": "adventure video game",
       "year": 1990
+    },
+    {
+      "id": "Q644838",
+      "name": "Rise of the Robots",
+      "parentTitle": "Rise of the Robots",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari Games",
+      "genre": "cyberpunk video game",
+      "year": 1994
     },
     {
       "id": "Q1935574",
@@ -12438,6 +14913,17 @@
       "publisher": null,
       "genre": "post-apocalyptic video game",
       "year": 1986
+    },
+    {
+      "id": "Q7712620",
+      "name": "Robbo",
+      "parentTitle": "Robbo",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "puzzle video game",
+      "year": null
     },
     {
       "id": "Q655376",
@@ -12539,6 +15025,17 @@
       "year": 1988
     },
     {
+      "id": "Q7355233",
+      "name": "Rockford",
+      "parentTitle": "Rockford",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mastertronic",
+      "genre": "maze video game",
+      "year": 1987
+    },
+    {
       "id": "Q7361080",
       "name": "Rollerblade Racer",
       "parentTitle": "Rollerblade Racer",
@@ -12616,6 +15113,28 @@
       "year": 2001
     },
     {
+      "id": "Q4048416",
+      "name": "Rome: Pathway to Power",
+      "parentTitle": "Rome: Pathway to Power",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Millennium Interactive",
+      "genre": "adventure video game",
+      "year": 1992
+    },
+    {
+      "id": "Q125731669",
+      "name": "Rubik's Cube",
+      "parentTitle": "Rubik's Cube",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "International PC Owners",
+      "genre": "puzzle video game",
+      "year": null
+    },
+    {
       "id": "Q123684374",
       "name": "Run for the Money",
       "parentTitle": "Run for the Money",
@@ -12660,6 +15179,17 @@
       "year": 1992
     },
     {
+      "id": "Q3943322",
+      "name": "S.D.I.",
+      "parentTitle": "S.D.I.",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Cinemaware",
+      "genre": "action-adventure game",
+      "year": 1986
+    },
+    {
       "id": "Q122842538",
       "name": "Saban's Iznogoud",
       "parentTitle": "Saban's Iznogoud",
@@ -12669,6 +15199,17 @@
       "publisher": null,
       "genre": "action game",
       "year": 1996
+    },
+    {
+      "id": "Q55533",
+      "name": "Saboteur II: Avenging Angel",
+      "parentTitle": "Saboteur II: Avenging Angel",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Durell Software",
+      "genre": "action-adventure game",
+      "year": 1987
     },
     {
       "id": "Q3460711",
@@ -12702,6 +15243,17 @@
       "publisher": "Panda Entertainment",
       "genre": "fighting game",
       "year": 1993
+    },
+    {
+      "id": "Q3473155",
+      "name": "Sapiens",
+      "parentTitle": "Sapiens",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Loriciels",
+      "genre": "adventure video game",
+      "year": 1986
     },
     {
       "id": "Q118106520",
@@ -12803,6 +15355,17 @@
       "year": 1993
     },
     {
+      "id": "Q4049208",
+      "name": "Sea Dragon",
+      "parentTitle": "Sea Dragon",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Adventure International",
+      "genre": "side-scrolling video game",
+      "year": 1982
+    },
+    {
       "id": "Q4049210",
       "name": "Sea Legends",
       "parentTitle": "Sea Legends",
@@ -12814,6 +15377,17 @@
       "year": 1996
     },
     {
+      "id": "Q112136487",
+      "name": "Sea Rogue",
+      "parentTitle": "Sea Rogue",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroPlay Software",
+      "genre": null,
+      "year": 1992
+    },
+    {
       "id": "Q7389547",
       "name": "SEAL Team",
       "parentTitle": "SEAL Team",
@@ -12823,6 +15397,17 @@
       "publisher": null,
       "genre": "first-person shooter",
       "year": 1993
+    },
+    {
+      "id": "Q3953603",
+      "name": "Season of the Sakura",
+      "parentTitle": "Season of the Sakura",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "JAST USA",
+      "genre": "eroge",
+      "year": 1996
     },
     {
       "id": "Q7441958",
@@ -12946,6 +15531,28 @@
       "year": 1982
     },
     {
+      "id": "Q139892219",
+      "name": "Seymore Butts Interactive II: In Pursuit Of Pleasure",
+      "parentTitle": "Seymore Butts Interactive II: In Pursuit Of Pleasure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interotica, Inc.",
+      "genre": "adventure video game",
+      "year": 1994
+    },
+    {
+      "id": "Q15036804",
+      "name": "Seymour Goes to Hollywood",
+      "parentTitle": "Seymour Goes to Hollywood",
+      "region": null,
+      "serial": null,
+      "developer": "Big Red Software",
+      "publisher": "Codemasters",
+      "genre": "platform game",
+      "year": null
+    },
+    {
       "id": "Q3958950",
       "name": "Shadow Knights",
       "parentTitle": "Shadow Knights",
@@ -13012,6 +15619,17 @@
       "year": 1987
     },
     {
+      "id": "Q7460744",
+      "name": "Shadowlands",
+      "parentTitle": "Shadowlands",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Domark Software",
+      "genre": "role-playing video game",
+      "year": 1992
+    },
+    {
       "id": "Q7460814",
       "name": "Shadows of Cairn",
       "parentTitle": "Shadows of Cairn",
@@ -13032,6 +15650,17 @@
       "publisher": "Krome Studios Melbourne",
       "genre": "interactive fiction",
       "year": 1987
+    },
+    {
+      "id": "Q2276756",
+      "name": "Shamus",
+      "parentTitle": "Shamus",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Synapse Software",
+      "genre": "action-adventure game",
+      "year": 1982
     },
     {
       "id": "Q3959159",
@@ -13173,7 +15802,7 @@
       "serial": null,
       "developer": "Dynamix",
       "publisher": "Sierra Entertainment",
-      "genre": "puzzle video game",
+      "genre": "Rube Goldberg puzzle video game",
       "year": 1993
     },
     {
@@ -13230,6 +15859,28 @@
       "publisher": "Sierra Entertainment",
       "genre": "boxing video game",
       "year": 1983
+    },
+    {
+      "id": "Q102315074",
+      "name": "Sierra's 3-D Helicopter Simulator",
+      "parentTitle": "Sierra's 3-D Helicopter Simulator",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "combat flight simulator game",
+      "year": 1987
+    },
+    {
+      "id": "Q634069",
+      "name": "Silent Hunter",
+      "parentTitle": "Silent Hunter",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "submarine simulator",
+      "year": 1996
     },
     {
       "id": "Q1418928",
@@ -13340,6 +15991,17 @@
       "publisher": "Mindscape",
       "genre": "construction and management simulation",
       "year": 1993
+    },
+    {
+      "id": "Q2529609",
+      "name": "SimHealth",
+      "parentTitle": "SimHealth",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Maxis",
+      "genre": "business simulation game",
+      "year": 1994
     },
     {
       "id": "Q63266",
@@ -13529,6 +16191,17 @@
       "year": 1991
     },
     {
+      "id": "Q4049661",
+      "name": "Snake Battle",
+      "parentTitle": "Snake Battle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gamos",
+      "genre": null,
+      "year": 1992
+    },
+    {
       "id": "Q2295882",
       "name": "Snipes",
       "parentTitle": "Snipes",
@@ -13540,6 +16213,17 @@
       "year": 1983
     },
     {
+      "id": "Q140991034",
+      "name": "Sobor",
+      "parentTitle": "Sobor",
+      "region": null,
+      "serial": null,
+      "developer": "Gamos",
+      "publisher": null,
+      "genre": "beat 'em up",
+      "year": null
+    },
+    {
       "id": "Q970101",
       "name": "Soccer Kid",
       "parentTitle": "Soccer Kid",
@@ -13548,6 +16232,39 @@
       "developer": "Krisalis Software",
       "publisher": "Krisalis Software",
       "genre": "platform game",
+      "year": 1993
+    },
+    {
+      "id": "Q7392026",
+      "name": "SODA Off-Road Racing",
+      "parentTitle": "SODA Off-Road Racing",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "racing video game",
+      "year": 1997
+    },
+    {
+      "id": "Q2268736",
+      "name": "Softporn Adventure",
+      "parentTitle": "Softporn Adventure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "adventure video game",
+      "year": 1981
+    },
+    {
+      "id": "Q3964194",
+      "name": "Solar Winds",
+      "parentTitle": "Solar Winds",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Games",
+      "genre": "shoot 'em up",
       "year": 1993
     },
     {
@@ -13692,6 +16409,17 @@
       "publisher": "Electronic Arts",
       "genre": "first-person shooter",
       "year": 1993
+    },
+    {
+      "id": "Q3492579",
+      "name": "Space Hulk: Vengeance of the Blood Angels",
+      "parentTitle": "Space Hulk: Vengeance of the Blood Angels",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "first-person shooter",
+      "year": 1995
     },
     {
       "id": "Q220665",
@@ -13969,6 +16697,17 @@
       "year": 1992
     },
     {
+      "id": "Q7575877",
+      "name": "Spellcraft: Aspects of Valor",
+      "parentTitle": "Spellcraft: Aspects of Valor",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Broderbund",
+      "genre": "role-playing video game",
+      "year": 1992
+    },
+    {
       "id": "Q7575879",
       "name": "Spellcross",
       "parentTitle": "Spellcross",
@@ -13989,6 +16728,17 @@
       "publisher": "Sierra Entertainment",
       "genre": "educational video game",
       "year": 1993
+    },
+    {
+      "id": "Q3493000",
+      "name": "Spelljammer: Pirates of Realmspace",
+      "parentTitle": "Spelljammer: Pirates of Realmspace",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "adventure video game",
+      "year": 1992
     },
     {
       "id": "Q2881529",
@@ -14057,6 +16807,17 @@
       "year": 1996
     },
     {
+      "id": "Q3495141",
+      "name": "Sram 2",
+      "parentTitle": "Sram 2",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "ERE Informatique",
+      "genre": "interactive fiction",
+      "year": 1986
+    },
+    {
       "id": "Q7393032",
       "name": "SSN-21 Seawolf",
       "parentTitle": "SSN-21 Seawolf",
@@ -14066,6 +16827,17 @@
       "publisher": "Electronic Arts",
       "genre": "submarine simulator",
       "year": 1994
+    },
+    {
+      "id": "Q30896311",
+      "name": "Stack-Up",
+      "parentTitle": "Stack-Up",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Eutechnyx",
+      "genre": "puzzle video game",
+      "year": 1991
     },
     {
       "id": "Q7600684",
@@ -14145,6 +16917,28 @@
       "year": 1987
     },
     {
+      "id": "Q7600727",
+      "name": "Star General",
+      "parentTitle": "Star General",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Strategic Simulations",
+      "genre": "science fiction video game",
+      "year": 1996
+    },
+    {
+      "id": "Q102315218",
+      "name": "Star Rank Boxing II",
+      "parentTitle": "Star Rank Boxing II",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Activision",
+      "genre": "boxing video game",
+      "year": 1988
+    },
+    {
       "id": "Q7600854",
       "name": "Star Reach",
       "parentTitle": "Star Reach",
@@ -14154,6 +16948,17 @@
       "publisher": "Interplay Entertainment",
       "genre": "real-time strategy",
       "year": 1994
+    },
+    {
+      "id": "Q65089154",
+      "name": "Star Trek Pinball",
+      "parentTitle": "Star Trek Pinball",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Interplay Entertainment",
+      "genre": "pinball video game",
+      "year": 1998
     },
     {
       "id": "Q3968313",
@@ -14486,6 +17291,17 @@
       "year": 1989
     },
     {
+      "id": "Q56148507",
+      "name": "Stratego",
+      "parentTitle": "Stratego",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "strategy video game",
+      "year": 1990
+    },
+    {
       "id": "Q1503511",
       "name": "Street Fighter",
       "parentTitle": "Street Fighter",
@@ -14508,6 +17324,17 @@
       "year": 1991
     },
     {
+      "id": "Q2059628",
+      "name": "Street Racer",
+      "parentTitle": "Street Racer",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ubisoft",
+      "genre": "racing video game",
+      "year": 1994
+    },
+    {
       "id": "Q1291936",
       "name": "Street Rod",
       "parentTitle": "Street Rod",
@@ -14528,6 +17355,17 @@
       "publisher": "California Dreams",
       "genre": "racing video game",
       "year": 1991
+    },
+    {
+      "id": "Q102313819",
+      "name": "Street Sports Baseball",
+      "parentTitle": "Street Sports Baseball",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epyx",
+      "genre": "sports video game",
+      "year": 1987
     },
     {
       "id": "Q7622958",
@@ -14574,6 +17412,17 @@
       "year": 1987
     },
     {
+      "id": "Q61654515",
+      "name": "Strike Force Harrier",
+      "parentTitle": "Strike Force Harrier",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mirrorsoft",
+      "genre": "combat flight simulator game",
+      "year": 1986
+    },
+    {
       "id": "Q2748421",
       "name": "Striker",
       "parentTitle": "Striker",
@@ -14605,6 +17454,17 @@
       "publisher": "MicroProse",
       "genre": "racing video game",
       "year": 1989
+    },
+    {
+      "id": "Q7628778",
+      "name": "Stunt Driver",
+      "parentTitle": "Stunt Driver",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Spectrum HoloByte",
+      "genre": "racing video game",
+      "year": 1990
     },
     {
       "id": "Q7628779",
@@ -14838,6 +17698,17 @@
       "year": 1989
     },
     {
+      "id": "Q3977999",
+      "name": "Supernova",
+      "parentTitle": "Supernova",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "interactive fiction",
+      "year": 1986
+    },
+    {
       "id": "Q1308062",
       "name": "Suspect",
       "parentTitle": "Suspect",
@@ -14902,6 +17773,17 @@
       "publisher": "MicroProse",
       "genre": "strategy video game",
       "year": 1989
+    },
+    {
+      "id": "Q905839",
+      "name": "Swords of Xeen",
+      "parentTitle": "Swords of Xeen",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "New World Computing",
+      "genre": "role-playing video game",
+      "year": 1995
     },
     {
       "id": "Q1545458",
@@ -14981,6 +17863,28 @@
       "year": 1983
     },
     {
+      "id": "Q9355182",
+      "name": "Tajemnica Statuetki",
+      "parentTitle": "Tajemnica Statuetki",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Metropolis Software",
+      "genre": "adventure video game",
+      "year": 1993
+    },
+    {
+      "id": "Q12058243",
+      "name": "Tajemství Oslího ostrova",
+      "parentTitle": "Tajemství Oslího ostrova",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Vochozka Trading",
+      "genre": "adventure video game",
+      "year": 1994
+    },
+    {
       "id": "Q7683014",
       "name": "Tangled Tales",
       "parentTitle": "Tangled Tales",
@@ -15058,6 +17962,17 @@
       "year": 1985
     },
     {
+      "id": "Q7691633",
+      "name": "Team Yankee",
+      "parentTitle": "Team Yankee",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "simulation video game",
+      "year": 1987
+    },
+    {
       "id": "Q3516906",
       "name": "Techno Cop",
       "parentTitle": "Techno Cop",
@@ -15069,17 +17984,6 @@
       "year": 1988
     },
     {
-      "id": "Q2172154",
-      "name": "Teenage Mutant Ninja Turtles",
-      "parentTitle": "Teenage Mutant Ninja Turtles",
-      "region": null,
-      "serial": null,
-      "developer": "Konami",
-      "publisher": "Ultra Games",
-      "genre": "beat 'em up",
-      "year": 1989
-    },
-    {
       "id": "Q1508297",
       "name": "Teenage Mutant Ninja Turtles",
       "parentTitle": "Teenage Mutant Ninja Turtles",
@@ -15087,6 +17991,17 @@
       "serial": null,
       "developer": "Konami",
       "publisher": "Konami",
+      "genre": "beat 'em up",
+      "year": 1989
+    },
+    {
+      "id": "Q2172154",
+      "name": "Teenage Mutant Ninja Turtles",
+      "parentTitle": "Teenage Mutant Ninja Turtles",
+      "region": null,
+      "serial": null,
+      "developer": "Konami",
+      "publisher": "Ultra Games",
       "genre": "beat 'em up",
       "year": 1989
     },
@@ -15124,6 +18039,17 @@
       "year": 1995
     },
     {
+      "id": "Q7696390",
+      "name": "Telengard",
+      "parentTitle": "Telengard",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Avalon Hill",
+      "genre": "role-playing video game",
+      "year": 1982
+    },
+    {
       "id": "Q1870692",
       "name": "Tempest 2000",
       "parentTitle": "Tempest 2000",
@@ -15146,6 +18072,17 @@
       "year": 1979
     },
     {
+      "id": "Q3518275",
+      "name": "Tera: The City of Skulls",
+      "parentTitle": "Tera: The City of Skulls",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Loriciels",
+      "genre": "role-playing video game",
+      "year": 1986
+    },
+    {
       "id": "Q955289",
       "name": "Terminal Velocity",
       "parentTitle": "Terminal Velocity",
@@ -15155,6 +18092,17 @@
       "publisher": "3D Realms",
       "genre": "science fiction video game",
       "year": 1995
+    },
+    {
+      "id": "Q76861448",
+      "name": "Terminator 2: Judgment Day",
+      "parentTitle": "Terminator 2: Judgment Day",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "action game",
+      "year": 1991
     },
     {
       "id": "Q7703114",
@@ -15188,6 +18136,17 @@
       "publisher": "Accolade",
       "genre": "racing video game",
       "year": 1990
+    },
+    {
+      "id": "Q131386411",
+      "name": "Tetris",
+      "parentTitle": "Tetris",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mirrorsoft",
+      "genre": "puzzle video game",
+      "year": 1988
     },
     {
       "id": "Q7670136",
@@ -15232,6 +18191,17 @@
       "publisher": "Virgin Interactive",
       "genre": "adventure video game",
       "year": 1993
+    },
+    {
+      "id": "Q940755",
+      "name": "The Adventures of Robin Hood",
+      "parentTitle": "The Adventures of Robin Hood",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Millennium Interactive",
+      "genre": "adventure video game",
+      "year": 1991
     },
     {
       "id": "Q477443",
@@ -15355,6 +18325,28 @@
       "year": 1995
     },
     {
+      "id": "Q108178864",
+      "name": "The Beverly Hillbillies",
+      "parentTitle": "The Beverly Hillbillies",
+      "region": null,
+      "serial": null,
+      "developer": "Synergistic Software",
+      "publisher": "Capstone Software",
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "Q2473870",
+      "name": "The Big Red Adventure",
+      "parentTitle": "The Big Red Adventure",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Core Design",
+      "genre": "adventure video game",
+      "year": 1995
+    },
+    {
       "id": "Q1670993",
       "name": "The Black Cauldron",
       "parentTitle": "The Black Cauldron",
@@ -15374,6 +18366,17 @@
       "developer": "Titus Interactive",
       "publisher": "Titus Interactive",
       "genre": "platform game",
+      "year": 1991
+    },
+    {
+      "id": "Q7719821",
+      "name": "The Brainies",
+      "parentTitle": "The Brainies",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Titus Interactive",
+      "genre": "puzzle video game",
       "year": 1991
     },
     {
@@ -15432,6 +18435,39 @@
       "year": 1988
     },
     {
+      "id": "Q7727235",
+      "name": "The Computer Edition of Scrabble",
+      "parentTitle": "The Computer Edition of Scrabble",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Virgin Interactive",
+      "genre": "strategy video game",
+      "year": 1988
+    },
+    {
+      "id": "Q7727726",
+      "name": "The Cottage",
+      "parentTitle": "The Cottage",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Visma",
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
+      "id": "Q57164149",
+      "name": "The Crimson Crown",
+      "parentTitle": "The Crimson Crown",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Penguin Software",
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
       "id": "Q25399519",
       "name": "The Curse of Ra",
       "parentTitle": "The Curse of Ra",
@@ -15465,6 +18501,17 @@
       "year": 1992
     },
     {
+      "id": "Q2121676",
+      "name": "The Dam Busters",
+      "parentTitle": "The Dam Busters",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "U.S. Gold",
+      "genre": "combat flight simulator game",
+      "year": 1984
+    },
+    {
       "id": "Q7728780",
       "name": "The Dame Was Loaded",
       "parentTitle": "The Dame Was Loaded",
@@ -15474,6 +18521,28 @@
       "publisher": "Koninklijke Philips NV",
       "genre": "adventure video game",
       "year": 1995
+    },
+    {
+      "id": "Q112838268",
+      "name": "The Dark Half",
+      "parentTitle": "The Dark Half",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Capstone Software",
+      "genre": null,
+      "year": 1992
+    },
+    {
+      "id": "Q4051036",
+      "name": "The Dark Heart of Uukrul",
+      "parentTitle": "The Dark Heart of Uukrul",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Broderbund",
+      "genre": "role-playing video game",
+      "year": 1989
     },
     {
       "id": "Q3520514",
@@ -15542,6 +18611,17 @@
       "year": 1994
     },
     {
+      "id": "Q105062485",
+      "name": "The Even More Incredible Machine",
+      "parentTitle": "The Even More Incredible Machine",
+      "region": null,
+      "serial": null,
+      "developer": "Dynamix",
+      "publisher": "Sierra On-Line",
+      "genre": null,
+      "year": null
+    },
+    {
       "id": "Q441629",
       "name": "The Faery Tale Adventure",
       "parentTitle": "The Faery Tale Adventure",
@@ -15550,6 +18630,28 @@
       "developer": "MicroIllusions",
       "publisher": "Electronic Arts",
       "genre": "role-playing video game",
+      "year": 1987
+    },
+    {
+      "id": "Q118536547",
+      "name": "The Final Battle",
+      "parentTitle": "The Final Battle",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mirrorsoft",
+      "genre": "adventure video game",
+      "year": 1990
+    },
+    {
+      "id": "Q131917654",
+      "name": "The Fleet Street Phantom",
+      "parentTitle": "The Fleet Street Phantom",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sherston Software",
+      "genre": "adventure video game",
       "year": 1987
     },
     {
@@ -15584,6 +18686,17 @@
       "publisher": "Linel",
       "genre": "puzzle video game",
       "year": 1992
+    },
+    {
+      "id": "Q124619283",
+      "name": "The Games '92: España",
+      "parentTitle": "The Games '92: España",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q55587341",
@@ -15685,6 +18798,17 @@
       "year": 1994
     },
     {
+      "id": "Q3521310",
+      "name": "The Hound of Shadow",
+      "parentTitle": "The Hound of Shadow",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "adventure video game",
+      "year": 1989
+    },
+    {
       "id": "Q93655",
       "name": "The Humans",
       "parentTitle": "The Humans",
@@ -15696,6 +18820,28 @@
       "year": 1992
     },
     {
+      "id": "Q2367736",
+      "name": "The Hunt for Red October",
+      "parentTitle": "The Hunt for Red October",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Argus Press",
+      "genre": "submarine simulator",
+      "year": 1987
+    },
+    {
+      "id": "Q2169859",
+      "name": "The Hunt for Red October",
+      "parentTitle": "The Hunt for Red October",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Grandslam Entertainments",
+      "genre": "action game",
+      "year": 1990
+    },
+    {
       "id": "Q2592213",
       "name": "The Immortal",
       "parentTitle": "The Immortal",
@@ -15705,6 +18851,17 @@
       "publisher": "Electronic Arts",
       "genre": "role-playing video game",
       "year": 1990
+    },
+    {
+      "id": "Q153602",
+      "name": "The Incredible Hulk: The Pantheon Saga",
+      "parentTitle": "The Incredible Hulk: The Pantheon Saga",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Eidos Interactive",
+      "genre": "platform game",
+      "year": 1997
     },
     {
       "id": "Q39089606",
@@ -15749,6 +18906,28 @@
       "publisher": "Cinemaware",
       "genre": "action-adventure game",
       "year": 1987
+    },
+    {
+      "id": "Q7744961",
+      "name": "The Kristal",
+      "parentTitle": "The Kristal",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Addictive Games",
+      "genre": "adventure video game",
+      "year": null
+    },
+    {
+      "id": "Q7745063",
+      "name": "The Labyrinth of Time",
+      "parentTitle": "The Labyrinth of Time",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "adventure video game",
+      "year": 1993
     },
     {
       "id": "Q7745602",
@@ -15861,6 +19040,28 @@
       "year": 1995
     },
     {
+      "id": "Q112662986",
+      "name": "The Legend of the Condor Heroes",
+      "parentTitle": "The Legend of the Condor Heroes",
+      "region": null,
+      "serial": null,
+      "developer": "Soft-World International",
+      "publisher": "Soft-World International",
+      "genre": null,
+      "year": null
+    },
+    {
+      "id": "Q7747255",
+      "name": "The Light Corridor",
+      "parentTitle": "The Light Corridor",
+      "region": null,
+      "serial": null,
+      "developer": "Infogrames",
+      "publisher": "Infogrames",
+      "genre": "puzzle video game",
+      "year": null
+    },
+    {
       "id": "Q134138",
       "name": "The Lion King",
       "parentTitle": "The Lion King",
@@ -15881,6 +19082,17 @@
       "publisher": "Beyond Software",
       "genre": "strategy video game",
       "year": 1984
+    },
+    {
+      "id": "Q42903194",
+      "name": "The Lost Files of Sherlock Holmes: The Case of the Serrated Scalpel",
+      "parentTitle": "The Lost Files of Sherlock Holmes: The Case of the Serrated Scalpel",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "adventure video game",
+      "year": 1992
     },
     {
       "id": "Q1052386",
@@ -16092,6 +19304,17 @@
       "year": 1995
     },
     {
+      "id": "Q7761800",
+      "name": "The Ruins of Cawdor",
+      "parentTitle": "The Ruins of Cawdor",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "MUD",
+      "year": 1995
+    },
+    {
       "id": "Q7762601",
       "name": "The Scoop",
       "parentTitle": "The Scoop",
@@ -16169,6 +19392,17 @@
       "year": 1984
     },
     {
+      "id": "Q2414187",
+      "name": "The Shadow of Yserbius",
+      "parentTitle": "The Shadow of Yserbius",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sierra Entertainment",
+      "genre": "MUD",
+      "year": 1991
+    },
+    {
       "id": "Q1707018",
       "name": "The Simpsons",
       "parentTitle": "The Simpsons",
@@ -16211,6 +19445,28 @@
       "publisher": "Infogrames",
       "genre": "platform game",
       "year": 1994
+    },
+    {
+      "id": "Q1711158",
+      "name": "The Spy Who Loved Me",
+      "parentTitle": "The Spy Who Loved Me",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Domark Software",
+      "genre": "racing video game",
+      "year": 1990
+    },
+    {
+      "id": "Q102315015",
+      "name": "The Spy's Adventures in Europe",
+      "parentTitle": "The Spy's Adventures in Europe",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Penguin Software",
+      "genre": null,
+      "year": 1987
     },
     {
       "id": "Q7767301",
@@ -16367,6 +19623,17 @@
       "year": 1985
     },
     {
+      "id": "Q2576094",
+      "name": "The X-Files Game",
+      "parentTitle": "The X-Files Game",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Fox Interactive",
+      "genre": "interactive film",
+      "year": 1998
+    },
+    {
       "id": "Q2580313",
       "name": "The X-Files: Unrestricted Access",
       "parentTitle": "The X-Files: Unrestricted Access",
@@ -16444,6 +19711,28 @@
       "year": 1985
     },
     {
+      "id": "Q3990874",
+      "name": "Three Sisters' Story",
+      "parentTitle": "Three Sisters' Story",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "JAST USA",
+      "genre": "eroge",
+      "year": 1996
+    },
+    {
+      "id": "Q7798674",
+      "name": "Thud Ridge: American Aces In 'Nam",
+      "parentTitle": "Thud Ridge: American Aces In 'Nam",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Three-Sixty Pacific",
+      "genre": "flight simulation video game",
+      "year": 1988
+    },
+    {
       "id": "Q3020084",
       "name": "Thunder Blade",
       "parentTitle": "Thunder Blade",
@@ -16464,6 +19753,17 @@
       "publisher": "JVC",
       "genre": "action game",
       "year": 1993
+    },
+    {
+      "id": "Q117012237",
+      "name": "Tie Break",
+      "parentTitle": "Tie Break",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "tennis video game",
+      "year": 1990
     },
     {
       "id": "Q16259403",
@@ -16741,6 +20041,17 @@
       "year": 1992
     },
     {
+      "id": "Q4051620",
+      "name": "Total Control",
+      "parentTitle": "Total Control",
+      "region": null,
+      "serial": null,
+      "developer": "Doca",
+      "publisher": "Doca",
+      "genre": "real-time strategy",
+      "year": null
+    },
+    {
       "id": "Q3262992",
       "name": "Total Eclipse",
       "parentTitle": "Total Eclipse",
@@ -16750,6 +20061,17 @@
       "publisher": "Incentive Software",
       "genre": "first-person shooter",
       "year": 1988
+    },
+    {
+      "id": "Q7828748",
+      "name": "Touché: The Adventures of the Fifth Musketeer",
+      "parentTitle": "Touché: The Adventures of the Fifth Musketeer",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Eidos Interactive",
+      "genre": "adventure video game",
+      "year": 1995
     },
     {
       "id": "Q7830356",
@@ -16794,6 +20116,17 @@
       "publisher": "Linel",
       "genre": "business simulation game",
       "year": 1991
+    },
+    {
+      "id": "Q7832451",
+      "name": "Traffic Department 2192",
+      "parentTitle": "Traffic Department 2192",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Safari Software",
+      "genre": "shoot 'em up",
+      "year": 1994
     },
     {
       "id": "Q3537356",
@@ -16895,6 +20228,17 @@
       "year": 1992
     },
     {
+      "id": "Q15077467",
+      "name": "Trek Trivia",
+      "parentTitle": "Trek Trivia",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "trivia video game",
+      "year": 1988
+    },
+    {
       "id": "Q2453548",
       "name": "Trinity",
       "parentTitle": "Trinity",
@@ -16904,6 +20248,17 @@
       "publisher": "Infocom",
       "genre": "adventure video game",
       "year": 1986
+    },
+    {
+      "id": "Q72860973",
+      "name": "Triple Play 97",
+      "parentTitle": "Triple Play 97",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "baseball video game",
+      "year": 1996
     },
     {
       "id": "Q3539815",
@@ -16926,6 +20281,17 @@
       "publisher": "Acclaim Entertainment",
       "genre": "arcade",
       "year": 1990
+    },
+    {
+      "id": "Q110313163",
+      "name": "Troika",
+      "parentTitle": "Troika",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Paragon Software",
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q950084",
@@ -16961,6 +20327,17 @@
       "year": 1995
     },
     {
+      "id": "Q124890207",
+      "name": "Tubes",
+      "parentTitle": "Tubes",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Gold Medallion Software",
+      "genre": "tile-matching video game",
+      "year": null
+    },
+    {
       "id": "Q15903315",
       "name": "TUN TOWN",
       "parentTitle": "TUN TOWN",
@@ -16970,6 +20347,17 @@
       "publisher": null,
       "genre": "role-playing video game",
       "year": 1998
+    },
+    {
+      "id": "Q7853277",
+      "name": "Tunnel B1",
+      "parentTitle": "Tunnel B1",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "action game",
+      "year": 1996
     },
     {
       "id": "Q7853329",
@@ -16992,6 +20380,17 @@
       "publisher": "California Dreams",
       "genre": "action game",
       "year": 1989
+    },
+    {
+      "id": "Q55518348",
+      "name": "Turbo Cup",
+      "parentTitle": "Turbo Cup",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Loriciels",
+      "genre": "racing video game",
+      "year": 1988
     },
     {
       "id": "Q2567511",
@@ -17247,6 +20646,17 @@
       "year": 1992
     },
     {
+      "id": "Q131976312",
+      "name": "Ultimate NFL Coaches Club Football",
+      "parentTitle": "Ultimate NFL Coaches Club Football",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "MicroProse",
+      "genre": "sports video game",
+      "year": 1994
+    },
+    {
       "id": "Q55587299",
       "name": "Ultimate Soccer Manager",
       "parentTitle": "Ultimate Soccer Manager",
@@ -17368,6 +20778,17 @@
       "year": 1994
     },
     {
+      "id": "Q3551934",
+      "name": "Unreal",
+      "parentTitle": "Unreal",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ubisoft",
+      "genre": "action-adventure game",
+      "year": 1990
+    },
+    {
       "id": "Q3552191",
       "name": "Urban Runner",
       "parentTitle": "Urban Runner",
@@ -17388,6 +20809,17 @@
       "publisher": "Hewson Consultants",
       "genre": "science fiction video game",
       "year": 1986
+    },
+    {
+      "id": "Q4006784",
+      "name": "Utopia: The Creation of a Nation",
+      "parentTitle": "Utopia: The Creation of a Nation",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Epic Records Japan",
+      "genre": "city-building game",
+      "year": 1991
     },
     {
       "id": "Q7907762",
@@ -17445,6 +20877,17 @@
       "year": 1995
     },
     {
+      "id": "Q3201535",
+      "name": "Vera Cruz",
+      "parentTitle": "Vera Cruz",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Infogrames",
+      "genre": "adventure video game",
+      "year": 1985
+    },
+    {
       "id": "Q3271578",
       "name": "Vermeer",
       "parentTitle": "Vermeer",
@@ -17454,6 +20897,28 @@
       "publisher": "Ariolasoft",
       "genre": "business simulation game",
       "year": 1987
+    },
+    {
+      "id": "Q1345063",
+      "name": "Vette!",
+      "parentTitle": "Vette!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Spectrum HoloByte",
+      "genre": "racing video game",
+      "year": 1989
+    },
+    {
+      "id": "Q7927878",
+      "name": "Video Trek 88",
+      "parentTitle": "Video Trek 88",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Windmill Software",
+      "genre": null,
+      "year": 1982
     },
     {
       "id": "Q7929454",
@@ -17478,6 +20943,17 @@
       "year": 1997
     },
     {
+      "id": "Q123636914",
+      "name": "Virus",
+      "parentTitle": "Virus",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Firebird Software",
+      "genre": null,
+      "year": 1989
+    },
+    {
       "id": "Q104880079",
       "name": "Visions of Aftermath: The Boomtown",
       "parentTitle": "Visions of Aftermath: The Boomtown",
@@ -17500,6 +20976,17 @@
       "year": 1988
     },
     {
+      "id": "Q1989435",
+      "name": "Voyeur",
+      "parentTitle": "Voyeur",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Koninklijke Philips NV",
+      "genre": "erotic video game",
+      "year": 1993
+    },
+    {
       "id": "Q3563697",
       "name": "Vroom",
       "parentTitle": "Vroom",
@@ -17509,6 +20996,39 @@
       "publisher": "Lankhor",
       "genre": "racing video game",
       "year": 1991
+    },
+    {
+      "id": "Q1518663",
+      "name": "Wacky Wheels",
+      "parentTitle": "Wacky Wheels",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "racing video game",
+      "year": 1994
+    },
+    {
+      "id": "Q111656861",
+      "name": "Wall $treet Raider",
+      "parentTitle": "Wall $treet Raider",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "IntraCorp",
+      "genre": null,
+      "year": 1989
+    },
+    {
+      "id": "Q111652006",
+      "name": "Wall$treet",
+      "parentTitle": "Wall$treet",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Magic Bytes",
+      "genre": null,
+      "year": 1989
     },
     {
       "id": "Q7963236",
@@ -17542,6 +21062,17 @@
       "publisher": "Krome Studios Melbourne",
       "genre": "real-time strategy",
       "year": 1988
+    },
+    {
+      "id": "Q7968625",
+      "name": "War in the Gulf",
+      "parentTitle": "War in the Gulf",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Empire Interactive",
+      "genre": "action game",
+      "year": 1993
     },
     {
       "id": "Q7968453",
@@ -17665,6 +21196,17 @@
       "year": 1995
     },
     {
+      "id": "Q4018577",
+      "name": "Waxworks",
+      "parentTitle": "Waxworks",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "adventure video game",
+      "year": 1992
+    },
+    {
       "id": "Q4018803",
       "name": "Weird Dreams",
       "parentTitle": "Weird Dreams",
@@ -17674,6 +21216,17 @@
       "publisher": null,
       "genre": "action game",
       "year": 1988
+    },
+    {
+      "id": "Q7981796",
+      "name": "Welltris",
+      "parentTitle": "Welltris",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Infogrames",
+      "genre": "puzzle video game",
+      "year": 1989
     },
     {
       "id": "Q56277099",
@@ -17786,6 +21339,17 @@
       "year": 1988
     },
     {
+      "id": "Q3667359",
+      "name": "Who Framed Roger Rabbit",
+      "parentTitle": "Who Framed Roger Rabbit",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Disney Interactive Studios",
+      "genre": "action game",
+      "year": 1988
+    },
+    {
       "id": "Q933680",
       "name": "Who Shot Johnny Rock?",
       "parentTitle": "Who Shot Johnny Rock?",
@@ -17795,6 +21359,17 @@
       "publisher": "Koninklijke Philips NV",
       "genre": "interactive film",
       "year": 1991
+    },
+    {
+      "id": "Q7998721",
+      "name": "Widget Workshop",
+      "parentTitle": "Widget Workshop",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Maxis",
+      "genre": "construction and management simulation",
+      "year": null
     },
     {
       "id": "Q4394384",
@@ -17828,6 +21403,17 @@
       "publisher": null,
       "genre": "cyberpunk video game",
       "year": 1995
+    },
+    {
+      "id": "Q96182346",
+      "name": "Willow",
+      "parentTitle": "Willow",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": null,
+      "year": 1988
     },
     {
       "id": "Q96337096",
@@ -17940,6 +21526,17 @@
       "year": 1986
     },
     {
+      "id": "Q1891535",
+      "name": "Winter Challenge",
+      "parentTitle": "Winter Challenge",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Accolade",
+      "genre": "sports video game",
+      "year": 1991
+    },
+    {
       "id": "Q1790249",
       "name": "Winter Games",
       "parentTitle": "Winter Games",
@@ -18015,6 +21612,17 @@
       "publisher": null,
       "genre": "adventure video game",
       "year": 1980
+    },
+    {
+      "id": "Q61731218",
+      "name": "Wizard Warz",
+      "parentTitle": "Wizard Warz",
+      "region": null,
+      "serial": null,
+      "developer": "Canvas Software",
+      "publisher": null,
+      "genre": null,
+      "year": null
     },
     {
       "id": "Q14942715",
@@ -18204,6 +21812,17 @@
       "year": 1991
     },
     {
+      "id": "Q56033868",
+      "name": "World Championship Boxing Manager",
+      "parentTitle": "World Championship Boxing Manager",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ziggurat Interactive",
+      "genre": "sports video game",
+      "year": 1990
+    },
+    {
       "id": "Q3091076",
       "name": "World Championship Soccer",
       "parentTitle": "World Championship Soccer",
@@ -18248,6 +21867,39 @@
       "year": 1986
     },
     {
+      "id": "Q8036097",
+      "name": "World Rally Fever",
+      "parentTitle": "World Rally Fever",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Team17",
+      "genre": "racing video game",
+      "year": 1996
+    },
+    {
+      "id": "Q8036311",
+      "name": "World Tour Golf",
+      "parentTitle": "World Tour Golf",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "sports video game",
+      "year": 1986
+    },
+    {
+      "id": "Q2503422",
+      "name": "Worlds of Legend: Son of the Empire",
+      "parentTitle": "Worlds of Legend: Son of the Empire",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mindscape",
+      "genre": "role-playing video game",
+      "year": 1993
+    },
+    {
       "id": "Q3570039",
       "name": "Worlds of Ultima: The Savage Empire",
       "parentTitle": "Worlds of Ultima: The Savage Empire",
@@ -18268,6 +21920,17 @@
       "publisher": "Ocean Software",
       "genre": "artillery game",
       "year": 1995
+    },
+    {
+      "id": "Q3283769",
+      "name": "WWF European Rampage Tour",
+      "parentTitle": "WWF European Rampage Tour",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ocean Software",
+      "genre": "fighting game",
+      "year": 1992
     },
     {
       "id": "Q3282238",
@@ -18301,6 +21964,17 @@
       "publisher": "Sculptured Software",
       "genre": "professional wrestling video game",
       "year": 1995
+    },
+    {
+      "id": "Q8036430",
+      "name": "WWII GI",
+      "parentTitle": "WWII GI",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Atari, Inc.",
+      "genre": "first-person shooter",
+      "year": 1999
     },
     {
       "id": "Q8039488",
@@ -18402,6 +22076,17 @@
       "year": 1994
     },
     {
+      "id": "Q2791899",
+      "name": "XCar: Experimental Racing",
+      "parentTitle": "XCar: Experimental Racing",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Bethesda Softworks",
+      "genre": "racing video game",
+      "year": 1997
+    },
+    {
       "id": "Q110486800",
       "name": "Xenocide",
       "parentTitle": "Xenocide",
@@ -18435,6 +22120,17 @@
       "year": 1989
     },
     {
+      "id": "Q4021780",
+      "name": "Xenophage: Alien Bloodsport",
+      "parentTitle": "Xenophage: Alien Bloodsport",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Apogee Software",
+      "genre": "fighting game",
+      "year": 1995
+    },
+    {
       "id": "Q8041946",
       "name": "XF5700 Mantis",
       "parentTitle": "XF5700 Mantis",
@@ -18455,6 +22151,28 @@
       "publisher": "Atari, Inc.",
       "genre": "first-person shooter",
       "year": 1996
+    },
+    {
+      "id": "Q15912394",
+      "name": "Xuan-Yuan Sword: Dance of the Maple Leaves",
+      "parentTitle": "Xuan-Yuan Sword: Dance of the Maple Leaves",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Softstar Entertainment",
+      "genre": "role-playing video game",
+      "year": 1995
+    },
+    {
+      "id": "Q89021125",
+      "name": "Yes, Prime Minister",
+      "parentTitle": "Yes, Prime Minister",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Mosaic Publishing",
+      "genre": "adventure video game",
+      "year": 1987
     },
     {
       "id": "Q58864670",
@@ -18523,6 +22241,17 @@
       "year": 1988
     },
     {
+      "id": "Q2358082",
+      "name": "Zany Golf",
+      "parentTitle": "Zany Golf",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Electronic Arts",
+      "genre": "simulation video game",
+      "year": 1988
+    },
+    {
       "id": "Q3574849",
       "name": "Zarch",
       "parentTitle": "Zarch",
@@ -18554,6 +22283,17 @@
       "publisher": "Sierra Entertainment",
       "genre": "Metroidvania",
       "year": 1987
+    },
+    {
+      "id": "Q191404",
+      "name": "Zeppelin: Giants of the Sky",
+      "parentTitle": "Zeppelin: Giants of the Sky",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Ikarion",
+      "genre": "business simulation game",
+      "year": 1994
     },
     {
       "id": "Q90999",
@@ -18609,6 +22349,28 @@
       "publisher": "Gremlin Interactive",
       "genre": "platform game",
       "year": 1993
+    },
+    {
+      "id": "Q2741890",
+      "name": "Zoom!",
+      "parentTitle": "Zoom!",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Sega",
+      "genre": "puzzle video game",
+      "year": 1990
+    },
+    {
+      "id": "Q1974823",
+      "name": "Zoop",
+      "parentTitle": "Zoop",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Viacom",
+      "genre": "puzzle video game",
+      "year": 1995
     },
     {
       "id": "Q2192105",
@@ -18697,6 +22459,17 @@
       "publisher": "Epic Games",
       "genre": "game creation system",
       "year": 1991
+    },
+    {
+      "id": "Q113403400",
+      "name": "Ворона, или Как Иван-дурак за кладом ходил",
+      "parentTitle": "Ворона, или Как Иван-дурак за кладом ходил",
+      "region": null,
+      "serial": null,
+      "developer": null,
+      "publisher": "Nikita Online",
+      "genre": "arcade",
+      "year": 1992
     },
     {
       "id": "Q10871852",

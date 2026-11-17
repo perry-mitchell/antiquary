@@ -39,9 +39,11 @@ Videopac+), vectrex, channelf, arcadia, adventurevision, vc4000, studio2,
 supervision, gamecom, gp32, arduboy, creativision, vsmile, loopy, pv1000, scv,
 acan, gamemaster, picno, leappad, leapster, pocketchallenge, cdi, 3do
 
-PC (Wikidata, CC0) — pc (Microsoft Windows, ~21k titles filtered to games
-with a release date and a developer), dos (~1.6k on the same filter). One
-entry per title; no regional variants or serials. See the note in
+PC (Wikidata, CC0) — pc (Microsoft Windows, ~26k titles) and dos (~2k), both
+scored on the same rule: a release qualifies once Wikidata credits it to a
+developer or a publisher, and the release date, developer, publisher and
+genre are then left empty wherever Wikidata records none. One entry per title;
+no regional variants or serials. See the note in
 `scripts/generate-catalogs.mjs` for exactly what is filtered out.
 
 Regional twins of the same console are combined (e.g. Mega Drive + Genesis;
