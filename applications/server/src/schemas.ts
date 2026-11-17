@@ -81,6 +81,7 @@ export const listItemsQuerySchema = z.object({
 export const listSupersetEntriesQuerySchema = z.object({
     q: z.string().trim().max(200).optional(),
     ownership: z.enum(['all', 'owned', 'missing']).optional(),
+    sort: z.enum(['title', 'rarity-asc', 'rarity-desc']).optional(),
     page: z.coerce.number().int().min(1).optional(),
     limit: z.coerce.number().int().min(1).max(100).optional(),
 });

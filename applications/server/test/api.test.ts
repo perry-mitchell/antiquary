@@ -1223,6 +1223,33 @@ describe('supersets', () => {
         expect(plain.body.rarity).toBeUndefined();
     });
 
+    it('sorts catalog entries by rarity', async () => {
+        const desc = await api.get('/api/supersets/n64/entries?sort=rarity-desc&limit=20');
+        expect(desc.status).toBe(200);
+        const rarities = desc.body.entries.map(
+            (e: { rarity?: { rarity: number } }) => e.rarity?.rarity ?? 0,
+        );
+        expect(rarities[0]).toBe(10);
+        for (let i = 1; i < rarities.length; i++) {
+            expect(rarities[i]).toBeLessThanOrEqual(rarities[i - 1]);
+        }
+
+        const asc = await api.get('/api/supersets/n64/entries?sort=rarity-asc&limit=20');
+        const ascending = asc.body.entries.map(
+            (e: { rarity?: { rarity: number } }) => e.rarity?.rarity ?? 0,
+        );
+        for (let i = 1; i < ascending.length; i++) {
+            expect(ascending[i]).toBeGreaterThanOrEqual(ascending[i - 1]);
+        }
+
+        // unknown sort values are rejected, default stays title order
+        expect((await api.get('/api/supersets/n64/entries?sort=bogus')).status).toBe(400);
+        const titles = await api.get('/api/supersets/n64/entries?limit=5');
+        expect(
+            titles.body.entries[0].parentTitle.localeCompare(titles.body.entries[1].parentTitle),
+        ).toBeLessThanOrEqual(0);
+    });
+
     it('validates the search query and catalog key', async () => {
         expect((await api.get('/api/supersets/snes/search')).status).toBe(400);
         expect((await api.get('/api/supersets/nope/search?q=x')).status).toBe(404);

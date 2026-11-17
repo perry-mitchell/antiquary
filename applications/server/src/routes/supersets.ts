@@ -57,6 +57,7 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
             page: query.page,
             limit: query.limit,
             ownership: query.ownership,
+            sort: query.sort,
             isOwned: (entryId) => itemIdByEntry.has(entryId),
         });
         if (!result) throw new HttpError(404, 'Catalog not found');

@@ -121,7 +121,13 @@ export const api = {
         get: (key: string) => request<SupersetInfoDto>(`/api/supersets/${key}`),
         entries: (
             key: string,
-            params: { q?: string; ownership?: string; page?: number; limit?: number } = {},
+            params: {
+                q?: string;
+                ownership?: string;
+                sort?: string;
+                page?: number;
+                limit?: number;
+            } = {},
         ) => {
             const qs = new URLSearchParams();
             for (const [k, value] of Object.entries(params)) {

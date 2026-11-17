@@ -6,6 +6,7 @@ import {
     StarIcon,
     SunIcon,
     TrashIcon,
+    LayersIcon,
     FileTextIcon,
     GearIcon,
     HomeIcon,
@@ -101,6 +102,7 @@ export function AppShell() {
                             </Link>
                             <Flex gap="1" align="center" className="nav-links">
                                 {navLink('/', 'Collections', <HomeIcon />, 'nav-collections')}
+                                {navLink('/supersets', 'Catalogs', <LayersIcon />, 'nav-catalogs')}
                                 {navLink(
                                     '/templates',
                                     'Templates',

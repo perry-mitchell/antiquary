@@ -584,6 +584,40 @@ test.describe.serial('collector journey', () => {
         ).toContainText('Revoked');
     });
 
+    test('catalogs: top-level list, collected filter and rarity sorting', async ({ page }) => {
+        await page.goto('/');
+        await page.getByTestId('nav-catalogs').click();
+        await expect(page.getByTestId('catalogs-page')).toBeVisible();
+
+        const cards = page.getByTestId('catalog-card');
+        await expect(cards.first()).toBeVisible();
+        const count = await cards.count();
+        expect(count).toBeGreaterThan(10);
+
+        // filtering the list works, then clear it again
+        await page.getByTestId('catalogs-search').fill('game boy');
+        await expect(cards).toHaveCount(3); // Game Boy, Color and Advance
+        await page.getByTestId('catalogs-search').fill('');
+        await expect(cards).toHaveCount(count);
+
+        // journey owns Chrono Trigger variants on the SNES catalog
+        await cards.filter({ hasText: 'Super Nintendo' }).click();
+        await expect(page.getByTestId('superset-title')).toContainText('Super Nintendo');
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        await expect(page.getByTestId('owned-badge').first()).toBeVisible();
+
+        // collected only: every listed entry is owned
+        await page.getByTestId('collected-only').click();
+        await expect(page.getByTestId('missing-badge')).toHaveCount(0);
+        await expect(page.getByTestId('owned-badge').first()).toBeVisible();
+
+        // rarest owned entries first
+        await page.getByTestId('superset-sort').click();
+        await page.getByRole('option', { name: 'Rarity high → low' }).click();
+        const firstTag = page.getByTestId('superset-entries').getByTestId('rarity-tag').first();
+        await expect(firstTag).toHaveAttribute('title', 'R8/10 · Extremely Collectible · 76%');
+    });
+
     test('dark mode toggle switches appearance', async ({ page }) => {
         await page.goto('/');
         await expect(page.getByTestId('collection-card').first()).toBeVisible();

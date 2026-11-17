@@ -63,6 +63,8 @@ export interface SupersetSearchResult {
 
 export type SupersetOwnership = 'all' | 'owned' | 'missing';
 
+export type SupersetEntrySort = 'title' | 'rarity-asc' | 'rarity-desc';
+
 export interface SupersetEntryListOptions {
     query?: string;
     page?: number;
@@ -70,6 +72,8 @@ export interface SupersetEntryListOptions {
     /** Filter by ownership; requires `isOwned` when not "all". */
     ownership?: SupersetOwnership;
     isOwned?: (entryId: string) => boolean;
+    /** Unrated entries count as rarity 0 and keep title order among equals. */
+    sort?: SupersetEntrySort;
 }
 
 export interface SupersetEntryListResult {
@@ -164,6 +168,7 @@ export class SupersetRegistry {
         const limit = Math.min(100, Math.max(1, opts.limit ?? 24));
         const needle = (opts.query ?? '').trim().toLowerCase();
         const ownership = opts.ownership ?? 'all';
+        const rarityMap = await this.rarityMapFor(key);
 
         let entries = catalog.entries;
         if (needle.length > 0) {
@@ -181,11 +186,19 @@ export class SupersetRegistry {
             );
         }
 
-        entries = [...entries].sort(
-            (a, b) => a.parentTitle.localeCompare(b.parentTitle) || a.name.localeCompare(b.name),
-        );
+        const byTitle = (a: SupersetEntry, b: SupersetEntry) =>
+            a.parentTitle.localeCompare(b.parentTitle) || a.name.localeCompare(b.name);
+        const sort = opts.sort ?? 'title';
+        if (sort === 'title') {
+            entries = [...entries].sort(byTitle);
+        } else {
+            const rarityOf = (entry: SupersetEntry) => rarityMap.get(entry.id)?.rarity ?? 0;
+            const direction = sort === 'rarity-desc' ? -1 : 1;
+            entries = [...entries].sort(
+                (a, b) => direction * (rarityOf(a) - rarityOf(b)) || byTitle(a, b),
+            );
+        }
 
-        const rarityMap = await this.rarityMapFor(key);
         const slice = entries.slice((page - 1) * limit, (page - 1) * limit + limit).map((entry) => {
             const rarity = rarityMap.get(entry.id);
             return rarity ? { ...entry, rarity } : entry;

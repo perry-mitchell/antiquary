@@ -7,6 +7,7 @@ const PAGES = [
     '/trash',
     '/settings',
     '/search?q=book',
+    '/supersets',
     '/supersets/gb',
     '/wanted',
 ];
