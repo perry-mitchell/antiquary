@@ -20,7 +20,11 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
     router.get('/:key/entries/:entryId', async (req, res) => {
         const entry = await registry.getEntry(req.params.key, req.params.entryId);
         if (!entry) throw new HttpError(404, 'Catalog entry not found');
-        res.json(entry);
+        const shopLinks = await db.listShopLinks({
+            superset: req.params.key,
+            supersetEntry: req.params.entryId,
+        });
+        res.json({ ...entry, shopLinks });
     });
 
     router.get('/:key/entries', async (req, res) => {
@@ -35,6 +39,17 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
             if (!itemIdByEntry.has(match.supersetEntry)) {
                 itemIdByEntry.set(match.supersetEntry, match.itemId);
             }
+        }
+        const wantedEntries = new Set(
+            (await db.listWanted())
+                .filter((w) => w.superset === req.params.key)
+                .map((w) => w.supersetEntry),
+        );
+        const shopLinksByEntry = new Map<string, Awaited<ReturnType<typeof db.listShopLinks>>>();
+        for (const link of await db.listShopLinks({ superset: req.params.key })) {
+            const list = shopLinksByEntry.get(link.supersetEntry) ?? [];
+            list.push(link);
+            shopLinksByEntry.set(link.supersetEntry, list);
         }
 
         const result = await registry.listEntries(req.params.key, {
@@ -51,7 +66,13 @@ export function supersetRoutes(db: Database, registry: SupersetRegistry): Router
             ownedCount: itemIdByEntry.size,
             entries: result.entries.map((entry) => {
                 const itemId = itemIdByEntry.get(entry.id) ?? null;
-                return { ...entry, owned: itemId !== null, itemId };
+                return {
+                    ...entry,
+                    owned: itemId !== null,
+                    itemId,
+                    wanted: wantedEntries.has(entry.id),
+                    shopLinks: shopLinksByEntry.get(entry.id) ?? [],
+                };
             }),
         });
     });

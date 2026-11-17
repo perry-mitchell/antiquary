@@ -399,6 +399,72 @@ test.describe.serial('collector journey', () => {
         await expect(page.getByTestId('superset-entry-chrono-trigger-japan')).toBeVisible();
     });
 
+    test('wanted list: star entries while browsing, manage them on the wanted page', async ({
+        page,
+    }) => {
+        await page.goto('/supersets/snes');
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        const jpRow = page.getByTestId('superset-entry-chrono-trigger-japan');
+        await expect(jpRow).toBeVisible();
+
+        // star the missing Japan variant
+        await jpRow.getByTestId('wanted-toggle').click();
+        await expect(page.getByTestId('toast-success').last()).toContainText('Added to wanted');
+        await expect(jpRow.getByTestId('wanted-toggle')).toBeVisible();
+
+        // the menu bar shortcut lists it with catalog details
+        await page.getByTestId('nav-wanted').click();
+        const row = page.getByTestId('wanted-entry-chrono-trigger-japan');
+        await expect(page.getByTestId('wanted-count')).toHaveText('1');
+        await expect(row).toContainText('Chrono Trigger (Japan)');
+        await expect(row).toContainText('Super Nintendo');
+        await expect(row.getByTestId('missing-badge')).toBeVisible();
+        await expect(row.getByTestId('owned-badge')).toHaveCount(0);
+
+        // remove it — the list empties out
+        await row.getByTestId('wanted-remove-chrono-trigger-japan').click();
+        await expect(page.getByTestId('toast-success').last()).toContainText('Removed');
+        await expect(page.getByTestId('wanted-entries')).toHaveCount(0);
+        await expect(page.getByTestId('empty-state')).toContainText('Nothing on the wanted list');
+    });
+
+    test('shop links: attach buy listings to catalog entries', async ({ page }) => {
+        await page.goto('/supersets/snes');
+        await page.getByTestId('superset-search').fill('chrono trigger');
+        const jpRow = page.getByTestId('superset-entry-chrono-trigger-japan');
+        await expect(jpRow).toBeVisible();
+
+        await jpRow.getByTestId('shop-links-toggle').click();
+        const dialog = page.getByTestId('shop-links-dialog');
+        await expect(dialog).toBeVisible();
+        await expect(dialog.getByTestId('shop-links-empty')).toBeVisible();
+
+        // add a priced listing
+        await dialog.getByTestId('shop-link-title-input').fill('Play Asia');
+        await dialog
+            .getByTestId('shop-link-url-input')
+            .fill('https://www.play-asia.com/chrono-trigger');
+        await dialog.getByTestId('shop-link-price-input').fill('129.99');
+        await dialog.getByTestId('shop-link-add-button').click();
+        await expect(page.getByTestId('toast-success').last()).toContainText('added');
+
+        const listing = dialog.getByTestId('shop-link-row-play-asia');
+        await expect(listing).toContainText('Play Asia');
+        await expect(listing.getByTestId('shop-link-price')).toContainText('129.99');
+
+        // close — the row button now carries the count badge
+        await page.keyboard.press('Escape');
+        await expect(dialog).toHaveCount(0);
+        await expect(jpRow.getByTestId('shop-links-count')).toHaveText('1');
+
+        // reopen and remove the listing
+        await jpRow.getByTestId('shop-links-toggle').click();
+        await page.getByTestId('shop-link-remove-play-asia').click();
+        await expect(
+            page.getByTestId('shop-links-dialog').getByTestId('shop-links-empty'),
+        ).toBeVisible();
+    });
+
     test('rarity tags render for supersets with compiled rarity', async ({ page }) => {
         // GB superset ships a compiled rarity file
         await page.goto('/');

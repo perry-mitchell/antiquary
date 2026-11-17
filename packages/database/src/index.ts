@@ -2,8 +2,10 @@ export * from './types.js';
 export { Database, createKysely, diffItemDetails } from './db.js';
 export type {
     AddImageInput,
+    AddWantedInput,
     CreateCollectionInput,
     CreateItemInput,
+    CreateShopLinkInput,
     CreateTagInput,
     CreateTemplateInput,
     ItemListOptions,

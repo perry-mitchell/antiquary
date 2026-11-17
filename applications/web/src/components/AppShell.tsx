@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import {
     MagnifyingGlassIcon,
     MoonIcon,
+    StarIcon,
     SunIcon,
     TrashIcon,
     FileTextIcon,
@@ -106,6 +107,7 @@ export function AppShell() {
                                     <FileTextIcon />,
                                     'nav-templates',
                                 )}
+                                {navLink('/wanted', 'Wanted', <StarIcon />, 'nav-wanted')}
                                 {navLink('/trash', 'Trash', <TrashIcon />, 'nav-trash')}
                                 {navLink('/settings', 'Settings', <GearIcon />, 'nav-settings')}
                             </Flex>

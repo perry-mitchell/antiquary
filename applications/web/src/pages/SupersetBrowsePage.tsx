@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { ChevronLeftIcon, ChevronRightIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import {
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    Link2Icon,
+    MagnifyingGlassIcon,
+    StarIcon,
+} from '@radix-ui/react-icons';
 import {
     Badge,
     Box,
@@ -19,7 +25,10 @@ import type { SupersetEntryListResultDto, SupersetInfoDto } from '../api';
 import { EmptyState } from '../components/Dialogs';
 import { RarityTag } from '../components/RarityTag';
 import { useToast } from '../components/Toast';
+import { ShopLinksDialog } from '../components/ShopLinksDialog';
 import { slug } from '../lib/format';
+import type { SupersetEntryListItemDto } from '../api';
+import type { ShopLinkDto } from '@antiquary/database';
 
 const PAGE_SIZE = 24;
 
@@ -38,6 +47,7 @@ export function SupersetBrowsePage() {
     const [search, setSearch] = useState('');
     const [missingOnly, setMissingOnly] = useState(false);
     const [page, setPage] = useState(1);
+    const [linksFor, setLinksFor] = useState<SupersetEntryListItemDto | null>(null);
 
     const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
     useEffect(() => {
@@ -91,6 +101,48 @@ export function SupersetBrowsePage() {
             }),
         );
     }, [loadEntries, toast]);
+
+    const toggleWanted = async (entry: SupersetEntryListItemDto) => {
+        try {
+            if (entry.wanted) {
+                await api.wanted.remove(key, entry.id);
+                toast({ title: 'Removed from wanted', variant: 'success' });
+            } else {
+                await api.wanted.add({ superset: key, supersetEntry: entry.id });
+                toast({ title: 'Added to wanted', variant: 'success' });
+            }
+            setResult((prev) =>
+                prev
+                    ? {
+                          ...prev,
+                          entries: prev.entries.map((e) =>
+                              e.id === entry.id ? { ...e, wanted: !entry.wanted } : e,
+                          ),
+                      }
+                    : prev,
+            );
+        } catch (error) {
+            toast({
+                title: 'Could not update the wanted list',
+                description: String(error),
+                variant: 'error',
+            });
+        }
+    };
+
+    const setEntryLinks = (entryId: string, links: ShopLinkDto[]) => {
+        setResult((prev) =>
+            prev
+                ? {
+                      ...prev,
+                      entries: prev.entries.map((e) =>
+                          e.id === entryId ? { ...e, shopLinks: links } : e,
+                      ),
+                  }
+                : prev,
+        );
+        setLinksFor((prev) => (prev && prev.id === entryId ? { ...prev, shopLinks: links } : prev));
+    };
 
     if (missingCatalog) {
         return (
@@ -251,10 +303,62 @@ export function SupersetBrowsePage() {
                                     Missing
                                 </Badge>
                             )}
+                            <IconButton
+                                variant={entry.wanted ? 'solid' : 'soft'}
+                                color={entry.wanted ? 'amber' : 'gray'}
+                                onClick={() => toggleWanted(entry)}
+                                aria-label={
+                                    entry.wanted ? 'Remove from wanted list' : 'Add to wanted list'
+                                }
+                                title={entry.wanted ? 'Remove from wanted' : 'Add to wanted'}
+                                data-testid="wanted-toggle"
+                            >
+                                <StarIcon />
+                            </IconButton>
+                            <Box style={{ position: 'relative' }}>
+                                <IconButton
+                                    variant="soft"
+                                    color="gray"
+                                    onClick={() => setLinksFor(entry)}
+                                    aria-label="Shop links"
+                                    title={
+                                        entry.shopLinks && entry.shopLinks.length > 0
+                                            ? `Shop links (${entry.shopLinks.length})`
+                                            : 'Shop links'
+                                    }
+                                    data-testid="shop-links-toggle"
+                                >
+                                    <Link2Icon />
+                                </IconButton>
+                                {entry.shopLinks && entry.shopLinks.length > 0 ? (
+                                    <Badge
+                                        color="jade"
+                                        variant="solid"
+                                        size="1"
+                                        style={{ position: 'absolute', top: -6, right: -8 }}
+                                        data-testid="shop-links-count"
+                                    >
+                                        {entry.shopLinks.length}
+                                    </Badge>
+                                ) : null}
+                            </Box>
                         </Flex>
                     ))}
                 </Flex>
             )}
+
+            {linksFor ? (
+                <ShopLinksDialog
+                    open
+                    onOpenChange={(next) => {
+                        if (!next) setLinksFor(null);
+                    }}
+                    superset={key}
+                    entry={linksFor}
+                    links={linksFor.shopLinks ?? []}
+                    onChanged={(links) => setEntryLinks(linksFor.id, links)}
+                />
+            ) : null}
 
             {totalPages > 1 ? (
                 <Flex align="center" gap="3" justify="center">

@@ -96,6 +96,44 @@ export const createTagSchema = z.object({
 
 export const updateTagSchema = createTagSchema.partial();
 
+export const addWantedSchema = z.object({
+    superset: z.string().trim().min(1, 'Catalog key is required').max(50),
+    supersetEntry: z.string().trim().min(1, 'Catalog entry is required').max(100),
+});
+
+export const createShopLinkSchema = z
+    .object({
+        superset: z.string().trim().min(1, 'Catalog key is required').max(50),
+        supersetEntry: z.string().trim().min(1, 'Catalog entry is required').max(100),
+        title: z.string().trim().min(1, 'Title is required').max(200),
+        url: z
+            .string()
+            .trim()
+            .min(1, 'URL is required')
+            .max(2000)
+            .refine(
+                (value) => {
+                    try {
+                        new URL(value);
+                        return true;
+                    } catch {
+                        return false;
+                    }
+                },
+                { message: 'URL is not valid' },
+            ),
+        price: z.number().min(0).max(100_000_000).nullable().optional(),
+        currency: z
+            .string()
+            .regex(/^[A-Za-z]{3}$/, 'Currency must be a 3-letter ISO code')
+            .nullable()
+            .optional(),
+    })
+    .refine((data) => (data.price == null) === (data.currency == null), {
+        message: 'Price and currency must be provided together',
+        path: ['currency'],
+    });
+
 export const updateImageSchema = z.object({
     caption: z.string().trim().max(300).nullable().optional(),
     isCover: z.boolean().optional(),
@@ -111,3 +149,5 @@ export type ListItemsQuery = z.infer<typeof listItemsQuerySchema>;
 export type ListSupersetEntriesQuery = z.infer<typeof listSupersetEntriesQuerySchema>;
 export type CreateTagBody = z.infer<typeof createTagSchema>;
 export type UpdateTagBody = z.infer<typeof updateTagSchema>;
+export type AddWantedBody = z.infer<typeof addWantedSchema>;
+export type CreateShopLinkBody = z.infer<typeof createShopLinkSchema>;

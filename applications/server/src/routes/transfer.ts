@@ -35,6 +35,8 @@ const NDJSON_DATASETS = [
     'itemTags',
     'images',
     'itemHistory',
+    'wanted',
+    'shopLinks',
 ] as const;
 
 const importUpload = multer({
@@ -157,6 +159,8 @@ export function transferRoutes(db: Database, uploadDir: string): Router {
                 itemTags: await readNdjson(join(extractDir, 'itemTags.ndjson')),
                 images: await readNdjson(join(extractDir, 'images.ndjson')),
                 itemHistory: await readNdjson(join(extractDir, 'itemHistory.ndjson')),
+                wanted: await readNdjson(join(extractDir, 'wanted.ndjson')),
+                shopLinks: await readNdjson(join(extractDir, 'shopLinks.ndjson')),
             };
 
             const { summary, imageFilenames } = await db.ingestExport(bundle);

@@ -1,7 +1,15 @@
 import { expect, test } from '@playwright/test';
 
 // Guards mobile layout: no page may scroll horizontally at phone widths.
-const PAGES = ['/', '/templates', '/trash', '/settings', '/search?q=book', '/supersets/gb'];
+const PAGES = [
+    '/',
+    '/templates',
+    '/trash',
+    '/settings',
+    '/search?q=book',
+    '/supersets/gb',
+    '/wanted',
+];
 
 test.describe('mobile layout', () => {
     let collectionId: string;
