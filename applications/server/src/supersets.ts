@@ -165,7 +165,7 @@ export class SupersetRegistry {
         if (!catalog) return null;
 
         const page = Math.max(1, opts.page ?? 1);
-        const limit = Math.min(100, Math.max(1, opts.limit ?? 24));
+        const limit = Math.min(500, Math.max(1, opts.limit ?? 24));
         const needle = (opts.query ?? '').trim().toLowerCase();
         const ownership = opts.ownership ?? 'all';
         const rarityMap = await this.rarityMapFor(key);

@@ -776,3 +776,56 @@ test.describe.serial('transfer journey', () => {
         return Number(match?.[1] ?? 0);
     }
 });
+
+test.describe('pagination', () => {
+    let collectionId: string;
+
+    test.beforeAll(async ({ request }) => {
+        const collection = await request.post('/api/collections', {
+            data: { name: 'Pagination shelf', emoji: '📚' },
+        });
+        collectionId = (await collection.json()).id;
+        for (let i = 1; i <= 30; i++) {
+            await request.post('/api/items', {
+                data: { collectionId, name: `Volume ${String(i).padStart(2, '0')}` },
+            });
+        }
+    });
+
+    test('collection page number survives a refresh', async ({ page }) => {
+        await page.goto(`/collections/${collectionId}`);
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 1 of 2');
+
+        await page.getByRole('button', { name: 'Next page' }).click();
+        await expect(page).toHaveURL(new RegExp(`/collections/${collectionId}\\?page=2`));
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 2 of 2');
+
+        await page.reload();
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 2 of 2');
+    });
+
+    test('per-page preference is stored and survives a refresh', async ({ page }) => {
+        await page.goto(`/collections/${collectionId}`);
+        await page.getByTestId('per-page').click();
+        await page.getByRole('option', { name: '50 per page', exact: true }).click();
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 1 of 1');
+        await expect(page).toHaveURL(new RegExp(`/collections/${collectionId}$`));
+
+        await page.reload();
+        await expect(page.getByTestId('per-page')).toContainText('50 per page');
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 1 of 1');
+    });
+
+    test('catalog page number survives a refresh', async ({ page }) => {
+        await page.goto('/supersets/snes');
+        await expect(page.getByTestId('superset-entries')).toBeVisible();
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 1 of');
+
+        await page.getByRole('button', { name: 'Next page' }).click();
+        await expect(page).toHaveURL(/\/supersets\/snes\?page=2/);
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 2 of');
+
+        await page.reload();
+        await expect(page.getByTestId('pagination-status')).toContainText('Page 2 of');
+    });
+});
