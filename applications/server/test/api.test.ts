@@ -694,6 +694,40 @@ describe('mcp endpoint', () => {
         expect(bogusEntry.isError).toBe(true);
         expect(bogusEntry.content[0]!.text).toContain('Unknown catalog entry');
 
+        // order, limit and search options (needs a second, newer row)
+        const addedSnes = await call(fullKey, 28, 'add_wanted', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+        });
+        expect(addedSnes.isError).toBeFalsy();
+
+        const wantedRows = (tool: 'list_wanted' | 'search_wanted', args: unknown) =>
+            call(readOnlyKey, 29, tool, args).then(
+                (r) => JSON.parse(r.content[0]!.text) as { superset: string; entry: { name: string } }[],
+            );
+
+        const desc = await wantedRows('list_wanted', { order: 'created-desc' });
+        expect(desc[0]!.superset).toBe('snes'); // newest first
+        const asc = await wantedRows('list_wanted', { order: 'created-asc' });
+        expect(asc[0]!.superset).toBe('gb');
+        const limited = await wantedRows('list_wanted', { order: 'random', limit: 1 });
+        expect(limited).toHaveLength(1);
+
+        const byName = await wantedRows('search_wanted', { query: 'f-zero' });
+        expect(byName).toHaveLength(1);
+        expect(byName[0]!.superset).toBe('snes');
+        const bySerial = await wantedRows('search_wanted', { query: 'sns-fz', limit: 5 });
+        expect(bySerial).toHaveLength(1);
+        expect(bySerial[0]!.entry.name).toContain('F-Zero');
+        const noMatch = await wantedRows('search_wanted', { query: 'no-such-entry-zzz' });
+        expect(noMatch).toHaveLength(0);
+
+        const removedSnes = await call(fullKey, 30, 'remove_wanted', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+        });
+        expect(JSON.parse(removedSnes.content[0]!.text).ok).toBe(true);
+
         const removed = await call(fullKey, 26, 'remove_wanted', {
             superset: 'gb',
             entryId: 'AF6BDC50',
