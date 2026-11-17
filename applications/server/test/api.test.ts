@@ -703,7 +703,11 @@ describe('mcp endpoint', () => {
 
         const wantedRows = (tool: 'list_wanted' | 'search_wanted', args: unknown) =>
             call(readOnlyKey, 29, tool, args).then(
-                (r) => JSON.parse(r.content[0]!.text) as { superset: string; entry: { name: string } }[],
+                (r) =>
+                    JSON.parse(r.content[0]!.text) as {
+                        superset: string;
+                        entry: { name: string };
+                    }[],
             );
 
         const desc = await wantedRows('list_wanted', { order: 'created-desc' });
