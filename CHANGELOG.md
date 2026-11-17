@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/perry-mitchell/antiquary/compare/v1.5.0...v1.6.0) (2026-11-17)
+
+
+### Features
+
+* **catalog:** wanted list and shop links for catalog entries ([#18](https://github.com/perry-mitchell/antiquary/issues/18)) ([7dbd3e2](https://github.com/perry-mitchell/antiquary/commit/7dbd3e2f0de3c954f3ea002116a490e5a357e639))
+
 # [1.5.0](https://github.com/perry-mitchell/antiquary/compare/v1.4.0...v1.5.0) (2026-11-16)
 
 
