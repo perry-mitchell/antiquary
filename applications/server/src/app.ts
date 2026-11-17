@@ -12,6 +12,7 @@ import { settingsRoutes } from './routes/settings.js';
 import { transferRoutes } from './routes/transfer.js';
 import { mcpRoutes } from './routes/mcp.js';
 import { wantedRoutes } from './routes/wanted.js';
+import { shopLinkRoutes } from './routes/shopLinks.js';
 import type { SupersetRegistry } from './supersets.js';
 
 export interface AppDeps {
@@ -45,6 +46,7 @@ export function createApp({ db, uploadDir, supersets, webDist }: AppDeps): Expre
     app.use('/api/settings', settingsRoutes(db));
     app.use('/api/transfer', transferRoutes(db, uploadDir));
     app.use('/api/wanted', wantedRoutes(db, supersets));
+    app.use('/api/shop-links', shopLinkRoutes(db, supersets));
 
     app.use('/api', (_req, res) => {
         res.status(404).json({ error: 'Not found' });

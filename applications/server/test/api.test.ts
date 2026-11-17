@@ -425,6 +425,8 @@ describe('mcp endpoint', () => {
             'upload_image',
             'add_wanted',
             'remove_wanted',
+            'add_shop_link',
+            'remove_shop_link',
         ]) {
             expect(tools).not.toContain(banned);
         }
@@ -442,6 +444,9 @@ describe('mcp endpoint', () => {
         expect(tools).toContain('list_wanted');
         expect(tools).toContain('add_wanted');
         expect(tools).toContain('remove_wanted');
+        expect(tools).toContain('list_shop_links');
+        expect(tools).toContain('add_shop_link');
+        expect(tools).toContain('remove_shop_link');
     });
 
     it('manages templates and template-bound collections over MCP', async () => {
@@ -702,6 +707,98 @@ describe('mcp endpoint', () => {
         });
         expect(removeAgain.isError).toBeFalsy();
         expect(JSON.parse(removeAgain.content[0]!.text).error).toContain('not on the wanted list');
+    });
+
+    it('manages shop links over MCP', async () => {
+        const call = async (key: string, id: number, name: string, arguments_: unknown) => {
+            const res = await rpc(key, {
+                jsonrpc: '2.0',
+                id,
+                method: 'tools/call',
+                params: { name, arguments: arguments_ },
+            });
+            return unwrap(res).result as { isError?: boolean; content: { text: string }[] };
+        };
+
+        const added = await call(fullKey, 30, 'add_shop_link', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+            title: 'eStarland',
+            url: 'https://www.estarland.com/f-zero',
+            price: 44.99,
+            currency: 'USD',
+        });
+        expect(added.isError).toBeFalsy();
+        const link = JSON.parse(added.content[0]!.text) as {
+            id: string;
+            price: number;
+            currency: string;
+        };
+        expect(link.id).toBeTruthy();
+        expect(link.price).toBe(44.99);
+        expect(link.currency).toBe('USD');
+
+        const unpriced = await call(fullKey, 31, 'add_shop_link', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+            title: 'Local shop',
+            url: 'https://retro.example/f-zero',
+        });
+        expect(unpriced.isError).toBeFalsy();
+        const unpricedLink = JSON.parse(unpriced.content[0]!.text) as { id: string; price: null };
+        expect(unpricedLink.price).toBeNull();
+
+        const mismatched = await call(fullKey, 32, 'add_shop_link', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+            title: 'Broken',
+            url: 'https://retro.example/x',
+            price: 10,
+        });
+        expect(mismatched.isError).toBe(true);
+        expect(mismatched.content[0]!.text).toContain('together');
+
+        const bogusCatalog = await call(fullKey, 33, 'add_shop_link', {
+            superset: 'nonsense',
+            entryId: 'X',
+            title: 'Broken',
+            url: 'https://retro.example/x',
+        });
+        expect(bogusCatalog.isError).toBe(true);
+        expect(bogusCatalog.content[0]!.text).toContain('Unknown catalog');
+
+        const bogusEntry = await call(fullKey, 34, 'add_shop_link', {
+            superset: 'snes',
+            entryId: 'DEADBEEF',
+            title: 'Broken',
+            url: 'https://retro.example/x',
+        });
+        expect(bogusEntry.isError).toBe(true);
+        expect(bogusEntry.content[0]!.text).toContain('Unknown catalog entry');
+
+        // read-only keys can list, filtered by catalog and entry
+        const listed = await call(readOnlyKey, 35, 'list_shop_links', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+        });
+        const links = JSON.parse(listed.content[0]!.text) as { id: string; title: string }[];
+        expect(links).toHaveLength(2);
+
+        const removed = await call(fullKey, 36, 'remove_shop_link', { id: link.id });
+        expect(removed.isError).toBeFalsy();
+        expect(JSON.parse(removed.content[0]!.text).ok).toBe(true);
+
+        const removeAgain = await call(fullKey, 37, 'remove_shop_link', { id: link.id });
+        expect(JSON.parse(removeAgain.content[0]!.text).error).toContain('Shop link not found');
+
+        // leave nothing behind for the REST suite
+        const cleanup = await call(fullKey, 38, 'remove_shop_link', { id: unpricedLink.id });
+        expect(cleanup.isError).toBeFalsy();
+        const remaining = await call(readOnlyKey, 39, 'list_shop_links', {
+            superset: 'snes',
+            entryId: 'AA0E31DE',
+        });
+        expect(JSON.parse(remaining.content[0]!.text)).toHaveLength(0);
     });
 
     it('rejects unknown and dropped tools cleanly', async () => {
@@ -1444,6 +1541,104 @@ describe('wanted', () => {
     });
 });
 
+describe('shop links', () => {
+    it('validates the body', async () => {
+        const badUrl = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'AA0E31DE',
+            title: 'X',
+            url: 'not a url',
+        });
+        expect(badUrl.status).toBe(400);
+
+        const priceOnly = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'AA0E31DE',
+            title: 'X',
+            url: 'https://retro.example/x',
+            price: 10,
+        });
+        expect(priceOnly.status).toBe(400);
+        expect(priceOnly.body.error).toContain('together');
+
+        const badCurrency = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'AA0E31DE',
+            title: 'X',
+            url: 'https://retro.example/x',
+            price: 10,
+            currency: 'dollars',
+        });
+        expect(badCurrency.status).toBe(400);
+    });
+
+    it('rejects unknown catalogs and entries', async () => {
+        const bogusCatalog = await api
+            .post('/api/shop-links')
+            .send({ superset: 'nope', supersetEntry: 'X', title: 'X', url: 'https://x.example' });
+        expect(bogusCatalog.status).toBe(404);
+        expect((await api.get('/api/shop-links?superset=nope')).status).toBe(404);
+
+        const bogusEntry = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'DEADBEEF',
+            title: 'X',
+            url: 'https://x.example',
+        });
+        expect(bogusEntry.status).toBe(404);
+        expect(bogusEntry.body.error).toContain('entry');
+    });
+
+    it('adds, lists and deletes listings for catalog entries', async () => {
+        const priced = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'AA0E31DE',
+            title: 'eStarland',
+            url: 'https://www.estarland.com/f-zero',
+            price: 44.99,
+            currency: 'usd',
+        });
+        expect(priced.status).toBe(201);
+        expect(priced.body.price).toBe(44.99);
+        expect(priced.body.currency).toBe('USD');
+
+        const unpriced = await api.post('/api/shop-links').send({
+            superset: 'snes',
+            supersetEntry: 'AA0E31DE',
+            title: 'Local shop',
+            url: 'https://retro.example/f-zero',
+        });
+        expect(unpriced.status).toBe(201);
+        expect(unpriced.body.price).toBeNull();
+        expect(unpriced.body.currency).toBeNull();
+
+        const list = await api.get('/api/shop-links?superset=snes&supersetEntry=AA0E31DE');
+        expect(list.body).toHaveLength(2);
+        const all = await api.get('/api/shop-links');
+        expect(all.body.length).toBeGreaterThanOrEqual(2);
+
+        // links surface on the catalog entry views
+        const entries = await api.get('/api/supersets/snes/entries?q=f-zero');
+        expect(entries.status).toBe(200);
+        const entry = entries.body.entries.find((e: { id: string }) => e.id === 'AA0E31DE');
+        expect(entry.shopLinks).toHaveLength(2);
+        expect(entry.shopLinks.map((l: { title: string }) => l.title)).toContain('eStarland');
+
+        const single = await api.get('/api/supersets/snes/entries/AA0E31DE');
+        expect(single.status).toBe(200);
+        expect(single.body.shopLinks).toHaveLength(2);
+
+        const removed = await api.delete(`/api/shop-links/${priced.body.id}`);
+        expect(removed.status).toBe(200);
+        expect(
+            (await api.get('/api/shop-links?superset=snes&supersetEntry=AA0E31DE')).body,
+        ).toHaveLength(1);
+
+        const removeAgain = await api.delete(`/api/shop-links/${priced.body.id}`);
+        expect(removeAgain.status).toBe(404);
+    });
+});
+
 describe('transfer', () => {
     function zipBuffer(files: Record<string, string | Buffer>): Promise<Buffer> {
         return new Promise((resolve, reject) => {
@@ -1505,6 +1700,16 @@ describe('transfer', () => {
                 supersetEntry: '4D014C20',
                 createdAt: '2026-01-01T00:00:00.000Z',
             })}\n`,
+            'shopLinks.ndjson': `${JSON.stringify({
+                id: '9f1c3a5e-1111-4111-8111-9f1c3a5e0005',
+                superset: 'snes',
+                supersetEntry: '4D014C20',
+                title: 'Play Asia',
+                url: 'https://www.play-asia.com/chrono-trigger',
+                price: '129.99',
+                currency: 'EUR',
+                createdAt: '2026-01-01T00:00:00.000Z',
+            })}\n`,
             'gizmos.ndjson': '{"id":"nope"}\n',
             'readme.txt': 'stray file',
         });
@@ -1540,6 +1745,8 @@ describe('transfer', () => {
         expect(items).toContain('"name":"Chrono Trigger"');
         const wanted = await readFile(join(dir, 'unzipped', 'wanted.ndjson'), 'utf8');
         expect(wanted).toContain('2D206BF7');
+        const shopLinks = await readFile(join(dir, 'unzipped', 'shopLinks.ndjson'), 'utf8');
+        expect(shopLinks).toContain('AA0E31DE');
         const exportedImages = await readdir(join(dir, 'unzipped', 'images'));
         expect(exportedImages.length).toBeGreaterThan(0);
         await rm(dir, { recursive: true, force: true });
@@ -1558,6 +1765,7 @@ describe('transfer', () => {
             items: 1,
             images: 1,
             wanted: 1,
+            shopLinks: 1,
         });
 
         const after = await api.get('/api/collections');

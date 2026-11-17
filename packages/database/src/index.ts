@@ -5,6 +5,7 @@ export type {
     AddWantedInput,
     CreateCollectionInput,
     CreateItemInput,
+    CreateShopLinkInput,
     CreateTagInput,
     CreateTemplateInput,
     ItemListOptions,

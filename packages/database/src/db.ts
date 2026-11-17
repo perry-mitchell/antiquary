@@ -36,6 +36,7 @@ import type {
     TrashDto,
     ApiKeyDto,
     WantedDto,
+    ShopLinkDto,
 } from './types.js';
 
 /**
@@ -144,6 +145,15 @@ export interface CreateTagInput {
 export interface AddWantedInput {
     superset: string;
     supersetEntry: string;
+}
+
+export interface CreateShopLinkInput {
+    superset: string;
+    supersetEntry: string;
+    title: string;
+    url: string;
+    price?: number | null;
+    currency?: string | null;
 }
 
 export interface AddImageInput {
@@ -1238,6 +1248,56 @@ export class Database {
     }
 
     /* --------------------------------------------------------------- */
+    /* Shop links                                                       */
+    /* --------------------------------------------------------------- */
+
+    async listShopLinks(
+        filter: { superset?: string; supersetEntry?: string } = {},
+    ): Promise<ShopLinkDto[]> {
+        const rows = await this.db
+            .selectFrom('shopLinks')
+            .where((eb) =>
+                eb.and([
+                    ...(filter.superset
+                        ? [sql<boolean>`shop_links.superset = ${filter.superset}`]
+                        : []),
+                    ...(filter.supersetEntry
+                        ? [sql<boolean>`shop_links.superset_entry = ${filter.supersetEntry}`]
+                        : []),
+                ]),
+            )
+            .orderBy('shopLinks.createdAt', 'asc')
+            .selectAll()
+            .execute();
+        return rows.map(toShopLinkDto);
+    }
+
+    async createShopLink(input: CreateShopLinkInput): Promise<ShopLinkDto> {
+        const row = await this.db
+            .insertInto('shopLinks')
+            .values({
+                superset: input.superset,
+                supersetEntry: input.supersetEntry,
+                title: input.title.trim(),
+                url: input.url.trim(),
+                price: input.price != null ? String(input.price) : null,
+                currency: input.currency != null ? input.currency.toUpperCase() : null,
+            })
+            .returningAll()
+            .executeTakeFirstOrThrow();
+        return toShopLinkDto(row);
+    }
+
+    async deleteShopLink(id: string): Promise<boolean> {
+        const deleted = await this.db
+            .deleteFrom('shopLinks')
+            .where('id', '=', id)
+            .returning('id')
+            .executeTakeFirst();
+        return deleted !== undefined;
+    }
+
+    /* --------------------------------------------------------------- */
     /* Images                                                           */
     /* --------------------------------------------------------------- */
 
@@ -1574,6 +1634,7 @@ export class Database {
             images,
             itemHistory,
             wanted,
+            shopLinks,
         ] = await Promise.all([
             this.db.selectFrom('collections').selectAll().execute(),
             this.db.selectFrom('templates').selectAll().execute(),
@@ -1585,6 +1646,7 @@ export class Database {
             this.db.selectFrom('images').selectAll().execute(),
             this.db.selectFrom('itemHistory').selectAll().execute(),
             this.db.selectFrom('wanted').selectAll().execute(),
+            this.db.selectFrom('shopLinks').selectAll().execute(),
         ]);
         return {
             collections,
@@ -1597,6 +1659,7 @@ export class Database {
             images,
             itemHistory,
             wanted,
+            shopLinks,
         };
     }
 
@@ -1620,6 +1683,7 @@ export class Database {
             images: 0,
             itemHistory: 0,
             wanted: 0,
+            shopLinks: 0,
         };
         const imageFilenames: string[] = [];
 
@@ -1645,6 +1709,7 @@ export class Database {
                 imageIds,
                 historyIds,
                 wantedIds,
+                shopLinkIds,
             ] = await Promise.all([
                 loadIds('templates'),
                 loadIds('templateFields'),
@@ -1655,6 +1720,7 @@ export class Database {
                 loadIds('images'),
                 loadIds('itemHistory'),
                 loadIds('wanted'),
+                loadIds('shopLinks'),
             ]);
             const tagNameSet = new Set(
                 (await tx.selectFrom('tags').select('name').execute()).map((row) => row.name),
@@ -1676,7 +1742,8 @@ export class Database {
                     | 'itemFieldValues'
                     | 'images'
                     | 'itemHistory'
-                    | 'wanted',
+                    | 'wanted'
+                    | 'shopLinks',
                 id: string,
                 fields: Record<string, unknown>,
                 known: Set<string>,
@@ -1860,6 +1927,24 @@ export class Database {
                 await upsert('wanted', id, fields, wantedIds, { createdAt: new Date() });
                 wantedPairs.add(pair);
                 summary.wanted++;
+            }
+
+            for (const row of bundle.shopLinks ?? []) {
+                const fields = pickTransferFields(row, TRANSFER_COLUMNS.shopLinks);
+                const id = transferId(fields);
+                if (
+                    !id ||
+                    (!shopLinkIds.has(id) &&
+                        !(
+                            'superset' in fields &&
+                            'supersetEntry' in fields &&
+                            'title' in fields &&
+                            'url' in fields
+                        ))
+                )
+                    continue;
+                await upsert('shopLinks', id, fields, shopLinkIds, { createdAt: new Date() });
+                summary.shopLinks++;
             }
         });
 
@@ -2223,6 +2308,28 @@ function toApiKeyDto(row: {
     };
 }
 
+function toShopLinkDto(row: {
+    id: string;
+    superset: string;
+    supersetEntry: string;
+    title: string;
+    url: string;
+    price: string | null;
+    currency: string | null;
+    createdAt: Date;
+}): ShopLinkDto {
+    return {
+        id: row.id,
+        superset: row.superset,
+        supersetEntry: row.supersetEntry,
+        title: row.title,
+        url: row.url,
+        price: row.price !== null ? Number(row.price) : null,
+        currency: row.currency,
+        createdAt: row.createdAt.toISOString(),
+    };
+}
+
 function normalizeOptions(field: TemplateFieldInput): string[] | null {
     if (field.type !== 'select') return null;
     const options = (field.options ?? []).map((o) => o.trim()).filter((o) => o.length > 0);
@@ -2467,6 +2574,17 @@ const TRANSFER_COLUMNS = {
         id: 'string',
         superset: 'string',
         supersetEntry: 'string',
+        createdAt: 'date',
+    },
+    shopLinks: {
+        id: 'string',
+        superset: 'string',
+        supersetEntry: 'string',
+        title: 'string',
+        url: 'string',
+        /** numeric values serialize as strings over the wire */
+        price: 'string',
+        currency: 'string',
         createdAt: 'date',
     },
 } satisfies Record<string, Record<string, TransferColumnType>>;
