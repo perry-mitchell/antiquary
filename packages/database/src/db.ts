@@ -1205,12 +1205,18 @@ export class Database {
     /* Wanted list                                                      */
     /* --------------------------------------------------------------- */
 
-    async listWanted(): Promise<WantedDto[]> {
-        const rows = await this.db
-            .selectFrom('wanted')
-            .orderBy('wanted.createdAt', 'desc')
-            .selectAll()
-            .execute();
+    async listWanted(
+        opts: { order?: 'created-asc' | 'created-desc' | 'random'; limit?: number } = {},
+    ): Promise<WantedDto[]> {
+        let query = this.db.selectFrom('wanted').selectAll();
+        if (opts.order === 'random') query = query.orderBy(sql`random()`);
+        else
+            query = query.orderBy(
+                'wanted.createdAt',
+                opts.order === 'created-asc' ? 'asc' : 'desc',
+            );
+        if (opts.limit != null) query = query.limit(Math.min(500, Math.max(1, opts.limit)));
+        const rows = await query.execute();
         return rows.map((r) => ({
             id: r.id,
             superset: r.superset,

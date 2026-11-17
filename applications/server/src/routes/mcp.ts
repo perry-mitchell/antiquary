@@ -152,9 +152,42 @@ function buildServer(
         {
             description:
                 'List the wanted list: catalog entries marked as wanted, with catalog details ' +
-                '(name, region, serial, rarity) and whether each one is already owned.',
+                '(name, region, serial, rarity) and whether each one is already owned. ' +
+                'Order by recency (default: created-desc, newest first) or shuffle with random; ' +
+                'cap the number of results with limit.',
+            inputSchema: {
+                order: z.enum(['created-asc', 'created-desc', 'random']).optional(),
+                limit: z.number().int().min(1).max(500).optional(),
+            },
         },
-        async () => asText(await enrichWanted(db, supersets, await db.listWanted())),
+        async ({ order, limit }) =>
+            asText(await enrichWanted(db, supersets, await db.listWanted({ order, limit }))),
+    );
+
+    server.registerTool(
+        'search_wanted',
+        {
+            description:
+                'Search the wanted list by entry name or serial (case-insensitive substring). ' +
+                'Results carry catalog details (name, region, serial, rarity) and whether each ' +
+                'one is already owned. Order by recency (default: created-desc, newest first) ' +
+                'or shuffle with random; cap the number of results with limit.',
+            inputSchema: {
+                query: z.string().min(1),
+                order: z.enum(['created-asc', 'created-desc', 'random']).optional(),
+                limit: z.number().int().min(1).max(500).optional(),
+            },
+        },
+        async ({ query, order, limit }) => {
+            const needle = query.trim().toLowerCase();
+            const rows = await enrichWanted(db, supersets, await db.listWanted({ order }));
+            const matches = rows.filter((row) => {
+                const name = row.entry?.name.toLowerCase() ?? '';
+                const serial = row.entry?.serial?.toLowerCase() ?? '';
+                return name.includes(needle) || serial.includes(needle);
+            });
+            return asText(limit != null ? matches.slice(0, limit) : matches);
+        },
     );
 
     server.registerTool(
