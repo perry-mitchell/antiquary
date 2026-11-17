@@ -12,6 +12,7 @@ import { SupersetsPage } from './pages/SupersetsPage';
 import { TemplateFormPage } from './pages/TemplateFormPage';
 import { TemplatesPage } from './pages/TemplatesPage';
 import { TrashPage } from './pages/TrashPage';
+import { WantedPage } from './pages/WantedPage';
 
 export default function App() {
     return (
@@ -29,6 +30,7 @@ export default function App() {
                     <Route path="/templates/new" element={<TemplateFormPage mode="create" />} />
                     <Route path="/templates/:id/edit" element={<TemplateFormPage mode="edit" />} />
                     <Route path="/trash" element={<TrashPage />} />
+                    <Route path="/wanted" element={<WantedPage />} />
                     <Route path="/settings" element={<SettingsPage />} />
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/home" element={<Navigate to="/" replace />} />

@@ -8,6 +8,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { requireApiKey } from '../apiKeys.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
+import { enrichWanted } from './wanted.js';
 import {
     createCollectionSchema,
     createTemplateSchema,
@@ -144,6 +145,37 @@ function buildServer(
 
     server.registerTool('list_tags', { description: 'List tags with item counts.' }, async () =>
         asText(await db.listTags()),
+    );
+
+    server.registerTool(
+        'list_wanted',
+        {
+            description:
+                'List the wanted list: catalog entries marked as wanted, with catalog details ' +
+                '(name, region, serial, rarity) and whether each one is already owned.',
+        },
+        async () => asText(await enrichWanted(db, supersets, await db.listWanted())),
+    );
+
+    server.registerTool(
+        'list_shop_links',
+        {
+            description:
+                'List shop links: listings where catalog entries can be bought (title, url, ' +
+                'price, currency). Filter by superset and/or entryId, or omit both to list all.',
+            inputSchema: {
+                superset: z.string().min(1).optional(),
+                entryId: z.string().min(1).optional(),
+            },
+        },
+        async ({ superset, entryId }) => {
+            if (superset && !supersets.get(superset)) {
+                throw new ValidationError(
+                    `Unknown catalog "${superset}" — call list_supersets for valid keys`,
+                );
+            }
+            return asText(await db.listShopLinks({ superset, supersetEntry: entryId }));
+        },
     );
 
     server.registerTool(
@@ -550,6 +582,100 @@ function buildServer(
             },
         },
         async (params) => asText(await db.createTag(params)),
+    );
+
+    server.registerTool(
+        'add_wanted',
+        {
+            description:
+                'Add a catalog entry to the global wanted list. Find entries with search_catalog, ' +
+                'then pass the catalog key (superset) and the entry id (entryId).',
+            inputSchema: { superset: z.string().min(1), entryId: z.string().min(1) },
+        },
+        async ({ superset, entryId }) => {
+            if (!supersets.get(superset)) {
+                throw new ValidationError(
+                    `Unknown catalog "${superset}" — call list_supersets for valid keys`,
+                );
+            }
+            if (!(await supersets.getEntry(superset, entryId))) {
+                throw new ValidationError(
+                    `Unknown catalog entry "${entryId}" in "${superset}" — find ids via search_catalog`,
+                );
+            }
+            const created = await db.addWanted({ superset, supersetEntry: entryId });
+            return asText((await enrichWanted(db, supersets, [created]))[0]);
+        },
+    );
+
+    server.registerTool(
+        'remove_wanted',
+        {
+            description:
+                'Remove a catalog entry from the wanted list, identified by catalog key and entry id.',
+            inputSchema: { superset: z.string().min(1), entryId: z.string().min(1) },
+        },
+        async ({ superset, entryId }) => {
+            const removed = await db.removeWanted(superset, entryId);
+            return removed
+                ? asText({ ok: true })
+                : asText({ error: 'Entry is not on the wanted list' });
+        },
+    );
+
+    server.registerTool(
+        'add_shop_link',
+        {
+            description:
+                'Attach a shop link to a catalog entry — a listing where it can be bought. ' +
+                'Find entries with search_catalog, then pass the catalog key and entry id. ' +
+                'price and currency (3-letter ISO code) are optional but must be given together.',
+            inputSchema: {
+                superset: z.string().min(1),
+                entryId: z.string().min(1),
+                title: z.string().min(1),
+                url: z.string().min(1),
+                price: z.number().min(0).optional(),
+                currency: z.string().length(3).optional(),
+            },
+        },
+        async ({ superset, entryId, title, url, price, currency }) => {
+            if (!supersets.get(superset)) {
+                throw new ValidationError(
+                    `Unknown catalog "${superset}" — call list_supersets for valid keys`,
+                );
+            }
+            if (!(await supersets.getEntry(superset, entryId))) {
+                throw new ValidationError(
+                    `Unknown catalog entry "${entryId}" in "${superset}" — find ids via search_catalog`,
+                );
+            }
+            if ((price != null) !== (currency != null)) {
+                throw new ValidationError('Price and currency must be provided together');
+            }
+            return asText(
+                await db.createShopLink({
+                    superset,
+                    supersetEntry: entryId,
+                    title,
+                    url,
+                    price: price ?? null,
+                    currency: currency ?? null,
+                }),
+            );
+        },
+    );
+
+    server.registerTool(
+        'remove_shop_link',
+        {
+            description: 'Delete a shop link by its id (see list_shop_links for ids).',
+            inputSchema: { id: z.string().uuid() },
+        },
+        async ({ id }) => {
+            const removed = await db.deleteShopLink(id);
+            return removed ? asText({ ok: true }) : asText({ error: 'Shop link not found' });
+        },
     );
 
     // ---- deletion actions (full keys only — dropped for non-destructive keys) ----

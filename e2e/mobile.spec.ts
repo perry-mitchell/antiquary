@@ -9,6 +9,7 @@ const PAGES = [
     '/search?q=book',
     '/supersets',
     '/supersets/gb',
+    '/wanted',
 ];
 
 test.describe('mobile layout', () => {
