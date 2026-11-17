@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/perry-mitchell/antiquary/compare/v1.6.0...v1.7.0) (2026-11-17)
+
+
+### Features
+
+* **catalogs:** top-level catalog list, collected filter and rarity sorting ([#17](https://github.com/perry-mitchell/antiquary/issues/17)) ([d5c65a3](https://github.com/perry-mitchell/antiquary/commit/d5c65a303f261347083943218243a9904a35aa2f))
+
 # [1.6.0](https://github.com/perry-mitchell/antiquary/compare/v1.5.0...v1.6.0) (2026-11-17)
 
 
