@@ -28,14 +28,13 @@ import { RarityTag } from '../components/RarityTag';
 import { useToast } from '../components/Toast';
 import { ShopLinksDialog } from '../components/ShopLinksDialog';
 import { slug } from '../lib/format';
+import { PER_PAGE_OPTIONS, usePerPage } from '../lib/usePerPage';
 import type { SupersetEntryListItemDto } from '../api';
 import type { ShopLinkDto } from '@antiquary/database';
 
-const PAGE_SIZE = 24;
-
 export function SupersetBrowsePage() {
     const { key = '' } = useParams();
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const collectionId = searchParams.get('collection');
     const toast = useToast();
 
@@ -49,22 +48,31 @@ export function SupersetBrowsePage() {
     const [missingOnly, setMissingOnly] = useState(false);
     const [collectedOnly, setCollectedOnly] = useState(false);
     const [sort, setSort] = useState<'title' | 'rarity-asc' | 'rarity-desc'>('title');
-    const [page, setPage] = useState(1);
     const [linksFor, setLinksFor] = useState<SupersetEntryListItemDto | null>(null);
+
+    const page = Math.max(1, Number(searchParams.get('page')) || 1);
+    const [perPage, setPerPage] = usePerPage();
+
+    const setPage = (next: number, { replace = false }: { replace?: boolean } = {}) => {
+        setSearchParams(
+            (prev) => {
+                const params = new URLSearchParams(prev);
+                if (next <= 1) params.delete('page');
+                else params.set('page', String(next));
+                return params;
+            },
+            { replace },
+        );
+    };
 
     const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
     useEffect(() => {
         clearTimeout(debounceRef.current);
         debounceRef.current = setTimeout(() => {
             setSearch(searchInput);
-            setPage(1);
         }, 300);
         return () => clearTimeout(debounceRef.current);
     }, [searchInput]);
-
-    useEffect(() => {
-        setPage(1);
-    }, [missingOnly, collectedOnly, sort, key]);
 
     useEffect(() => {
         setMissingCatalog(false);
@@ -91,10 +99,10 @@ export function SupersetBrowsePage() {
             ownership: collectedOnly ? 'owned' : missingOnly ? 'missing' : 'all',
             sort,
             page,
-            limit: PAGE_SIZE,
+            limit: perPage,
         });
         setResult(res);
-    }, [key, search, missingOnly, collectedOnly, sort, page]);
+    }, [key, search, missingOnly, collectedOnly, sort, page, perPage]);
 
     useEffect(() => {
         loadEntries().catch((error) =>
@@ -168,7 +176,7 @@ export function SupersetBrowsePage() {
     }
 
     const entries = result?.entries ?? [];
-    const totalPages = Math.max(1, Math.ceil((result?.total ?? 0) / PAGE_SIZE));
+    const totalPages = Math.max(1, Math.ceil((result?.total ?? 0) / perPage));
 
     return (
         <Flex direction="column" gap="4" data-testid="superset-browse">
@@ -205,7 +213,10 @@ export function SupersetBrowsePage() {
                     size="2"
                     placeholder="Search the catalog…"
                     value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)}
+                    onChange={(e) => {
+                        setSearchInput(e.target.value);
+                        setPage(1, { replace: true });
+                    }}
                     style={{ flex: '0 1 240px' }}
                 >
                     <TextField.Slot>
@@ -218,6 +229,7 @@ export function SupersetBrowsePage() {
                         onCheckedChange={(checked) => {
                             setCollectedOnly(checked);
                             if (checked) setMissingOnly(false);
+                            setPage(1, { replace: true });
                         }}
                         data-testid="collected-only"
                     />
@@ -231,6 +243,7 @@ export function SupersetBrowsePage() {
                         onCheckedChange={(checked) => {
                             setMissingOnly(checked);
                             if (checked) setCollectedOnly(false);
+                            setPage(1, { replace: true });
                         }}
                         data-testid="missing-only"
                     />
@@ -240,9 +253,10 @@ export function SupersetBrowsePage() {
                 </Flex>
                 <Select.Root
                     value={sort}
-                    onValueChange={(value) =>
-                        setSort(value as 'title' | 'rarity-asc' | 'rarity-desc')
-                    }
+                    onValueChange={(value) => {
+                        setSort(value as 'title' | 'rarity-asc' | 'rarity-desc');
+                        setPage(1, { replace: true });
+                    }}
                     size="2"
                 >
                     <Select.Trigger
@@ -272,6 +286,7 @@ export function SupersetBrowsePage() {
                                     setSearch('');
                                     setMissingOnly(false);
                                     setCollectedOnly(false);
+                                    setPage(1, { replace: true });
                                 }}
                             >
                                 Clear filters
@@ -399,27 +414,48 @@ export function SupersetBrowsePage() {
                 />
             ) : null}
 
-            {totalPages > 1 ? (
-                <Flex align="center" gap="3" justify="center">
+            {result && result.total > 0 ? (
+                <Flex align="center" gap="3" justify="center" wrap="wrap">
                     <IconButton
                         variant="soft"
                         disabled={page <= 1}
-                        onClick={() => setPage((p) => p - 1)}
+                        onClick={() => setPage(page - 1)}
                         aria-label="Previous page"
                     >
                         <ChevronLeftIcon />
                     </IconButton>
-                    <Text size="2" color="gray">
-                        Page {page} of {totalPages} · {result?.total ?? 0} entries
+                    <Text size="2" color="gray" data-testid="pagination-status">
+                        Page {page} of {totalPages} · {result.total} entries
                     </Text>
                     <IconButton
                         variant="soft"
                         disabled={page >= totalPages}
-                        onClick={() => setPage((p) => p + 1)}
+                        onClick={() => setPage(page + 1)}
                         aria-label="Next page"
                     >
                         <ChevronRightIcon />
                     </IconButton>
+                    <Select.Root
+                        size="1"
+                        value={String(perPage)}
+                        onValueChange={(value) => {
+                            setPerPage(Number(value));
+                            setPage(1, { replace: true });
+                        }}
+                    >
+                        <Select.Trigger
+                            variant="soft"
+                            aria-label="Entries per page"
+                            data-testid="per-page"
+                        />
+                        <Select.Content>
+                            {PER_PAGE_OPTIONS.map((option) => (
+                                <Select.Item key={option} value={String(option)}>
+                                    {option} per page
+                                </Select.Item>
+                            ))}
+                        </Select.Content>
+                    </Select.Root>
                 </Flex>
             ) : null}
         </Flex>

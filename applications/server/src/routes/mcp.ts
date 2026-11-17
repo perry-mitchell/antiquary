@@ -191,7 +191,7 @@ function buildServer(
                 sort: z.enum(['created', 'updated', 'name']).optional(),
                 order: z.enum(['asc', 'desc']).optional(),
                 page: z.number().int().min(1).optional(),
-                limit: z.number().int().min(1).max(100).optional(),
+                limit: z.number().int().min(1).max(500).optional(),
             },
         },
         async (params) => asText(await db.listItems(params)),

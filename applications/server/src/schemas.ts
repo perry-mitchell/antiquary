@@ -75,7 +75,7 @@ export const listItemsQuerySchema = z.object({
     sort: z.enum(['created', 'updated', 'name']).optional(),
     order: z.enum(['asc', 'desc']).optional(),
     page: z.coerce.number().int().min(1).optional(),
-    limit: z.coerce.number().int().min(1).max(100).optional(),
+    limit: z.coerce.number().int().min(1).max(500).optional(),
 });
 
 export const listSupersetEntriesQuerySchema = z.object({
@@ -83,7 +83,7 @@ export const listSupersetEntriesQuerySchema = z.object({
     ownership: z.enum(['all', 'owned', 'missing']).optional(),
     sort: z.enum(['title', 'rarity-asc', 'rarity-desc']).optional(),
     page: z.coerce.number().int().min(1).optional(),
-    limit: z.coerce.number().int().min(1).max(100).optional(),
+    limit: z.coerce.number().int().min(1).max(500).optional(),
 });
 
 export const createTagSchema = z.object({

@@ -765,7 +765,7 @@ export class Database {
 
     async listItems(opts: ItemListOptions = {}): Promise<ItemListResultDto> {
         const page = Math.max(1, opts.page ?? 1);
-        const limit = Math.min(100, Math.max(1, opts.limit ?? 24));
+        const limit = Math.min(500, Math.max(1, opts.limit ?? 24));
 
         const conditions = (eb: ExpressionBuilder<DBSchema, 'items'>) => {
             const conds: RawBuilder<boolean>[] = [sql<boolean>`items.deleted_at is null`];

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -34,8 +34,7 @@ import { api } from '../api';
 import { CollectionDialog, ConfirmDialog, EmptyState } from '../components/Dialogs';
 import { ItemGrid } from '../components/ItemGrid';
 import { useToast } from '../components/Toast';
-
-const PAGE_SIZE = 24;
+import { PER_PAGE_OPTIONS, usePerPage } from '../lib/usePerPage';
 
 export function CollectionPage() {
     const { id = '' } = useParams();
@@ -54,16 +53,30 @@ export function CollectionPage() {
     const [favorite, setFavorite] = useState(false);
     const [tagId, setTagId] = useState<string>('');
     const [minRarity, setMinRarity] = useState<string>('');
-    const [page, setPage] = useState(1);
     const [editOpen, setEditOpen] = useState(false);
     const [trashOpen, setTrashOpen] = useState(false);
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const page = Math.max(1, Number(searchParams.get('page')) || 1);
+    const [perPage, setPerPage] = usePerPage();
+
+    const setPage = (next: number, { replace = false }: { replace?: boolean } = {}) => {
+        setSearchParams(
+            (prev) => {
+                const params = new URLSearchParams(prev);
+                if (next <= 1) params.delete('page');
+                else params.set('page', String(next));
+                return params;
+            },
+            { replace },
+        );
+    };
 
     const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
     useEffect(() => {
         clearTimeout(debounceRef.current);
         debounceRef.current = setTimeout(() => {
             setSearch(searchInput);
-            setPage(1);
         }, 300);
         return () => clearTimeout(debounceRef.current);
     }, [searchInput]);
@@ -79,10 +92,6 @@ export function CollectionPage() {
             .catch(() => {});
     }, [id]);
 
-    useEffect(() => {
-        setPage(1);
-    }, [favorite, tagId, minRarity, sort, order]);
-
     const loadItems = useCallback(async () => {
         const res = await api.items.list({
             collectionId: id,
@@ -93,10 +102,10 @@ export function CollectionPage() {
             tagId: tagId || undefined,
             minRarity: minRarity && minRarity !== 'any' ? Number(minRarity) : undefined,
             page,
-            limit: PAGE_SIZE,
+            limit: perPage,
         });
         setResult(res);
-    }, [id, search, sort, order, favorite, tagId, minRarity, page]);
+    }, [id, search, sort, order, favorite, tagId, minRarity, page, perPage]);
 
     useEffect(() => {
         loadItems().catch((error) =>
@@ -125,7 +134,7 @@ export function CollectionPage() {
         return <Skeleton style={{ height: 300 }} />;
     }
 
-    const totalPages = Math.max(1, Math.ceil((result?.total ?? 0) / PAGE_SIZE));
+    const totalPages = Math.max(1, Math.ceil((result?.total ?? 0) / perPage));
 
     return (
         <Flex direction="column" gap="4">
@@ -253,7 +262,10 @@ export function CollectionPage() {
                         size="2"
                         placeholder="Search this collection…"
                         value={searchInput}
-                        onChange={(e) => setSearchInput(e.target.value)}
+                        onChange={(e) => {
+                            setSearchInput(e.target.value);
+                            setPage(1, { replace: true });
+                        }}
                         style={{ flex: '0 1 240px' }}
                     >
                         <TextField.Slot>
@@ -269,6 +281,7 @@ export function CollectionPage() {
                             ];
                             setSort(nextSort);
                             setOrder(nextOrder);
+                            setPage(1, { replace: true });
                         }}
                     >
                         <Select.Trigger
@@ -284,7 +297,14 @@ export function CollectionPage() {
                             <Select.Item value="updated:desc">Recently updated</Select.Item>
                         </Select.Content>
                     </Select.Root>
-                    <Select.Root value={minRarity} onValueChange={setMinRarity} size="2">
+                    <Select.Root
+                        value={minRarity}
+                        onValueChange={(v) => {
+                            setMinRarity(v);
+                            setPage(1, { replace: true });
+                        }}
+                        size="2"
+                    >
                         <Select.Trigger
                             variant="soft"
                             placeholder="Any rarity"
@@ -303,7 +323,10 @@ export function CollectionPage() {
                     <Flex align="center" gap="2">
                         <Switch
                             checked={favorite}
-                            onCheckedChange={setFavorite}
+                            onCheckedChange={(checked) => {
+                                setFavorite(checked);
+                                setPage(1, { replace: true });
+                            }}
                             data-testid="favorites-only"
                         />
                         <Text size="2" color={favorite ? undefined : 'gray'}>
@@ -311,7 +334,14 @@ export function CollectionPage() {
                         </Text>
                     </Flex>
                     {tags.length > 0 ? (
-                        <Select.Root value={tagId} onValueChange={setTagId} size="2">
+                        <Select.Root
+                            value={tagId}
+                            onValueChange={(v) => {
+                                setTagId(v);
+                                setPage(1, { replace: true });
+                            }}
+                            size="2"
+                        >
                             <Select.Trigger
                                 variant="soft"
                                 placeholder="All tags"
@@ -345,6 +375,7 @@ export function CollectionPage() {
                                     setSearch('');
                                     setFavorite(false);
                                     setTagId('');
+                                    setPage(1, { replace: true });
                                 }}
                             >
                                 Clear filters
@@ -370,27 +401,48 @@ export function CollectionPage() {
                 <ItemGrid items={items} onChanged={() => loadItems()} />
             )}
 
-            {totalPages > 1 ? (
-                <Flex align="center" gap="3" justify="center">
+            {result && result.total > 0 ? (
+                <Flex align="center" gap="3" justify="center" wrap="wrap">
                     <IconButton
                         variant="soft"
                         disabled={page <= 1}
-                        onClick={() => setPage((p) => p - 1)}
+                        onClick={() => setPage(page - 1)}
                         aria-label="Previous page"
                     >
                         <ChevronLeftIcon />
                     </IconButton>
-                    <Text size="2" color="gray">
-                        Page {page} of {totalPages} · {result?.total ?? 0} items
+                    <Text size="2" color="gray" data-testid="pagination-status">
+                        Page {page} of {totalPages} · {result.total} items
                     </Text>
                     <IconButton
                         variant="soft"
                         disabled={page >= totalPages}
-                        onClick={() => setPage((p) => p + 1)}
+                        onClick={() => setPage(page + 1)}
                         aria-label="Next page"
                     >
                         <ChevronRightIcon />
                     </IconButton>
+                    <Select.Root
+                        size="1"
+                        value={String(perPage)}
+                        onValueChange={(value) => {
+                            setPerPage(Number(value));
+                            setPage(1, { replace: true });
+                        }}
+                    >
+                        <Select.Trigger
+                            variant="soft"
+                            aria-label="Items per page"
+                            data-testid="per-page"
+                        />
+                        <Select.Content>
+                            {PER_PAGE_OPTIONS.map((option) => (
+                                <Select.Item key={option} value={String(option)}>
+                                    {option} per page
+                                </Select.Item>
+                            ))}
+                        </Select.Content>
+                    </Select.Root>
                 </Flex>
             ) : null}
         </Flex>
