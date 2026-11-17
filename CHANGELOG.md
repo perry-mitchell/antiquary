@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/perry-mitchell/antiquary/compare/v1.7.0...v1.8.0) (2026-11-17)
+
+
+### Features
+
+* **mcp:** order/limit options for list_wanted and new search_wanted tool ([#20](https://github.com/perry-mitchell/antiquary/issues/20)) ([ffda8fa](https://github.com/perry-mitchell/antiquary/commit/ffda8fa5de5187a72d5fcc902c487d3e04a19a79))
+* **web:** url-synced pagination and persisted per-page preference ([#19](https://github.com/perry-mitchell/antiquary/issues/19)) ([e750bb5](https://github.com/perry-mitchell/antiquary/commit/e750bb54da714e8c0cba0e26d3148627b128788d))
+
 # [1.7.0](https://github.com/perry-mitchell/antiquary/compare/v1.6.0...v1.7.0) (2026-11-17)
 
 
