@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/perry-mitchell/antiquary/compare/v1.8.0...v1.8.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **catalogs:** admit Wikidata releases credited only by a publisher or lacking a date ([#21](https://github.com/perry-mitchell/antiquary/issues/21)) ([ad74237](https://github.com/perry-mitchell/antiquary/commit/ad7423766dc241458f5446fa1fa55402f0fac752))
+
 # [1.8.0](https://github.com/perry-mitchell/antiquary/compare/v1.7.0...v1.8.0) (2026-11-17)
 
 
