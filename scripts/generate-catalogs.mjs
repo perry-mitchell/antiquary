@@ -19,6 +19,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildWikidataEntries, creditingEntities, isAttributed } from './lib/wikidataAdmission.mjs';
 
 const BASE = 'https://raw.githubusercontent.com/libretro/libretro-database/master/metadat';
 const METADATA_DIRS = {
@@ -347,13 +348,14 @@ const CATALOGS = [
     // --- PC (Wikidata, CC0 — unlike the console catalogs above) ---
     // Source: Wikidata SPARQL, https://www.wikidata.org, public domain (CC0).
     //
-    // WHAT IS CUT (the quality filter): a game is kept only if it has BOTH a
-    // release date (P577) AND a developer statement (P178).
-    //   - Windows (Q1406): 136,482 games total → ~21k kept. The ~115k cut rows
-    //     lack a developer: undocumented shovelware, DLC/app-adjacent items and
-    //     stub entries. This also naturally biases toward documented, older
-    //     titles — the "aged is fine" set.
-    //   - DOS (Q170434): 2,421 total → ~1.6k kept on the same filter.
+    // WHO GET IN (the admitted set): a game is kept as long as somebody is named
+    // behind it — a developer (P178) or a publisher (P123). Requiring a developer
+    // threw away roughly two fifths of the DOS-tagged entities, and requiring a
+    // date (P577) too hid the shareware/BBS releases that carry no dated source.
+    // Both are now admitted with the unknown fields left empty (see
+    // ./lib/wikidataAdmission.mjs); only wholly unattributed stubs stay out.
+    // A release with no publication date never reaches the per-year queries, so a
+    // second sweep pulls those in separately, still needing a credited party.
     // Also collapsed per title: earliest release year wins, and of multiple
     // developers/publishers/genres only the alphabetically first is kept.
     // There are no regional variants or serials on Wikidata — one entry per
@@ -628,7 +630,9 @@ async function resolveUnnamedTitles(catalogKey, games, dropUnnamed) {
  * Fetches a Wikidata catalog one year at a time (large multi-year responses
  * get truncated by Node's fetch; single years stay well under that) and
  * collapses rows to one entry per game: earliest year, alphabetically first
- * developer/publisher/genre.
+ * developer/publisher/genre. Releases Wikidata has no publication date for
+ * never appear in those yearly windows, so a second, date-free sweep collects
+ * them (still demanding a credited party) and leaves their year empty.
  */
 async function buildWikidataCatalog(catalog, { dropUnnamed = false } = {}) {
     const games = new Map();
@@ -646,11 +650,12 @@ async function buildWikidataCatalog(catalog, { dropUnnamed = false } = {}) {
      * large to arrive intact (single years can still explode via publisher ×
      * genre cross products). */
     const rowsForRange = async (start, end, depth) => {
-        const query = `SELECT ?g ?gLabel ?year ?devLabel ?pubLabel ?genreLabel WHERE {
-  ?g wdt:P31 wd:Q7889 ; wdt:P400 ?plat ; wdt:P577 ?d ; wdt:P178 ?dev .
+        const query = `SELECT ?g ?gLabel ?year ?dev ?devLabel ?pub ?pubLabel ?genre ?genreLabel WHERE {
+  ?g wdt:P31 wd:Q7889 ; wdt:P400 ?plat ; wdt:P577 ?d .
   VALUES ?plat { ${platformValues} }
   BIND(YEAR(?d) AS ?year)
   FILTER(?d >= "${start}"^^xsd:dateTime && ?d < "${end}"^^xsd:dateTime)
+  OPTIONAL { ?g wdt:P178 ?dev }
   OPTIONAL { ?g wdt:P123 ?pub }
   OPTIONAL { ?g wdt:P136 ?genre }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,mul". }
@@ -678,56 +683,121 @@ async function buildWikidataCatalog(catalog, { dropUnnamed = false } = {}) {
         return JSON.parse(raw).results?.bindings ?? [];
     };
 
+    /** Accumulates result rows into the per-title map, creating each title on
+     * first sight. Shared by the dated yearly sweep and the undated sweep. A
+     * game's credits are recorded as entity QIDs, so "somebody is named behind
+     * this release" survives even when no displayable label came back. */
+    const mergeRows = (rows) => {
+        for (const row of rows) {
+            const id = row.g?.value?.split('/').pop();
+            if (!id) continue;
+            const label = (field) => {
+                const value = row[field]?.value ?? '';
+                return value && !/^Q\d+$/.test(value) ? value : null;
+            };
+            const game = games.get(id) ?? {
+                id,
+                name: label('gLabel') ?? id,
+                years: new Set(),
+                developers: new Set(),
+                publishers: new Set(),
+                genres: new Set(),
+                credits: [],
+            };
+            const year = Number.parseInt(row.year?.value ?? '', 10);
+            if (Number.isFinite(year)) game.years.add(year);
+            for (const [iri, shown, bucket] of [
+                [row.dev?.value, label('devLabel'), game.developers],
+                [row.pub?.value, label('pubLabel'), game.publishers],
+            ]) {
+                const qids = creditingEntities([iri]);
+                if (qids.length === 0) continue;
+                game.credits.push(...qids);
+                if (shown) bucket.add(shown);
+            }
+            const genre = label('genreLabel');
+            if (genre) game.genres.add(genre);
+            games.set(id, game);
+        }
+    };
+
+    /** Releases Wikidata gives no P577 for. The yearly windows can never see
+     * these — they FILTER on a bound date — so without this sweep relaxing the
+     * date gate would change nothing. Listed as bare QIDs first (tiny, no label
+     * service), requiring a party statement server-side purely so the bulk of
+     * the dateless population that credits nobody is never enumerated. Which of
+     * those statements really credits somebody (see creditingEntities) stays the
+     * single authority, checked per chunk below. Mirrors how unlabeled titles are
+     * resolved above; runs ahead of the yearly loop so a broken query trips
+     * before it costs 72 round-trips. */
+    const fetchUndatedReleases = async () => {
+        const qidQuery = `SELECT DISTINCT ?g WHERE {
+  ?g wdt:P31 wd:Q7889 ; wdt:P400 ?plat .
+  VALUES ?plat { ${platformValues} }
+  FILTER NOT EXISTS { ?g wdt:P577 ?unset }
+  { ?g wdt:P178 ?party } UNION { ?g wdt:P123 ?party }
+}`;
+        const qidUrl = `${WIKIDATA_SPARQL}?format=json&query=${encodeURIComponent(qidQuery)}`;
+        const qidRaw = await fetchWithRetries(qidUrl, validateJson);
+        if (!qidRaw) throw new Error(`Undated release listing failed for ${catalog.key}`);
+        const qids = (JSON.parse(qidRaw).results?.bindings ?? []).map((row) =>
+            row.g?.value?.split('/').pop(),
+        );
+        const pending = qids.filter(Boolean);
+        if (pending.length === 0) return;
+
+        let credited = 0;
+        for (let i = 0; i < pending.length; i += 200) {
+            const chunk = pending
+                .slice(i, i + 200)
+                .map((id) => `wd:${id}`)
+                .join(' ');
+            const query = `SELECT ?g ?gLabel ?dev ?devLabel ?pub ?pubLabel ?genre ?genreLabel WHERE {
+  VALUES ?g { ${chunk} }
+  OPTIONAL { ?g wdt:P178 ?dev }
+  OPTIONAL { ?g wdt:P123 ?pub }
+  OPTIONAL { ?g wdt:P136 ?genre }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en,mul". }
+}`;
+            const url = `${WIKIDATA_SPARQL}?format=json&query=${encodeURIComponent(query)}`;
+            const raw = await fetchWithRetries(url, validateJson);
+            if (!raw)
+                throw new Error(
+                    `Undated release detail query failed for ${catalog.key} chunk ${i / 200}`,
+                );
+            const withParty = (JSON.parse(raw).results?.bindings ?? []).filter(
+                (row) => creditingEntities([row.dev?.value, row.pub?.value]).length > 0,
+            );
+            credited += withParty.length;
+            mergeRows(withParty);
+            await new Promise((r) => setTimeout(r, 400));
+        }
+        console.log(
+            `  [${catalog.key}] undated: ${pending.length} without a date, ${credited} row(s) credited`,
+        );
+    };
+
+    await fetchUndatedReleases();
+
     for (let year = 1960; year <= 2031; year++) {
         const start = `${year}-01-01`;
         const end = `${year + 1}-01-01`;
         const bindings = await rowsForRange(start, end, 0);
         if (bindings.length > 0) console.log(`  [${catalog.key}] ${year}: ${bindings.length} rows`);
 
-        for (const row of bindings) {
-            const qid = row.g.value.split('/').pop();
-            const label = (s) => {
-                const value = row[s]?.value ?? '';
-                return value && !/^Q\d+$/.test(value) ? value : null;
-            };
-            const title = label('gLabel') ?? qid;
-            const year = Number.parseInt(row.year?.value ?? '', 10);
-            const existing = games.get(qid) ?? {
-                name: title,
-                years: new Set(),
-                developers: new Set(),
-                publishers: new Set(),
-                genres: new Set(),
-            };
-            if (Number.isFinite(year)) existing.years.add(year);
-            const dev = label('devLabel');
-            if (dev) existing.developers.add(dev);
-            const pub = label('pubLabel');
-            if (pub) existing.publishers.add(pub);
-            const genre = label('genreLabel');
-            if (genre) existing.genres.add(genre);
-            games.set(qid, existing);
-        }
+        mergeRows(bindings);
         await new Promise((r) => setTimeout(r, 400));
     }
 
+    // Credits accumulate across rows for a title, so unattributed stubs can only
+    // be recognised now that every sweep has merged. Drop them here rather than
+    // after shaping: they would otherwise be dragged through title resolution
+    // (costing lookups, and failing the build for QIDs about to be discarded).
+    for (const [qid, game] of games) if (!isAttributed(game)) games.delete(qid);
+
     await resolveUnnamedTitles(catalog.key, games, dropUnnamed);
 
-    const first = (set) => [...set].sort((a, b) => a.localeCompare(b))[0] ?? null;
-    const entries = [...games.entries()].map(([qid, game]) => ({
-        id: qid,
-        name: game.name,
-        parentTitle: game.name,
-        region: null,
-        serial: null,
-        developer: first(game.developers),
-        publisher: first(game.publishers),
-        genre: first(game.genres),
-        year: game.years.size > 0 ? Math.min(...game.years) : null,
-    }));
-    entries.sort(
-        (a, b) => a.parentTitle.localeCompare(b.parentTitle) || a.name.localeCompare(b.name),
-    );
+    const entries = buildWikidataEntries(games);
 
     return {
         key: catalog.key,
@@ -736,7 +806,7 @@ async function buildWikidataCatalog(catalog, { dropUnnamed = false } = {}) {
         sourceUrl: 'https://www.wikidata.org',
         license: 'CC0-1.0',
         attribution:
-            'Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Filtered: only games with a release date and a developer statement are included.',
+            'Catalog data from Wikidata (SPARQL query service), contributed by the Wikidata community, public domain (CC0). Included are the games Wikidata credits to a developer or publisher; the release date, developer, publisher and genre are left empty where Wikidata records none.',
         datVersion: null,
         // Wikidata is a curated subset, not an exhaustive list of every release.
         complete: false,
