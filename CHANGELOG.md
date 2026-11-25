@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/perry-mitchell/antiquary/compare/v1.8.1...v1.9.0) (2026-11-25)
+
+
+### Features
+
+* **mcp:** prepare_image_upload tool with signed upload URLs ([#22](https://github.com/perry-mitchell/antiquary/issues/22)) ([84891f4](https://github.com/perry-mitchell/antiquary/commit/84891f4b71ca3a4b48b39c03afa2e2cdf30a24cc))
+
 ## [1.8.1](https://github.com/perry-mitchell/antiquary/compare/v1.8.0...v1.8.1) (2026-11-18)
 
 
