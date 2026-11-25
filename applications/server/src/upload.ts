@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto';
 import { mkdir, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import multer from 'multer';
@@ -24,6 +24,9 @@ export const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 /** How long an unattached staged upload survives before it is swept. */
 export const STAGING_TTL_MS = 24 * 60 * 60 * 1000;
 
+/** How long a signed upload URL returned by prepare_image_upload stays valid. */
+export const UPLOAD_URL_TTL_MS = 30 * 60 * 1000;
+
 export function isAllowedImageMime(mime: string): boolean {
     return ALLOWED_MIME_TYPES.has(mime);
 }
@@ -46,19 +49,54 @@ export function isUploadFilename(filename: string): boolean {
     return UPLOAD_FILENAME.test(filename);
 }
 
+/** Generates a server-side upload filename (uuid + extension) for a mime type. */
+export function newUploadFilename(mime: string): string {
+    const ext = MIME_EXTENSIONS[mime];
+    if (!ext) throw new Error(`Unsupported image type ${mime}`);
+    return `${randomUUID()}${ext}`;
+}
+
+/** Writes image bytes into the staging area under an exact upload filename. */
+export async function writeStagedImage(
+    uploadDir: string,
+    filename: string,
+    data: Buffer,
+): Promise<void> {
+    if (!isUploadFilename(filename)) throw new Error('Invalid upload filename');
+    const dir = stagingDir(uploadDir);
+    await mkdir(dir, { recursive: true });
+    await writeFile(join(dir, filename), data);
+}
+
 /** Writes an image buffer to the staging area and returns its filename. */
 export async function saveStagedImage(
     uploadDir: string,
     data: Buffer,
     mime: string,
 ): Promise<string> {
-    const ext = MIME_EXTENSIONS[mime];
-    if (!ext) throw new Error(`Unsupported image type ${mime}`);
-    const dir = stagingDir(uploadDir);
-    await mkdir(dir, { recursive: true });
-    const filename = `${randomUUID()}${ext}`;
-    await writeFile(join(dir, filename), data);
+    const filename = newUploadFilename(mime);
+    await writeStagedImage(uploadDir, filename, data);
     return filename;
+}
+
+/** HMAC over the signed-URL payload: `<filename>:<expiresAtMs>`. */
+function uploadSignatureMac(secret: string, filename: string, expiresAt: number): Buffer {
+    return createHmac('sha256', secret).update(`${filename}:${expiresAt}`).digest();
+}
+
+export function signUploadUrl(secret: string, filename: string, expiresAt: number): string {
+    return uploadSignatureMac(secret, filename, expiresAt).toString('hex');
+}
+
+export function verifyUploadSignature(
+    secret: string,
+    filename: string,
+    expiresAt: number,
+    signature: string,
+): boolean {
+    const expected = uploadSignatureMac(secret, filename, expiresAt);
+    const given = Buffer.from(signature, 'hex');
+    return expected.length === given.length && timingSafeEqual(expected, given);
 }
 
 /** Moves a staged file into the main upload dir. Returns false when missing/invalid. */

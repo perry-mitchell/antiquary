@@ -17,14 +17,27 @@ import {
 } from '../schemas.js';
 import {
     MAX_IMAGE_BYTES,
+    UPLOAD_URL_TTL_MS,
     isAllowedImageMime,
     isUploadFilename,
     mimeFromFilename,
+    newUploadFilename,
     promoteStagedImage,
     saveStagedImage,
+    signUploadUrl,
     sweepStaging,
 } from '../upload.js';
 import { stat } from 'node:fs/promises';
+
+const SIGNING_SECRET_NAME = 'imageUploadSigning';
+
+const IMAGE_MIME_SCHEMA = z.enum([
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'image/gif',
+    'image/avif',
+]);
 
 function asText(result: unknown) {
     return { content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }] };
@@ -47,8 +60,8 @@ const imageAttachSchema = z
 
 /**
  * Attaches uploaded photos to an item. Files come either from upload_image
- * (staging area, promoted here) or from a direct POST /api/images upload
- * (already in the main dir — guarded against double attachment).
+ * or a signed PUT to /api/images/upload/<filename> (staging area, promoted
+ * here — guarded against double attachment).
  */
 async function attachStagedImages(
     db: Database,
@@ -65,7 +78,7 @@ async function attachStagedImages(
                 (await stat(join(uploadDir, filename)).catch(() => null));
             if (!alreadyUploaded) {
                 throw new ValidationError(
-                    `Unknown image "${filename}" — upload it first via POST /api/images (see get_image_upload_instructions) or upload_image`,
+                    `Unknown image "${filename}" — upload it first via prepare_image_upload (signed PUT) or upload_image`,
                 );
             }
             const existing = await db.findImageByFilename(filename);
@@ -306,40 +319,6 @@ function buildServer(
         },
     );
 
-    server.registerTool(
-        'get_image_upload_instructions',
-        {
-            description:
-                'How to upload item photos over plain HTTP. PREFERRED over the base64 upload_image ' +
-                'tool for anything larger than ~1 MB — large base64 tool arguments get truncated by ' +
-                'some MCP clients. No authentication is required.',
-        },
-        async () =>
-            asText({
-                upload: {
-                    method: 'POST',
-                    path: '/api/images',
-                    format: 'multipart/form-data',
-                    fileField: 'image',
-                    maxBytes: MAX_IMAGE_BYTES,
-                    allowedMimeTypes: [
-                        'image/jpeg',
-                        'image/png',
-                        'image/webp',
-                        'image/gif',
-                        'image/avif',
-                    ],
-                },
-                example:
-                    'curl -F "image=@cover.jpg" http://<host>/api/images  →  {"filename":"<uuid>.jpg","url":"/uploads/<uuid>.jpg",...}',
-                usage:
-                    'Use the same host you reach the MCP endpoint on. Then pass the returned filename ' +
-                    'in images: [{ filename }] of create_item/update_item; for image-type template ' +
-                    'fields, use "/uploads/<filename>" as the field value. Abandoned uploads are ' +
-                    'deleted by the server after a grace period.',
-            }),
-    );
-
     if (readonly) return server;
 
     // ---- write tools (full keys only) ----
@@ -420,15 +399,58 @@ function buildServer(
     );
 
     server.registerTool(
+        'prepare_image_upload',
+        {
+            description:
+                'Prepare an image upload: returns a short-lived signed URL plus exact HTTP ' +
+                'instructions (method, headers, body format). PREFERRED over the base64 ' +
+                'upload_image tool — the image travels as raw bytes in a single PUT, no base64 ' +
+                'and no multipart encoding. Call it once per image, right before uploading.',
+            inputSchema: {
+                mime: IMAGE_MIME_SCHEMA,
+            },
+        },
+        async ({ mime }) => {
+            await sweepStaging(uploadDir).catch(() => {});
+            const filename = newUploadFilename(mime);
+            const expiresAt = Date.now() + UPLOAD_URL_TTL_MS;
+            const secret = await db.getSecret(SIGNING_SECRET_NAME);
+            const signature = signUploadUrl(secret, filename, expiresAt);
+            const url = `/api/images/upload/${filename}?expires=${expiresAt}&signature=${signature}`;
+            return asText({
+                filename,
+                upload: {
+                    method: 'PUT',
+                    url,
+                    headers: { 'Content-Type': mime },
+                    body: 'raw image bytes as the request body (not multipart, not base64)',
+                    maxBytes: MAX_IMAGE_BYTES,
+                },
+                expiresAt: new Date(expiresAt).toISOString(),
+                instructions:
+                    'Use the same host you reach the MCP endpoint on. PUT the file bytes to ' +
+                    'upload.url with the headers above before expiresAt — retrying or overwriting ' +
+                    'is safe until then. The response carries { filename, url }. Then pass this ' +
+                    'filename in images: [{ filename }] of create_item/update_item; for image-type ' +
+                    'template fields, use "/uploads/<filename>" as the field value. Abandoned ' +
+                    'uploads are deleted by the server after a grace period.',
+                example: `curl -X PUT --data-binary @cover.jpg -H 'Content-Type: ${mime}' 'http://<host>${url}'`,
+            });
+        },
+    );
+
+    server.registerTool(
         'upload_image',
         {
             description:
-                'Upload an image (base64) to attach to items. Returns a staged filename — pass it as ' +
-                'images[].filename in create_item or update_item. Unattached staged files expire after ~24h. ' +
-                'For image-type template fields, use the /uploads/<filename> URL as the field value after attaching.',
+                'Upload an image (base64) to attach to items — fallback for when raw HTTP PUT ' +
+                'is not available; prefer prepare_image_upload otherwise. Returns a staged ' +
+                'filename — pass it as images[].filename in create_item or update_item. ' +
+                'Unattached staged files expire after ~24h. For image-type template fields, use ' +
+                'the /uploads/<filename> URL as the field value after attaching.',
             inputSchema: {
                 data: z.string().min(1),
-                mime: z.enum(['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif']),
+                mime: IMAGE_MIME_SCHEMA,
             },
         },
         async ({ data, mime }) => {
@@ -461,7 +483,7 @@ function buildServer(
                 'supersetEntry. If list_supersets marks the catalog complete:false, an item missing from ' +
                 'the catalog can instead be added with outsideSuperset:true (mutually exclusive with ' +
                 'supersetEntry). Photos can be attached with images[] — upload via ' +
-                'get_image_upload_instructions (HTTP, preferred) or upload_image (base64). ' +
+                'prepare_image_upload (signed HTTP PUT, preferred) or upload_image (base64). ' +
                 'Catalog details (Region, Serial, Developer, Publisher, Genre, Year) are prefilled ' +
                 'from the matched entry unless you provide them explicitly in fieldValues.',
             inputSchema: {

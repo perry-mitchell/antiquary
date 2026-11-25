@@ -1509,6 +1509,37 @@ export class Database {
     }
 
     /* --------------------------------------------------------------- */
+    /* Server secrets (upload URL signing)                               */
+    /* --------------------------------------------------------------- */
+
+    /**
+     * Gets a server secret by name, creating a random one on first use.
+     * Race-safe: concurrent first calls settle on the stored value.
+     */
+    async getSecret(name: string): Promise<string> {
+        const existing = await this.db
+            .selectFrom('secrets')
+            .where('secrets.name', '=', name)
+            .select('secrets.value')
+            .executeTakeFirst();
+        if (existing) return existing.value;
+        const value = randomBytes(32).toString('hex');
+        const inserted = await this.db
+            .insertInto('secrets')
+            .values({ name, value })
+            .onConflict((oc) => oc.column('name').doNothing())
+            .returning('secrets.value')
+            .executeTakeFirst();
+        if (inserted) return inserted.value;
+        const raced = await this.db
+            .selectFrom('secrets')
+            .where('secrets.name', '=', name)
+            .select('secrets.value')
+            .executeTakeFirstOrThrow();
+        return raced.value;
+    }
+
+    /* --------------------------------------------------------------- */
     /* Trash, search, stats                                             */
     /* --------------------------------------------------------------- */
 

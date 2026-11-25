@@ -1,11 +1,26 @@
 import { unlink } from 'node:fs/promises';
 import { join } from 'node:path';
-import { Router } from 'express';
+import express, { Router, type Request } from 'express';
 import type { Database, ItemDetailDto, ItemListItemDto } from '@antiquary/database';
 import { HttpError } from '../errors.js';
 import { createItemSchema, listItemsQuerySchema, updateItemSchema } from '../schemas.js';
-import { createUploadMiddleware } from '../upload.js';
+import {
+    MAX_IMAGE_BYTES,
+    createUploadMiddleware,
+    isAllowedImageMime,
+    isUploadFilename,
+    mimeFromFilename,
+    sweepStaging,
+    verifyUploadSignature,
+    writeStagedImage,
+} from '../upload.js';
 import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
+
+const SIGNING_SECRET_NAME = 'imageUploadSigning';
+
+function requestMime(req: Request): string {
+    return (req.headers['content-type'] ?? '').split(';')[0]!.trim().toLowerCase();
+}
 
 /** Fills in supersetLabel/supersetRarity for items matched against a catalog entry. */
 export async function enrich(
@@ -239,6 +254,60 @@ export function imageRoutes(db: Database, uploadDir: string): Router {
             size: file.size,
         });
     });
+
+    /**
+     * Signed upload target prepared by the MCP prepare_image_upload tool:
+     * raw image bytes as the request body (no multipart, no base64).
+     */
+    router.put(
+        '/upload/:filename',
+        express.raw({ type: () => true, limit: MAX_IMAGE_BYTES }),
+        async (req, res) => {
+            const filename = req.params.filename as string;
+            if (!isUploadFilename(filename)) throw new HttpError(400, 'Invalid upload filename');
+            const expires = Number(req.query.expires);
+            const signature = req.query.signature;
+            if (!Number.isFinite(expires) || expires <= 0 || typeof signature !== 'string') {
+                throw new HttpError(403, 'Missing or malformed upload signature');
+            }
+            if (Date.now() > expires) {
+                throw new HttpError(
+                    403,
+                    'Upload URL has expired — call prepare_image_upload again',
+                );
+            }
+            const secret = await db.getSecret(SIGNING_SECRET_NAME);
+            if (!verifyUploadSignature(secret, filename, expires, signature)) {
+                throw new HttpError(403, 'Invalid upload signature');
+            }
+            const mime = requestMime(req);
+            if (!isAllowedImageMime(mime)) {
+                throw new HttpError(400, `Unsupported image type ${mime || '(none)'}`);
+            }
+            const expectedMime = mimeFromFilename(filename);
+            if (mime !== expectedMime) {
+                throw new HttpError(
+                    400,
+                    `Content-Type ${mime} does not match the prepared upload (${expectedMime})`,
+                );
+            }
+            const data = req.body;
+            if (!Buffer.isBuffer(data) || data.length === 0) {
+                throw new HttpError(
+                    400,
+                    'No image data received — send the raw file bytes as the body',
+                );
+            }
+            await sweepStaging(uploadDir).catch(() => {});
+            await writeStagedImage(uploadDir, filename, data);
+            res.status(201).json({
+                filename,
+                url: `/uploads/${filename}`,
+                mime,
+                size: data.length,
+            });
+        },
+    );
 
     router.patch('/:imageId', async (req, res) => {
         const body = req.body as { caption?: string | null; isCover?: boolean };
