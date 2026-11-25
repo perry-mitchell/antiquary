@@ -10,7 +10,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { Database, ensureDatabase, resetDatabase } from '@antiquary/database';
 import { createApp } from '../src/app.js';
 import { SupersetRegistry } from '../src/supersets.js';
-import { sweepOrphanedUploads } from '../src/upload.js';
+import { MAX_IMAGE_BYTES, sweepOrphanedUploads } from '../src/upload.js';
 
 const url =
     process.env.TEST_DATABASE_URL ?? 'postgres://antiquary:antiquary@localhost:5432/antiquary_test';
@@ -423,6 +423,7 @@ describe('mcp endpoint', () => {
             'update_item',
             'create_tag',
             'upload_image',
+            'prepare_image_upload',
             'add_wanted',
             'remove_wanted',
             'add_shop_link',
@@ -441,6 +442,9 @@ describe('mcp endpoint', () => {
         expect(tools).toContain('create_template');
         expect(tools).toContain('update_template');
         expect(tools).toContain('delete_template');
+        expect(tools).toContain('upload_image');
+        expect(tools).toContain('prepare_image_upload');
+        expect(tools).not.toContain('get_image_upload_instructions');
         expect(tools).toContain('list_wanted');
         expect(tools).toContain('add_wanted');
         expect(tools).toContain('remove_wanted');
@@ -962,26 +966,43 @@ describe('mcp endpoint', () => {
     });
 
     it('uploads, attaches and downloads images over MCP', async () => {
-        // 0. instructions tool points agents at the HTTP upload endpoint
-        const instructions = await rpc(readOnlyKey, {
+        // 0. prepare_image_upload returns a signed URL plus upload instructions
+        const prepared = await rpc(fullKey, {
             jsonrpc: '2.0',
             id: 18,
             method: 'tools/call',
-            params: { name: 'get_image_upload_instructions', arguments: {} },
+            params: { name: 'prepare_image_upload', arguments: { mime: 'image/png' } },
         });
-        const instructionsResult = unwrap(instructions).result as { content: { text: string }[] };
-        const guide = JSON.parse(instructionsResult.content[0]!.text) as {
-            upload: { path: string; fileField: string };
+        const preparedResult = unwrap(prepared).result as {
+            isError?: boolean;
+            content: { text: string }[];
         };
-        expect(guide.upload.path).toBe('/api/images');
-        expect(guide.upload.fileField).toBe('image');
+        expect(preparedResult.isError).toBeFalsy();
+        const guide = JSON.parse(preparedResult.content[0]!.text) as {
+            filename: string;
+            upload: {
+                method: string;
+                url: string;
+                headers: Record<string, string>;
+                maxBytes: number;
+            };
+            expiresAt: string;
+        };
+        expect(guide.upload.method).toBe('PUT');
+        expect(guide.filename).toMatch(/\.png$/);
+        expect(guide.upload.headers['Content-Type']).toBe('image/png');
+        expect(guide.upload.url).toContain(`/api/images/upload/${guide.filename}?`);
+        expect(new Date(guide.expiresAt).getTime()).toBeGreaterThan(Date.now());
 
-        // 0b. HTTP multipart upload → attach on create_item
-        const uploaded = await api.post(guide.upload.path).attach(guide.upload.fileField, PNG_1x1, {
-            filename: 'http-cover.png',
-            contentType: 'image/png',
-        });
+        // 0b. signed raw-byte PUT upload → attach on create_item
+        const uploaded = await api
+            .put(guide.upload.url)
+            .set('Content-Type', guide.upload.headers['Content-Type']!)
+            .send(PNG_1x1);
         expect(uploaded.status).toBe(201);
+        expect(uploaded.body.filename).toBe(guide.filename);
+        expect(uploaded.body.url).toBe(`/uploads/${guide.filename}`);
+        expect(uploaded.body.size).toBe(PNG_1x1.length);
         const httpFilename = uploaded.body.filename as string;
 
         const httpAttached = await rpc(fullKey, {
@@ -1121,6 +1142,51 @@ describe('mcp endpoint', () => {
         };
         expect(bogusResult.isError).toBe(true);
         expect(bogusResult.content[0]!.text).toContain('Unknown image');
+    });
+
+    it('rejects tampered, expired and mismatched signed upload requests', async () => {
+        const prepared = await rpc(fullKey, {
+            jsonrpc: '2.0',
+            id: 21,
+            method: 'tools/call',
+            params: { name: 'prepare_image_upload', arguments: { mime: 'image/png' } },
+        });
+        const preparedResult = unwrap(prepared).result as { content: { text: string }[] };
+        const { filename, upload } = JSON.parse(preparedResult.content[0]!.text) as {
+            filename: string;
+            upload: { url: string };
+        };
+        const put = (url: string, contentType: string, body: Buffer) =>
+            api.put(url).set('Content-Type', contentType).send(body);
+
+        // tampered signature
+        const tampered = upload.url.replace(/signature=[0-9a-f]+/, `signature=${'0'.repeat(64)}`);
+        const badSig = await put(tampered, 'image/png', PNG_1x1);
+        expect(badSig.status).toBe(403);
+        expect(badSig.body.error).toMatch(/signature/i);
+
+        // expired URL
+        const expired = upload.url.replace(/expires=\d+/, 'expires=1000');
+        const expiredRes = await put(expired, 'image/png', PNG_1x1);
+        expect(expiredRes.status).toBe(403);
+        expect(expiredRes.body.error).toMatch(/expired/i);
+
+        // missing signature query
+        const bare = await put(`/api/images/upload/${filename}`, 'image/png', PNG_1x1);
+        expect(bare.status).toBe(403);
+
+        // content type disagrees with the prepared upload
+        const mismatch = await put(upload.url, 'image/jpeg', PNG_1x1);
+        expect(mismatch.status).toBe(400);
+        expect(mismatch.body.error).toMatch(/does not match/i);
+
+        // unsupported content type
+        const unsupported = await put(upload.url, 'text/plain', PNG_1x1);
+        expect(unsupported.status).toBe(400);
+
+        // oversized body
+        const huge = await put(upload.url, 'image/png', Buffer.alloc(MAX_IMAGE_BYTES + 1, 1));
+        expect(huge.status).toBe(413);
     });
 
     it('revoking a key immediately blocks access', async () => {

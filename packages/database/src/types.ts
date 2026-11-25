@@ -167,8 +167,15 @@ export interface ApiKeysTable {
     revokedAt: Date | null;
 }
 
+/** Server-side secrets (e.g. upload URL signing keys) — never exported. */
+export interface SecretsTable {
+    name: string;
+    value: string;
+}
+
 export interface DBSchema {
     apiKeys: ApiKeysTable;
+    secrets: SecretsTable;
     collections: CollectionsTable;
     templates: TemplatesTable;
     templateFields: TemplateFieldsTable;

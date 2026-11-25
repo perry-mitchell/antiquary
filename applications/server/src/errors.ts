@@ -37,6 +37,14 @@ export function errorHandler() {
             res.status(400).json({ error: err.message });
             return;
         }
+        if (
+            err instanceof Error &&
+            ((err as { status?: number }).status === 413 ||
+                (err as { type?: string }).type === 'entity.too.large')
+        ) {
+            res.status(413).json({ error: 'Request body exceeds the upload size limit' });
+            return;
+        }
         console.error('[antiquary] unhandled error:', err);
         res.status(500).json({ error: 'Internal server error' });
     };
