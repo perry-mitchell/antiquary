@@ -7,7 +7,12 @@ import { z } from 'zod';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { requireApiKey } from '../apiKeys.js';
-import { prefillCatalogFields, type SupersetRegistry } from '../supersets.js';
+import {
+    foldText,
+    fuzzyIncludes,
+    prefillCatalogFields,
+    type SupersetRegistry,
+} from '../supersets.js';
 import { enrichWanted } from './wanted.js';
 import {
     createCollectionSchema,
@@ -181,7 +186,8 @@ function buildServer(
         'search_wanted',
         {
             description:
-                'Search the wanted list by entry name or serial (case-insensitive substring). ' +
+                'Search the wanted list by entry name or serial (fuzzy: case, accents, ' +
+                'punctuation and word order ignored). ' +
                 'Results carry catalog details (name, region, serial, rarity) and whether each ' +
                 'one is already owned. Order by recency (default: created-desc, newest first) ' +
                 'or shuffle with random; cap the number of results with limit.',
@@ -192,12 +198,12 @@ function buildServer(
             },
         },
         async ({ query, order, limit }) => {
-            const needle = query.trim().toLowerCase();
+            const needle = foldText(query);
             const rows = await enrichWanted(db, supersets, await db.listWanted({ order }));
             const matches = rows.filter((row) => {
-                const name = row.entry?.name.toLowerCase() ?? '';
-                const serial = row.entry?.serial?.toLowerCase() ?? '';
-                return name.includes(needle) || serial.includes(needle);
+                const name = row.entry ? foldText(row.entry.name) : '';
+                const serial = row.entry?.serial ? foldText(row.entry.serial) : '';
+                return fuzzyIncludes(name, needle) || fuzzyIncludes(serial, needle);
             });
             return asText(limit != null ? matches.slice(0, limit) : matches);
         },
@@ -273,7 +279,8 @@ function buildServer(
         {
             description:
                 'Search a bundled superset catalog (e.g. key "snes", "nes", "megadrive", "ps1", "pc", "dos"). ' +
-                'Returns titles grouped by their release variants (region, serial, year).',
+                'Fuzzy match on title, variant name or serial (case, accents, punctuation and word order ' +
+                'ignored). Returns titles grouped by their release variants (region, serial, year).',
             inputSchema: {
                 superset: z.string().min(1),
                 query: z.string().min(1),
