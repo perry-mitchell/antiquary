@@ -727,6 +727,9 @@ describe('mcp endpoint', () => {
         const bySerial = await wantedRows('search_wanted', { query: 'sns-fz', limit: 5 });
         expect(bySerial).toHaveLength(1);
         expect(bySerial[0]!.entry.name).toContain('F-Zero');
+        const fuzzy = await wantedRows('search_wanted', { query: 'zero f' });
+        expect(fuzzy).toHaveLength(1);
+        expect(fuzzy[0]!.superset).toBe('snes');
         const noMatch = await wantedRows('search_wanted', { query: 'no-such-entry-zzz' });
         expect(noMatch).toHaveLength(0);
 
@@ -1221,6 +1224,29 @@ describe('supersets', () => {
         expect(match.variants.map((v: { serial: string | null }) => v.serial)).toContain(
             'SNS-ACTE-USA',
         );
+    });
+
+    it('searches fuzzily: punctuation, accents and word order do not matter', async () => {
+        const titles = (res: request.Response) =>
+            (res.body.results ?? []).map((r: { title: string }) => r.title);
+
+        // "Half-Life: Blue Shift" found without the colon
+        const colonless = await api.get('/api/supersets/pc/search?q=half+life+blue+shift');
+        expect(colonless.status).toBe(200);
+        expect(titles(colonless)).toContain('Half-Life: Blue Shift');
+
+        // same words in reverse order
+        const reversed = await api.get('/api/supersets/snes/search?q=trigger+chrono');
+        expect(titles(reversed)).toContain('Chrono Trigger');
+
+        // accents folded away
+        const accents = await api.get('/api/supersets/pc/search?q=critter+cafe');
+        expect(titles(accents)).toContain('Critter Café');
+
+        // the entry browser filters the same way
+        const browse = await api.get('/api/supersets/pc/entries?q=half+life+blue+shift');
+        expect(browse.status).toBe(200);
+        expect(browse.body.entries.map((e: { id: string }) => e.id)).toContain('Q831796');
     });
 
     it('resolves a single entry', async () => {

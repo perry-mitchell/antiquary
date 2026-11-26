@@ -38,6 +38,13 @@ interface CatalogFile {
     entries: SupersetEntry[];
 }
 
+/** Pre-folded search text per entry, index-aligned with catalog.entries. */
+interface FoldedEntry {
+    title: string;
+    name: string;
+    serial: string | null;
+}
+
 interface IndexEntry {
     key: string;
     name: string;
@@ -59,6 +66,35 @@ export type SupersetInfo = Omit<IndexEntry, 'file'>;
 export interface SupersetSearchResult {
     title: string;
     variants: SupersetEntry[];
+}
+
+/**
+ * Search fold: case-insensitive, accents and full-width forms unwrapped, every
+ * run of punctuation or symbols turned into a single space. "Half-Life: Blue
+ * Shift" and "half life blue shift" fold to the same text. Latin combining
+ * marks are dropped; kana voicing marks are kept so Japanese stays exact.
+ */
+export function foldText(value: string): string {
+    return value
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\p{M}]+/gu, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .normalize('NFC');
+}
+
+/**
+ * Fuzzy match on folded text: the folded query as a substring, or — for
+ * multi-word queries — every word present somewhere, order ignored
+ * ("trigger chrono" finds "Chrono Trigger").
+ */
+export function fuzzyIncludes(foldedText: string, foldedQuery: string): boolean {
+    if (foldedQuery.length === 0) return false;
+    if (foldedText.includes(foldedQuery)) return true;
+    const words = foldedQuery.split(' ');
+    return words.length > 1 && words.every((word) => foldedText.includes(word));
 }
 
 export type SupersetOwnership = 'all' | 'owned' | 'missing';
@@ -102,6 +138,7 @@ export class SupersetRegistry {
     private readonly dir: string;
     private readonly index = new Map<string, IndexEntry>();
     private readonly cache = new Map<string, CatalogFile>();
+    private readonly foldedCache = new WeakMap<CatalogFile, FoldedEntry[]>();
     private readonly rarityCache = new Map<string, Map<string, SupersetRarity>>();
 
     private constructor(dir: string, index: IndexEntry[]) {
@@ -154,7 +191,8 @@ export class SupersetRegistry {
 
     /**
      * Paginated catalog browser: every entry (variants included), searched
-     * across titles, variant names and serials, alphabetically ordered and
+     * fuzzily (case, accents, punctuation and word order ignored) across
+     * titles, variant names and serials, alphabetically ordered and
      * optionally filtered to owned or missing entries.
      */
     async listEntries(
@@ -166,17 +204,19 @@ export class SupersetRegistry {
 
         const page = Math.max(1, opts.page ?? 1);
         const limit = Math.min(500, Math.max(1, opts.limit ?? 24));
-        const needle = (opts.query ?? '').trim().toLowerCase();
+        const needle = foldText(opts.query ?? '');
         const ownership = opts.ownership ?? 'all';
         const rarityMap = await this.rarityMapFor(key);
 
         let entries = catalog.entries;
         if (needle.length > 0) {
-            entries = entries.filter(
-                (entry) =>
-                    entry.parentTitle.toLowerCase().includes(needle) ||
-                    entry.name.toLowerCase().includes(needle) ||
-                    (entry.serial?.toLowerCase().includes(needle) ?? false),
+            const folded = this.foldedFor(catalog);
+            entries = catalog.entries.filter(
+                (_, index) =>
+                    fuzzyIncludes(folded[index]!.title, needle) ||
+                    fuzzyIncludes(folded[index]!.name, needle) ||
+                    (folded[index]!.serial !== null &&
+                        fuzzyIncludes(folded[index]!.serial, needle)),
             );
         }
         if (ownership !== 'all') {
@@ -234,16 +274,20 @@ export class SupersetRegistry {
     async search(key: string, query: string, maxTitles = 8): Promise<SupersetSearchResult[]> {
         const catalog = await this.withCatalog(key);
         if (!catalog) return [];
-        const needle = query.trim().toLowerCase();
+        const needle = foldText(query);
         if (needle.length === 0) return [];
 
+        const folded = this.foldedFor(catalog);
+        const foldedTitleByGroup = new Map<string, string>();
         const groups = new Map<string, SupersetEntry[]>();
         const rarityByEntry = new Map<string, SupersetRarity>();
-        for (const entry of catalog.entries) {
-            const titleMatch = entry.parentTitle.toLowerCase().includes(needle);
-            const serialMatch = entry.serial?.toLowerCase().includes(needle) ?? false;
-            const nameMatch = entry.name.toLowerCase().includes(needle);
+        for (const [index, entry] of catalog.entries.entries()) {
+            const { title, name, serial } = folded[index]!;
+            const titleMatch = fuzzyIncludes(title, needle);
+            const serialMatch = serial !== null && fuzzyIncludes(serial, needle);
+            const nameMatch = fuzzyIncludes(name, needle);
             if (!titleMatch && !serialMatch && !nameMatch) continue;
+            foldedTitleByGroup.set(entry.parentTitle, title);
             const rarity = await this.getRarity(key, entry.id);
             if (rarity) rarityByEntry.set(entry.id, rarity);
             const list = groups.get(entry.parentTitle) ?? [];
@@ -253,8 +297,8 @@ export class SupersetRegistry {
 
         return [...groups.entries()]
             .sort((a, b) => {
-                const aPrefix = a[0].toLowerCase().startsWith(needle) ? 0 : 1;
-                const bPrefix = b[0].toLowerCase().startsWith(needle) ? 0 : 1;
+                const aPrefix = (foldedTitleByGroup.get(a[0]) ?? '').startsWith(needle) ? 0 : 1;
+                const bPrefix = (foldedTitleByGroup.get(b[0]) ?? '').startsWith(needle) ? 0 : 1;
                 return aPrefix - bPrefix || a[0].localeCompare(b[0]);
             })
             .slice(0, maxTitles)
@@ -267,6 +311,20 @@ export class SupersetRegistry {
                         return rarity ? { ...variant, rarity } : variant;
                     }),
             }));
+    }
+
+    /** Folded search text for a catalog, built once and reused across searches. */
+    private foldedFor(catalog: CatalogFile): FoldedEntry[] {
+        let folded = this.foldedCache.get(catalog);
+        if (!folded) {
+            folded = catalog.entries.map((entry) => ({
+                title: foldText(entry.parentTitle),
+                name: foldText(entry.name),
+                serial: entry.serial === null ? null : foldText(entry.serial),
+            }));
+            this.foldedCache.set(catalog, folded);
+        }
+        return folded;
     }
 
     private async withCatalog(key: string): Promise<CatalogFile | null> {

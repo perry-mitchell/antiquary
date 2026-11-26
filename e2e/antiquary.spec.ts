@@ -428,6 +428,18 @@ test.describe.serial('collector journey', () => {
         await expect(page.getByTestId('empty-state')).toContainText('Nothing on the wanted list');
     });
 
+    test('catalog search tolerates missing punctuation and reordered words', async ({ page }) => {
+        await page.goto('/supersets/pc');
+        await page.getByTestId('superset-search').fill('half life blue shift');
+        const row = page.getByTestId('superset-entry-half-life-blue-shift');
+        await expect(row).toContainText('Half-Life: Blue Shift');
+        await expect(row).toContainText('2001');
+
+        // same words in reverse order still match
+        await page.getByTestId('superset-search').fill('shift blue life half');
+        await expect(page.getByTestId('superset-entry-half-life-blue-shift')).toBeVisible();
+    });
+
     test('shop links: attach buy listings to catalog entries', async ({ page }) => {
         await page.goto('/supersets/snes');
         await page.getByTestId('superset-search').fill('chrono trigger');
